@@ -1,0 +1,16 @@
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0_to_verify.txt
+Traceback (most recent call last):
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_gemini_analogy_based_solver.py", line 568, in run
+    messages, problem2_resp, verifier_result, retries_messages = generate_and_verify(args,
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_gemini_analogy_based_solver.py", line 372, in generate_and_verify
+    verify_symbols_syntax_result = verifier.verify_symbols_syntax()
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/verifier/verifier.py", line 102, in verify_symbols_syntax
+    if ast.literal_eval(model_conclusions)[i] != conclusions[i]:
+  File "/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/ast.py", line 64, in literal_eval
+    node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+  File "/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 1
+    conclusion: ["Equal(MeasureOfAngle(LWX),MeasureOfAngle(EXW))"]
+              ^
+SyntaxError: invalid syntax

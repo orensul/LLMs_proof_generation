@@ -25,8 +25,7 @@ from similar_proofs_retrieval import retrieve_random_proofs
 
 # Get the path to the project root
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-key = ""
-openai.api_key = key
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 dl = DatasetLoader(dataset_name="formalgeo7k_v1", datasets_path=os.path.join(PROJECT_ROOT, "formalgeo7k_v1"))
 solver = Interactor(dl.predicate_GDL, dl.theorem_GDL)
@@ -35,7 +34,7 @@ with open(os.path.join(PROJECT_ROOT, 'formalgeo7k_v1/gdl/theorem_GDL.json'), 'r'
 
 
 chosen_problems_by_level = {
-    1: [51] #  2795, 1168, 2677, 380, 944, 2940],
+    3: [4187] #  2795, 1168, 2677, 380, 944, 2940],
      # 1: [1975, 1490, 1726, 178, 2669, 2614, 51, 2323, 192, 2624, 2795, 1168, 688, 2677, 380, 221, 944, 2940, 2187, 1562],
      # 2: [144, 69, 991, 358, 4473, 4483, 5645, 127, 2410, 4523, 3075, 49, 4610, 6966, 1433, 3998, 5983, 497, 1586, 2397],
      # 3: [4187, 5244, 5062, 844, 1945, 2200, 4099, 2765, 4476, 4254, 1071, 3787, 4257, 5942, 1282, 2591, 5858, 1306, 1244, 312],
@@ -345,6 +344,8 @@ def add_model_answer_to_feedback(feedback, resp):
     return f"{feedback}\nModel Answer:\n{model_response}"
 
 
+import time
+
 def generate_and_verify(args, gdl_relevant_theorems, similar_problems, problem2, run_id):
     content = get_prompt_template_content(args, gdl_relevant_theorems, similar_problems, problem2)
     messages = create_messages(content)
@@ -356,13 +357,20 @@ def generate_and_verify(args, gdl_relevant_theorems, similar_problems, problem2,
     verifier_result = ""
     resp = ""
     retries_messages = []
+
+    total_t0 = time.perf_counter()
+    attempt_durations = []
+
     while attempts < MAX_RETRIES_IN_RUN:
+        t0 = time.perf_counter()
         resp = gpt_response(messages, args.model_name)
         write_result(file_path, problem2_given, resp, problem2_gt, retries_messages, run_id)
 
         verifier = Verifier(problem2.id, resp)
         verify_symbols_syntax_result = verifier.verify_symbols_syntax()
         verify_geometric_proof_result, feedback, error_tier = verify_geometric_proof(file_path, print_output=False)
+        attempt_durations.append(time.perf_counter() - t0)
+
         error_tier = error_tier.name if error_tier else error_tier
         if verify_symbols_syntax_result == "Success" and not feedback:
             verifier_result = verify_symbols_syntax_result
@@ -378,9 +386,21 @@ def generate_and_verify(args, gdl_relevant_theorems, similar_problems, problem2,
             verifier_result = "ERROR_TIER: " + error_tier + "\n" + verifier_result
             messages.append({"role": "user", "content": f"Verifier result: {verifier_result}"})
             print(f"Verifier result: {verifier_result}")
-            print(f"Retry attempt: {attempts + 1}")
             attempts += 1
+            print(f"Retry attempt: {attempts}")
             retries_messages.append(verifier_result)
+
+    total_elapsed = time.perf_counter() - total_t0
+    print(f"Total time: {total_elapsed:.3f}s | per attempt: {[round(x,3) for x in attempt_durations]}")
+
+    # (Optional) persist timings next to the result
+    try:
+        with open(file_path.replace(".txt", "_timing.txt"), "a") as f:
+            f.write(f"Total: {total_elapsed:.6f}s\n")
+            for i, dt in enumerate(attempt_durations, 1):
+                f.write(f"Attempt {i}: {dt:.6f}s\n")
+    except Exception:
+        pass
 
     return messages, resp, verifier_result, retries_messages
 

@@ -52,15 +52,14 @@ def print_problem_level_dist(problems):
     for level, count in level_count.items():
         print(f"Level {level}: {count} problems")
 
-    levels = list(level_count.keys())
-    counts = list(level_count.values())
-
-    plt.bar(levels, counts)
-    plt.xlabel('Level')
-    plt.ylabel('Number of Problems')
-    plt.title('Problem Level Distribution')
-    plt.xticks(levels)  # Ensure each level has its own tick
-    plt.show()
+    # levels = list(level_count.keys())
+    # counts = list(level_count.values())
+    # plt.bar(levels, counts)
+    # plt.xlabel('Level')
+    # plt.ylabel('Number of Problems')
+    # plt.title('Problem Level Distribution')
+    # plt.xticks(levels)  # Ensure each level has its own tick
+    # plt.show()
 
 
 def print_problem(json, verbose=False):
