@@ -3,3 +3,8 @@ Attempt 1: 22.026671s
 Attempt 2: 27.185236s
 Attempt 3: 17.101400s
 Attempt 4: 12.496805s
+Total: 86.608686s
+Attempt 1: 31.248580s
+Attempt 2: 17.990595s
+Attempt 3: 22.897144s
+Attempt 4: 14.472191s

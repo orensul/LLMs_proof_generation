@@ -30,7 +30,14 @@ def convert_theorem_seqs_format_string(input_str):
             parts = [part.split(":", 1)[1].strip() for part in line.split(";") if ":" in part]
         else:
             # Assume the line is unlabeled and split by ';'
-            parts = [part.strip() for part in line.split(";")]
+            # But still strip label prefixes (e.g. "conclusion: [...]" -> "[...]")
+            raw_parts = [part.strip() for part in line.split(";")]
+            parts = []
+            for part in raw_parts:
+                if ":" in part:
+                    parts.append(part.split(":", 1)[1].strip())
+                else:
+                    parts.append(part)
 
         step_id = parts[0] if len(parts) > 0 else ""
         theorem = parts[1] if len(parts) > 1 else ""

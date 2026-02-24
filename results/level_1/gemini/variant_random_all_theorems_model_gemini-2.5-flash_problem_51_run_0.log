@@ -1,16 +1,71 @@
 Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0_to_verify.txt
 Traceback (most recent call last):
-  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_gemini_analogy_based_solver.py", line 568, in run
-    messages, problem2_resp, verifier_result, retries_messages = generate_and_verify(args,
-  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_gemini_analogy_based_solver.py", line 372, in generate_and_verify
-    verify_symbols_syntax_result = verifier.verify_symbols_syntax()
-  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/verifier/verifier.py", line 102, in verify_symbols_syntax
-    if ast.literal_eval(model_conclusions)[i] != conclusions[i]:
-  File "/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/ast.py", line 64, in literal_eval
-    node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
-  File "/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/ast.py", line 50, in parse
-    return compile(source, filename, mode, flags,
-  File "<unknown>", line 1
-    conclusion: ["Equal(MeasureOfAngle(LWX),MeasureOfAngle(EXW))"]
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/geometric_verifier.py", line 10882, in parse_and_verify_proof
+    conclusions = eval(parts[3].strip())  # This will parse the list string
+  File "<string>", line 1
+    conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
               ^
 SyntaxError: invalid syntax
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,WL,XE)
+You output the following premises: ParallelBetweenLine(WL,XE)&Collinear(GWXN)
+But the correct premises: ParallelBetweenLine(WL,XE)&Line(WX)
+
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); premise: ParallelBetweenLine(WL,XE)&Collinear(GWXN); conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 1
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0_to_verify.txt
+Traceback (most recent call last):
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/geometric_verifier.py", line 10882, in parse_and_verify_proof
+    conclusions = eval(parts[3].strip())  # This will parse the list string
+  File "<string>", line 1
+    conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+              ^
+SyntaxError: invalid syntax
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error during proof verification: invalid syntax (<string>, line 1)
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); premise: ParallelBetweenLine(WL,XE)&Line(WX); conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 2
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0_to_verify.txt
+Traceback (most recent call last):
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/geometric_verifier.py", line 10882, in parse_and_verify_proof
+    conclusions = eval(parts[3].strip())  # This will parse the list string
+  File "<string>", line 1
+    conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+              ^
+SyntaxError: invalid syntax
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error during proof verification: invalid syntax (<string>, line 1)
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); premise: ParallelBetweenLine(WL,XE)&Line(WX); conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 3
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0_to_verify.txt
+Traceback (most recent call last):
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/geometric_verifier.py", line 10882, in parse_and_verify_proof
+    conclusions = eval(parts[3].strip())  # This will parse the list string
+  File "<string>", line 1
+    conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+              ^
+SyntaxError: invalid syntax
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error during proof verification: invalid syntax (<string>, line 1)
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); premise: ParallelBetweenLine(WL,XE)&Line(WX); conclusion: ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 4
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 72.007s | per attempt: [9.089, 9.038, 28.506, 11.208, 14.166]
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_51_run_0.txt

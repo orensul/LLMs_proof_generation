@@ -35,7 +35,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 
 GEMINI_API_BASE = os.environ.get("GEMINI_API_BASE",
                                  "https://generativelanguage.googleapis.com/v1beta/openai")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyBLCGYUcsI6Kod5njk-IEQARqMPIR185S8")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyCNko9IX60Ih-hZgse8bHWva3QhGtTk8xU")
 
 
 dl = DatasetLoader(dataset_name="formalgeo7k_v1", datasets_path=os.path.join(PROJECT_ROOT, "formalgeo7k_v1"))
@@ -46,7 +46,7 @@ with open(os.path.join(PROJECT_ROOT, 'formalgeo7k_v1/gdl/theorem_GDL.json'), 'r'
 
 chosen_problems_by_level = {
     # 3: [4187] #  2795, 1168, 2677, 380, 944, 2940],
-    1: [178,2614,51,2323,192,2624,]
+    1: [1726, 2624, 2669]
     # 1: [1975, 1490, 1726, 178, 2669, 2614, 51, 2323, 192, 2624, ] # 2795, 1168, 688, 2677, 380, 221, 944, 2940, 2187, 1562],
      # 2: [144, 69, 991, 358, 4473, 4483, 5645, 127, 2410, 4523, 3075, 49, 4610, 6966, 1433, 3998, 5983, 497, 1586, 2397],
      # 3: [4187, 5244, 5062, 844, 1945, 2200, 4099, 2765, 4476, 4254, 1071, 3787, 4257, 5942, 1282, 2591, 5858, 1306, 1244, 312],
@@ -616,7 +616,7 @@ def run_theorems_coverage(args, run=True, print_results=True):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--variant", dest="variant", type=str, default="random_all_theorems")
+    parser.add_argument("--variant", dest="variant", type=str, default="analogy_based")
     parser.add_argument("--model_name", dest="model_name", type=str, default="gemini-2.5-flash")
     parser.add_argument("--api_base", dest="api_base", type=str, default=None,
                         help="OpenAI-compatible API base URL (overrides GEMINI_API_BASE env var)")

@@ -53,21 +53,11 @@ cos(pi*ma_cba/180)
 ANSWER:
 41/63
 THEOREM_SEQUENCE:
-1; cosine_theorem(1,BAC); Polygon(BAC); ["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))"]
+step_id: 1; theorem: cosine_theorem(1,CBA); premise: Polygon(CBA); conclusion: ["Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))"]
 ***MODEL_RESPONSE_END***
 RETRIES_MESSAGES:
-#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
-Theorem: cosine_theorem(1,CBA)
-You output the following conclusions: Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))
-But the correct conclusions: Equal(Add(Pow(LengthOfLine(BA),2),Mul(2,LengthOfLine(CB),LengthOfLine(CA),Cos(MeasureOfAngle(ACB)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(CA),2)))
-
-Model Answer:
-RETRY_ANSWER:
-41/63
-RETRY_THEOREM_SEQUENCE:
-1; cosine_theorem(1,CBA); Polygon(CBA); ["Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))"]
 #RETRIES:
-1
+0
 #RUNS:
 0
 
