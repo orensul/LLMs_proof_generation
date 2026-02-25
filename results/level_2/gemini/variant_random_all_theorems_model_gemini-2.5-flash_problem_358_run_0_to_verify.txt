@@ -1,0 +1,105 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BA=h, CA=3, ∠BAC=45°, AC⊥BC. Find the value of h.
+CONSTRUCTION_CDL:
+Shape(CB,BA,AC)
+TEXT_CDL:
+Equal(LengthOfLine(BA),h)
+Equal(LengthOfLine(CA),3)
+Equal(MeasureOfAngle(BAC),45)
+PerpendicularBetweenLine(AC,BC)
+GOAL_CDL:
+Value(h)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,AC,CB)
+Shape(AC,CB,BA)
+Point(C)
+Point(B)
+Point(A)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Angle(CBA)
+Angle(BAC)
+Angle(ACB)
+Angle(ABC)
+Angle(CAB)
+Angle(BCA)
+Polygon(CBA)
+Polygon(BAC)
+Polygon(ACB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_ba-h
+ll_ca-3
+ma_bac-45
+ma_acb-90
+GOAL_SYMBOL:
+h
+ANSWER:
+3*sqrt(2)
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,CBA); Polygon(CBA); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BAC),MeasureOfAngle(ACB)),180)"]
+2; isosceles_triangle_judgment_angle_equal(1,CBA); Polygon(CBA)&Equal(MeasureOfAngle(CBA),MeasureOfAngle(BAC)); ["IsoscelesTriangle(CBA)"]
+3; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+4; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_angle_equal(1,CBA)
+You output the following premises: Polygon(CBA)&Equal(MeasureOfAngle(BAC),MeasureOfAngle(CBA))
+But the correct premises: Polygon(CBA)&Equal(MeasureOfAngle(CBA),MeasureOfAngle(BAC))
+
+Model Answer:
+RETRY_ANSWER:
+3*sqrt(2)
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,CBA); Polygon(CBA); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BAC),MeasureOfAngle(ACB)),180)"]
+2; isosceles_triangle_judgment_angle_equal(1,CBA); Polygon(CBA)&Equal(MeasureOfAngle(BAC),MeasureOfAngle(CBA)); ["IsoscelesTriangle(CBA)"]
+3; right_triangle_judgment_angle(1,CBA); Polygon(CBA)&Equal(MeasureOfAngle(ACB),90); ["RightTriangle(CBA)"]
+4; right_triangle_property_pythagorean(1,CBA); RightTriangle(CBA); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(BA),2))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_judgment_angle(1,CBA)
+You output the following premises: Polygon(CBA)&Equal(MeasureOfAngle(ACB),90)
+But the correct premises: Polygon(CBA)&Equal(MeasureOfAngle(CBA),90)
+
+Model Answer:
+RETRY_ANSWER:
+3*sqrt(2)
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,CBA); Polygon(CBA); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BAC),MeasureOfAngle(ACB)),180)"]
+2; isosceles_triangle_judgment_angle_equal(1,CBA); Polygon(CBA)&Equal(MeasureOfAngle(CBA),MeasureOfAngle(BAC)); ["IsoscelesTriangle(CBA)"]
+3; right_triangle_judgment_angle(1,CBA); Polygon(CBA)&Equal(MeasureOfAngle(ACB),90); ["RightTriangle(CBA)"]
+4; right_triangle_property_pythagorean(1,CBA); RightTriangle(CBA); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(BA),2))"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+-h+ll_ba
+ll_ca-3
+ma_bac-45
+ma_acb-90
+GT_GOAL_SYMBOL:
+h
+GT_ANSWER:
+3*sqrt(2)
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,ACB);Polygon(ACB);["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(CBA),MeasureOfAngle(BAC)),180)"]
+2;sine_theorem(1,ACB);Polygon(ACB);["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+

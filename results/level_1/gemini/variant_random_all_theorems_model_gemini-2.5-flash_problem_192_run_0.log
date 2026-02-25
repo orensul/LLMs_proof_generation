@@ -1,0 +1,8 @@
+[Attempt 1] Error calling Gemini model: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+Retrying in 1 seconds...
+[Attempt 2] Error calling Gemini model: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+Retrying in 2 seconds...
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_192_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 32.091s | per attempt: [32.091]
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_192_run_0.txt

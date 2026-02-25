@@ -1,0 +1,96 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,EF,CD)
+You output the following premises: ParallelBetweenLine(EF,CD)&Line(CE)
+But the correct premises: ParallelBetweenLine(EF,CD)&Line(EC)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AB,EF)
+You output the following premises: ParallelBetweenLine(AB,EF)&Line(BF)
+But the correct premises: ParallelBetweenLine(AB,EF)&Line(BE)
+You output the following conclusions: Equal(MeasureOfAngle(CBA),MeasureOfAngle(EFB))
+But the correct conclusions: Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+3; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BF); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(EFB))"]
+4; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(BF); ["Equal(Add(MeasureOfAngle(EFB),MeasureOfAngle(FCD)),180)"]
+5; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+6; angle_addition(1,BCF,FCD); Angle(BCF)&Angle(FCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCF),MeasureOfAngle(FCD)))"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: parallel_property_ipsilateral_internal_angle(1,BA,CD);ParallelBetweenLine(BA,CD)&Line(BC);['Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)']
+Missing premise: Lines BA and CD not proven parallel
+Details: Known parallel pairs: {('DC', 'EF'), ('AB', 'EF'), ('EF', 'BA'), ('EF', 'DC'), ('FE', 'DC'), ('FE', 'BA'), ('AB', 'FE'), ('BA', 'FE'), ('AB', 'CD'), ('BA', 'EF'), ('CD', 'EF'), ('CD', 'AB'), ('CD', 'FE'), ('EF', 'AB'), ('EF', 'CD'), ('FE', 'AB'), ('FE', 'CD'), ('DC', 'FE')}
+- Available premises:
+  Parallel Lines: AB ∥ CD, AB ∥ EF, CD ∥ EF
+  Collinear Points: BFD
+  Polygons: BCD, BCEF, CDFE, CEFB, DFEC, ECDF, EFBC, FBCE, FECD
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,BA,CD); ParallelBetweenLine(BA,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 5
+Total time: 235.420s | per attempt: [12.326, 17.627, 72.287, 63.376, 69.803]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_1.txt

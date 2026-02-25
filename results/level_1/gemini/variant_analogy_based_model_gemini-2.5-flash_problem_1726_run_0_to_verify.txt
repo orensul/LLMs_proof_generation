@@ -53,7 +53,7 @@ cos(pi*ma_cba/180)
 ANSWER:
 41/63
 THEOREM_SEQUENCE:
-step_id: 1; theorem: cosine_theorem(1,CBA); premise: Polygon(CBA); conclusion: ["Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))"]
+1; cosine_theorem(1,BAC); Polygon(BAC); ["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))"]
 ***MODEL_RESPONSE_END***
 RETRIES_MESSAGES:
 #RETRIES:

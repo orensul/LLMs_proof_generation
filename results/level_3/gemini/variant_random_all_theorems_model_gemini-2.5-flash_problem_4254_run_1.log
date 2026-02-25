@@ -1,0 +1,22 @@
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4254_run_1_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,D)
+You output the following premises: Cocircular(O,ADC)&Angle(ADC)
+But the correct premises: Cocircular(O,ACD)&Angle(CDA)
+You output the following conclusions: Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,APD); Polygon(APD); ["Equal(Add(MeasureOfAngle(APD),MeasureOfAngle(PDA),MeasureOfAngle(DAP)),180)"]
+2; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+3; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,BCA)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+Retry attempt: 1
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4254_run_1_to_verify.txt
+Theorem sequence verified correctly
+Total time: 61.555s | per attempt: [40.163, 21.392]
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4254_run_1.txt

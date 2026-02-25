@@ -1,0 +1,448 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠DBA=20°, ∠DEA=80°, the center of ⊙O is O. Find the measure of ∠COB.
+CONSTRUCTION_CDL:
+Shape(OCA,AE,EC)
+Shape(CE,EO,OC)
+Shape(OAD,DE,EA)
+Shape(ED,DB,BO,OE)
+Shape(ODB,BD)
+Shape(OBC,CO,OB)
+Collinear(AEOB)
+Collinear(DEC)
+Cocircular(O,CADB)
+TEXT_CDL:
+Equal(MeasureOfAngle(DBA),20)
+Equal(MeasureOfAngle(DEA),80)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(COB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AE,EC,OCA)
+Shape(EC,OCA,AE)
+Shape(EO,OC,CE)
+Shape(OC,CE,EO)
+Shape(DE,EA,OAD)
+Shape(EA,OAD,DE)
+Shape(DB,BO,OE,ED)
+Shape(BO,OE,ED,DB)
+Shape(OE,ED,DB,BO)
+Shape(BD,ODB)
+Shape(CO,OB,OBC)
+Shape(OB,OBC,CO)
+Shape(OCA,AE,EO,OC)
+Shape(AE,EO,OC,OCA)
+Shape(EO,OC,OCA,AE)
+Shape(OC,OCA,AE,EO)
+Shape(EC,OCA,OAD,DE)
+Shape(OCA,OAD,DE,EC)
+Shape(OAD,DE,EC,OCA)
+Shape(DE,EC,OCA,OAD)
+Shape(CE,EO,OB,OBC)
+Shape(EO,OB,OBC,CE)
+Shape(OB,OBC,CE,EO)
+Shape(OBC,CE,EO,OB)
+Shape(OC,CE,ED,DB,BO)
+Shape(CE,ED,DB,BO,OC)
+Shape(ED,DB,BO,OC,CE)
+Shape(DB,BO,OC,CE,ED)
+Shape(BO,OC,CE,ED,DB)
+Shape(EA,OAD,DB,BO,OE)
+Shape(OAD,DB,BO,OE,EA)
+Shape(DB,BO,OE,EA,OAD)
+Shape(BO,OE,EA,OAD,DB)
+Shape(OE,EA,OAD,DB,BO)
+Shape(BO,OE,ED,ODB)
+Shape(OE,ED,ODB,BO)
+Shape(ED,ODB,BO,OE)
+Shape(ODB,BO,OE,ED)
+Shape(OE,ED,DB,OBC,CO)
+Shape(ED,DB,OBC,CO,OE)
+Shape(DB,OBC,CO,OE,ED)
+Shape(OBC,CO,OE,ED,DB)
+Shape(CO,OE,ED,DB,OBC)
+Shape(OCA,AE,EO,OB,OBC)
+Shape(AE,EO,OB,OBC,OCA)
+Shape(EO,OB,OBC,OCA,AE)
+Shape(OB,OBC,OCA,AE,EO)
+Shape(OBC,OCA,AE,EO,OB)
+Shape(OCA,AE,ED,DB,BO,OC)
+Shape(AE,ED,DB,BO,OC,OCA)
+Shape(ED,DB,BO,OC,OCA,AE)
+Shape(DB,BO,OC,OCA,AE,ED)
+Shape(BO,OC,OCA,AE,ED,DB)
+Shape(OC,OCA,AE,ED,DB,BO)
+Shape(EC,OCA,OAD,DB,BO,OE)
+Shape(OCA,OAD,DB,BO,OE,EC)
+Shape(OAD,DB,BO,OE,EC,OCA)
+Shape(DB,BO,OE,EC,OCA,OAD)
+Shape(BO,OE,EC,OCA,OAD,DB)
+Shape(OE,EC,OCA,OAD,DB,BO)
+Shape(CE,ED,DB,OBC)
+Shape(ED,DB,OBC,CE)
+Shape(DB,OBC,CE,ED)
+Shape(OBC,CE,ED,DB)
+Shape(EO,OC,OCA,OAD,DE)
+Shape(OC,OCA,OAD,DE,EO)
+Shape(OCA,OAD,DE,EO,OC)
+Shape(OAD,DE,EO,OC,OCA)
+Shape(DE,EO,OC,OCA,OAD)
+Shape(OC,CE,EA,OAD,DB,BO)
+Shape(CE,EA,OAD,DB,BO,OC)
+Shape(EA,OAD,DB,BO,OC,CE)
+Shape(OAD,DB,BO,OC,CE,EA)
+Shape(DB,BO,OC,CE,EA,OAD)
+Shape(BO,OC,CE,EA,OAD,DB)
+Shape(OC,CE,ED,ODB,BO)
+Shape(CE,ED,ODB,BO,OC)
+Shape(ED,ODB,BO,OC,CE)
+Shape(ODB,BO,OC,CE,ED)
+Shape(BO,OC,CE,ED,ODB)
+Shape(EA,OAD,ODB,BO,OE)
+Shape(OAD,ODB,BO,OE,EA)
+Shape(ODB,BO,OE,EA,OAD)
+Shape(BO,OE,EA,OAD,ODB)
+Shape(OE,EA,OAD,ODB,BO)
+Shape(EA,OAD,DB,OBC,CO,OE)
+Shape(OAD,DB,OBC,CO,OE,EA)
+Shape(DB,OBC,CO,OE,EA,OAD)
+Shape(OBC,CO,OE,EA,OAD,DB)
+Shape(CO,OE,EA,OAD,DB,OBC)
+Shape(OE,EA,OAD,DB,OBC,CO)
+Shape(ODB,OBC,CO,OE,ED)
+Shape(OBC,CO,OE,ED,ODB)
+Shape(CO,OE,ED,ODB,OBC)
+Shape(OE,ED,ODB,OBC,CO)
+Shape(ED,ODB,OBC,CO,OE)
+Shape(OCA,AE,ED,DB,OBC)
+Shape(AE,ED,DB,OBC,OCA)
+Shape(ED,DB,OBC,OCA,AE)
+Shape(DB,OBC,OCA,AE,ED)
+Shape(OBC,OCA,AE,ED,DB)
+Shape(OCA,OAD,DB,BO,OC)
+Shape(OAD,DB,BO,OC,OCA)
+Shape(DB,BO,OC,OCA,OAD)
+Shape(BO,OC,OCA,OAD,DB)
+Shape(OC,OCA,OAD,DB,BO)
+Shape(OCA,AE,ED,ODB,BO,OC)
+Shape(AE,ED,ODB,BO,OC,OCA)
+Shape(ED,ODB,BO,OC,OCA,AE)
+Shape(ODB,BO,OC,OCA,AE,ED)
+Shape(BO,OC,OCA,AE,ED,ODB)
+Shape(OC,OCA,AE,ED,ODB,BO)
+Shape(EC,OCA,OAD,ODB,BO,OE)
+Shape(OCA,OAD,ODB,BO,OE,EC)
+Shape(OAD,ODB,BO,OE,EC,OCA)
+Shape(ODB,BO,OE,EC,OCA,OAD)
+Shape(BO,OE,EC,OCA,OAD,ODB)
+Shape(OE,EC,OCA,OAD,ODB,BO)
+Shape(CE,EA,OAD,DB,OBC)
+Shape(EA,OAD,DB,OBC,CE)
+Shape(OAD,DB,OBC,CE,EA)
+Shape(DB,OBC,CE,EA,OAD)
+Shape(OBC,CE,EA,OAD,DB)
+Shape(CE,ED,ODB,OBC)
+Shape(ED,ODB,OBC,CE)
+Shape(ODB,OBC,CE,ED)
+Shape(OBC,CE,ED,ODB)
+Shape(OC,CE,EA,OAD,ODB,BO)
+Shape(CE,EA,OAD,ODB,BO,OC)
+Shape(EA,OAD,ODB,BO,OC,CE)
+Shape(OAD,ODB,BO,OC,CE,EA)
+Shape(ODB,BO,OC,CE,EA,OAD)
+Shape(BO,OC,CE,EA,OAD,ODB)
+Shape(OAD,DE,EO,OB,OBC,OCA)
+Shape(DE,EO,OB,OBC,OCA,OAD)
+Shape(EO,OB,OBC,OCA,OAD,DE)
+Shape(OB,OBC,OCA,OAD,DE,EO)
+Shape(OBC,OCA,OAD,DE,EO,OB)
+Shape(OCA,OAD,DE,EO,OB,OBC)
+Shape(EA,OAD,ODB,OBC,CO,OE)
+Shape(OAD,ODB,OBC,CO,OE,EA)
+Shape(ODB,OBC,CO,OE,EA,OAD)
+Shape(OBC,CO,OE,EA,OAD,ODB)
+Shape(CO,OE,EA,OAD,ODB,OBC)
+Shape(OE,EA,OAD,ODB,OBC,CO)
+Shape(OCA,OAD,DB,OBC)
+Shape(OAD,DB,OBC,OCA)
+Shape(DB,OBC,OCA,OAD)
+Shape(OBC,OCA,OAD,DB)
+Shape(OCA,AE,ED,ODB,OBC)
+Shape(AE,ED,ODB,OBC,OCA)
+Shape(ED,ODB,OBC,OCA,AE)
+Shape(ODB,OBC,OCA,AE,ED)
+Shape(OBC,OCA,AE,ED,ODB)
+Shape(OCA,OAD,ODB,BO,OC)
+Shape(OAD,ODB,BO,OC,OCA)
+Shape(ODB,BO,OC,OCA,OAD)
+Shape(BO,OC,OCA,OAD,ODB)
+Shape(OC,OCA,OAD,ODB,BO)
+Shape(CE,EA,OAD,ODB,OBC)
+Shape(EA,OAD,ODB,OBC,CE)
+Shape(OAD,ODB,OBC,CE,EA)
+Shape(ODB,OBC,CE,EA,OAD)
+Shape(OBC,CE,EA,OAD,ODB)
+Shape(OCA,OAD,ODB,OBC)
+Shape(OAD,ODB,OBC,OCA)
+Shape(ODB,OBC,OCA,OAD)
+Shape(OBC,OCA,OAD,ODB)
+Collinear(BOEA)
+Collinear(AEO)
+Collinear(OEA)
+Collinear(AEB)
+Collinear(BEA)
+Collinear(AOB)
+Collinear(BOA)
+Collinear(EOB)
+Collinear(BOE)
+Collinear(CED)
+Cocircular(O,C)
+Cocircular(O,A)
+Cocircular(O,D)
+Cocircular(O,B)
+Cocircular(O,CA)
+Cocircular(O,AC)
+Cocircular(O,CD)
+Cocircular(O,DC)
+Cocircular(O,CB)
+Cocircular(O,BC)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,DB)
+Cocircular(O,BD)
+Cocircular(O,CAD)
+Cocircular(O,ADC)
+Cocircular(O,DCA)
+Cocircular(O,CAB)
+Cocircular(O,ABC)
+Cocircular(O,BCA)
+Cocircular(O,CDB)
+Cocircular(O,DBC)
+Cocircular(O,BCD)
+Cocircular(O,ADB)
+Cocircular(O,DBA)
+Cocircular(O,BAD)
+Cocircular(O,ADBC)
+Cocircular(O,DBCA)
+Cocircular(O,BCAD)
+Point(A)
+Point(B)
+Point(E)
+Point(O)
+Point(D)
+Point(C)
+Line(AB)
+Line(BA)
+Line(AE)
+Line(EA)
+Line(EO)
+Line(OE)
+Line(EB)
+Line(BE)
+Line(AO)
+Line(OA)
+Line(OB)
+Line(BO)
+Line(DC)
+Line(CD)
+Line(DE)
+Line(ED)
+Line(EC)
+Line(CE)
+Line(OC)
+Line(CO)
+Line(DB)
+Line(BD)
+Arc(OCA)
+Arc(OAC)
+Arc(OCD)
+Arc(ODC)
+Arc(OCB)
+Arc(OBC)
+Arc(OAD)
+Arc(ODA)
+Arc(OAB)
+Arc(OBA)
+Arc(ODB)
+Arc(OBD)
+Angle(AEO)
+Angle(OEA)
+Angle(AEB)
+Angle(BEA)
+Angle(AOB)
+Angle(BOA)
+Angle(EOB)
+Angle(BOE)
+Angle(DEC)
+Angle(CED)
+Angle(AEC)
+Angle(CEO)
+Angle(EOC)
+Angle(OCE)
+Angle(DEA)
+Angle(EDB)
+Angle(DBO)
+Angle(BED)
+Angle(COB)
+Angle(AOC)
+Angle(CDB)
+Angle(BOC)
+Angle(OED)
+Angle(COE)
+Angle(AED)
+Angle(BEC)
+Angle(DEO)
+Angle(CEA)
+Angle(DEB)
+Angle(COA)
+Angle(CEB)
+Angle(OCD)
+Angle(DBA)
+Angle(DBE)
+Angle(OEC)
+Angle(ECO)
+Angle(BDE)
+Angle(OBD)
+Angle(BDC)
+Angle(DCO)
+Angle(ABD)
+Angle(EBD)
+Polygon(CEO)
+Polygon(EOC)
+Polygon(OCE)
+Polygon(EDB)
+Polygon(DBE)
+Polygon(BED)
+Polygon(OCDB)
+Polygon(CDBO)
+Polygon(DBOC)
+Polygon(BOCD)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_dba-20
+ma_dea-80
+GOAL_SYMBOL:
+ma_cob
+ANSWER:
+120
+THEOREM_SEQUENCE:
+1; diameter_of_circle_judgment_pass_centre(1, A, B, O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+2; diameter_of_circle_property_right_angle(1, ADB, O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,DB)"]
+3; triangle_property_angle_sum(1, ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+4; triangle_property_angle_sum(1, ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(DAE),MeasureOfAngle(ADE),MeasureOfAngle(DEA)),180)"]
+5; arc_property_circumference_angle_external(1, A, C, D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+6; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+7; adjacent_complementary_angle(1, AOC, COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <diameter_of_circle_judgment_pass_centre> para length error. Expected 4 but got (' ', 'A', 'O', 'B', ' ', 'O').
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_judgment_pass_centre(1, AOB, O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+2; arc_property_circumference_angle_external(1, OAD, B); Cocircular(O,ABD)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_center_angle(1, OAD, O); Arc(OAD)&Angle(AOD)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAD),MeasureOfAngle(AOD))"]
+4; diameter_of_circle_property_right_angle(1, ADB, O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,DB)"]
+5; triangle_property_angle_sum(1, ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+6; triangle_property_angle_sum(1, ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(DAE),MeasureOfAngle(DEA),MeasureOfAngle(EDA)),180)"]
+7; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+8; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+9; adjacent_complementary_angle(1, AOC, COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <radius_of_circle_property_length_equal> para length error. Expected 3 but got (' ', 'O', 'B', ' ', 'O').
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; radius_of_circle_property_length_equal(1, OB, O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+2; radius_of_circle_property_length_equal(1, OD, O); Cocircular(O,D)&Line(OD)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OD),RadiusOfCircle(O))"]
+3; isosceles_triangle_judgment_line_equal(1, OBD); Polygon(OBD)&Equal(LengthOfLine(OB),LengthOfLine(OD)); ["IsoscelesTriangle(OBD)"]
+4; isosceles_triangle_property_angle_equal(1, OBD); IsoscelesTriangle(OBD); ["Equal(MeasureOfAngle(ODB),MeasureOfAngle(OBD))"]
+5; triangle_property_angle_sum(1, OBD); Polygon(OBD); ["Equal(Add(MeasureOfAngle(BOD),MeasureOfAngle(ODB),MeasureOfAngle(DBO)),180)"]
+6; arc_property_center_angle(1, OBD, O); Arc(OBD)&Angle(BOD)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBD),MeasureOfAngle(BOD))"]
+7; arc_property_circumference_angle_external(1, OBD, A); Cocircular(O,ABD)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(OBD),1/2))"]
+8; triangle_property_angle_sum(1, ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(DAE),MeasureOfAngle(AED),MeasureOfAngle(EDA)),180)"]
+9; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+10; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+11; adjacent_complementary_angle(1, AOC, COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'D', 'A', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, ODA, B); Cocircular(O,ABD)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+2; arc_property_center_angle(1, ODA, O); Arc(ODA)&Angle(DOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(DOA))"]
+3; radius_of_circle_property_length_equal(1, O, A, O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+4; radius_of_circle_property_length_equal(1, O, D, O); Cocircular(O,D)&Line(OD)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OD),RadiusOfCircle(O))"]
+5; isosceles_triangle_judgment_line_equal(1, AOD); Polygon(AOD)&Equal(LengthOfLine(OA),LengthOfLine(OD)); ["IsoscelesTriangle(AOD)"]
+6; isosceles_triangle_property_angle_equal(1, AOD); IsoscelesTriangle(AOD); ["Equal(MeasureOfAngle(OAD),MeasureOfAngle(ODA))"]
+7; triangle_property_angle_sum(1, AOD); Polygon(AOD); ["Equal(Add(MeasureOfAngle(DOA),MeasureOfAngle(OAD),MeasureOfAngle(ODA)),180)"]
+8; triangle_property_angle_sum(1, ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(DAE),MeasureOfAngle(ADE),MeasureOfAngle(DEA)),180)"]
+9; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+10; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+11; adjacent_complementary_angle(1, AOC, COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'D', 'A', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, ODA, B); Cocircular(O,ABD)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+2; arc_property_center_angle(1, ODA, O); Arc(ODA)&Angle(DOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(DOA))"]
+3; radius_of_circle_property_length_equal(1, OA, O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+4; radius_of_circle_property_length_equal(1, OD, O); Cocircular(O,D)&Line(OD)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OD),RadiusOfCircle(O))"]
+5; isosceles_triangle_judgment_line_equal(1, AOD); Polygon(AOD)&Equal(LengthOfLine(OA),LengthOfLine(OD)); ["IsoscelesTriangle(AOD)"]
+6; isosceles_triangle_property_angle_equal(1, AOD); IsoscelesTriangle(AOD); ["Equal(MeasureOfAngle(OAD),MeasureOfAngle(ODA))"]
+7; triangle_property_angle_sum(1, AOD); Polygon(AOD); ["Equal(Add(MeasureOfAngle(DOA),MeasureOfAngle(OAD),MeasureOfAngle(ODA)),180)"]
+8; triangle_property_angle_sum(1, ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(DAE),MeasureOfAngle(ADE),MeasureOfAngle(DEA)),180)"]
+9; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+10; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+11; adjacent_complementary_angle(1, AOC, COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+#run: 2; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <diameter_of_circle_judgment_pass_centre> para length error. Expected 4 but got (' ', 'A', ' ', 'B', ' ', 'O').
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_judgment_pass_centre(1, A, B, O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+2; diameter_of_circle_property_right_angle(1, ADB, O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,DB)"]
+3; triangle_property_angle_sum(1, ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+4; triangle_property_angle_sum(1, ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(DAE),MeasureOfAngle(ADE),MeasureOfAngle(DEA)),180)"]
+5; arc_property_circumference_angle_external(1, A, C, D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+6; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+7; adjacent_complementary_angle(1, AOC, COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+#RETRIES:
+5
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ma_dba-20
+ma_dea-80
+GT_GOAL_SYMBOL:
+ma_cob
+GT_ANSWER:
+120
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,BED,DEA);Collinear(BEA)&Angle(BED)&Angle(DEA);["Equal(Add(MeasureOfAngle(BED),MeasureOfAngle(DEA)),180)"]
+2;triangle_property_angle_sum(1,DBE);Polygon(DBE);["Equal(Add(MeasureOfAngle(DBE),MeasureOfAngle(BED),MeasureOfAngle(EDB)),180)"]
+3;arc_property_circumference_angle_external(1,OBC,D);Cocircular(O,BCD)&Angle(CDB);["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+4;arc_property_center_angle(1,OBC,O);Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O);["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+

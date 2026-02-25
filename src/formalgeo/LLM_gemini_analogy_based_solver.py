@@ -35,7 +35,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 
 GEMINI_API_BASE = os.environ.get("GEMINI_API_BASE",
                                  "https://generativelanguage.googleapis.com/v1beta/openai")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyCNko9IX60Ih-hZgse8bHWva3QhGtTk8xU")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDyMDLtv8CZ5NqosB9pEFJS8wF25uSJQbs")
 
 
 dl = DatasetLoader(dataset_name="formalgeo7k_v1", datasets_path=os.path.join(PROJECT_ROOT, "formalgeo7k_v1"))
@@ -46,7 +46,7 @@ with open(os.path.join(PROJECT_ROOT, 'formalgeo7k_v1/gdl/theorem_GDL.json'), 'r'
 
 chosen_problems_by_level = {
     # 3: [4187] #  2795, 1168, 2677, 380, 944, 2940],
-    1: [1726, 2624, 2669]
+    3: [5062, 5244, 2765]
     # 1: [1975, 1490, 1726, 178, 2669, 2614, 51, 2323, 192, 2624, ] # 2795, 1168, 688, 2677, 380, 221, 944, 2940, 2187, 1562],
      # 2: [144, 69, 991, 358, 4473, 4483, 5645, 127, 2410, 4523, 3075, 49, 4610, 6966, 1433, 3998, 5983, 497, 1586, 2397],
      # 3: [4187, 5244, 5062, 844, 1945, 2200, 4099, 2765, 4476, 4254, 1071, 3787, 4257, 5942, 1282, 2591, 5858, 1306, 1244, 312],
@@ -245,7 +245,7 @@ def convert_json_list_to_custom_format(json_list):
         conclusion_str = json.dumps(conclusion)
 
         # Create the custom formatted string
-        formatted_string = f"step_id: {index}; theorem: {theorem}; premise: {premise}; conclusion: {conclusion_str}"
+        formatted_string = f"{index}; {theorem}; {premise}; {conclusion_str}"
 
         # Append to the result list
         result.append(formatted_string)

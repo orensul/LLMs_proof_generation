@@ -1,25 +1,4 @@
-[Attempt 1] Error calling Gemini model: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
-Retrying in 1 seconds...
 Content written to results/level_1/gemini/variant_analogy_based_model_gemini-2.5-flash_problem_1726_run_0_to_verify.txt
-Traceback (most recent call last):
-  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/geometric_verifier.py", line 10882, in parse_and_verify_proof
-    conclusions = eval(parts[3].strip())  # This will parse the list string
-  File "<string>", line 1
-    conclusion: ["Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))"]
-              ^
-SyntaxError: invalid syntax
-Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
-Theorem: cosine_theorem(1,CBA)
-You output the following conclusions: Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))
-But the correct conclusions: Equal(Add(Pow(LengthOfLine(BA),2),Mul(2,LengthOfLine(CB),LengthOfLine(CA),Cos(MeasureOfAngle(ACB)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(CA),2)))
-
-Model Answer:
-RETRY_ANSWER:
-41/63
-RETRY_THEOREM_SEQUENCE:
-step_id: 1; theorem: cosine_theorem(1,CBA); premise: Polygon(CBA); conclusion: ["Equal(Add(Pow(LengthOfLine(CA),2),Mul(2,LengthOfLine(CB),LengthOfLine(BA),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(BA),2)))"]
-Retry attempt: 1
-[Attempt 1] Error calling Gemini model: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
-Retrying in 1 seconds...
-[Attempt 2] Error calling Gemini model: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
-Retrying in 2 seconds...
+Theorem sequence verified correctly
+Total time: 16.499s | per attempt: [16.499]
+Content written to results/level_1/gemini/variant_analogy_based_model_gemini-2.5-flash_problem_1726_run_0.txt

@@ -1,0 +1,201 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, RT=15, ∠RPS=130°, ∠TPQ=112°, the center of circle P is P, the diameter of circle P is TR. Find the length of arc PSR.
+CONSTRUCTION_CDL:
+Shape(PR,PRQ,QP)
+Shape(PQ,PQT,TP)
+Shape(PT,PTS,SP)
+Shape(PS,PSR,RP)
+Collinear(RPT)
+Cocircular(P,QTSR)
+TEXT_CDL:
+Equal(LengthOfLine(RT),15)
+Equal(MeasureOfAngle(RPS),130)
+Equal(MeasureOfAngle(TPQ),112)
+IsCentreOfCircle(P,P)
+IsDiameterOfCircle(TR,P)
+GOAL_CDL:
+Value(LengthOfArc(PSR))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(PRQ,QP,PR)
+Shape(QP,PR,PRQ)
+Shape(PQT,TP,PQ)
+Shape(TP,PQ,PQT)
+Shape(PTS,SP,PT)
+Shape(SP,PT,PTS)
+Shape(PSR,RP,PS)
+Shape(RP,PS,PSR)
+Shape(PRQ,QP,PS,PSR)
+Shape(QP,PS,PSR,PRQ)
+Shape(PS,PSR,PRQ,QP)
+Shape(PSR,PRQ,QP,PS)
+Shape(PR,PRQ,PQT,TP)
+Shape(PRQ,PQT,TP,PR)
+Shape(PQT,TP,PR,PRQ)
+Shape(TP,PR,PRQ,PQT)
+Shape(PQ,PQT,PTS,SP)
+Shape(PQT,PTS,SP,PQ)
+Shape(PTS,SP,PQ,PQT)
+Shape(SP,PQ,PQT,PTS)
+Shape(PT,PTS,PSR,RP)
+Shape(PTS,PSR,RP,PT)
+Shape(PSR,RP,PT,PTS)
+Shape(RP,PT,PTS,PSR)
+Shape(PRQ,QP,PT,PTS,PSR)
+Shape(QP,PT,PTS,PSR,PRQ)
+Shape(PT,PTS,PSR,PRQ,QP)
+Shape(PTS,PSR,PRQ,QP,PT)
+Shape(PSR,PRQ,QP,PT,PTS)
+Shape(PR,PRQ,PQT,PTS,SP)
+Shape(PRQ,PQT,PTS,SP,PR)
+Shape(PQT,PTS,SP,PR,PRQ)
+Shape(PTS,SP,PR,PRQ,PQT)
+Shape(SP,PR,PRQ,PQT,PTS)
+Shape(PQ,PQT,PTS,PSR,RP)
+Shape(PQT,PTS,PSR,RP,PQ)
+Shape(PTS,PSR,RP,PQ,PQT)
+Shape(PSR,RP,PQ,PQT,PTS)
+Shape(RP,PQ,PQT,PTS,PSR)
+Shape(PQT,TP,PS,PSR,PRQ)
+Shape(TP,PS,PSR,PRQ,PQT)
+Shape(PS,PSR,PRQ,PQT,TP)
+Shape(PSR,PRQ,PQT,TP,PS)
+Shape(PRQ,PQT,TP,PS,PSR)
+Shape(PRQ,PQT,PTS,PSR)
+Shape(PQT,PTS,PSR,PRQ)
+Shape(PTS,PSR,PRQ,PQT)
+Shape(PSR,PRQ,PQT,PTS)
+Collinear(TPR)
+Cocircular(P,Q)
+Cocircular(P,T)
+Cocircular(P,S)
+Cocircular(P,R)
+Cocircular(P,QT)
+Cocircular(P,TQ)
+Cocircular(P,QS)
+Cocircular(P,SQ)
+Cocircular(P,QR)
+Cocircular(P,RQ)
+Cocircular(P,TS)
+Cocircular(P,ST)
+Cocircular(P,TR)
+Cocircular(P,RT)
+Cocircular(P,SR)
+Cocircular(P,RS)
+Cocircular(P,QTS)
+Cocircular(P,TSQ)
+Cocircular(P,SQT)
+Cocircular(P,QTR)
+Cocircular(P,TRQ)
+Cocircular(P,RQT)
+Cocircular(P,QSR)
+Cocircular(P,SRQ)
+Cocircular(P,RQS)
+Cocircular(P,TSR)
+Cocircular(P,SRT)
+Cocircular(P,RTS)
+Cocircular(P,TSRQ)
+Cocircular(P,SRQT)
+Cocircular(P,RQTS)
+Point(R)
+Point(T)
+Point(P)
+Point(Q)
+Point(S)
+Line(RT)
+Line(TR)
+Line(RP)
+Line(PR)
+Line(PT)
+Line(TP)
+Line(QP)
+Line(PQ)
+Line(SP)
+Line(PS)
+Arc(PQT)
+Arc(PTQ)
+Arc(PQS)
+Arc(PSQ)
+Arc(PQR)
+Arc(PRQ)
+Arc(PTS)
+Arc(PST)
+Arc(PTR)
+Arc(PRT)
+Arc(PSR)
+Arc(PRS)
+Angle(RPT)
+Angle(TPR)
+Angle(QPR)
+Angle(TPQ)
+Angle(SPT)
+Angle(RPS)
+Angle(QPS)
+Angle(SPQ)
+Angle(QPT)
+Angle(SPR)
+Angle(RPQ)
+Angle(TPS)
+Circle(P)
+IsDiameterOfCircle(RT,P)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_rt-15
+ma_rps-130
+ma_tpq-112
+GOAL_SYMBOL:
+la_psr
+ANSWER:
+(65 * pi) / 12
+THEOREM_SEQUENCE:
+1; diameter_of_circle_property_length_equal(1, TR,P); IsDiameterOfCircle(TR,P); ["Equal(LengthOfLine(TR),DiameterOfCircle(P))"]
+2; circle_property_length_of_radius_and_diameter(1, P); Circle(P); ["Equal(DiameterOfCircle(P),Mul(RadiusOfCircle(P),2))"]
+3; arc_property_center_angle(1, PSR,P); Arc(PSR)&Angle(RPS)&IsCentreOfCircle(P,P); ["Equal(MeasureOfArc(PSR),MeasureOfAngle(RPS))"]
+4; arc_length_formula(1, PSR); Arc(PSR); ["Equal(LengthOfArc(PSR),Mul(MeasureOfArc(PSR),1/180*pi,RadiusOfCircle(P)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <diameter_of_circle_property_length_equal> variation id is not supplied. Expected dict_keys(['1']) but got None.
+Your call: diameter_of_circle_property_length_equal(T,R,P)
+
+Please rewrite your response by adding the variation id as the first argument. For example:
+For variation 1: diameter_of_circle_property_length_equal(1, T,R,P)
+
+Model Answer:
+RETRY_ANSWER:
+(65 * pi) / 12
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_length_equal(TR,P); IsDiameterOfCircle(TR,P); ["Equal(LengthOfLine(TR),DiameterOfCircle(P))"]
+2; circle_property_length_of_radius_and_diameter(P); IsCentreOfCircle(P,P); ["Equal(DiameterOfCircle(P),Mul(RadiusOfCircle(P),2))"]
+3; arc_property_center_angle(PSR,P); Arc(PSR)&Angle(RPS)&IsCentreOfCircle(P,P); ["Equal(MeasureOfArc(PSR),MeasureOfAngle(RPS))"]
+4; arc_length_formula(PSR); Arc(PSR); ["Equal(LengthOfArc(PSR),Mul(MeasureOfArc(PSR),1/180*pi,RadiusOfCircle(P)))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_rt-15
+ma_rps-130
+ma_tpq-112
+GT_GOAL_SYMBOL:
+la_psr
+GT_ANSWER:
+65*pi/12
+GT_THEOREM_SEQUENCE:
+1;diameter_of_circle_property_length_equal(1,TR,P);IsDiameterOfCircle(TR,P);["Equal(LengthOfLine(TR),DiameterOfCircle(P))"]
+2;circle_property_length_of_radius_and_diameter(1,P);Circle(P);["Equal(DiameterOfCircle(P),Mul(RadiusOfCircle(P),2))"]
+3;arc_property_center_angle(1,PSR,P);Arc(PSR)&Angle(RPS)&IsCentreOfCircle(P,P);["Equal(MeasureOfArc(PSR),MeasureOfAngle(RPS))"]
+4;arc_length_formula(1,PSR);Arc(PSR);["Equal(LengthOfArc(PSR),Mul(MeasureOfArc(PSR),1/180*pi,RadiusOfCircle(P)))"]
+

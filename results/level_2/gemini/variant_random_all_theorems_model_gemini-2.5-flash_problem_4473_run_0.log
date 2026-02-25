@@ -1,0 +1,90 @@
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('O', 'A', 'D', 'C', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OADC,B); Cocircular(O,ADC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OADC),1/2))"]
+2; arc_property_circumference_angle_external(1,OABC,D); Cocircular(O,ABC)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OABC),1/2))"]
+3; round_arc(1,OADC,OABC); Arc(OADC)&Arc(OABC); ["Equal(Add(MeasureOfArc(OADC),MeasureOfArc(OABC)),360)"]
+Retry attempt: 1
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CDA)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 2
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCA,D)
+You output the following premises: Cocircular(O,DAC)&Angle(ADC)
+But the correct premises: Cocircular(O,CAD)&Angle(ADC)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,DAC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 3
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(CBA)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 4
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: measure of angle CDA
+- Model answer: 100
+- Error: Your proof contains contradictory constraints. Check for incorrect values in premises, improper theorem application, or conclusions that contradict earlier assertions.
+  Contradictory constraints:
+    ∠ABC = arc(OAC)*1/2
+    arc(OAC) + arc(OAC) = 360
+    ∠ABC = 80
+- Available premises:
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, ABCD on circle O, ABD on circle O, AC on circle O, ACD on circle O, AD on circle O, B on circle O, BC on circle O, BCD on circle O, BD on circle O, C on circle O, CD on circle O, D on circle O
+  Circles: O center: O
+  Polygons: ABCD, BCDA, CDAB, DABC
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠ADC <= 180
+  ∠ADC = arc(OAC)*1/2
+  ∠ADC > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 5
+Total time: 139.894s | per attempt: [21.442, 37.009, 23.85, 37.734, 19.858]
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_0.txt

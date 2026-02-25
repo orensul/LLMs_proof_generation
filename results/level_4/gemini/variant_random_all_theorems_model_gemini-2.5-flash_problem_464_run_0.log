@@ -1,0 +1,40 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_464_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,PAC,P)
+You output the following premises: Arc(PAC)&Angle(APC)&IsCentreOfCircle(P,P)
+But the correct premises: Arc(PAC)&Angle(CPA)&IsCentreOfCircle(P,P)
+You output the following conclusions: Equal(MeasureOfArc(PAC),MeasureOfAngle(APC))
+But the correct conclusions: Equal(MeasureOfArc(PAC),MeasureOfAngle(CPA))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,BPA); Collinear(BPA); ["Equal(MeasureOfAngle(BPA),180)"]
+2; arc_property_center_angle(1,PAC,P); Arc(PAC)&Angle(APC)&IsCentreOfCircle(P,P); ["Equal(MeasureOfArc(PAC),MeasureOfAngle(APC))"]
+3; arc_property_center_angle(1,PCY,P); Arc(PCY)&Angle(CPY)&IsCentreOfCircle(P,P); ["Equal(MeasureOfArc(PCY),MeasureOfAngle(CPY))"]
+4; angle_addition(1,BPY,CPY); Angle(BPY)&Angle(CPY)&Angle(BPC); ["Equal(MeasureOfAngle(BPC),Add(MeasureOfAngle(BPY),MeasureOfAngle(CPY)))"]
+5; angle_addition(1,BPC,APC); Angle(BPC)&Angle(APC)&Angle(BPA); ["Equal(MeasureOfAngle(BPA),Add(MeasureOfAngle(BPC),MeasureOfAngle(APC)))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_464_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,PCY,P)
+You output the following premises: Arc(PCY)&Angle(CPY)&IsCentreOfCircle(P,P)
+But the correct premises: Arc(PCY)&Angle(YPC)&IsCentreOfCircle(P,P)
+You output the following conclusions: Equal(MeasureOfArc(PCY),MeasureOfAngle(CPY))
+But the correct conclusions: Equal(MeasureOfArc(PCY),MeasureOfAngle(YPC))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,BPA); Collinear(BPA); ["Equal(MeasureOfAngle(BPA),180)"]
+2; arc_property_center_angle(1,PAC,P); Arc(PAC)&Angle(CPA)&IsCentreOfCircle(P,P); ["Equal(MeasureOfArc(PAC),MeasureOfAngle(CPA))"]
+3; arc_property_center_angle(1,PCY,P); Arc(PCY)&Angle(CPY)&IsCentreOfCircle(P,P); ["Equal(MeasureOfArc(PCY),MeasureOfAngle(CPY))"]
+4; angle_addition(1,BPY,CPY); Angle(BPY)&Angle(CPY)&Angle(BPC); ["Equal(MeasureOfAngle(BPC),Add(MeasureOfAngle(BPY),MeasureOfAngle(CPY)))"]
+5; angle_addition(1,BPC,CPA); Angle(BPC)&Angle(CPA)&Angle(BPA); ["Equal(MeasureOfAngle(BPA),Add(MeasureOfAngle(BPC),MeasureOfAngle(CPA)))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_464_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 60.923s | per attempt: [32.875, 16.93, 11.117]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_464_run_0.txt

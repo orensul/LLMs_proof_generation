@@ -1,0 +1,132 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ABD=75°, ∠ACD=28°, ∠BDC=35°. Find the measure of ∠BAC.
+CONSTRUCTION_CDL:
+Shape(BD,DE,EB)
+Shape(EA,AC,CE)
+Collinear(BEA)
+Collinear(DEC)
+TEXT_CDL:
+Equal(MeasureOfAngle(ABD),75)
+Equal(MeasureOfAngle(ACD),28)
+Equal(MeasureOfAngle(BDC),35)
+GOAL_CDL:
+Value(MeasureOfAngle(BAC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DE,EB,BD)
+Shape(EB,BD,DE)
+Shape(AC,CE,EA)
+Shape(CE,EA,AC)
+Collinear(AEB)
+Collinear(CED)
+Point(B)
+Point(A)
+Point(E)
+Point(D)
+Point(C)
+Line(BA)
+Line(AB)
+Line(BE)
+Line(EB)
+Line(EA)
+Line(AE)
+Line(DC)
+Line(CD)
+Line(DE)
+Line(ED)
+Line(EC)
+Line(CE)
+Line(BD)
+Line(DB)
+Line(AC)
+Line(CA)
+Angle(BEA)
+Angle(AEB)
+Angle(DEC)
+Angle(CED)
+Angle(BDE)
+Angle(DEB)
+Angle(EBD)
+Angle(EAC)
+Angle(ACE)
+Angle(CEA)
+Angle(DEA)
+Angle(CEB)
+Angle(BDC)
+Angle(ABD)
+Angle(BAC)
+Angle(ACD)
+Angle(EDB)
+Angle(BED)
+Angle(DBE)
+Angle(CAE)
+Angle(ECA)
+Angle(AEC)
+Angle(AED)
+Angle(BEC)
+Angle(CDB)
+Angle(DBA)
+Angle(CAB)
+Angle(DCA)
+Polygon(BDE)
+Polygon(DEB)
+Polygon(EBD)
+Polygon(EAC)
+Polygon(ACE)
+Polygon(CEA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ACB);ma_ace;28
+MeasureOfAngle(ACE);ma_ace;28
+MeasureOfAngle(DBE);ma_dbe;35
+MeasureOfAngle(DBC);ma_dbe;35
+MeasureOfAngle(EDB);ma_edb;75
+MeasureOfAngle(ADB);ma_edb;75
+MeasureOfAngle(BED);ma_bed;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_edb-75 ma_ace-28 ma_dbe-35
+GOAL_SYMBOL:
+ma_bac
+ANSWER:
+82
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,BDE); Polygon(BDE); ["Equal(Add(MeasureOfAngle(BDE),MeasureOfAngle(DEB),MeasureOfAngle(EBD)),180)"]
+2; vertical_angle(1,BED,AEC); Collinear(BEA)&Collinear(DEC)&Angle(BED)&Angle(AEC); ["Equal(MeasureOfAngle(BED),MeasureOfAngle(AEC))"]
+3; triangle_property_angle_sum(1,EAC); Polygon(EAC); ["Equal(Add(MeasureOfAngle(EAC),MeasureOfAngle(ACE),MeasureOfAngle(CEA)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: triangle_property_angle_sum(1,BDE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DBE),MeasureOfAngle(BED),MeasureOfAngle(EDB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BDE),MeasureOfAngle(DEB),MeasureOfAngle(EBD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+82
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,BDE); Polygon(BDE); ["Equal(Add(MeasureOfAngle(DBE),MeasureOfAngle(BED),MeasureOfAngle(EDB)),180)"]
+2; vertical_angle(1,BED,AEC); Collinear(BEA)&Collinear(DEC)&Angle(BED)&Angle(AEC); ["Equal(MeasureOfAngle(BED),MeasureOfAngle(AEC))"]
+3; triangle_property_angle_sum(1,EAC); Polygon(EAC); ["Equal(Add(MeasureOfAngle(EAC),MeasureOfAngle(ACE),MeasureOfAngle(CEA)),180)"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_abd-75
+ma_acd-28
+ma_bdc-35
+GT_GOAL_SYMBOL:
+ma_bac
+GT_ANSWER:
+82
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,BDE);Polygon(BDE);["Equal(Add(MeasureOfAngle(BDE),MeasureOfAngle(DEB),MeasureOfAngle(EBD)),180)"]
+2;vertical_angle(1,DEB,CEA);Collinear(DEC)&Collinear(BEA)&Angle(DEB)&Angle(CEA);["Equal(MeasureOfAngle(DEB),MeasureOfAngle(CEA))"]
+3;triangle_property_angle_sum(1,EAC);Polygon(EAC);["Equal(Add(MeasureOfAngle(EAC),MeasureOfAngle(ACE),MeasureOfAngle(CEA)),180)"]
+

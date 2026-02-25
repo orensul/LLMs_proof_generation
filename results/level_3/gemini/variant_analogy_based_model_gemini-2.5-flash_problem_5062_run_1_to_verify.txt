@@ -1,0 +1,281 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AE=4, BF=3, △AED is mirror similar to △BFA., ABCD is a square. Find the area of ABCD.
+CONSTRUCTION_CDL:
+Shape(AB,BF,FA)
+Shape(AF,FE,ED,DA)
+Shape(FB,BC,CE,EF)
+Collinear(AFE)
+Collinear(DEC)
+TEXT_CDL:
+Equal(LengthOfLine(AE),4)
+Equal(LengthOfLine(BF),3)
+MirrorSimilarBetweenTriangle(AED,BFA)
+Square(ABCD)
+GOAL_CDL:
+Value(AreaOfQuadrilateral(ABCD))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BF,FA,AB)
+Shape(FA,AB,BF)
+Shape(FE,ED,DA,AF)
+Shape(ED,DA,AF,FE)
+Shape(DA,AF,FE,ED)
+Shape(BC,CE,EF,FB)
+Shape(CE,EF,FB,BC)
+Shape(EF,FB,BC,CE)
+Shape(AB,BF,FE,ED,DA)
+Shape(BF,FE,ED,DA,AB)
+Shape(FE,ED,DA,AB,BF)
+Shape(ED,DA,AB,BF,FE)
+Shape(DA,AB,BF,FE,ED)
+Shape(FA,AB,BC,CE,EF)
+Shape(AB,BC,CE,EF,FA)
+Shape(BC,CE,EF,FA,AB)
+Shape(CE,EF,FA,AB,BC)
+Shape(EF,FA,AB,BC,CE)
+Shape(ED,DA,AF,FB,BC,CE)
+Shape(DA,AF,FB,BC,CE,ED)
+Shape(AF,FB,BC,CE,ED,DA)
+Shape(FB,BC,CE,ED,DA,AF)
+Shape(BC,CE,ED,DA,AF,FB)
+Shape(CE,ED,DA,AF,FB,BC)
+Shape(AB,BC,CE,ED,DA)
+Shape(BC,CE,ED,DA,AB)
+Shape(CE,ED,DA,AB,BC)
+Shape(ED,DA,AB,BC,CE)
+Shape(DA,AB,BC,CE,ED)
+Collinear(EFA)
+Collinear(CED)
+Point(A)
+Point(E)
+Point(F)
+Point(D)
+Point(C)
+Point(B)
+Line(AE)
+Line(EA)
+Line(AF)
+Line(FA)
+Line(FE)
+Line(EF)
+Line(DC)
+Line(CD)
+Line(DE)
+Line(ED)
+Line(EC)
+Line(CE)
+Line(AB)
+Line(BA)
+Line(BF)
+Line(FB)
+Line(DA)
+Line(AD)
+Line(BC)
+Line(CB)
+Angle(AFE)
+Angle(EFA)
+Angle(DEC)
+Angle(CED)
+Angle(ABF)
+Angle(BFA)
+Angle(FAB)
+Angle(AED)
+Angle(EDA)
+Angle(DAE)
+Angle(FBC)
+Angle(BCE)
+Angle(CEF)
+Angle(EFB)
+Angle(BFE)
+Angle(FED)
+Angle(DAB)
+Angle(ABC)
+Angle(DAF)
+Angle(AFB)
+Angle(CDA)
+Angle(DEF)
+Angle(AEC)
+Angle(FEC)
+Angle(EAB)
+Angle(BCD)
+Angle(CEA)
+Angle(DEA)
+Angle(FBA)
+Angle(BAF)
+Angle(ADE)
+Angle(EAD)
+Angle(CBF)
+Angle(ECB)
+Angle(BAD)
+Angle(CBA)
+Angle(FAD)
+Angle(ADC)
+Angle(BAE)
+Angle(DCB)
+Polygon(ABF)
+Polygon(BFA)
+Polygon(FAB)
+Polygon(AED)
+Polygon(EDA)
+Polygon(DAE)
+Polygon(FBCE)
+Polygon(BCEF)
+Polygon(CEFB)
+Polygon(EFBC)
+Polygon(ABFED)
+Polygon(BFEDA)
+Polygon(FEDAB)
+Polygon(EDABF)
+Polygon(DABFE)
+Polygon(ABCE)
+Polygon(BCEA)
+Polygon(CEAB)
+Polygon(EABC)
+Polygon(DAFBC)
+Polygon(AFBCD)
+Polygon(FBCDA)
+Polygon(BCDAF)
+Polygon(CDAFB)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Polygon(DABC)
+Kite(ABCD)
+Kite(CDAB)
+Kite(BCDA)
+Kite(DABC)
+Parallelogram(ABCD)
+Parallelogram(BCDA)
+Parallelogram(CDAB)
+Parallelogram(DABC)
+Rhombus(ABCD)
+Rhombus(BCDA)
+Rhombus(CDAB)
+Rhombus(DABC)
+Rectangle(ABCD)
+Rectangle(BCDA)
+Rectangle(CDAB)
+Rectangle(DABC)
+Square(BCDA)
+Square(CDAB)
+Square(DABC)
+ParallelBetweenLine(AD,BC)
+ParallelBetweenLine(CB,DA)
+ParallelBetweenLine(BA,CD)
+ParallelBetweenLine(DC,AB)
+PerpendicularBetweenLine(AB,CB)
+PerpendicularBetweenLine(BC,DC)
+PerpendicularBetweenLine(CD,AD)
+PerpendicularBetweenLine(DA,BA)
+MirrorSimilarBetweenTriangle(EDA,ABF)
+MirrorSimilarBetweenTriangle(DAE,FAB)
+SYMBOLS_AND_VALUES:
+LengthOfLine(DE);ll_de;None
+LengthOfLine(ED);ll_de;None
+LengthOfLine(EB);ll_eb;None
+LengthOfLine(BE);ll_eb;None
+LengthOfLine(AD);ll_ad;18
+LengthOfLine(DA);ll_ad;18
+LengthOfLine(EF);ll_ef;None
+LengthOfLine(FE);ll_ef;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+To solve Problem B, we need to determine the area of the square ABCD. We are given the lengths of two line segments, AE and BF, and that triangle AED is mirror similar to triangle BFA.
+
+First, let's correctly interpret the "mirror similar" property based on the `GDL_DICTIONARY`.
+The theorem `mirror_similar_triangle_judgment_aa(ABC,DEF)` states:
+`premise`: `Equal(MeasureOfAngle(ABC),MeasureOfAngle(EFD))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(DEF))`
+This implies the following vertex correspondence:
+A in ABC corresponds to D in DEF
+B in ABC corresponds to F in DEF
+C in ABC corresponds to E in DEF
+
+The theorem `mirror_similar_triangle_property_line_ratio(ABC,DEF)` states:
+`conclusion`: `Equal(LengthOfLine(BC),Mul(LengthOfLine(EF),RatioOfMirrorSimilarTriangle(ABC,DEF)))`
+Here, BC is the side opposite angle A in triangle ABC, and EF is the side opposite angle D in triangle DEF. This is consistent with the vertex correspondence A <-> D.
+
+Now, let's apply this to the given `MirrorSimilarBetweenTriangle(AED, BFA)`.
+Based on the vertex correspondence (A <-> D, B <-> F, C <-> E):
+A in AED corresponds to B in BFA (first vertex to first vertex)
+E in AED corresponds to F in BFA (second vertex to second vertex)
+D in AED corresponds to A in BFA (third vertex to third vertex)
+
+From this correspondence, the angles are equal:
+`MeasureOfAngle(DAE) = MeasureOfAngle(FBA)`
+`MeasureOfAngle(AED) = MeasureOfAngle(BFA)`
+`MeasureOfAngle(ADE) = MeasureOfAngle(FAB)`
+
+And the ratios of corresponding sides (opposite these angles) are equal. Let R be the ratio of mirror similarity `RatioOfMirrorSimilarTriangle(AED,BFA)`.
+1. Side opposite `MeasureOfAngle(DAE)` (in AED) is `ED`. Side opposite `MeasureOfAngle(FBA)` (in BFA) is `FA`.
+   So, `LengthOfLine(ED) / LengthOfLine(FA) = R`.
+2. Side opposite `MeasureOfAngle(AED)` (in AED) is `AD`. Side opposite `MeasureOfAngle(BFA)` (in BFA) is `BA`.
+   So, `LengthOfLine(AD) / LengthOfLine(BA) = R`.
+3. Side opposite `MeasureOfAngle(ADE)` (in AED) is `AE`. Side opposite `MeasureOfAngle(FAB)` (in BFA) is `FB`.
+   So, `LengthOfLine(AE) / LengthOfLine(FB) = R`.
+
+We are given `LengthOfLine(AE) = 4` and `LengthOfLine(BF) = 3`.
+Using the third ratio:
+`
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <mirror_similar_triangle_property_line_ratio> para length error. Expected 6 but got (' ', 'E', 'A', 'D', ' ', 'A', 'F', 'B').
+Model Answer:
+RETRY_ANSWER:
+12
+RETRY_THEOREM_SEQUENCE:
+1; mirror_similar_triangle_property_line_ratio(1, EAD, AFB); MirrorSimilarBetweenTriangle(EAD,AFB); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(FB),RatioOfMirrorSimilarTriangle(EAD,AFB)))"]
+2; mirror_similar_triangle_property_line_ratio(1, DAE, FAB); MirrorSimilarBetweenTriangle(DAE,FAB); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AB),RatioOfMirrorSimilarTriangle(DAE,FAB)))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <mirror_similar_triangle_property_line_ratio> para length error. Expected 6 but got (' ', 'E', 'D', 'A', ' ', 'A', 'F', 'B').
+Model Answer:
+RETRY_ANSWER:
+12
+RETRY_THEOREM_SEQUENCE:
+1; mirror_similar_triangle_property_line_ratio(1, EDA, AFB); MirrorSimilarBetweenTriangle(EDA,AFB); ["Equal(LengthOfLine(DA),Mul(LengthOfLine(FB),RatioOfMirrorSimilarTriangle(EDA,AFB)))"]
+2; mirror_similar_triangle_property_line_ratio(1, DAE, FBA); MirrorSimilarBetweenTriangle(DAE,FBA); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(BA),RatioOfMirrorSimilarTriangle(DAE,FBA)))"]
+#run: 1; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <mirror_similar_triangle_property_line_ratio> para length error. Expected 6 but got (' ', 'E', 'A', 'D', ' ', 'A', 'F', 'B').
+Model Answer:
+RETRY_ANSWER:
+12
+RETRY_THEOREM_SEQUENCE:
+1; mirror_similar_triangle_property_line_ratio(1, EAD, AFB); MirrorSimilarBetweenTriangle(EAD,AFB); ["Equal(LengthOfLine(DA),Mul(LengthOfLine(BF),RatioOfMirrorSimilarTriangle(EAD,AFB)))"]
+2; mirror_similar_triangle_property_line_ratio(1, DEA, FAB); MirrorSimilarBetweenTriangle(DEA,FAB); ["Equal(LengthOfLine(EA),Mul(LengthOfLine(AB),RatioOfMirrorSimilarTriangle(DEA,FAB)))"]
+#run: 1; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <mirror_similar_triangle_property_line_ratio> para length error. Expected 6 but got (' ', 'E', 'D', 'A', ' ', 'A', 'F', 'B').
+Model Answer:
+RETRY_ANSWER:
+12
+RETRY_THEOREM_SEQUENCE:
+1; mirror_similar_triangle_property_line_ratio(1, EDA, AFB); MirrorSimilarBetweenTriangle(EDA,AFB); ["Equal(LengthOfLine(DA),Mul(LengthOfLine(BF),RatioOfMirrorSimilarTriangle(EDA,AFB)))"]
+2; mirror_similar_triangle_property_line_ratio(1, DAE, FBA); MirrorSimilarBetweenTriangle(DAE,FBA); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(BA),RatioOfMirrorSimilarTriangle(DAE,FBA)))"]
+#RETRIES:
+4
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ll_ae-4
+ll_bf-3
+ll_ab-ll_ad
+ll_cb-ll_cd
+-ll_ab+ll_cb
+-ll_ad+ll_cd
+ma_abc-90
+ma_bcd-90
+ma_cda-90
+ma_dab-90
+GT_GOAL_SYMBOL:
+aq_abcd
+GT_ANSWER:
+12
+GT_THEOREM_SEQUENCE:
+1;mirror_similar_triangle_property_line_ratio(1,EDA,ABF);MirrorSimilarBetweenTriangle(EDA,ABF);["Equal(LengthOfLine(DA),Mul(LengthOfLine(BF),RatioOfMirrorSimilarTriangle(EDA,ABF)))"]
+2;mirror_similar_triangle_property_line_ratio(1,DAE,FAB);MirrorSimilarBetweenTriangle(DAE,FAB);["Equal(LengthOfLine(AE),Mul(LengthOfLine(AB),RatioOfMirrorSimilarTriangle(DAE,FAB)))"]
+3;parallelogram_area_formula_sine(1,ABCD);Parallelogram(ABCD);["Equal(AreaOfQuadrilateral(ABCD),Mul(LengthOfLine(AB),LengthOfLine(BC),Sin(MeasureOfAngle(ABC))))"]
+

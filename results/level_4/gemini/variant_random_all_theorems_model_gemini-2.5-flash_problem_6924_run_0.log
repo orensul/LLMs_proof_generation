@@ -1,0 +1,120 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODA,B)
+You output the following premises: Cocircular(O,ADB)&Angle(DBA)
+But the correct premises: Cocircular(O,DAB)&Angle(ABD)
+You output the following conclusions: Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+2; diameter_of_circle_judgment_pass_centre(1,AB,O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+3; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+4; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_center_angle(1,ODA,O); Arc(ODA)&Angle(DOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(DOA))"]
+6; adjacent_complementary_angle(1,DOA,DOB); Collinear(AOB)&Angle(DOA)&Angle(DOB); ["Equal(Add(MeasureOfAngle(DOA),MeasureOfAngle(DOB)),180)"]
+7; arc_property_center_angle(1,ODB,O); Arc(ODB)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODB),MeasureOfAngle(DOB))"]
+8; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,ADB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+9; triangle_property_angle_sum(1,ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(ADE),MeasureOfAngle(DEA),MeasureOfAngle(EAD)),180)"]
+10; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,DCA)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+11; arc_addition_measure(1,OAC,OCB); Arc(OAC)&Arc(OCB)&Arc(OAB); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCB)),MeasureOfArc(OAB))"]
+12; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(COB))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODA,B)
+You output the following premises: Cocircular(O,DAB)&Angle(DBA)
+But the correct premises: Cocircular(O,DAB)&Angle(ABD)
+You output the following conclusions: Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,DAB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+2; arc_property_center_angle(1,ODA,O); Arc(ODA)&Angle(DOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(DOA))"]
+3; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+4; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; adjacent_complementary_angle(1,DOA,DOB); Collinear(AOB)&Angle(DOA)&Angle(DOB); ["Equal(Add(MeasureOfAngle(DOA),MeasureOfAngle(DOB)),180)"]
+6; arc_property_center_angle(1,ODB,O); Arc(ODB)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODB),MeasureOfAngle(DOB))"]
+7; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+8; triangle_property_angle_sum(1,ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(ADE),MeasureOfAngle(DEA),MeasureOfAngle(EAD)),180)"]
+9; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+10; arc_addition_measure(1,OAC,OCB); Arc(OAC)&Arc(OCB)&Arc(OAB); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCB)),MeasureOfArc(OAB))"]
+11; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(COB))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,ODA,O)
+You output the following premises: Arc(ODA)&Angle(DOA)&IsCentreOfCircle(O,O)
+But the correct premises: Arc(ODA)&Angle(AOD)&IsCentreOfCircle(O,O)
+You output the following conclusions: Equal(MeasureOfArc(ODA),MeasureOfAngle(DOA))
+But the correct conclusions: Equal(MeasureOfArc(ODA),MeasureOfAngle(AOD))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,DAB)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,ODA,O); Arc(ODA)&Angle(DOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(DOA))"]
+4; adjacent_complementary_angle(1,DOA,DOB); Collinear(AOB)&Angle(DOA)&Angle(DOB); ["Equal(Add(MeasureOfAngle(DOA),MeasureOfAngle(DOB)),180)"]
+5; arc_property_center_angle(1,ODB,O); Arc(ODB)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODB),MeasureOfAngle(DOB))"]
+6; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+7; triangle_property_angle_sum(1,ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(ADE),MeasureOfAngle(DEA),MeasureOfAngle(EAD)),180)"]
+8; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+9; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+10; adjacent_complementary_angle(1,AOC,COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODB,A)
+You output the following premises: Cocircular(O,DBA)&Angle(DAB)
+But the correct premises: Cocircular(O,DBA)&Angle(BAD)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,DAB)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,ODA,O); Arc(ODA)&Angle(AOD)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(AOD))"]
+4; adjacent_complementary_angle(1,AOD,DOB); Collinear(AOB)&Angle(AOD)&Angle(DOB); ["Equal(Add(MeasureOfAngle(AOD),MeasureOfAngle(DOB)),180)"]
+5; arc_property_center_angle(1,ODB,O); Arc(ODB)&Angle(BOD)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODB),MeasureOfAngle(BOD))"]
+6; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+7; triangle_property_angle_sum(1,ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(ADE),MeasureOfAngle(DEA),MeasureOfAngle(EAD)),180)"]
+8; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+9; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+10; adjacent_complementary_angle(1,AOC,COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,D)
+You output the following premises: Cocircular(O,ACD)&Angle(ADC)
+But the correct premises: Cocircular(O,ACD)&Angle(CDA)
+You output the following conclusions: Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,DAB)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+2; arc_property_center_angle(1,ODA,O); Arc(ODA)&Angle(AOD)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODA),MeasureOfAngle(AOD))"]
+3; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+4; adjacent_complementary_angle(1,AOD,DOB); Collinear(AOB)&Angle(AOD)&Angle(DOB); ["Equal(Add(MeasureOfAngle(AOD),MeasureOfAngle(DOB)),180)"]
+5; arc_property_center_angle(1,ODB,O); Arc(ODB)&Angle(BOD)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODB),MeasureOfAngle(BOD))"]
+6; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+7; triangle_property_angle_sum(1,ADE); Polygon(ADE); ["Equal(Add(MeasureOfAngle(ADE),MeasureOfAngle(DEA),MeasureOfAngle(EAD)),180)"]
+8; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,ACD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+9; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+10; adjacent_complementary_angle(1,AOC,COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+Retry attempt: 5
+Total time: 175.530s | per attempt: [46.99, 27.077, 57.242, 25.46, 18.759]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6924_run_0.txt

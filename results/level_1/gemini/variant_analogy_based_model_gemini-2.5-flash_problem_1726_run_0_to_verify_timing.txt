@@ -6,3 +6,11 @@ Attempt 4: 68.159072s
 Total: 40.700664s
 Attempt 1: 18.282338s
 Attempt 2: 22.418172s
+Total: 153.472512s
+Attempt 1: 28.177044s
+Attempt 2: 25.112805s
+Attempt 3: 34.886002s
+Attempt 4: 30.888895s
+Attempt 5: 34.407379s
+Total: 16.499376s
+Attempt 1: 16.499322s

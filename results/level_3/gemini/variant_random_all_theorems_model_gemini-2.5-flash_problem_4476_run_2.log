@@ -1,0 +1,81 @@
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4476_run_2_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('O', 'B', 'C', 'D', 'A').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBCD,A); Cocircular(O,ABCD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBCD),1/2))"]
+2; arc_property_circumference_angle_external(1,ODAB,C); Cocircular(O,CDAB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODAB),1/2))"]
+3; round_arc(1,OBCD,ODAB); Arc(OBCD)&Arc(ODAB); ["Equal(Add(MeasureOfArc(OBCD),MeasureOfArc(ODAB)),360)"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 1
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4476_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBD,A)
+You output the following premises: Cocircular(O,ABCD)&Angle(DAB)
+But the correct premises: Cocircular(O,BDA)&Angle(DAB)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,ABCD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,ABCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; round_arc(1,OBD,ODB); Arc(OBD)&Arc(ODB); ["Equal(Add(MeasureOfArc(OBD),MeasureOfArc(ODB)),360)"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 2
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4476_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODB,A)
+You output the following premises: Cocircular(O,ADB)&Angle(DAB)
+But the correct premises: Cocircular(O,DBA)&Angle(BAD)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,ADB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+2; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OBD),1/2))"]
+3; round_arc(1,ODB,OBD); Arc(ODB)&Arc(OBD); ["Equal(Add(MeasureOfArc(ODB),MeasureOfArc(OBD)),360)"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 3
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4476_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_internal(1,ODB,A)
+You output the following premises: Cocircular(O,DBA)&Angle(BAD)
+But the correct premises: Cocircular(O,DAB)&Angle(DAB)
+You output the following conclusions: Equal(MeasureOfAngle(BAD),Sub(180,Mul(MeasureOfArc(ODB),1/2)))
+But the correct conclusions: Equal(MeasureOfAngle(DAB),Sub(180,Mul(MeasureOfArc(ODB),1/2)))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Sub(180,Mul(MeasureOfArc(ODB),1/2)))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DCB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 4
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4476_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBD,A)
+You output the following premises: Cocircular(O,DAB)&Angle(DAB)
+But the correct premises: Cocircular(O,BDA)&Angle(DAB)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_addition_measure(1,OBC,OCD); Arc(OBC)&Arc(OCD)&Arc(OBD); ["Equal(MeasureOfArc(OBD),Add(MeasureOfArc(OBC),MeasureOfArc(OCD)))"]
+2; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,DAB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_addition_measure(1,ODA,OAB); Arc(ODA)&Arc(OAB)&Arc(ODB); ["Equal(MeasureOfArc(ODB),Add(MeasureOfArc(ODA),MeasureOfArc(OAB)))"]
+4; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+5; round_arc(1,OBD,ODB); Arc(OBD)&Arc(ODB); ["Equal(Add(MeasureOfArc(OBD),MeasureOfArc(ODB)),360)"]
+6; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 5
+Total time: 199.050s | per attempt: [33.24, 41.855, 38.143, 44.757, 41.054]
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4476_run_2.txt

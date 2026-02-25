@@ -1,0 +1,76 @@
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'C', 'A', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, OCA, B); Cocircular(O,CAB)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OCA),1/2))"]
+2; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ACD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+3; round_arc(1, OAC, OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 1
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'D', 'A', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, ODA, B); Cocircular(O,DAB)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+2; arc_property_circumference_angle_external(1, ODC, B); Cocircular(O,BDC)&Angle(DBC); ["Equal(MeasureOfAngle(DBC),Mul(MeasureOfArc(ODC),1/2))"]
+3; angle_addition(1,ABD,DBC); Angle(ABD)&Angle(DBC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Add(MeasureOfAngle(ABD),MeasureOfAngle(DBC)))"]
+4; arc_property_circumference_angle_external(1, OAB, D); Cocircular(O,DAB)&Angle(ADB); ["Equal(MeasureOfAngle(ADB),Mul(MeasureOfArc(OAB),1/2))"]
+5; arc_property_circumference_angle_external(1, OBC, D); Cocircular(O,BDC)&Angle(BDC); ["Equal(MeasureOfAngle(BDC),Mul(MeasureOfArc(OBC),1/2))"]
+6; angle_addition(1,ADB,BDC); Angle(ADB)&Angle(BDC)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Add(MeasureOfAngle(ADB),MeasureOfAngle(BDC)))"]
+7; round_arc(1, OAB, OBA); Arc(OAB)&Arc(OBA); ["Equal(Add(MeasureOfArc(OAB),MeasureOfArc(OBA)),360)"]
+8; round_arc(1, OBC, OCB); Arc(OBC)&Arc(OCB); ["Equal(Add(MeasureOfArc(OBC),MeasureOfArc(OCB)),360)"]
+9; round_arc(1, OCD, ODC); Arc(OCD)&Arc(ODC); ["Equal(Add(MeasureOfArc(OCD),MeasureOfArc(ODC)),360)"]
+10; round_arc(1, ODA, OAD); Arc(ODA)&Arc(OAD); ["Equal(Add(MeasureOfArc(ODA),MeasureOfArc(OAD)),360)"]
+Retry attempt: 2
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'A', 'C', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, OAC, B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1, OCA, D); Cocircular(O,CDA)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1, OAC, OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 3
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CDA)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 4
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCA,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,CAB)&Angle(ABC)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_addition_measure(1,OAB,OBC); Arc(OAB)&Arc(OBC)&Arc(OAC); ["Equal(MeasureOfArc(OAC),Add(MeasureOfArc(OAB),MeasureOfArc(OBC)))"]
+2; arc_addition_measure(1,OCD,ODA); Arc(OCD)&Arc(ODA)&Arc(OCA); ["Equal(MeasureOfArc(OCA),Add(MeasureOfArc(OCD),MeasureOfArc(ODA)))"]
+3; arc_property_circumference_angle_external(1,OCA,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OCA),1/2))"]
+4; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,CDA)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+5; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 5
+Total time: 281.016s | per attempt: [56.423, 73.491, 59.536, 55.193, 36.371]
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4473_run_1.txt

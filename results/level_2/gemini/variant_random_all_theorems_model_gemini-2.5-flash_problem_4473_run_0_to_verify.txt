@@ -1,0 +1,237 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ABC=80°, the center of circle O is O. Find the measure of ∠CDA.
+CONSTRUCTION_CDL:
+Shape(OAB,BA)
+Shape(OBC,CB)
+Shape(OCD,DC)
+Shape(ODA,AD)
+Shape(AB,BC,CD,DA)
+Cocircular(O,ABCD)
+TEXT_CDL:
+Equal(MeasureOfAngle(ABC),80)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(CDA))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,OAB)
+Shape(CB,OBC)
+Shape(DC,OCD)
+Shape(AD,ODA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(DA,AB,BC,CD)
+Shape(OAB,BC,CD,DA)
+Shape(BC,CD,DA,OAB)
+Shape(CD,DA,OAB,BC)
+Shape(DA,OAB,BC,CD)
+Shape(OBC,CD,DA,AB)
+Shape(CD,DA,AB,OBC)
+Shape(DA,AB,OBC,CD)
+Shape(AB,OBC,CD,DA)
+Shape(OCD,DA,AB,BC)
+Shape(DA,AB,BC,OCD)
+Shape(AB,BC,OCD,DA)
+Shape(BC,OCD,DA,AB)
+Shape(ODA,AB,BC,CD)
+Shape(AB,BC,CD,ODA)
+Shape(BC,CD,ODA,AB)
+Shape(CD,ODA,AB,BC)
+Shape(OAB,OBC,CD,DA)
+Shape(OBC,CD,DA,OAB)
+Shape(CD,DA,OAB,OBC)
+Shape(DA,OAB,OBC,CD)
+Shape(OAB,BC,OCD,DA)
+Shape(BC,OCD,DA,OAB)
+Shape(OCD,DA,OAB,BC)
+Shape(DA,OAB,BC,OCD)
+Shape(OAB,BC,CD,ODA)
+Shape(BC,CD,ODA,OAB)
+Shape(CD,ODA,OAB,BC)
+Shape(ODA,OAB,BC,CD)
+Shape(OBC,OCD,DA,AB)
+Shape(OCD,DA,AB,OBC)
+Shape(DA,AB,OBC,OCD)
+Shape(AB,OBC,OCD,DA)
+Shape(OBC,CD,ODA,AB)
+Shape(CD,ODA,AB,OBC)
+Shape(ODA,AB,OBC,CD)
+Shape(AB,OBC,CD,ODA)
+Shape(OCD,ODA,AB,BC)
+Shape(ODA,AB,BC,OCD)
+Shape(AB,BC,OCD,ODA)
+Shape(BC,OCD,ODA,AB)
+Shape(OAB,OBC,OCD,DA)
+Shape(OBC,OCD,DA,OAB)
+Shape(OCD,DA,OAB,OBC)
+Shape(DA,OAB,OBC,OCD)
+Shape(OAB,OBC,CD,ODA)
+Shape(OBC,CD,ODA,OAB)
+Shape(CD,ODA,OAB,OBC)
+Shape(ODA,OAB,OBC,CD)
+Shape(OAB,BC,OCD,ODA)
+Shape(BC,OCD,ODA,OAB)
+Shape(OCD,ODA,OAB,BC)
+Shape(ODA,OAB,BC,OCD)
+Shape(OBC,OCD,ODA,AB)
+Shape(OCD,ODA,AB,OBC)
+Shape(ODA,AB,OBC,OCD)
+Shape(AB,OBC,OCD,ODA)
+Shape(OAB,OBC,OCD,ODA)
+Shape(OBC,OCD,ODA,OAB)
+Shape(OCD,ODA,OAB,OBC)
+Shape(ODA,OAB,OBC,OCD)
+Cocircular(O,A)
+Cocircular(O,B)
+Cocircular(O,C)
+Cocircular(O,D)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,BD)
+Cocircular(O,DB)
+Cocircular(O,CD)
+Cocircular(O,DC)
+Cocircular(O,ABC)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Cocircular(O,ABD)
+Cocircular(O,BDA)
+Cocircular(O,DAB)
+Cocircular(O,ACD)
+Cocircular(O,CDA)
+Cocircular(O,DAC)
+Cocircular(O,BCD)
+Cocircular(O,CDB)
+Cocircular(O,DBC)
+Cocircular(O,BCDA)
+Cocircular(O,CDAB)
+Cocircular(O,DABC)
+Point(B)
+Point(A)
+Point(C)
+Point(D)
+Line(BA)
+Line(AB)
+Line(CB)
+Line(BC)
+Line(DC)
+Line(CD)
+Line(AD)
+Line(DA)
+Arc(OAB)
+Arc(OBA)
+Arc(OAC)
+Arc(OCA)
+Arc(OAD)
+Arc(ODA)
+Arc(OBC)
+Arc(OCB)
+Arc(OBD)
+Arc(ODB)
+Arc(OCD)
+Arc(ODC)
+Angle(ABC)
+Angle(BCD)
+Angle(CDA)
+Angle(DAB)
+Angle(CBA)
+Angle(DCB)
+Angle(ADC)
+Angle(BAD)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Polygon(DABC)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_abc-80
+GOAL_SYMBOL:
+ma_cda
+ANSWER:
+100
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('O', 'A', 'D', 'C', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OADC,B); Cocircular(O,ADC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OADC),1/2))"]
+2; arc_property_circumference_angle_external(1,OABC,D); Cocircular(O,ABC)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OABC),1/2))"]
+3; round_arc(1,OADC,OABC); Arc(OADC)&Arc(OABC); ["Equal(Add(MeasureOfArc(OADC),MeasureOfArc(OABC)),360)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CDA)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCA,D)
+You output the following premises: Cocircular(O,DAC)&Angle(ADC)
+But the correct premises: Cocircular(O,CAD)&Angle(ADC)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,DAC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(CBA)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_abc-80
+GT_GOAL_SYMBOL:
+ma_cda
+GT_ANSWER:
+100
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,OCA,B);Cocircular(O,CAB)&Angle(ABC);["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OCA),1/2))"]
+2;arc_property_circumference_angle_internal(1,OCA,D);Cocircular(O,CDA)&Angle(CDA);["Equal(MeasureOfAngle(CDA),Sub(180,Mul(MeasureOfArc(OCA),1/2)))"]
+

@@ -1,0 +1,240 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠EFB=122°, △EFB is mirror congruent to △EBA. Find the sum of the measure of ∠CAB and the measure of ∠EAD.
+CONSTRUCTION_CDL:
+Shape(FB,BE,EF)
+Shape(BA,AE,EB)
+Shape(BC,CA,AB)
+Shape(EA,AD,DE)
+Collinear(CAD)
+TEXT_CDL:
+Equal(MeasureOfAngle(EFB),122)
+MirrorCongruentBetweenTriangle(EFB,EBA)
+GOAL_CDL:
+Value(Add(MeasureOfAngle(CAB),MeasureOfAngle(EAD)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BE,EF,FB)
+Shape(EF,FB,BE)
+Shape(AE,EB,BA)
+Shape(EB,BA,AE)
+Shape(CA,AB,BC)
+Shape(AB,BC,CA)
+Shape(AD,DE,EA)
+Shape(DE,EA,AD)
+Shape(EF,FB,BA,AE)
+Shape(FB,BA,AE,EF)
+Shape(BA,AE,EF,FB)
+Shape(AE,EF,FB,BA)
+Shape(AE,EB,BC,CA)
+Shape(EB,BC,CA,AE)
+Shape(BC,CA,AE,EB)
+Shape(CA,AE,EB,BC)
+Shape(EB,BA,AD,DE)
+Shape(BA,AD,DE,EB)
+Shape(AD,DE,EB,BA)
+Shape(DE,EB,BA,AD)
+Shape(EF,FB,BC,CA,AE)
+Shape(FB,BC,CA,AE,EF)
+Shape(BC,CA,AE,EF,FB)
+Shape(CA,AE,EF,FB,BC)
+Shape(AE,EF,FB,BC,CA)
+Shape(EF,FB,BA,AD,DE)
+Shape(FB,BA,AD,DE,EF)
+Shape(BA,AD,DE,EF,FB)
+Shape(AD,DE,EF,FB,BA)
+Shape(DE,EF,FB,BA,AD)
+Shape(BC,CA,AD,DE,EB)
+Shape(CA,AD,DE,EB,BC)
+Shape(AD,DE,EB,BC,CA)
+Shape(DE,EB,BC,CA,AD)
+Shape(EB,BC,CA,AD,DE)
+Shape(EF,FB,BC,CA,AD,DE)
+Shape(FB,BC,CA,AD,DE,EF)
+Shape(BC,CA,AD,DE,EF,FB)
+Shape(CA,AD,DE,EF,FB,BC)
+Shape(AD,DE,EF,FB,BC,CA)
+Shape(DE,EF,FB,BC,CA,AD)
+Collinear(DAC)
+Point(C)
+Point(D)
+Point(A)
+Point(F)
+Point(B)
+Point(E)
+Line(CD)
+Line(DC)
+Line(CA)
+Line(AC)
+Line(AD)
+Line(DA)
+Line(FB)
+Line(BF)
+Line(BE)
+Line(EB)
+Line(EF)
+Line(FE)
+Line(BA)
+Line(AB)
+Line(AE)
+Line(EA)
+Line(BC)
+Line(CB)
+Line(DE)
+Line(ED)
+Angle(CAD)
+Angle(DAC)
+Angle(FBE)
+Angle(BEF)
+Angle(EFB)
+Angle(BAE)
+Angle(AEB)
+Angle(EBA)
+Angle(BCA)
+Angle(CAB)
+Angle(ABC)
+Angle(EAD)
+Angle(ADE)
+Angle(DEA)
+Angle(FBA)
+Angle(AEF)
+Angle(EBC)
+Angle(CAE)
+Angle(BAD)
+Angle(DEB)
+Angle(FBC)
+Angle(DEF)
+Angle(CDE)
+Angle(DAB)
+Angle(EAC)
+Angle(BCD)
+Angle(EBF)
+Angle(FEB)
+Angle(BFE)
+Angle(EAB)
+Angle(BEA)
+Angle(ABE)
+Angle(ACB)
+Angle(BAC)
+Angle(CBA)
+Angle(DAE)
+Angle(EDA)
+Angle(AED)
+Angle(ABF)
+Angle(FEA)
+Angle(CBE)
+Angle(BED)
+Angle(CBF)
+Angle(FED)
+Angle(EDC)
+Angle(DCB)
+Polygon(FBE)
+Polygon(BEF)
+Polygon(EFB)
+Polygon(BAE)
+Polygon(AEB)
+Polygon(EBA)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(EAD)
+Polygon(ADE)
+Polygon(DEA)
+Polygon(EFBA)
+Polygon(FBAE)
+Polygon(BAEF)
+Polygon(AEFB)
+Polygon(AEBC)
+Polygon(EBCA)
+Polygon(BCAE)
+Polygon(CAEB)
+Polygon(EBAD)
+Polygon(BADE)
+Polygon(ADEB)
+Polygon(DEBA)
+Polygon(EFBCA)
+Polygon(FBCAE)
+Polygon(BCAEF)
+Polygon(CAEFB)
+Polygon(AEFBC)
+Polygon(EFBAD)
+Polygon(FBADE)
+Polygon(BADEF)
+Polygon(ADEFB)
+Polygon(DEFBA)
+Polygon(BCDE)
+Polygon(CDEB)
+Polygon(DEBC)
+Polygon(EBCD)
+Polygon(EFBCD)
+Polygon(FBCDE)
+Polygon(BCDEF)
+Polygon(CDEFB)
+Polygon(DEFBC)
+MirrorCongruentBetweenTriangle(FBE,AEB)
+MirrorCongruentBetweenTriangle(BEF,BAE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_efb-122
+GOAL_SYMBOL:
+Add(MeasureOfAngle(CAB),MeasureOfAngle(EAD))
+ANSWER:
+58
+THEOREM_SEQUENCE:
+1; mirror_congruent_triangle_property_angle_equal(1,EFB,EBA); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(MeasureOfAngle(FBE),MeasureOfAngle(BAE))"]
+2; triangle_property_angle_sum(1,EFB); Polygon(EFB); ["Equal(Add(MeasureOfAngle(FBE),MeasureOfAngle(BEF),MeasureOfAngle(EFB)),180)"]
+3; flat_angle(1,CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+4; angle_addition(1,CAB,BAD); Angle(CAB)&Angle(BAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAD)))"]
+5; angle_addition(1,BAE,EAD); Angle(BAE)&Angle(EAD)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Add(MeasureOfAngle(BAE),MeasureOfAngle(EAD)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: mirror_congruent_triangle_property_angle_equal(1,EFB,EBA)
+You output the following conclusions: Equal(MeasureOfAngle(EFB),MeasureOfAngle(EAB))
+But the correct conclusions: Equal(MeasureOfAngle(BEF),MeasureOfAngle(AEB))
+
+Model Answer:
+RETRY_ANSWER:
+58
+RETRY_THEOREM_SEQUENCE:
+1; mirror_congruent_triangle_property_angle_equal(1,EFB,EBA); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(EAB))"]
+2; angle_addition(1,CAB,BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3; adjacent_complementary_angle(1,CAE,EAD); Collinear(CAD)&Angle(CAE)&Angle(EAD); ["Equal(Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)),180)"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#RETRIES:
+4
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ma_efb-122
+GT_GOAL_SYMBOL:
+ma_cab+ma_ead
+GT_ANSWER:
+58
+GT_THEOREM_SEQUENCE:
+1;mirror_congruent_triangle_property_angle_equal(1,FBE,AEB);MirrorCongruentBetweenTriangle(FBE,AEB);["Equal(MeasureOfAngle(EFB),MeasureOfAngle(BAE))"]
+2;angle_addition(1,CAB,BAE);Angle(CAB)&Angle(BAE)&Angle(CAE);["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3;adjacent_complementary_angle(1,CAE,EAD);Collinear(CAD)&Angle(CAE)&Angle(EAD);["Equal(Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)),180)"]
+

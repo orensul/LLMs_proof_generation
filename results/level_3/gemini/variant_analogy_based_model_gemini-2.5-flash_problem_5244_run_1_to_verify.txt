@@ -1,0 +1,280 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠EFB=122°, △EFB is mirror congruent to △EBA. Find the sum of the measure of ∠CAB and the measure of ∠EAD.
+CONSTRUCTION_CDL:
+Shape(FB,BE,EF)
+Shape(BA,AE,EB)
+Shape(BC,CA,AB)
+Shape(EA,AD,DE)
+Collinear(CAD)
+TEXT_CDL:
+Equal(MeasureOfAngle(EFB),122)
+MirrorCongruentBetweenTriangle(EFB,EBA)
+GOAL_CDL:
+Value(Add(MeasureOfAngle(CAB),MeasureOfAngle(EAD)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BE,EF,FB)
+Shape(EF,FB,BE)
+Shape(AE,EB,BA)
+Shape(EB,BA,AE)
+Shape(CA,AB,BC)
+Shape(AB,BC,CA)
+Shape(AD,DE,EA)
+Shape(DE,EA,AD)
+Shape(EF,FB,BA,AE)
+Shape(FB,BA,AE,EF)
+Shape(BA,AE,EF,FB)
+Shape(AE,EF,FB,BA)
+Shape(AE,EB,BC,CA)
+Shape(EB,BC,CA,AE)
+Shape(BC,CA,AE,EB)
+Shape(CA,AE,EB,BC)
+Shape(EB,BA,AD,DE)
+Shape(BA,AD,DE,EB)
+Shape(AD,DE,EB,BA)
+Shape(DE,EB,BA,AD)
+Shape(EF,FB,BC,CA,AE)
+Shape(FB,BC,CA,AE,EF)
+Shape(BC,CA,AE,EF,FB)
+Shape(CA,AE,EF,FB,BC)
+Shape(AE,EF,FB,BC,CA)
+Shape(EF,FB,BA,AD,DE)
+Shape(FB,BA,AD,DE,EF)
+Shape(BA,AD,DE,EF,FB)
+Shape(AD,DE,EF,FB,BA)
+Shape(DE,EF,FB,BA,AD)
+Shape(BC,CA,AD,DE,EB)
+Shape(CA,AD,DE,EB,BC)
+Shape(AD,DE,EB,BC,CA)
+Shape(DE,EB,BC,CA,AD)
+Shape(EB,BC,CA,AD,DE)
+Shape(EF,FB,BC,CA,AD,DE)
+Shape(FB,BC,CA,AD,DE,EF)
+Shape(BC,CA,AD,DE,EF,FB)
+Shape(CA,AD,DE,EF,FB,BC)
+Shape(AD,DE,EF,FB,BC,CA)
+Shape(DE,EF,FB,BC,CA,AD)
+Collinear(DAC)
+Point(C)
+Point(D)
+Point(A)
+Point(F)
+Point(B)
+Point(E)
+Line(CD)
+Line(DC)
+Line(CA)
+Line(AC)
+Line(AD)
+Line(DA)
+Line(FB)
+Line(BF)
+Line(BE)
+Line(EB)
+Line(EF)
+Line(FE)
+Line(BA)
+Line(AB)
+Line(AE)
+Line(EA)
+Line(BC)
+Line(CB)
+Line(DE)
+Line(ED)
+Angle(CAD)
+Angle(DAC)
+Angle(FBE)
+Angle(BEF)
+Angle(EFB)
+Angle(BAE)
+Angle(AEB)
+Angle(EBA)
+Angle(BCA)
+Angle(CAB)
+Angle(ABC)
+Angle(EAD)
+Angle(ADE)
+Angle(DEA)
+Angle(FBA)
+Angle(AEF)
+Angle(EBC)
+Angle(CAE)
+Angle(BAD)
+Angle(DEB)
+Angle(FBC)
+Angle(DEF)
+Angle(CDE)
+Angle(DAB)
+Angle(EAC)
+Angle(BCD)
+Angle(EBF)
+Angle(FEB)
+Angle(BFE)
+Angle(EAB)
+Angle(BEA)
+Angle(ABE)
+Angle(ACB)
+Angle(BAC)
+Angle(CBA)
+Angle(DAE)
+Angle(EDA)
+Angle(AED)
+Angle(ABF)
+Angle(FEA)
+Angle(CBE)
+Angle(BED)
+Angle(CBF)
+Angle(FED)
+Angle(EDC)
+Angle(DCB)
+Polygon(FBE)
+Polygon(BEF)
+Polygon(EFB)
+Polygon(BAE)
+Polygon(AEB)
+Polygon(EBA)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(EAD)
+Polygon(ADE)
+Polygon(DEA)
+Polygon(EFBA)
+Polygon(FBAE)
+Polygon(BAEF)
+Polygon(AEFB)
+Polygon(AEBC)
+Polygon(EBCA)
+Polygon(BCAE)
+Polygon(CAEB)
+Polygon(EBAD)
+Polygon(BADE)
+Polygon(ADEB)
+Polygon(DEBA)
+Polygon(EFBCA)
+Polygon(FBCAE)
+Polygon(BCAEF)
+Polygon(CAEFB)
+Polygon(AEFBC)
+Polygon(EFBAD)
+Polygon(FBADE)
+Polygon(BADEF)
+Polygon(ADEFB)
+Polygon(DEFBA)
+Polygon(BCDE)
+Polygon(CDEB)
+Polygon(DEBC)
+Polygon(EBCD)
+Polygon(EFBCD)
+Polygon(FBCDE)
+Polygon(BCDEF)
+Polygon(CDEFB)
+Polygon(DEFBC)
+MirrorCongruentBetweenTriangle(FBE,AEB)
+MirrorCongruentBetweenTriangle(BEF,BAE)
+SYMBOLS_AND_VALUES:
+LengthOfLine(BE);ll_be;None
+LengthOfLine(EB);ll_be;None
+LengthOfLine(AF);ll_af;None
+LengthOfLine(FA);ll_af;None
+MeasureOfAngle(EBC);ma_ebc;60
+MeasureOfAngle(ABC);ma_ebc;60
+LengthOfLine(AB);ll_ab;None
+LengthOfLine(BA);ll_ab;None
+LengthOfLine(AD);ll_ad;None
+LengthOfLine(DA);ll_ad;None
+LengthOfLine(CB);ll_cb;None
+LengthOfLine(BC);ll_cb;None
+LengthOfLine(CD);ll_cd;None
+LengthOfLine(DC);ll_cd;None
+MeasureOfAngle(AEC);ma_aec;None
+MeasureOfAngle(CFA);ma_cfa;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_efb-122
+GOAL_SYMBOL:
+Add(MeasureOfAngle(CAB),MeasureOfAngle(EAD))
+ANSWER:
+58
+THEOREM_SEQUENCE:
+1; flat_angle(1,CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+2; angle_addition(1,CAB,BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3; angle_addition(1,CAE,EAD); Angle(CAE)&Angle(EAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))"]
+4; mirror_congruent_triangle_property_angle_equal(1,EFB,ABE); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(ABE))"]
+5; mirror_congruent_triangle_property_line_equal(1,FEB,BAE); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(LengthOfLine(EB),LengthOfLine(AE))"]
+6; isosceles_triangle_judgment_line_equal(1,EBA); Polygon(EBA)&Equal(LengthOfLine(EB),LengthOfLine(EA)); ["IsoscelesTriangle(EBA)"]
+7; isosceles_triangle_property_angle_equal(1,EBA); IsoscelesTriangle(EBA); ["Equal(MeasureOfAngle(BAE),MeasureOfAngle(EBA))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: mirror_congruent_triangle_property_angle_equal(1,EFB,EBA)
+You output the following conclusions: Equal(MeasureOfAngle(EFB),MeasureOfAngle(EAB))
+But the correct conclusions: Equal(MeasureOfAngle(BEF),MeasureOfAngle(AEB))
+
+Model Answer:
+RETRY_ANSWER:
+58
+RETRY_THEOREM_SEQUENCE:
+1; mirror_congruent_triangle_property_angle_equal(1,EFB,EBA); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(EAB))"]
+2; flat_angle(1,CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+3; angle_addition(1,CAB,BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+4; angle_addition(1,CAE,EAD); Angle(CAE)&Angle(EAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#run: 1; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: mirror_congruent_triangle_property_line_equal(1,BEA,EFB)
+You output the following premises: MirrorCongruentBetweenTriangle(EFB,EBA)
+But the correct premises: MirrorCongruentBetweenTriangle(BEA,EFB)
+You output the following conclusions: Equal(LengthOfLine(EA),LengthOfLine(EB))
+But the correct conclusions: Equal(LengthOfLine(EA),LengthOfLine(FB))
+
+Model Answer:
+RETRY_ANSWER:
+58
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+2; angle_addition(1,CAB,BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3; angle_addition(1,CAE,EAD); Angle(CAE)&Angle(EAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))"]
+4; mirror_congruent_triangle_property_line_equal(1,BEA,EFB); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(LengthOfLine(EA),LengthOfLine(EB))"]
+5; isosceles_triangle_judgment_line_equal(1,EBA); Polygon(EBA)&Equal(LengthOfLine(EA),LengthOfLine(EB)); ["IsoscelesTriangle(EBA)"]
+6; isosceles_triangle_property_angle_equal(1,EBA); IsoscelesTriangle(EBA); ["Equal(MeasureOfAngle(EBA),MeasureOfAngle(BAE))"]
+7; mirror_congruent_triangle_property_angle_equal(1,EFB,EBA); MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(EBA))"]
+#run: 1; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,EBA)
+You output the following premises: Polygon(EBA)&Equal(LengthOfLine(BE),LengthOfLine(AE))
+But the correct premises: Polygon(EBA)&Equal(LengthOfLine(EB),LengthOfLine(EA))
+
+Model Answer:
+RETRY_ANSWER:
+58
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+2; angle_addition(1,CAB,BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3; angle_addition(1,CAE,EAD); Angle(CAE)&Angle(EAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))"]
+4; mirror_congruent_triangle_property_angle_equal(1,FBE,BAE); MirrorCongruentBetweenTriangle(FBE,BAE); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(EBA))"]
+5; mirror_congruent_triangle_property_line_equal(1,FBE,BAE); MirrorCongruentBetweenTriangle(FBE,BAE); ["Equal(LengthOfLine(BE),LengthOfLine(AE))"]
+6; isosceles_triangle_judgment_line_equal(1,EBA); Polygon(EBA)&Equal(LengthOfLine(BE),LengthOfLine(AE)); ["IsoscelesTriangle(EBA)"]
+7; isosceles_triangle_property_angle_equal(1,EBA); IsoscelesTriangle(EBA); ["Equal(MeasureOfAngle(BAE),MeasureOfAngle(EBA))"]
+#RETRIES:
+4
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ma_efb-122
+GT_GOAL_SYMBOL:
+ma_cab+ma_ead
+GT_ANSWER:
+58
+GT_THEOREM_SEQUENCE:
+1;mirror_congruent_triangle_property_angle_equal(1,FBE,AEB);MirrorCongruentBetweenTriangle(FBE,AEB);["Equal(MeasureOfAngle(EFB),MeasureOfAngle(BAE))"]
+2;angle_addition(1,CAB,BAE);Angle(CAB)&Angle(BAE)&Angle(CAE);["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3;adjacent_complementary_angle(1,CAE,EAD);Collinear(CAD)&Angle(CAE)&Angle(EAD);["Equal(Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)),180)"]
+

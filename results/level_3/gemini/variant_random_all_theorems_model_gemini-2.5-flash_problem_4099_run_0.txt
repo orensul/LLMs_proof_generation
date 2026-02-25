@@ -1,0 +1,148 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ECB=130°. Find the measure of ∠CBF minus the measure of ∠CAB.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+Shape(EC,CB)
+Shape(CB,BF)
+Collinear(ABF)
+Collinear(ACE)
+TEXT_CDL:
+Equal(MeasureOfAngle(ECB),130)
+GOAL_CDL:
+Value(Sub(MeasureOfAngle(CBF),MeasureOfAngle(CAB)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Collinear(FBA)
+Collinear(ECA)
+Point(A)
+Point(F)
+Point(B)
+Point(E)
+Point(C)
+Line(AF)
+Line(FA)
+Line(AB)
+Line(BA)
+Line(BF)
+Line(FB)
+Line(AE)
+Line(EA)
+Line(AC)
+Line(CA)
+Line(CE)
+Line(EC)
+Line(BC)
+Line(CB)
+Angle(ABF)
+Angle(FBA)
+Angle(ACE)
+Angle(ECA)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(FBC)
+Angle(BCE)
+Angle(CAF)
+Angle(EAB)
+Angle(EAF)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Angle(FAC)
+Angle(BAE)
+Angle(FAE)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_ecb-130
+GOAL_SYMBOL:
+Sub(ma_cbf,ma_cab)
+ANSWER:
+50
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1, B,C,E, B,C,A); Collinear(ACE)&Angle(BCE)&Angle(BCA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(BCA)),180)"]
+2; adjacent_complementary_angle(1, A,B,C, C,B,F); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1, ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <adjacent_complementary_angle> variation id is not supplied. Expected dict_keys(['1']) but got None.
+Your call: adjacent_complementary_angle(B,C,E,B,C,A)
+
+Please rewrite your response by adding the variation id as the first argument. For example:
+For variation 1: adjacent_complementary_angle(1, B,C,E,B,C,A)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(BCE,BCA); Collinear(ACE)&Angle(BCE)&Angle(BCA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(BCA)),180)"]
+2; adjacent_complementary_angle(ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <adjacent_complementary_angle> para length error. Expected 6 but got (' ', 'B', 'C', 'E', 'B', 'C', 'A').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1, BCE,BCA); Collinear(ACE)&Angle(BCE)&Angle(BCA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(BCA)),180)"]
+2; adjacent_complementary_angle(1, ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1, ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <adjacent_complementary_angle> para length error. Expected 6 but got (' ', 'B', 'C', 'E', ' ', 'B', 'C', 'A').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1, B,C,E, B,C,A); Collinear(ACE)&Angle(BCE)&Angle(BCA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(BCA)),180)"]
+2; adjacent_complementary_angle(1, A,B,C, C,B,F); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1, ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <adjacent_complementary_angle> para length error. Expected 6 but got (' ', 'B', 'C', 'E', ' ', 'B', 'C', 'A').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1, BCE, BCA); Collinear(ACE)&Angle(BCE)&Angle(BCA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(BCA)),180)"]
+2; adjacent_complementary_angle(1, ABC, CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1, ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#run: 0; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <adjacent_complementary_angle> para length error. Expected 6 but got (' ', 'B', 'C', 'E', ' ', 'B', 'C', 'A').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1, B,C,E, B,C,A); Collinear(ACE)&Angle(BCE)&Angle(BCA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(BCA)),180)"]
+2; adjacent_complementary_angle(1, A,B,C, C,B,F); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1, ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#RETRIES:
+5
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_ecb-130
+GT_GOAL_SYMBOL:
+-ma_cab+ma_cbf
+GT_ANSWER:
+50
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,ABC,CBF);Collinear(ABF)&Angle(ABC)&Angle(CBF);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+2;adjacent_complementary_angle(1,ECB,BCA);Collinear(ECA)&Angle(ECB)&Angle(BCA);["Equal(Add(MeasureOfAngle(ECB),MeasureOfAngle(BCA)),180)"]
+3;triangle_property_angle_sum(1,ABC);Polygon(ABC);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+

@@ -1,0 +1,100 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=x, AC=x, BC=5*sqrt(2), CA is perpendicular to BA. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),x)
+Equal(LengthOfLine(AC),x)
+Equal(LengthOfLine(BC),5*sqrt(2))
+PerpendicularBetweenLine(CA,BA)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Point(A)
+Point(B)
+Point(C)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Line(CA)
+Line(AC)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_ab-x
+ll_ac-x
+ll_bc-Mul(5,Sqrt(2))
+ma_cab-90
+Add(Pow(ll_ac,2),Pow(ll_ab,2))-Pow(ll_bc,2)
+GOAL_SYMBOL:
+x
+ANSWER:
+5
+THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,CAB); Polygon(CAB)&Equal(MeasureOfAngle(CAB),90); ["RightTriangle(CAB)"]
+2; right_triangle_property_pythagorean(1,CAB); RightTriangle(CAB); ["Equal(Add(Pow(LengthOfLine(CA),2),Pow(LengthOfLine(AB),2)),Pow(LengthOfLine(CB),2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_judgment_angle(1,ABC)
+You output the following premises: Polygon(ABC)&Equal(MeasureOfAngle(CAB),90)
+But the correct premises: Polygon(ABC)&Equal(MeasureOfAngle(ABC),90)
+
+Model Answer:
+RETRY_ANSWER:
+5
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ABC); Polygon(ABC)&Equal(MeasureOfAngle(CAB),90); ["RightTriangle(ABC)"]
+2; right_triangle_property_pythagorean(1,ABC); RightTriangle(ABC); ["Equal(Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BC),2))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_property_pythagorean(1,CAB)
+You output the following conclusions: Equal(Add(Pow(LengthOfLine(CA),2),Pow(LengthOfLine(AB),2)),Pow(LengthOfLine(BC),2))
+But the correct conclusions: Equal(Add(Pow(LengthOfLine(CA),2),Pow(LengthOfLine(AB),2)),Pow(LengthOfLine(CB),2))
+
+Model Answer:
+RETRY_ANSWER:
+5
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,CAB); Polygon(CAB)&Equal(MeasureOfAngle(CAB),90); ["RightTriangle(CAB)"]
+2; right_triangle_property_pythagorean(1,CAB); RightTriangle(CAB); ["Equal(Add(Pow(LengthOfLine(CA),2),Pow(LengthOfLine(AB),2)),Pow(LengthOfLine(BC),2))"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-x
+ll_ac-x
+ll_bc-5*sqrt(2)
+ma_cab-90
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+5
+GT_THEOREM_SEQUENCE:
+1;right_triangle_judgment_angle(1,CAB);Polygon(CAB)&Equal(MeasureOfAngle(CAB),90);["RightTriangle(CAB)"]
+2;right_triangle_property_pythagorean(1,CAB);RightTriangle(CAB);["Equal(Add(Pow(LengthOfLine(CA),2),Pow(LengthOfLine(AB),2)),Pow(LengthOfLine(CB),2))"]
+

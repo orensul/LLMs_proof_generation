@@ -1,0 +1,77 @@
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,JAB,JAE)
+You output the following premises: Collinear(BAE)&Angle(JAB)&Angle(JAE)
+But the correct premises: Collinear(JAE)&Angle(JAJ)&Angle(JAE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(JAE)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(JAJ),MeasureOfAngle(JAE)),180)
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,JAB,JAE); Collinear(BAE)&Angle(JAB)&Angle(JAE); ["Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(JAE)),180)"]
+2; parallel_property_alternate_interior_angle(1,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(MeasureOfAngle(JAB),MeasureOfAngle(ABH))"]
+Retry attempt: 1
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,AJ,BH)
+You output the following premises: ParallelBetweenLine(AJ,BH)&Line(AB)
+But the correct premises: ParallelBetweenLine(AJ,BH)&Line(AH)
+You output the following conclusions: Equal(MeasureOfAngle(JAB),MeasureOfAngle(ABH))
+But the correct conclusions: Equal(MeasureOfAngle(JAH),MeasureOfAngle(BHA))
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BAJ,JAE); Collinear(BAE)&Angle(BAJ)&Angle(JAE); ["Equal(Add(MeasureOfAngle(BAJ),MeasureOfAngle(JAE)),180)"]
+2; parallel_property_alternate_interior_angle(1,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(MeasureOfAngle(JAB),MeasureOfAngle(ABH))"]
+Retry attempt: 2
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,JA,HB)
+You output the following premises: ParallelBetweenLine(JA,HB)&Line(AB)
+But the correct premises: ParallelBetweenLine(JA,HB)&Line(AH)
+You output the following conclusions: Equal(MeasureOfAngle(JAB),MeasureOfAngle(HBA))
+But the correct conclusions: Equal(MeasureOfAngle(HAJ),MeasureOfAngle(AHB))
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BAJ,JAE); Collinear(BAE)&Angle(BAJ)&Angle(JAE); ["Equal(Add(MeasureOfAngle(BAJ),MeasureOfAngle(JAE)),180)"]
+2; parallel_property_alternate_interior_angle(2,JA,HB); ParallelBetweenLine(JA,HB)&Line(AB); ["Equal(MeasureOfAngle(JAB),MeasureOfAngle(HBA))"]
+Retry attempt: 3
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AJ,BH)
+You output the following premises: ParallelBetweenLine(AJ,BH)&Line(AB)
+But the correct premises: ParallelBetweenLine(AJ,BH)&Line(JB)
+You output the following conclusions: Equal(MeasureOfAngle(JAB),MeasureOfAngle(ABH))
+But the correct conclusions: Equal(MeasureOfAngle(BJA),MeasureOfAngle(JBH))
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BAJ,JAE); Collinear(BAE)&Angle(BAJ)&Angle(JAE); ["Equal(Add(MeasureOfAngle(BAJ),MeasureOfAngle(JAE)),180)"]
+2; parallel_property_alternate_interior_angle(2,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(MeasureOfAngle(JAB),MeasureOfAngle(ABH))"]
+Retry attempt: 4
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,JAB,JAE)
+You output the following premises: Collinear(BAE)&Angle(JAB)&Angle(JAE)
+But the correct premises: Collinear(JAE)&Angle(JAJ)&Angle(JAE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(JAE)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(JAJ),MeasureOfAngle(JAE)),180)
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,JAB,JAE); Collinear(BAE)&Angle(JAB)&Angle(JAE); ["Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(JAE)),180)"]
+2; parallel_property_alternate_interior_angle(1,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(MeasureOfAngle(JAB),MeasureOfAngle(ABH))"]
+Retry attempt: 5
+Total time: 184.419s | per attempt: [55.128, 32.662, 44.609, 19.426, 32.592]
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2624_run_0.txt

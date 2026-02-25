@@ -1,18 +1,4 @@
 Content written to results/level_1/gemini/variant_analogy_based_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
-Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
-Theorem: parallel_property_ipsilateral_internal_angle(1,AJ,BH)
-You output the following conclusions: Equal(Add(MeasureOfAngle(JAE),MeasureOfAngle(ABH)),180)
-But the correct conclusions: Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(ABH)),180)
-
-Model Answer:
-RETRY_ANSWER:
-25
-RETRY_THEOREM_SEQUENCE:
-1; parallel_property_ipsilateral_internal_angle(1,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(Add(MeasureOfAngle(JAE),MeasureOfAngle(ABH)),180)"]
-Retry attempt: 1
-[Attempt 1] Error calling Gemini model: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
-Retrying in 1 seconds...
-Content written to results/level_1/gemini/variant_analogy_based_model_gemini-2.5-flash_problem_2624_run_0_to_verify.txt
 Theorem sequence verified correctly
-Total time: 110.034s | per attempt: [67.414, 42.619]
+Total time: 20.789s | per attempt: [20.789]
 Content written to results/level_1/gemini/variant_analogy_based_model_gemini-2.5-flash_problem_2624_run_0.txt

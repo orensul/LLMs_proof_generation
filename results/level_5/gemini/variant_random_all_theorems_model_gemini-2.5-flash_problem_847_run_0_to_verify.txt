@@ -1,0 +1,176 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=BC, AC=12, BD=h, ∠CAB=60°, CD is perpendicular to BD. Find the value of h.
+CONSTRUCTION_CDL:
+Shape(BC,CD,DB)
+Shape(BD,DA,AB)
+Collinear(CDA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),LengthOfLine(BC))
+Equal(LengthOfLine(AC),12)
+Equal(LengthOfLine(BD),h)
+Equal(MeasureOfAngle(CAB),60)
+PerpendicularBetweenLine(CD,BD)
+GOAL_CDL:
+Value(h)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CD,DB,BC)
+Shape(DB,BC,CD)
+Shape(DA,AB,BD)
+Shape(AB,BD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(DA,AB,BC,CD)
+Shape(AB,BC,CD,DA)
+Collinear(ADC)
+Point(C)
+Point(A)
+Point(D)
+Point(B)
+Line(CA)
+Line(AC)
+Line(CD)
+Line(DC)
+Line(DA)
+Line(AD)
+Line(BC)
+Line(CB)
+Line(DB)
+Line(BD)
+Line(AB)
+Line(BA)
+Angle(CDA)
+Angle(ADC)
+Angle(BCD)
+Angle(CDB)
+Angle(DBC)
+Angle(BDA)
+Angle(DAB)
+Angle(ABD)
+Angle(CAB)
+Angle(ABC)
+Angle(BCA)
+Angle(DCB)
+Angle(BDC)
+Angle(CBD)
+Angle(ADB)
+Angle(BAD)
+Angle(DBA)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABD)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_ab-ll_bc
+ll_ac-12
+ll_bd-h
+ma_cab-60
+ma_cdb-90
+GOAL_SYMBOL:
+h
+ANSWER:
+6*sqrt(3)
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,BCA); Polygon(BCA)&Equal(LengthOfLine(BC),LengthOfLine(BA)); ["IsoscelesTriangle(BCA)"]
+2; isosceles_triangle_property_angle_equal(1,BCA); IsoscelesTriangle(BCA); ["Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAB))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; right_triangle_judgment_angle(1,BCD); Polygon(BCD)&Equal(MeasureOfAngle(CDB),90); ["RightTriangle(BCD)"]
+5; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(CDB))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BCD))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,ABC)
+You output the following premises: Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(BC))
+But the correct premises: Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC))
+
+Model Answer:
+RETRY_ANSWER:
+6*sqrt(3)
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,ABC); Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(BC)); ["IsoscelesTriangle(ABC)"]
+2; isosceles_triangle_property_angle_equal(1,ABC); IsoscelesTriangle(ABC); ["Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAB))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(CDB))),Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCD))))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,BCA)
+You output the following conclusions: Equal(MeasureOfAngle(CBA),MeasureOfAngle(BAC))
+But the correct conclusions: Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAB))
+
+Model Answer:
+RETRY_ANSWER:
+6*sqrt(3)
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,BCA); Polygon(BCA)&Equal(LengthOfLine(BC),LengthOfLine(BA)); ["IsoscelesTriangle(BCA)"]
+2; isosceles_triangle_property_angle_equal(1,BCA); IsoscelesTriangle(BCA); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BAC))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(CDB))))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,BCA)
+You output the following conclusions: Equal(MeasureOfAngle(BCA),MeasureOfAngle(BAC))
+But the correct conclusions: Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAB))
+
+Model Answer:
+RETRY_ANSWER:
+6*sqrt(3)
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,BCA); Polygon(BCA)&Equal(LengthOfLine(BC),LengthOfLine(BA)); ["IsoscelesTriangle(BCA)"]
+2; isosceles_triangle_property_angle_equal(1,BCA); IsoscelesTriangle(BCA); ["Equal(MeasureOfAngle(BCA),MeasureOfAngle(BAC))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; right_triangle_judgment_angle(1,BCD); Polygon(BCD)&Equal(MeasureOfAngle(CDB),90); ["RightTriangle(BCD)"]
+5; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(CDB))))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,BAC)
+You output the following conclusions: Equal(MeasureOfAngle(BAC),MeasureOfAngle(BCA))
+But the correct conclusions: Equal(MeasureOfAngle(BAC),MeasureOfAngle(ACB))
+
+Model Answer:
+RETRY_ANSWER:
+6*sqrt(3)
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,BAC); Polygon(BAC)&Equal(LengthOfLine(BA),LengthOfLine(BC)); ["IsoscelesTriangle(BAC)"]
+2; isosceles_triangle_property_angle_equal(1,BAC); IsoscelesTriangle(BAC); ["Equal(MeasureOfAngle(BAC),MeasureOfAngle(BCA))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; right_triangle_judgment_angle(1,BCD); Polygon(BCD)&Equal(MeasureOfAngle(CDB),90); ["RightTriangle(BCD)"]
+5; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(CDB))))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-ll_bc
+ll_ac-12
+-h+ll_bd
+ma_cab-60
+ma_cdb-90
+GT_GOAL_SYMBOL:
+h
+GT_ANSWER:
+6*sqrt(3)
+GT_THEOREM_SEQUENCE:
+1;perpendicular_bisector_judgment_distance_equal(1,BD,CA);Collinear(CDA)&Angle(CDB)&Equal(MeasureOfAngle(CDB),90)&Equal(LengthOfLine(BC),LengthOfLine(BA));["IsPerpendicularBisectorOfLine(BD,CA)"]
+2;line_addition(1,CD,DA);Collinear(CDA);["Equal(LengthOfLine(CA),Add(LengthOfLine(CD),LengthOfLine(DA)))"]
+3;triangle_property_angle_sum(1,BDA);Polygon(BDA);["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(DAB),MeasureOfAngle(ABD)),180)"]
+4;sine_theorem(1,BDA);Polygon(BDA);["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))"]
+5;sine_theorem(1,ABD);Polygon(ABD);["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABD))),Mul(LengthOfLine(AD),Sin(MeasureOfAngle(BDA))))"]
+

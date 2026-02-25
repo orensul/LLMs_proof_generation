@@ -1,0 +1,53 @@
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4523_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_internal> para length error. Expected 4 but got (' ', 'O', 'D', 'B', ' ', 'C').
+Model Answer:
+RETRY_ANSWER:
+140
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1, ODB, C); Cocircular(O,CDB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Sub(180,Mul(MeasureOfArc(ODB),1/2)))"]
+2; arc_property_center_angle(1, ODB, O); Arc(ODB)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(ODB),MeasureOfAngle(DOB))"]
+Retry attempt: 1
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4523_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_internal> para length error. Expected 4 but got (' ', 'O', ' ', 'D', ' ', 'B', ' ', 'C').
+Model Answer:
+RETRY_ANSWER:
+140
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1, O, D, B, C); Cocircular(O,CDB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Sub(180,Mul(MeasureOfArc(O,D,B),1/2)))"]
+2; arc_property_center_angle(1, O, D, B, O); Arc(O,D,B)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(O,D,B),MeasureOfAngle(DOB))"]
+Retry attempt: 2
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4523_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', ' ', 'B', ' ', 'D', ' ', 'C').
+Model Answer:
+RETRY_ANSWER:
+140
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, O, B, D, C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(O,B,D),1/2))"]
+2; round_arc(1, O, B, D, O, D, B); Arc(O,B,D)&Arc(O,D,B); ["Equal(Add(MeasureOfArc(O,B,D),MeasureOfArc(O,D,B)),360)"]
+3; arc_property_center_angle(1, O, D, B, O); Arc(O,D,B)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(O,D,B),MeasureOfAngle(DOB))"]
+Retry attempt: 3
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4523_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_internal> para length error. Expected 4 but got (' ', 'O', ' ', 'D', ' ', 'B', ' ', 'C').
+Model Answer:
+RETRY_ANSWER:
+140
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1, O, D, B, C); Cocircular(O,CDB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Sub(180,Mul(MeasureOfArc(O,D,B),1/2)))"]
+2; arc_property_center_angle(1, O, D, B, O); Arc(O,D,B)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(O,D,B),MeasureOfAngle(DOB))"]
+Retry attempt: 4
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4523_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_internal> para length error. Expected 4 but got (' ', 'O', ' ', 'D', ' ', 'B', ' ', 'C').
+Model Answer:
+RETRY_ANSWER:
+140
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1, O, D, B, C); Cocircular(O,CDB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Sub(180,Mul(MeasureOfArc(O,D,B),1/2)))"]
+2; arc_property_center_angle(1, O, D, B, O); Arc(O,D,B)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(O,D,B),MeasureOfAngle(DOB))"]
+Retry attempt: 5
+Total time: 185.478s | per attempt: [33.264, 43.406, 51.897, 30.236, 26.676]
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4523_run_0.txt

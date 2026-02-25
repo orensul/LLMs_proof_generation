@@ -1,0 +1,341 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠APD=80°, ∠DAP=55°, O is the center of circle O. Find the measure of ∠CBP.
+CONSTRUCTION_CDL:
+Shape(PC,CB,BP)
+Shape(AP,PD,DA)
+Shape(OAC,CP,PA)
+Shape(OCB,BC)
+Shape(ODA,AD)
+Shape(OBD,DP,PB)
+Collinear(CPD)
+Collinear(APB)
+Cocircular(O,CBDA)
+TEXT_CDL:
+Equal(MeasureOfAngle(APD),80)
+Equal(MeasureOfAngle(DAP),55)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(CBP))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CB,BP,PC)
+Shape(BP,PC,CB)
+Shape(PD,DA,AP)
+Shape(DA,AP,PD)
+Shape(CP,PA,OAC)
+Shape(PA,OAC,CP)
+Shape(BC,OCB)
+Shape(AD,ODA)
+Shape(DP,PB,OBD)
+Shape(PB,OBD,DP)
+Shape(PC,CB,OBD,DP)
+Shape(CB,OBD,DP,PC)
+Shape(OBD,DP,PC,CB)
+Shape(DP,PC,CB,OBD)
+Shape(BP,PC,OCB)
+Shape(PC,OCB,BP)
+Shape(OCB,BP,PC)
+Shape(CB,BP,PA,OAC)
+Shape(BP,PA,OAC,CB)
+Shape(PA,OAC,CB,BP)
+Shape(OAC,CB,BP,PA)
+Shape(PD,DA,OAC,CP)
+Shape(DA,OAC,CP,PD)
+Shape(OAC,CP,PD,DA)
+Shape(CP,PD,DA,OAC)
+Shape(AP,PD,ODA)
+Shape(PD,ODA,AP)
+Shape(ODA,AP,PD)
+Shape(DA,AP,PB,OBD)
+Shape(AP,PB,OBD,DA)
+Shape(PB,OBD,DA,AP)
+Shape(OBD,DA,AP,PB)
+Shape(PC,CB,OBD,DA,AP)
+Shape(CB,OBD,DA,AP,PC)
+Shape(OBD,DA,AP,PC,CB)
+Shape(DA,AP,PC,CB,OBD)
+Shape(AP,PC,CB,OBD,DA)
+Shape(CB,BP,PD,DA,OAC)
+Shape(BP,PD,DA,OAC,CB)
+Shape(PD,DA,OAC,CB,BP)
+Shape(DA,OAC,CB,BP,PD)
+Shape(OAC,CB,BP,PD,DA)
+Shape(OAC,CP,PD,ODA)
+Shape(CP,PD,ODA,OAC)
+Shape(PD,ODA,OAC,CP)
+Shape(ODA,OAC,CP,PD)
+Shape(OAC,CP,PB,OBD,DA)
+Shape(CP,PB,OBD,DA,OAC)
+Shape(PB,OBD,DA,OAC,CP)
+Shape(OBD,DA,OAC,CP,PB)
+Shape(DA,OAC,CP,PB,OBD)
+Shape(PA,OAC,CB,OBD,DP)
+Shape(OAC,CB,OBD,DP,PA)
+Shape(CB,OBD,DP,PA,OAC)
+Shape(OBD,DP,PA,OAC,CB)
+Shape(DP,PA,OAC,CB,OBD)
+Shape(PA,OAC,OCB,BP)
+Shape(OAC,OCB,BP,PA)
+Shape(OCB,BP,PA,OAC)
+Shape(BP,PA,OAC,OCB)
+Shape(OCB,OBD,DP,PC)
+Shape(OBD,DP,PC,OCB)
+Shape(DP,PC,OCB,OBD)
+Shape(PC,OCB,OBD,DP)
+Shape(ODA,AP,PB,OBD)
+Shape(AP,PB,OBD,ODA)
+Shape(PB,OBD,ODA,AP)
+Shape(OBD,ODA,AP,PB)
+Shape(PC,CB,OBD,ODA,AP)
+Shape(CB,OBD,ODA,AP,PC)
+Shape(OBD,ODA,AP,PC,CB)
+Shape(ODA,AP,PC,CB,OBD)
+Shape(AP,PC,CB,OBD,ODA)
+Shape(CB,BP,PD,ODA,OAC)
+Shape(BP,PD,ODA,OAC,CB)
+Shape(PD,ODA,OAC,CB,BP)
+Shape(ODA,OAC,CB,BP,PD)
+Shape(OAC,CB,BP,PD,ODA)
+Shape(CB,OBD,DA,OAC)
+Shape(OBD,DA,OAC,CB)
+Shape(DA,OAC,CB,OBD)
+Shape(OAC,CB,OBD,DA)
+Shape(PD,DA,OAC,OCB,BP)
+Shape(DA,OAC,OCB,BP,PD)
+Shape(OAC,OCB,BP,PD,DA)
+Shape(OCB,BP,PD,DA,OAC)
+Shape(BP,PD,DA,OAC,OCB)
+Shape(DA,AP,PC,OCB,OBD)
+Shape(AP,PC,OCB,OBD,DA)
+Shape(PC,OCB,OBD,DA,AP)
+Shape(OCB,OBD,DA,AP,PC)
+Shape(OBD,DA,AP,PC,OCB)
+Shape(OAC,CP,PB,OBD,ODA)
+Shape(CP,PB,OBD,ODA,OAC)
+Shape(PB,OBD,ODA,OAC,CP)
+Shape(OBD,ODA,OAC,CP,PB)
+Shape(ODA,OAC,CP,PB,OBD)
+Shape(PA,OAC,OCB,OBD,DP)
+Shape(OAC,OCB,OBD,DP,PA)
+Shape(OCB,OBD,DP,PA,OAC)
+Shape(OBD,DP,PA,OAC,OCB)
+Shape(DP,PA,OAC,OCB,OBD)
+Shape(CB,OBD,ODA,OAC)
+Shape(OBD,ODA,OAC,CB)
+Shape(ODA,OAC,CB,OBD)
+Shape(OAC,CB,OBD,ODA)
+Shape(DA,OAC,OCB,OBD)
+Shape(OAC,OCB,OBD,DA)
+Shape(OCB,OBD,DA,OAC)
+Shape(OBD,DA,OAC,OCB)
+Shape(OCB,OBD,ODA,AP,PC)
+Shape(OBD,ODA,AP,PC,OCB)
+Shape(ODA,AP,PC,OCB,OBD)
+Shape(AP,PC,OCB,OBD,ODA)
+Shape(PC,OCB,OBD,ODA,AP)
+Shape(OCB,BP,PD,ODA,OAC)
+Shape(BP,PD,ODA,OAC,OCB)
+Shape(PD,ODA,OAC,OCB,BP)
+Shape(ODA,OAC,OCB,BP,PD)
+Shape(OAC,OCB,BP,PD,ODA)
+Shape(OAC,OCB,OBD,ODA)
+Shape(OCB,OBD,ODA,OAC)
+Shape(OBD,ODA,OAC,OCB)
+Shape(ODA,OAC,OCB,OBD)
+Collinear(DPC)
+Collinear(BPA)
+Cocircular(O,C)
+Cocircular(O,B)
+Cocircular(O,D)
+Cocircular(O,A)
+Cocircular(O,CB)
+Cocircular(O,BC)
+Cocircular(O,CD)
+Cocircular(O,DC)
+Cocircular(O,CA)
+Cocircular(O,AC)
+Cocircular(O,BD)
+Cocircular(O,DB)
+Cocircular(O,BA)
+Cocircular(O,AB)
+Cocircular(O,DA)
+Cocircular(O,AD)
+Cocircular(O,CBD)
+Cocircular(O,BDC)
+Cocircular(O,DCB)
+Cocircular(O,CBA)
+Cocircular(O,BAC)
+Cocircular(O,ACB)
+Cocircular(O,CDA)
+Cocircular(O,DAC)
+Cocircular(O,ACD)
+Cocircular(O,BDA)
+Cocircular(O,DAB)
+Cocircular(O,ABD)
+Cocircular(O,BDAC)
+Cocircular(O,DACB)
+Cocircular(O,ACBD)
+Point(C)
+Point(D)
+Point(P)
+Point(A)
+Point(B)
+Line(CD)
+Line(DC)
+Line(CP)
+Line(PC)
+Line(PD)
+Line(DP)
+Line(AB)
+Line(BA)
+Line(AP)
+Line(PA)
+Line(PB)
+Line(BP)
+Line(CB)
+Line(BC)
+Line(DA)
+Line(AD)
+Arc(OCB)
+Arc(OBC)
+Arc(OCD)
+Arc(ODC)
+Arc(OCA)
+Arc(OAC)
+Arc(OBD)
+Arc(ODB)
+Arc(OBA)
+Arc(OAB)
+Arc(ODA)
+Arc(OAD)
+Angle(CPD)
+Angle(DPC)
+Angle(APB)
+Angle(BPA)
+Angle(PCB)
+Angle(CBP)
+Angle(BPC)
+Angle(APD)
+Angle(PDA)
+Angle(DAP)
+Angle(CPA)
+Angle(DPB)
+Angle(APC)
+Angle(BPD)
+Angle(CPB)
+Angle(DPA)
+Angle(DCB)
+Angle(CBA)
+Angle(CDA)
+Angle(DAB)
+Angle(BCP)
+Angle(PBC)
+Angle(ADP)
+Angle(PAD)
+Angle(BCD)
+Angle(ABC)
+Angle(ADC)
+Angle(BAD)
+Polygon(PCB)
+Polygon(CBP)
+Polygon(BPC)
+Polygon(APD)
+Polygon(PDA)
+Polygon(DAP)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_apd-80
+ma_dap-55
+GOAL_SYMBOL:
+ma_cbp
+ANSWER:
+45
+THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,CBD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,CPB); Polygon(CPB); ["Equal(Add(MeasureOfAngle(CPB),MeasureOfAngle(CBP),MeasureOfAngle(BCP)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,APD,CPB)
+You output the following premises: Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB)
+But the correct premises: Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB)
+You output the following conclusions: Equal(MeasureOfAngle(CPB),MeasureOfAngle(APD))
+But the correct conclusions: Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(CPB),MeasureOfAngle(APD))"]
+2; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,ABD)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OBD),1/2))"]
+4; triangle_property_angle_sum(1,CPB); Polygon(CPB); ["Equal(Add(MeasureOfAngle(CPB),MeasureOfAngle(PBC),MeasureOfAngle(BCP)),180)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,CAB)&Angle(CBA)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,APD); Polygon(APD); ["Equal(Add(MeasureOfAngle(APD),MeasureOfAngle(PDA),MeasureOfAngle(DAP)),180)"]
+2; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,CAB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+3; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,CAD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,APD,CPB)
+You output the following premises: Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB)
+But the correct premises: Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,ADB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,CDB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,CPB); Polygon(CPB); ["Equal(Add(MeasureOfAngle(CPB),MeasureOfAngle(PBC),MeasureOfAngle(BCP)),180)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,APD,CPB)
+You output the following premises: Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB)
+But the correct premises: Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DAB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,CPB); Polygon(CPB); ["Equal(Add(MeasureOfAngle(CPB),MeasureOfAngle(CBP),MeasureOfAngle(BCP)),180)"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_apd-80
+ma_dap-55
+GT_GOAL_SYMBOL:
+ma_cbp
+GT_ANSWER:
+45
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,APD);Polygon(APD);["Equal(Add(MeasureOfAngle(APD),MeasureOfAngle(PDA),MeasureOfAngle(DAP)),180)"]
+2;arc_property_circumference_angle_external(1,OAC,B);Cocircular(O,ACB)&Angle(CBA);["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+3;arc_property_circumference_angle_external(1,OAC,D);Cocircular(O,ACD)&Angle(CDA);["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+

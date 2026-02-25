@@ -1,0 +1,19 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,EF,CD)
+You output the following premises: ParallelBetweenLine(EF,CD)&Line(CE)
+But the correct premises: ParallelBetweenLine(EF,CD)&Line(EC)
+
+Model Answer:
+RETRY_ANSWER:
+26
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+3; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_2_to_verify.txt
+Theorem sequence verified correctly
+Total time: 27.400s | per attempt: [14.757, 12.643]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_3634_run_2.txt
