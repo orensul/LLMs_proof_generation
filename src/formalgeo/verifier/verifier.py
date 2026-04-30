@@ -104,10 +104,13 @@ class Verifier:
             return_str = ""
             if model_premises != premises:
                 return_str += f"You output the following premises: {model_premises}\nBut the correct premises: {premises}\n"
+            parsed_model_conclusions = ast.literal_eval(model_conclusions)
             for i in range(len(conclusions)):
                 conclusions[i] = replace_symbols(conclusions[i], letters)
-                if ast.literal_eval(model_conclusions)[i] != conclusions[i]:
-                    return_str += f"You output the following conclusions: {ast.literal_eval(model_conclusions)[i]}\nBut the correct conclusions: {conclusions[i]}\n"
+                if i >= len(parsed_model_conclusions):
+                    return_str += f"Missing conclusion at index {i}. Expected: {conclusions[i]}\n"
+                elif parsed_model_conclusions[i] != conclusions[i]:
+                    return_str += f"You output the following conclusions: {parsed_model_conclusions[i]}\nBut the correct conclusions: {conclusions[i]}\n"
             if return_str != "":
                 return f"Theorem: {theorem}\n{return_str}"
         return "Success"
