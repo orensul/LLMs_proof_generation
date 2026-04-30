@@ -1,0 +1,141 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=21, CA=16, CB=15. Find the value of cos(CB).
+CONSTRUCTION_CDL:
+Shape(BA,AC,CB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),21)
+Equal(LengthOfLine(CA),16)
+Equal(LengthOfLine(CB),15)
+GOAL_CDL:
+Value(Cos(MeasureOfAngle(CBA)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CB,BA)
+Shape(CB,BA,AC)
+Point(B)
+Point(A)
+Point(C)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Line(CB)
+Line(BC)
+Angle(BAC)
+Angle(ACB)
+Angle(CBA)
+Angle(CAB)
+Angle(BCA)
+Angle(ABC)
+Polygon(BAC)
+Polygon(ACB)
+Polygon(CBA)
+SYMBOLS_AND_VALUES:
+LengthOfLine(AB);ll_ab;15
+LengthOfLine(BA);ll_ab;15
+LengthOfLine(CA);ll_ca;25
+LengthOfLine(AC);ll_ca;25
+LengthOfLine(CB);ll_cb;20
+LengthOfLine(BC);ll_cb;20
+MeasureOfAngle(CBA);ma_cba;90
+MeasureOfAngle(ACB);ma_acb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find cos(CBA) given AB=21, CA=16, CB=15.
+
+Using the cosine theorem, I can find cos(CBA) where angle CBA is at vertex B, with sides CB and BA adjacent to it, and CA opposite to it.
+
+The cosine theorem states: CA² = CB² + BA² - 2·CB·BA·cos(CBA)
+
+Let me verify: CA=16, CB=15, AB=21
+16² = 15² + 21² - 2·15·21·cos(CBA)
+256 = 225 + 441 - 630·cos(CBA)
+256 = 666 - 630·cos(CBA)
+630·cos(CBA) = 410
+cos(CBA) = 410/630 = 41/63
+
+Now let me construct the theorem sequence using the cosine_theorem. The cosine theorem for polygon CBA would give:
+- The side opposite to angle CBA is CA
+- Equal(Add(Pow(LengthOfLine(BA),2), Mul(2,LengthOfLine(CB),LengthOfLine(CA)...))
+
+Looking at the cosine_theorem format:
+`cosine_theorem(ABC)`: `Equal(Add(Pow(LengthOfLine(BC),2),Mul(2,LengthOfLine(AB),LengthOfLine(AC),Cos(MeasureOfAngle(CAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AC),2)))`
+
+For polygon CBA: A→C, B→B, C→A
+- BC → CB, AB → BA, AC → BA... 
+
+Let me map CBA to ABC template:
+- A=C, B=B, C=A
+- LengthOfLine(BC) → LengthOfLine(BA)
+- LengthOfLine(AB) → LengthOfLine(CB)
+- LengthOfLine(AC) → LengthOfLine(CA) - wait, AC maps to BA
+
+Template: `Equal(Add(Pow(LengthOfLine(BC),2),Mul(2,LengthOfLine(AB),LengthOfLine(AC),Cos(MeasureOfAngle(CAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AC),2)))`
+
+For CBA (C=A, B=B, A=C position):
+- BC → BA (side from B to A, i.e., LengthOfLine(BA))
+- AB → CB
+- AC → CA... no, AC → BC... 
+
+Mapping: first letter C→A, second B→B, third A→C:
+- LengthOfLine(BC) → LengthOfLine(BA)
+- LengthOfLine(AB) → LengthOfLine(CB)  
+- LengthOfLine(AC) → LengthOfLine(BC) -- no, A→C, C→A, so AC→CA
+- Cos(MeasureOfAngle(CAB)) → Cos(MeasureOfAngle(ACB))... 
+
+CAB maps: C→A position means C→C(first), A→A(second wait...
+Let me just use the theorem for polygon ACB where the angle at B is ABC:
+
+For polygon ACB: A=A, B=C, C=B
+- Cos(MeasureOfAngle(CAB)) → Cos(MeasureOfAngle(BAC))... not what I want.
+
+Try polygon CBA directly: conclusion would be:
+`Equal(Add(Pow(LengthOfLine(BA),2),Mul(2,LengthOfLine(CB),LengthOfLine(CA),Cos(MeasureOfAngle(ACB)))),Add(Pow(LengthOfLine(CB),2),Pow(LengthOfLine(CA),2)))`
+
+That gives cos(ACB), not cos(CBA). 
+
+Try polygon BAC: A→B, B→A, C→C:
+- Cos(MeasureOfAngle(CAB)) → Cos(MeasureOfAngle(CBA)) ✓
+- LengthOfLine(BC) → LengthOfLine(AC)
+- LengthOfLine(AB) → LengthOfLine(BA)
+- LengthOfLine(AC) → LengthOfLine(BC) -- no: A→B, C→C, so AC→BC
+
+Conclusion: `Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))`
+
+This gives CA²=AB²+CB²-2·AB·CB·cos(CBA) — wait that's not right either. But the equation will be solved correctly by the system.
+
+EQUATIONS:
+ll_ab-21
+ll_ca-16
+ll_cb-15
+
+GOAL_SYMBOL:
+cos(pi*ma_cba/180)
+
+ANSWER:
+41/63
+
+THEOREM_SEQUENCE:
+1; cosine_theorem(1,BAC); Polygon(BAC); ["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-21
+ll_ca-16
+ll_cb-15
+GT_GOAL_SYMBOL:
+cos(pi*ma_cba/180)
+GT_ANSWER:
+41/63
+GT_THEOREM_SEQUENCE:
+1;cosine_theorem(1,BAC);Polygon(BAC);["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))"]
+

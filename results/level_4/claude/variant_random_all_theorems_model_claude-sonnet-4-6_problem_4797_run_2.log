@@ -1,0 +1,22 @@
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ACB)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+55
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+2; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+3; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+4; diameter_of_circle_property_right_angle(1,BCA,O); IsDiameterOfCircle(AB,O)&Cocircular(O,BCA)&Angle(BCA); ["PerpendicularBetweenLine(BC,AC)"]
+5; triangle_property_angle_sum(1,BAD); Polygon(BAD); ["Equal(Add(MeasureOfAngle(BAD),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_2_to_verify.txt
+Theorem sequence verified correctly
+Total time: 20.936s | per attempt: [14.205, 6.731]
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_2.txt

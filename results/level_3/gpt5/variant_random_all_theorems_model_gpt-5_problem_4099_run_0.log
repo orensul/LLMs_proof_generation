@@ -1,0 +1,46 @@
+Content written to results/level_3/gpt5/variant_random_all_theorems_model_gpt-5_problem_4099_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: value of Sub(MeasureOfAngle(CBF),MeasureOfAngle(CAB))
+- Model answer: 50
+- Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value.
+- Available premises:
+  Collinear Points: ABF, ACE
+  Polygons: ABC
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  None found
+
+Angle 1: CBF
+Angle 2: CAB
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,ECB,BCA); Collinear(ECA)&Angle(ECB)&Angle(BCA); ["Equal(Add(MeasureOfAngle(ECB),MeasureOfAngle(BCA)),180)"]
+2; triangle_property_angle_sum(1,CAB); Polygon(CAB); ["Equal(Add(MeasureOfAngle(CAB),MeasureOfAngle(ABC),MeasureOfAngle(BCA)),180)"]
+Retry attempt: 1
+Content written to results/level_3/gpt5/variant_random_all_theorems_model_gpt-5_problem_4099_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: angle_addition(1,ABC,CBD)
+You output the following premises: Angle(ABC)&Angle(CBF)&Angle(ABF)
+But the correct premises: Angle(ABC)&Angle(CBD)&Angle(ABD)
+You output the following conclusions: Equal(MeasureOfAngle(ABF),Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)))
+But the correct conclusions: Equal(MeasureOfAngle(ABD),Add(MeasureOfAngle(ABC),MeasureOfAngle(CBD)))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,ABF); Collinear(ABF); ["Equal(MeasureOfAngle(ABF),180)"]
+2; angle_addition(1,ABC,CBD); Angle(ABC)&Angle(CBF)&Angle(ABF); ["Equal(MeasureOfAngle(ABF),Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)))"]
+3; adjacent_complementary_angle(1,ECB,BCA); Collinear(ECA)&Angle(ECB)&Angle(BCA); ["Equal(Add(MeasureOfAngle(ECB),MeasureOfAngle(BCA)),180)"]
+4; triangle_property_angle_sum(1,CAB); Polygon(CAB); ["Equal(Add(MeasureOfAngle(CAB),MeasureOfAngle(ABC),MeasureOfAngle(BCA)),180)"]
+Retry attempt: 2
+Content written to results/level_3/gpt5/variant_random_all_theorems_model_gpt-5_problem_4099_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 405.445s | per attempt: [156.556, 166.195, 82.694]
+Content written to results/level_3/gpt5/variant_random_all_theorems_model_gpt-5_problem_4099_run_0.txt

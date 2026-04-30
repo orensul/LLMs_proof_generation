@@ -1,0 +1,88 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=2, BC=1, ∠ACB=90°. Find the value of sin(BA).
+CONSTRUCTION_CDL:
+Shape(AC,CB,BA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),2)
+Equal(LengthOfLine(BC),1)
+Equal(MeasureOfAngle(ACB),90)
+GOAL_CDL:
+Value(Sin(MeasureOfAngle(BAC)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CB,BA,AC)
+Shape(BA,AC,CB)
+Point(A)
+Point(C)
+Point(B)
+Line(AC)
+Line(CA)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Angle(ACB)
+Angle(CBA)
+Angle(BAC)
+Angle(BCA)
+Angle(ABC)
+Angle(CAB)
+Polygon(ACB)
+Polygon(CBA)
+Polygon(BAC)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+LengthOfLine(AB)-2
+LengthOfLine(BC)-1
+MeasureOfAngle(ACB)-90
+GOAL_SYMBOL:
+Sin(MeasureOfAngle(BAC))
+ANSWER:
+1/2
+THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACB); Polygon(ACB)&Equal(MeasureOfAngle(ACB),90); ["RightTriangle(ACB)"]
+2; sine_theorem(1,CBA); Polygon(CBA); ["Equal(Mul(LengthOfLine(CB),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(BAC))))"]
+3; sine_theorem(1,ACB); Polygon(ACB); ["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,CBA)
+You output the following conclusions: Equal(Mul(LengthOfLine(CB),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(BAC)))
+But the correct conclusions: Equal(Mul(LengthOfLine(CB),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(BAC))))
+
+Model Answer:
+RETRY_ANSWER:
+1/2
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACB); Polygon(ACB)&Equal(MeasureOfAngle(ACB),90); ["RightTriangle(ACB)"]
+2; sine_theorem(1,CBA); Polygon(CBA); ["Equal(Mul(LengthOfLine(CB),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(BAC)))"]
+3; sine_theorem(1,ACB); Polygon(ACB); ["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA)))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-2
+ll_bc-1
+ma_acb-90
+GT_GOAL_SYMBOL:
+sin(pi*ma_bac/180)
+GT_ANSWER:
+1/2
+GT_THEOREM_SEQUENCE:
+1;right_triangle_judgment_angle(1,ACB);Polygon(ACB)&Equal(MeasureOfAngle(ACB),90);["RightTriangle(ACB)"]
+2;right_triangle_property_pythagorean(1,ACB);RightTriangle(ACB);["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(AB),2))"]
+3;cosine_theorem(1,ACB);Polygon(ACB);["Equal(Add(Pow(LengthOfLine(CB),2),Mul(2,LengthOfLine(AC),LengthOfLine(AB),Cos(MeasureOfAngle(BAC)))),Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(AB),2)))"]
+

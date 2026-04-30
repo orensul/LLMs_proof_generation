@@ -1,0 +1,135 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠DEF=25°, ∠GFD=65°, EG⊥DG. Find the measure of ∠FDG.
+CONSTRUCTION_CDL:
+Shape(DE,EG,GD)
+Shape(DG,GF,FD)
+Collinear(EGF)
+TEXT_CDL:
+Equal(MeasureOfAngle(DEF),25)
+Equal(MeasureOfAngle(GFD),65)
+PerpendicularBetweenLine(EG,DG)
+GOAL_CDL:
+Value(MeasureOfAngle(FDG))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(EG,GD,DE)
+Shape(GD,DE,EG)
+Shape(GF,FD,DG)
+Shape(FD,DG,GF)
+Shape(DE,EG,GF,FD)
+Shape(EG,GF,FD,DE)
+Shape(GF,FD,DE,EG)
+Shape(FD,DE,EG,GF)
+Collinear(FGE)
+Point(E)
+Point(F)
+Point(G)
+Point(D)
+Line(EF)
+Line(FE)
+Line(EG)
+Line(GE)
+Line(GF)
+Line(FG)
+Line(DE)
+Line(ED)
+Line(GD)
+Line(DG)
+Line(FD)
+Line(DF)
+Angle(EGF)
+Angle(FGE)
+Angle(DEG)
+Angle(EGD)
+Angle(GDE)
+Angle(DGF)
+Angle(GFD)
+Angle(FDG)
+Angle(EFD)
+Angle(FDE)
+Angle(DEF)
+Angle(GED)
+Angle(DGE)
+Angle(EDG)
+Angle(FGD)
+Angle(DFG)
+Angle(GDF)
+Angle(DFE)
+Angle(EDF)
+Angle(FED)
+Polygon(DEG)
+Polygon(EGD)
+Polygon(GDE)
+Polygon(DGF)
+Polygon(GFD)
+Polygon(FDG)
+Polygon(DEF)
+Polygon(EFD)
+Polygon(FDE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, the `adjacent_complementary_angle` theorem requires `Collinear(AOC)` where the middle point is the vertex of both angles. The theorem format is `adjacent_complementary_angle(AOB,BOC)` with premise `Collinear(AOC)&Angle(AOB)&Angle(BOC)`.
+
+For angles DGE and DGF, the vertex is G, and E-G-F are collinear. So the theorem should use `Collinear(EGF)` with angles at G. The format needs the collinear to be `Collinear(EGF)` where G is the middle point, and angles `EGD` (which is angle at G between GE and GD) and `DGF` (angle at G between GD and GF).
+
+The theorem `adjacent_complementary_angle(AOB,BOC)` has premise `Collinear(AOC)&Angle(AOB)&Angle(BOC)`. Here A=E, O=G, B=D, C=F... but that would give `Collinear(EGF)&Angle(EGD)&Angle(DGF)`.
+
+Let me redo this properly - since EG⊥DG gives ∠DGE=90°, and since E,G,F are collinear, ∠DGF = 180° - 90° = 90°. Then in triangle DGF, ∠FDG = 180° - 90° - 65° = 25°.
+
+EQUATIONS:
+ma_def-25
+ma_gfd-65
+ma_dge-90
+
+GOAL_SYMBOL:
+ma_fdg
+
+ANSWER:
+25
+
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,EGD,DGF); Collinear(EGF)&Angle(EGD)&Angle(DGF); ["Equal(Add(MeasureOfAngle(EGD),MeasureOfAngle(DGF)),180)"]
+2; triangle_property_angle_sum(1,DGF); Polygon(DGF); ["Equal(Add(MeasureOfAngle(DGF),MeasureOfAngle(GFD),MeasureOfAngle(FDG)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DGE,DGF)
+You output the following premises: Collinear(EGF)&Angle(DGE)&Angle(DGF)
+But the correct premises: Collinear(DGF)&Angle(DGD)&Angle(DGF)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DGE),MeasureOfAngle(DGF)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(DGD),MeasureOfAngle(DGF)),180)
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; perpendicular_judgment_angle(1,EG,DG); Angle(EGD)&Equal(MeasureOfAngle(EGD),90); ["PerpendicularBetweenLine(EG,DG)"]
+2; adjacent_complementary_angle(1,DGE,DGF); Collinear(EGF)&Angle(DGE)&Angle(DGF); ["Equal(Add(MeasureOfAngle(DGE),MeasureOfAngle(DGF)),180)"]
+3; triangle_property_angle_sum(1,DGF); Polygon(DGF); ["Equal(Add(MeasureOfAngle(DGF),MeasureOfAngle(GFD),MeasureOfAngle(FDG)),180)"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_def-25
+ma_gfd-65
+ma_egd-90
+GT_GOAL_SYMBOL:
+ma_fdg
+GT_ANSWER:
+25
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,EGD,DGF);Collinear(EGF)&Angle(EGD)&Angle(DGF);["Equal(Add(MeasureOfAngle(EGD),MeasureOfAngle(DGF)),180)"]
+2;triangle_property_angle_sum(1,DGF);Polygon(DGF);["Equal(Add(MeasureOfAngle(DGF),MeasureOfAngle(GFD),MeasureOfAngle(FDG)),180)"]
+

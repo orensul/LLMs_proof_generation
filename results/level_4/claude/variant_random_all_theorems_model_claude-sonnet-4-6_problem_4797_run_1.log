@@ -1,0 +1,137 @@
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,OAC)
+You output the following conclusions: Equal(MeasureOfAngle(OAC),MeasureOfAngle(OCA))
+But the correct conclusions: Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))
+
+Model Answer:
+RETRY_ANSWER:
+55
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+2; perpendicular_judgment_angle(1,OA,DA); Angle(OAD)&Equal(MeasureOfAngle(OAD),90); ["PerpendicularBetweenLine(OA,DA)"]
+3; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+4; radius_of_circle_property_length_equal(1,OC,O); Cocircular(O,C)&Line(OC)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OC),RadiusOfCircle(O))"]
+5; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+6; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(OCA))"]
+7; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+8; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+9; isosceles_triangle_judgment_line_equal(1,OCB); Polygon(OCB)&Equal(LengthOfLine(OC),LengthOfLine(OB)); ["IsoscelesTriangle(OCB)"]
+10; isosceles_triangle_property_angle_equal(1,OCB); IsoscelesTriangle(OCB); ["Equal(MeasureOfAngle(OCB),MeasureOfAngle(OBC))"]
+11; adjacent_complementary_angle(1,COA,COB); Collinear(AOB)&Angle(COA)&Angle(COB); ["Equal(Add(MeasureOfAngle(COA),MeasureOfAngle(COB)),180)"]
+12; triangle_property_angle_sum(1,OCB); Polygon(OCB); ["Equal(Add(MeasureOfAngle(OCB),MeasureOfAngle(CBO),MeasureOfAngle(BOC)),180)"]
+13; adjacent_complementary_angle(1,OAD,DAB); Collinear(BOA)&Angle(OAD)&Angle(DAB); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(DAB)),180)"]
+14; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,COA,COB)
+You output the following premises: Collinear(AOB)&Angle(COA)&Angle(COB)
+But the correct premises: Collinear(COB)&Angle(COC)&Angle(COB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(COA),MeasureOfAngle(COB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(COC),MeasureOfAngle(COB)),180)
+
+Model Answer:
+RETRY_ANSWER:
+55
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+2; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+3; radius_of_circle_property_length_equal(1,OC,O); Cocircular(O,C)&Line(OC)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OC),RadiusOfCircle(O))"]
+4; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+5; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+6; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+7; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+8; isosceles_triangle_judgment_line_equal(1,OCB); Polygon(OCB)&Equal(LengthOfLine(OC),LengthOfLine(OB)); ["IsoscelesTriangle(OCB)"]
+9; isosceles_triangle_property_angle_equal(1,OCB); IsoscelesTriangle(OCB); ["Equal(MeasureOfAngle(OCB),MeasureOfAngle(CBO))"]
+10; adjacent_complementary_angle(1,COA,COB); Collinear(AOB)&Angle(COA)&Angle(COB); ["Equal(Add(MeasureOfAngle(COA),MeasureOfAngle(COB)),180)"]
+11; triangle_property_angle_sum(1,OCB); Polygon(OCB); ["Equal(Add(MeasureOfAngle(OCB),MeasureOfAngle(CBO),MeasureOfAngle(BOC)),180)"]
+12; adjacent_complementary_angle(1,OAD,DAB); Collinear(BOA)&Angle(OAD)&Angle(DAB); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(DAB)),180)"]
+13; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)"]
+Retry attempt: 2
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,OAD,DAB)
+You output the following premises: Collinear(BOA)&Angle(OAD)&Angle(DAB)
+But the correct premises: Collinear(OAB)&Angle(OAD)&Angle(DAB)
+
+Model Answer:
+RETRY_ANSWER:
+55
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+2; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+3; radius_of_circle_property_length_equal(1,OC,O); Cocircular(O,C)&Line(OC)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OC),RadiusOfCircle(O))"]
+4; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+5; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+6; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+7; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+8; isosceles_triangle_judgment_line_equal(1,OCB); Polygon(OCB)&Equal(LengthOfLine(OC),LengthOfLine(OB)); ["IsoscelesTriangle(OCB)"]
+9; isosceles_triangle_property_angle_equal(1,OCB); IsoscelesTriangle(OCB); ["Equal(MeasureOfAngle(OCB),MeasureOfAngle(CBO))"]
+10; adjacent_complementary_angle(1,AOC,COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+11; triangle_property_angle_sum(1,OCB); Polygon(OCB); ["Equal(Add(MeasureOfAngle(OCB),MeasureOfAngle(CBO),MeasureOfAngle(BOC)),180)"]
+12; adjacent_complementary_angle(1,OAD,DAB); Collinear(BOA)&Angle(OAD)&Angle(DAB); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(DAB)),180)"]
+13; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)"]
+Retry attempt: 3
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: isosceles_triangle_judgment_line_equal(1,OAC);Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC));['IsoscelesTriangle(OAC)']
+Missing premise: Polygon for triangle OAC is missing
+Details: The construction data did not define this polygon.
+- Available premises:
+  Collinear Points: AOB, BCD
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, AC on circle O, B on circle O, BC on circle O, C on circle O
+  Circles: O center: O
+  Circle Diameters: AB diameter of O
+  Tangent Lines: DA tangent to O
+  Polygons: ADB, ADCO, BOC, COAD, DCOA, OADC
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠ADB <= 180
+  ∠ADB > 0
+  ∠ADC = ∠ADB
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+55
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+2; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+3; radius_of_circle_property_length_equal(1,OC,O); Cocircular(O,C)&Line(OC)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OC),RadiusOfCircle(O))"]
+4; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+5; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+6; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+7; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+8; isosceles_triangle_judgment_line_equal(1,OCB); Polygon(OCB)&Equal(LengthOfLine(OC),LengthOfLine(OB)); ["IsoscelesTriangle(OCB)"]
+9; isosceles_triangle_property_angle_equal(1,OCB); IsoscelesTriangle(OCB); ["Equal(MeasureOfAngle(OCB),MeasureOfAngle(CBO))"]
+10; adjacent_complementary_angle(1,AOC,COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+11; triangle_property_angle_sum(1,OCB); Polygon(OCB); ["Equal(Add(MeasureOfAngle(OCB),MeasureOfAngle(CBO),MeasureOfAngle(BOC)),180)"]
+12; adjacent_complementary_angle(1,OAD,DAB); Collinear(OAB)&Angle(OAD)&Angle(DAB); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(DAB)),180)"]
+13; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)"]
+Retry attempt: 4
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,BOC)
+You output the following premises: Polygon(BOC)&Equal(LengthOfLine(OB),LengthOfLine(OC))
+But the correct premises: Polygon(BOC)&Equal(LengthOfLine(BO),LengthOfLine(BC))
+
+Model Answer:
+RETRY_ANSWER:
+55
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+2; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+3; radius_of_circle_property_length_equal(1,OC,O); Cocircular(O,C)&Line(OC)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OC),RadiusOfCircle(O))"]
+4; isosceles_triangle_judgment_line_equal(1,BOC); Polygon(BOC)&Equal(LengthOfLine(OB),LengthOfLine(OC)); ["IsoscelesTriangle(BOC)"]
+5; isosceles_triangle_property_angle_equal(1,BOC); IsoscelesTriangle(BOC); ["Equal(MeasureOfAngle(OBC),MeasureOfAngle(BCO))"]
+6; adjacent_complementary_angle(1,AOC,COB); Collinear(AOB)&Angle(AOC)&Angle(COB); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COB)),180)"]
+7; triangle_property_angle_sum(1,BOC); Polygon(BOC); ["Equal(Add(MeasureOfAngle(OBC),MeasureOfAngle(BCO),MeasureOfAngle(COB)),180)"]
+8; adjacent_complementary_angle(1,OAD,DAB); Collinear(OAB)&Angle(OAD)&Angle(DAB); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(DAB)),180)"]
+9; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)"]
+Retry attempt: 5
+Total time: 69.762s | per attempt: [20.841, 13.004, 15.627, 9.303, 10.986]
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4797_run_1.txt

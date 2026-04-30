@@ -1,0 +1,36 @@
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,ADK,ADH)
+You output the following premises: Collinear(KDH)&Angle(ADK)&Angle(ADH)
+But the correct premises: Collinear(ADH)&Angle(ADA)&Angle(ADH)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ADK),MeasureOfAngle(ADH)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(ADA),MeasureOfAngle(ADH)),180)
+
+Model Answer:
+RETRY_ANSWER:
+42
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,ADK,ADH); Collinear(KDH)&Angle(ADK)&Angle(ADH); ["Equal(Add(MeasureOfAngle(ADK),MeasureOfAngle(ADH)),180)"]
+2; adjacent_complementary_angle(1,HGJ,HGA); Collinear(JGA)&Angle(HGJ)&Angle(HGA); ["Equal(Add(MeasureOfAngle(HGJ),MeasureOfAngle(HGA)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,AG,DH); ParallelBetweenLine(AG,DH)&Line(GH); ["Equal(Add(MeasureOfAngle(AGH),MeasureOfAngle(GHD)),180)"]
+Retry attempt: 1
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AG,DH)
+You output the following premises: ParallelBetweenLine(AG,DH)&Line(GH)
+But the correct premises: ParallelBetweenLine(AG,DH)&Line(AD)
+You output the following conclusions: Equal(Add(MeasureOfAngle(AGH),MeasureOfAngle(GHD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(GAD),MeasureOfAngle(ADH)),180)
+
+Model Answer:
+RETRY_ANSWER:
+42
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,KDA,ADH); Collinear(KDH)&Angle(KDA)&Angle(ADH); ["Equal(Add(MeasureOfAngle(KDA),MeasureOfAngle(ADH)),180)"]
+2; adjacent_complementary_angle(1,JGH,HGA); Collinear(JGA)&Angle(JGH)&Angle(HGA); ["Equal(Add(MeasureOfAngle(JGH),MeasureOfAngle(HGA)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,AG,DH); ParallelBetweenLine(AG,DH)&Line(GH); ["Equal(Add(MeasureOfAngle(AGH),MeasureOfAngle(GHD)),180)"]
+Retry attempt: 2
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 41.734s | per attempt: [19.246, 12.907, 9.581]
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_127_run_0.txt

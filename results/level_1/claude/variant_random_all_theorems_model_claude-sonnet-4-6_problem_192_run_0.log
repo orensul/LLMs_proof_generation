@@ -1,0 +1,18 @@
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_circular_power_segment_and_segment_angle(1,RST,RUV,B)
+You output the following premises: Cocircular(B,SUTV)&Collinear(RST)&Collinear(RUV)
+But the correct premises: Cocircular(B,SUVT)&Collinear(RST)&Collinear(RUV)
+You output the following conclusions: Equal(Sub(MeasureOfArc(BTV),MeasureOfArc(BSU)),Mul(MeasureOfAngle(SRU),2))
+But the correct conclusions: Equal(Sub(MeasureOfArc(BVT),MeasureOfArc(BSU)),Mul(MeasureOfAngle(SRU),2))
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(1,RST,RUV,B); Cocircular(B,SUTV)&Collinear(RST)&Collinear(RUV); ["Equal(Sub(MeasureOfArc(BTV),MeasureOfArc(BSU)),Mul(MeasureOfAngle(SRU),2))"]
+Retry attempt: 1
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 36.875s | per attempt: [27.486, 9.389]
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_192_run_0.txt

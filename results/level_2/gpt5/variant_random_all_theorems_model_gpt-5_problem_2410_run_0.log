@@ -1,0 +1,17 @@
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_2410_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,AGD,AGE)
+You output the following premises: Collinear(AGB)&Collinear(DGE)&Angle(AGD)&Angle(AGE)
+But the correct premises: Collinear(AGA)&Collinear(DGE)&Angle(AGD)&Angle(AGE)
+
+Model Answer:
+RETRY_ANSWER:
+40
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,AGD,AGE); Collinear(AGB)&Collinear(DGE)&Angle(AGD)&Angle(AGE); ["Equal(MeasureOfAngle(AGD),MeasureOfAngle(AGE))"]
+2; triangle_property_angle_sum(1,ADG); Polygon(ADG); ["Equal(Add(MeasureOfAngle(ADG),MeasureOfAngle(DGA),MeasureOfAngle(GAD)),180)"]
+Retry attempt: 1
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_2410_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 181.221s | per attempt: [116.493, 64.728]
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_2410_run_0.txt

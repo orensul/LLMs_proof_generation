@@ -1,0 +1,76 @@
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4473_run_2_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAD,C)
+You output the following premises: Cocircular(O,ADC)&Angle(CDA)
+But the correct premises: Cocircular(O,ADC)&Angle(DCA)
+You output the following conclusions: Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ADC)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAD),1/2))"]
+2; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_addition_measure(1,OAB,OBC); Arc(OAB)&Arc(OBC)&Arc(OAC); ["Equal(MeasureOfArc(OAC),Add(MeasureOfArc(OAB),MeasureOfArc(OBC)))"]
+4; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+5; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+6; arc_property_circumference_angle_internal(1,OAC,D); Cocircular(O,ADB)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Sub(180,Mul(MeasureOfArc(OAC),1/2)))"]
+Retry attempt: 1
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4473_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,OAD,OCD)
+You output the following premises: Arc(OAD)&Arc(OCD)&Arc(OAC)
+But the correct premises: Arc(OAC)&Arc(OCD)&Arc(OAD)
+You output the following conclusions: Equal(MeasureOfArc(OAC),Add(MeasureOfArc(OAD),MeasureOfArc(OCD)))
+But the correct conclusions: Equal(MeasureOfArc(OAD),Add(MeasureOfArc(OAC),MeasureOfArc(OCD)))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ADC)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))"]
+2; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(DAC); ["Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))"]
+3; arc_addition_measure(1,OAD,OCD); Arc(OAD)&Arc(OCD)&Arc(OAC); ["Equal(MeasureOfArc(OAC),Add(MeasureOfArc(OAD),MeasureOfArc(OCD)))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+5; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+6; arc_addition_measure(1,OAD,OCD); Arc(OAD)&Arc(OCD)&Arc(OAC); ["Equal(MeasureOfArc(OAC),Add(MeasureOfArc(OAD),MeasureOfArc(OCD)))"]
+7; arc_property_circumference_angle_internal(1,OAC,D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Sub(180,Mul(MeasureOfArc(OAC),1/2)))"]
+Retry attempt: 2
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4473_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(CBA)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_internal(1,OAC,D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Sub(180,Mul(MeasureOfArc(OAC),1/2)))"]
+Retry attempt: 3
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4473_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_internal(1,OAC,D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Sub(180,Mul(MeasureOfArc(OAC),1/2)))"]
+Retry attempt: 4
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4473_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_internal(1,OAC,D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Sub(180,Mul(MeasureOfArc(OAC),1/2)))"]
+Retry attempt: 5
+Total time: 53.095s | per attempt: [14.675, 13.063, 9.625, 8.836, 6.896]
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4473_run_2.txt

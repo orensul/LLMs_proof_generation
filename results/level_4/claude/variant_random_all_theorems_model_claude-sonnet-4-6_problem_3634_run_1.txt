@@ -1,0 +1,256 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠CBA=46°, ∠FEC=160°, AB∥EF, EF is parallel to CD. Find the measure of ∠BCE.
+CONSTRUCTION_CDL:
+Shape(CB,BA)
+Shape(BC,CE,EF,FB)
+Shape(EC,CD,DF,FE)
+Collinear(BFD)
+TEXT_CDL:
+Equal(MeasureOfAngle(CBA),46)
+Equal(MeasureOfAngle(FEC),160)
+ParallelBetweenLine(AB,EF)
+ParallelBetweenLine(EF,CD)
+GOAL_CDL:
+Value(MeasureOfAngle(BCE))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CE,EF,FB,BC)
+Shape(EF,FB,BC,CE)
+Shape(FB,BC,CE,EF)
+Shape(CD,DF,FE,EC)
+Shape(DF,FE,EC,CD)
+Shape(FE,EC,CD,DF)
+Shape(FB,BC,CD,DF)
+Shape(BC,CD,DF,FB)
+Shape(CD,DF,FB,BC)
+Shape(DF,FB,BC,CD)
+Collinear(DFB)
+Point(B)
+Point(D)
+Point(F)
+Point(C)
+Point(A)
+Point(E)
+Line(BD)
+Line(DB)
+Line(BF)
+Line(FB)
+Line(FD)
+Line(DF)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Line(CE)
+Line(EC)
+Line(EF)
+Line(FE)
+Line(CD)
+Line(DC)
+Angle(BFD)
+Angle(DFB)
+Angle(BCE)
+Angle(CEF)
+Angle(EFB)
+Angle(FBC)
+Angle(ECD)
+Angle(CDF)
+Angle(DFE)
+Angle(FEC)
+Angle(BCD)
+Angle(BFE)
+Angle(EFD)
+Angle(FBA)
+Angle(DBC)
+Angle(CDB)
+Angle(DBA)
+Angle(ABC)
+Angle(ECB)
+Angle(CBF)
+Angle(DCE)
+Angle(FDC)
+Angle(DCB)
+Angle(ABF)
+Angle(CBD)
+Angle(BDC)
+Angle(ABD)
+Polygon(BCEF)
+Polygon(CEFB)
+Polygon(EFBC)
+Polygon(FBCE)
+Polygon(ECDF)
+Polygon(CDFE)
+Polygon(DFEC)
+Polygon(FECD)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+ParallelBetweenLine(FE,BA)
+ParallelBetweenLine(DC,FE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully re-read the theorem:
+
+```
+"parallel_property_alternate_interior_angle(AB,CD)": {
+    "2": {
+        "premise": "ParallelBetweenLine(AB,CD)&Line(BC)",
+        "conclusion": ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+    }
+}
+```
+
+The conclusion is `MeasureOfAngle(CBA)` not `MeasureOfAngle(ABC)`. The angle is named with C first, then B, then A. So for `ParallelBetweenLine(AB,EF)&Line(BE)`: A→C=E, B→B=B, C→D=... wait.
+
+Pattern: AB∥CD, Line(BC) → Equal(MeasureOfAngle(CBA), MeasureOfAngle(BCD))
+- Line connects B (second point of AB) to C (first point of CD)
+- Angle at B: CBA (from C to B to A)
+- Angle at C: BCD (from B to C to D)
+
+For AB∥EF, Line(BE): A=A,B=B, C=E,D=F → `Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))` ✓ (that's what verifier said was correct)
+
+For AB∥CD, Line(BC): → `Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))` - so ∠CBA=∠BCD, but that means 46°=∠BCD which gives ∠BCE=46°-20°=26°... that's wrong. AB∥CD with alternate interior angles via BC would give equal angles only if it's alternate, but ∠CBA and ∠BCD are on the same side... 
+
+Actually for AB∥CD (proven via par_par from AB∥EF∥CD), these ARE co-interior so they should sum to 180°. Let me use ipsilateral instead.
+
+For AB∥CD with transversal BC: need `ParallelBetweenLine(AB,CD)&Line(AC)` pattern. Here A=B, C=C: `ParallelBetweenLine(BA,CD)&Line(BC)` → `Equal(Add(MeasureOfAngle(ABA)...` - doesn't work cleanly.
+
+Try: `ParallelBetweenLine(DC,AB)&Line(DA)` where D→B, A→C (transversal BC): `ParallelBetweenLine(DC,AB)&Line(DB)` - D=first of DC, B=first of AB, transversal DB... but B,F,D are collinear, not B,C.
+
+Let me use `parallel_property_ipsilateral_internal_angle` with CB∥... Actually use `ParallelBetweenLine(CD,AB)&Line(CB)`: matches `Line(AC)` pattern with A=C,C=B → angles BAC=BCD... 
+
+`ParallelBetweenLine(DC,BA)&Line(DB)` - D on DC, B on BA, Line(DB), collinear(BFD) exists → angles CDB and ABD.
+
+EQUATIONS: ma_cba-46, ma_fec-160
+
+GOAL_SYMBOL: ma_bce
+
+ANSWER: 114
+
+THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))"]
+3; adjacent_complementary_angle(1,FEC,CEF); Collinear(BFD)&Angle(FEC)&Angle(BEC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(BEC)),180)"]
+4; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+5; parallel_property_ipsilateral_internal_angle(1,DC,BA); ParallelBetweenLine(DC,BA)&Line(DB); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(DBA)),180)"]
+6; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+7; adjacent_complementary_angle(1,CBA,ABD); Collinear(BFD)&Angle(CBA)&Angle(ABD); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(ABD)),180)"]
+8; vertical_angle(1,BCD,FDC); Collinear(BFD)&Collinear(BCD)&Angle(BCD)&Angle(FDC); ["Equal(MeasureOfAngle(BCD),MeasureOfAngle(FDC))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,EF)
+You output the following premises: ParallelBetweenLine(AB,EF)&Line(BF)
+But the correct premises: ParallelBetweenLine(AB,EF)&Line(AE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ABF),MeasureOfAngle(BFE)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAE),MeasureOfAngle(AEF)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_property_ipsilateral_internal_angle(1,AB,EF); ParallelBetweenLine(AB,EF)&Line(BF); ["Equal(Add(MeasureOfAngle(ABF),MeasureOfAngle(BFE)),180)"]
+3; adjacent_complementary_angle(1,CBA,ABF); Collinear(CBF)&Angle(CBA)&Angle(ABF); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(ABF)),180)"]
+4; adjacent_complementary_angle(1,BFE,EFD); Collinear(BFD)&Angle(BFE)&Angle(EFD); ["Equal(Add(MeasureOfAngle(BFE),MeasureOfAngle(EFD)),180)"]
+5; parallel_property_alternate_interior_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(FD); ["Equal(MeasureOfAngle(EFD),MeasureOfAngle(FDC))"]
+6; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+7; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+8; parallel_property_ipsilateral_internal_angle(1,CB,EF); ParallelBetweenLine(FE,BA)&Line(BE); ["Equal(Add(MeasureOfAngle(FEB),MeasureOfAngle(EBA)),180)"]
+#run: 1; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,FE,BA)
+You output the following premises: ParallelBetweenLine(FE,BA)&Line(FB)
+But the correct premises: ParallelBetweenLine(FE,BA)&Line(FA)
+You output the following conclusions: Equal(MeasureOfAngle(EFB),MeasureOfAngle(FBA))
+But the correct conclusions: Equal(MeasureOfAngle(EFA),MeasureOfAngle(BAF))
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_property_alternate_interior_angle(1,FE,BA); ParallelBetweenLine(FE,BA)&Line(FB); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(FBA))"]
+3; adjacent_complementary_angle(1,CBF,FBA); Collinear(CBF)&Angle(CBF)&Angle(FBA); ["Equal(Add(MeasureOfAngle(CBF),MeasureOfAngle(FBA)),180)"]
+4; adjacent_complementary_angle(1,EFB,BFD); Collinear(BFD)&Angle(EFB)&Angle(EFD); ["Equal(Add(MeasureOfAngle(EFB),MeasureOfAngle(EFD)),180)"]
+5; parallel_property_alternate_interior_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(FD); ["Equal(MeasureOfAngle(EFD),MeasureOfAngle(FDC))"]
+6; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+7; parallel_property_ipsilateral_internal_angle(1,BC,EF); ParallelBetweenLine(FE,BA)&Line(BE); ["Equal(Add(MeasureOfAngle(EBA),MeasureOfAngle(BAE)),180)"]
+8; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+9; parallel_property_ipsilateral_internal_angle(1,CB,DC); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+#run: 1; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AB,EF)
+You output the following conclusions: Equal(MeasureOfAngle(ABE),MeasureOfAngle(BEF))
+But the correct conclusions: Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(ABE),MeasureOfAngle(BEF))"]
+3; adjacent_complementary_angle(1,FEC,BEC); Collinear(BFD)&Angle(FEC)&Angle(BEC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(BEC)),180)"]
+4; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+5; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCD))"]
+6; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+#run: 1; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,FEC,CEF)
+You output the following premises: Collinear(BFD)&Angle(FEC)&Angle(BEC)
+But the correct premises: Collinear(FEF)&Angle(FEC)&Angle(CEF)
+You output the following conclusions: Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(BEC)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(CEF)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))"]
+3; adjacent_complementary_angle(1,FEC,CEF); Collinear(BFD)&Angle(FEC)&Angle(BEC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(BEC)),180)"]
+4; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+5; parallel_property_ipsilateral_internal_angle(1,DC,BA); ParallelBetweenLine(DC,BA)&Line(DB); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(DBA)),180)"]
+6; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+7; adjacent_complementary_angle(1,CBA,ABD); Collinear(BFD)&Angle(CBA)&Angle(ABD); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(ABD)),180)"]
+8; vertical_angle(1,BCD,FDC); Collinear(BFD)&Collinear(BCD)&Angle(BCD)&Angle(FDC); ["Equal(MeasureOfAngle(BCD),MeasureOfAngle(FDC))"]
+#RETRIES:
+5
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ma_cba-46
+ma_fec-160
+GT_GOAL_SYMBOL:
+ma_bce
+GT_ANSWER:
+26
+GT_THEOREM_SEQUENCE:
+1;parallel_judgment_par_par(1,AB,EF,CD);ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD);["ParallelBetweenLine(AB,CD)"]
+2;parallel_property_alternate_interior_angle(2,AB,CD);ParallelBetweenLine(AB,CD)&Line(BC);["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+3;parallel_property_ipsilateral_internal_angle(1,EF,CD);ParallelBetweenLine(EF,CD)&Line(EC);["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4;angle_addition(1,BCE,ECD);Angle(BCE)&Angle(ECD)&Angle(BCD);["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+

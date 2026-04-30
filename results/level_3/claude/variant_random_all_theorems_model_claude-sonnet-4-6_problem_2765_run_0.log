@@ -1,0 +1,94 @@
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,NR,LI,A)
+You output the following premises: ParallelBetweenLine(NR,LI)&Collinear(AZE)
+But the correct premises: ParallelBetweenLine(NR,LI)&Collinear(ANL)
+You output the following conclusions: Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIL))
+But the correct conclusions: Equal(MeasureOfAngle(ANR),MeasureOfAngle(NLI))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(1,NR,LI,A); ParallelBetweenLine(NR,LI)&Collinear(AZE); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIL))"]
+2; vertical_angle(1,AEN,KEZ); Collinear(AEK)&Collinear(NER)&Angle(AEN)&Angle(KEZ); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(KEZ))"]
+3; parallel_property_corresponding_angle(2,NR,LI,K); ParallelBetweenLine(NR,LI)&Collinear(KEZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(LZK))"]
+4; vertical_angle(1,EZD,AZI); Collinear(AZE)&Collinear(IZL)&Angle(EZD)&Angle(AZI); ["Equal(MeasureOfAngle(EZD),MeasureOfAngle(AZI))"]
+5; parallel_property_corresponding_angle(1,NR,LI,A); ParallelBetweenLine(NR,LI)&Collinear(AZE); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIL))"]
+
+Let me give a cleaner answer:
+
+EQUATIONS: ma_aen-64
+GOAL_SYMBOL: ma_ezd
+Retry attempt: 1
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,AEN,REZ)
+You output the following premises: Collinear(AEK)&Collinear(NER)&Angle(AEN)&Angle(REZ)
+But the correct premises: Collinear(AER)&Collinear(NEZ)&Angle(AEN)&Angle(REZ)
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,AEN,REZ); Collinear(AEK)&Collinear(NER)&Angle(AEN)&Angle(REZ); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(REZ))"]
+2; parallel_property_corresponding_angle(2,NR,LI,A); ParallelBetweenLine(NR,LI)&Collinear(EZA); ["Equal(MeasureOfAngle(REZ),MeasureOfAngle(IZA))"]
+3; vertical_angle(1,IZA,EZD); Collinear(IZL)&Collinear(AZE)&Angle(IZA)&Angle(EZD); ["Equal(MeasureOfAngle(IZA),MeasureOfAngle(EZD))"]
+Retry attempt: 2
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,NR,LI)
+You output the following premises: ParallelBetweenLine(NR,LI)&Line(EZ)
+But the correct premises: ParallelBetweenLine(NR,LI)&Line(NI)
+You output the following conclusions: Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZL))
+But the correct conclusions: Equal(MeasureOfAngle(RNI),MeasureOfAngle(LIN))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZL))"]
+2; vertical_angle(1,EZL,DZQ); Collinear(LZD)&Collinear(EZQ)&Angle(EZL)&Angle(DZQ); ["Equal(MeasureOfAngle(EZL),MeasureOfAngle(DZQ))"]
+3; adjacent_complementary_angle(1,EZD,DZQ); Collinear(EZQ)&Angle(EZD)&Angle(DZQ); ["Equal(Add(MeasureOfAngle(EZD),MeasureOfAngle(DZQ)),180)"]
+Retry attempt: 3
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,NR,LI)
+You output the following premises: ParallelBetweenLine(NR,LI)&Line(EZ)
+But the correct premises: ParallelBetweenLine(NR,LI)&Line(RL)
+You output the following conclusions: Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZI))
+But the correct conclusions: Equal(MeasureOfAngle(LRN),MeasureOfAngle(RLI))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZI))"]
+2; parallel_property_alternate_interior_angle(2,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZI))"]
+
+Let me reconsider version 2: `ParallelBetweenLine(AB,CD)&Line(BC)` → `Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))`
+AB=NR, CD=LI, Line(BC)=Line(RL)... not useful.
+
+Try AB=EN, CD=ZI (sub-segments), Line(EZ): doesn't fit format.
+
+EQUATIONS: ma_aen-64
+GOAL_SYMBOL: ma_ezd
+Retry attempt: 4
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,NR,LI)
+You output the following conclusions: Equal(Add(MeasureOfAngle(RNL),MeasureOfAngle(ILN)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(RNL),MeasureOfAngle(NLI)),180)
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(NL); ["Equal(Add(MeasureOfAngle(RNL),MeasureOfAngle(ILN)),180)"]
+2; parallel_property_ipsilateral_internal_angle(1,KA,JW); ParallelBetweenLine(KA,JW)&Line(ZD); ["Equal(Add(MeasureOfAngle(AZD),MeasureOfAngle(WDZ)),180)"]
+3; adjacent_complementary_angle(1,AZE,EZD); Collinear(AZE)&Angle(AZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(AZE),MeasureOfAngle(EZD)),180)"]
+4; parallel_property_corresponding_angle(2,KA,JW,E); ParallelBetweenLine(KA,JW)&Collinear(EZD); ["Equal(MeasureOfAngle(AEZ),MeasureOfAngle(ZDJ))"]
+5; adjacent_complementary_angle(1,NEA,AEZ); Collinear(NEH)&Angle(NEA)&Angle(AEZ); ["Equal(Add(MeasureOfAngle(NEA),MeasureOfAngle(AEZ)),180)"]
+Retry attempt: 5
+Total time: 233.945s | per attempt: [26.999, 131.969, 24.267, 23.114, 27.595]
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2765_run_0.txt

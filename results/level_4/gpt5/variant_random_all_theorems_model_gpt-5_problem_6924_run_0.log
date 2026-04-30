@@ -1,0 +1,115 @@
+Content written to results/level_4/gpt5/variant_random_all_theorems_model_gpt-5_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <diameter_of_circle_judgment_pass_centre> para length error. Expected 4 but got ('A', 'B', 'O').
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_judgment_pass_centre(1,AB,O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+2; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+3; circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O); Cocircular(O,ADBC)&Collinear(EAB)&Collinear(ECD); ["Equal(Sub(MeasureOfArc(OBC),MeasureOfArc(OAD)),Mul(MeasureOfAngle(AEC),2))"]
+4; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+Retry attempt: 1
+Content written to results/level_4/gpt5/variant_random_all_theorems_model_gpt-5_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O)
+You output the following premises: Cocircular(O,ADBC)&Collinear(EAB)&Collinear(ECD)
+But the correct premises: Cocircular(O,ACDB)&Collinear(EAB)&Collinear(ECD)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+2; angle_addition(1,DEA,AEC); Angle(DEA)&Angle(AEC)&Angle(DEC); ["Equal(MeasureOfAngle(DEC),Add(MeasureOfAngle(DEA),MeasureOfAngle(AEC)))"]
+3; flat_angle(1,DEC); Collinear(DEC); ["Equal(MeasureOfAngle(DEC),180)"]
+4; circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O); Cocircular(O,ADBC)&Collinear(EAB)&Collinear(ECD); ["Equal(Sub(MeasureOfArc(ODB),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AEC),2))"]
+5; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+Retry attempt: 2
+Content written to results/level_4/gpt5/variant_random_all_theorems_model_gpt-5_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O);Cocircular(O,ACDB)&Collinear(EAB)&Collinear(ECD);['Equal(Sub(MeasureOfArc(ODB),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AEC),2))']
+Missing premise: Collinear(EAB) not established
+Details: Known collinear facts: [['A', 'E', 'O', 'B'], ['C', 'E', 'D'], ['B', 'O', 'E'], ['A', 'O', 'B'], ['A', 'E', 'B'], ['A', 'E', 'O'], ['A', 'E', 'O'], ['A', 'E', 'O'], ['A', 'E', 'B'], ['A', 'E', 'B'], ['A', 'O', 'B'], ['A', 'O', 'B'], ['B', 'O', 'E'], ['B', 'O', 'E'], ['C', 'E', 'D']]
+- Available premises:
+  Collinear Points: AEB, AEO, AEOB, AOB, BOE, CED
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, ABCD on circle O, ABD on circle O, AC on circle O, ACD on circle O, AD on circle O, B on circle O, BC on circle O, BCD on circle O, BD on circle O, C on circle O, CD on circle O, D on circle O
+  Circles: O center: O
+  Polygons: BED, BOCD, CDBO, CEO, DBOC, OCDB
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠BOC <= 180
+  ∠BOC > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+2; angle_addition(1,DEA,AEC); Angle(DEA)&Angle(AEC)&Angle(DEC); ["Equal(MeasureOfAngle(DEC),Add(MeasureOfAngle(DEA),MeasureOfAngle(AEC)))"]
+3; flat_angle(1,DEC); Collinear(DEC); ["Equal(MeasureOfAngle(DEC),180)"]
+4; circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O); Cocircular(O,ACDB)&Collinear(EAB)&Collinear(ECD); ["Equal(Sub(MeasureOfArc(ODB),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AEC),2))"]
+5; arc_addition_measure(1,OAC,OCD); Arc(OAC)&Arc(OCD)&Arc(OAD); ["Equal(MeasureOfArc(OAD),Add(MeasureOfArc(OAC),MeasureOfArc(OCD)))"]
+6; arc_addition_measure(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Arc(OCB); ["Equal(MeasureOfArc(OCB),Add(MeasureOfArc(OCD),MeasureOfArc(ODB)))"]
+7; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+8; round_angle(1,COB,BOC); Angle(COB)&Angle(BOC); ["Equal(Add(MeasureOfAngle(COB),MeasureOfAngle(BOC)),360)"]
+Retry attempt: 3
+Content written to results/level_4/gpt5/variant_random_all_theorems_model_gpt-5_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAD,C)
+You output the following premises: Cocircular(O,ACD)&Angle(DCA)
+But the correct premises: Cocircular(O,ADC)&Angle(DCA)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_judgment_pass_centre(1,AOB,O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+2; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ACD)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))"]
+4; angle_addition(1,DEA,AEC); Angle(DEA)&Angle(AEC)&Angle(DEC); ["Equal(MeasureOfAngle(DEC),Add(MeasureOfAngle(DEA),MeasureOfAngle(AEC)))"]
+5; flat_angle(1,DEC); Collinear(DEC); ["Equal(MeasureOfAngle(DEC),180)"]
+6; arc_property_circumference_angle_external(1,OCB,A); Cocircular(O,ABC)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OCB),1/2))"]
+7; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+Retry attempt: 4
+Content written to results/level_4/gpt5/variant_random_all_theorems_model_gpt-5_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O);Cocircular(O,ACDB)&Collinear(EAB)&Collinear(ECD);['Equal(Sub(MeasureOfArc(ODB),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AEC),2))']
+Missing premise: Collinear(EAB) not established
+Details: Known collinear facts: [['A', 'E', 'O', 'B'], ['C', 'E', 'D'], ['B', 'O', 'E'], ['A', 'O', 'B'], ['A', 'E', 'B'], ['A', 'E', 'O'], ['A', 'E', 'O'], ['A', 'E', 'O'], ['A', 'E', 'B'], ['A', 'E', 'B'], ['A', 'O', 'B'], ['A', 'O', 'B'], ['B', 'O', 'E'], ['B', 'O', 'E'], ['C', 'E', 'D']]
+- Available premises:
+  Collinear Points: AEB, AEO, AEOB, AOB, BOE, CED
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, ABCD on circle O, ABD on circle O, AC on circle O, ACD on circle O, AD on circle O, B on circle O, BC on circle O, BCD on circle O, BD on circle O, C on circle O, CD on circle O, D on circle O
+  Circles: O center: O
+  Circle Diameters: AB diameter of O, BA diameter of O
+  Polygons: BED, BOCD, CDBO, CEO, DBOC, OCDB
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠BOC <= 180
+  ∠BOC > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_judgment_pass_centre(1,AOB,O); Cocircular(O,AB)&Collinear(AOB)&IsCentreOfCircle(O,O); ["IsDiameterOfCircle(AB,O)"]
+2; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ADC)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))"]
+4; angle_addition(1,DEA,AEC); Angle(DEA)&Angle(AEC)&Angle(DEC); ["Equal(MeasureOfAngle(DEC),Add(MeasureOfAngle(DEA),MeasureOfAngle(AEC)))"]
+5; flat_angle(1,DEC); Collinear(DEC); ["Equal(MeasureOfAngle(DEC),180)"]
+6; circle_property_circular_power_segment_and_segment_angle(1,EAB,ECD,O); Cocircular(O,ACDB)&Collinear(EAB)&Collinear(ECD); ["Equal(Sub(MeasureOfArc(ODB),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AEC),2))"]
+7; arc_addition_measure(1,OAC,OCD); Arc(OAC)&Arc(OCD)&Arc(OAD); ["Equal(MeasureOfArc(OAD),Add(MeasureOfArc(OAC),MeasureOfArc(OCD)))"]
+8; arc_addition_measure(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Arc(OCB); ["Equal(MeasureOfArc(OCB),Add(MeasureOfArc(OCD),MeasureOfArc(ODB)))"]
+9; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+10; round_angle(1,COB,BOC); Angle(COB)&Angle(BOC); ["Equal(Add(MeasureOfAngle(COB),MeasureOfAngle(BOC)),360)"]
+Retry attempt: 5
+Total time: 1471.350s | per attempt: [407.345, 282.635, 188.109, 323.357, 269.905]
+Content written to results/level_4/gpt5/variant_random_all_theorems_model_gpt-5_problem_6924_run_0.txt

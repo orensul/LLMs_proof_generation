@@ -1,0 +1,154 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=10, C is the midpoint of segment AO, D is the midpoint of segment OB. Find the length of line CD.
+CONSTRUCTION_CDL:
+Collinear(ACODB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),10)
+IsMidpointOfLine(C,AO)
+IsMidpointOfLine(D,OB)
+GOAL_CDL:
+Value(LengthOfLine(CD))
+CONSTRUCTION_CDL_EXTENDED:
+Collinear(BDOCA)
+Collinear(ACO)
+Collinear(OCA)
+Collinear(ACD)
+Collinear(DCA)
+Collinear(ACB)
+Collinear(BCA)
+Collinear(AOD)
+Collinear(DOA)
+Collinear(AOB)
+Collinear(BOA)
+Collinear(ADB)
+Collinear(BDA)
+Collinear(COD)
+Collinear(DOC)
+Collinear(COB)
+Collinear(BOC)
+Collinear(CDB)
+Collinear(BDC)
+Collinear(ODB)
+Collinear(BDO)
+Point(A)
+Point(B)
+Point(C)
+Point(O)
+Point(D)
+Line(AB)
+Line(BA)
+Line(AC)
+Line(CA)
+Line(CO)
+Line(OC)
+Line(CD)
+Line(DC)
+Line(CB)
+Line(BC)
+Line(AO)
+Line(OA)
+Line(OD)
+Line(DO)
+Line(OB)
+Line(BO)
+Line(AD)
+Line(DA)
+Line(DB)
+Line(BD)
+Angle(ACO)
+Angle(OCA)
+Angle(ACD)
+Angle(DCA)
+Angle(ACB)
+Angle(BCA)
+Angle(AOD)
+Angle(DOA)
+Angle(AOB)
+Angle(BOA)
+Angle(ADB)
+Angle(BDA)
+Angle(COD)
+Angle(DOC)
+Angle(COB)
+Angle(BOC)
+Angle(CDB)
+Angle(BDC)
+Angle(ODB)
+Angle(BDO)
+IsMidpointOfLine(C,OA)
+IsMidpointOfLine(D,BO)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, I need to fix the conclusion for step 2 to use `DO` instead of `OD`.
+
+The `perpendicular_bisector_property_distance_equal` theorem has premise `IsPerpendicularBisectorOfLine(CO,AB)` and conclusion `Equal(LengthOfLine(CA),LengthOfLine(CB))`. So for `IsPerpendicularBisectorOfLine(DO,OB)`, the conclusion should be `Equal(LengthOfLine(DO),LengthOfLine(DB))`.
+
+However, I also need to check if `IsPerpendicularBisectorOfLine(CO,AO)` and `IsPerpendicularBisectorOfLine(DO,OB)` are valid given we only have `IsMidpointOfLine(C,AO)` and `IsMidpointOfLine(D,OB)`. These are midpoints on a line, not perpendicular bisectors necessarily.
+
+Let me reconsider. The given facts are `IsMidpointOfLine(C,AO)` and `IsMidpointOfLine(D,OB)`. I should use the midpoint property directly to get AC = CO and OD = DB, then use line addition.
+
+Looking at the GDL, I don't see a direct "midpoint property distance equal" theorem. But `IsMidpointOfLine(C,AO)` means `Collinear(ACO)` and `Equal(LengthOfLine(AC),LengthOfLine(CO))` - this is given in the construction extended as `IsMidpointOfLine(C,OA)`.
+
+The midpoint properties must be derivable from the given conditions directly as equations. Let me just use line_addition theorems since the midpoint equalities should already be in the equation system.
+
+EQUATIONS:
+ll_ab - 10
+
+GOAL_SYMBOL:
+ll_cd
+
+ANSWER:
+5
+
+THEOREM_SEQUENCE:
+1; line_addition(1,AC,CO); Collinear(ACO); ["Equal(LengthOfLine(AO),Add(LengthOfLine(AC),LengthOfLine(CO)))"]
+2; line_addition(1,OD,DB); Collinear(ODB); ["Equal(LengthOfLine(OB),Add(LengthOfLine(OD),LengthOfLine(DB)))"]
+3; line_addition(1,AO,OB); Collinear(AOB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AO),LengthOfLine(OB)))"]
+4; line_addition(1,CO,OD); Collinear(COD); ["Equal(LengthOfLine(CD),Add(LengthOfLine(CO),LengthOfLine(OD)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: perpendicular_bisector_property_distance_equal(1,DO,OB)
+You output the following conclusions: Equal(LengthOfLine(OD),LengthOfLine(DB))
+But the correct conclusions: Equal(LengthOfLine(DO),LengthOfLine(DB))
+
+Model Answer:
+RETRY_ANSWER:
+5
+RETRY_THEOREM_SEQUENCE:
+1; perpendicular_bisector_property_distance_equal(1,CO,AO); IsPerpendicularBisectorOfLine(CO,AO); ["Equal(LengthOfLine(CA),LengthOfLine(CO))"]
+2; perpendicular_bisector_property_distance_equal(1,DO,OB); IsPerpendicularBisectorOfLine(DO,OB); ["Equal(LengthOfLine(OD),LengthOfLine(DB))"]
+3; line_addition(1,AC,CO); Collinear(ACO); ["Equal(LengthOfLine(AO),Add(LengthOfLine(AC),LengthOfLine(CO)))"]
+4; line_addition(1,OD,DB); Collinear(ODB); ["Equal(LengthOfLine(OB),Add(LengthOfLine(OD),LengthOfLine(DB)))"]
+5; line_addition(1,AO,OB); Collinear(AOB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AO),LengthOfLine(OB)))"]
+6; line_addition(1,CO,OD); Collinear(COD); ["Equal(LengthOfLine(CD),Add(LengthOfLine(CO),LengthOfLine(OD)))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-10
+ll_ac-ll_co
+-ll_db+ll_od
+GT_GOAL_SYMBOL:
+ll_cd
+GT_ANSWER:
+5
+GT_THEOREM_SEQUENCE:
+1;line_addition(1,AC,CO);Collinear(ACO);["Equal(LengthOfLine(AO),Add(LengthOfLine(AC),LengthOfLine(CO)))"]
+2;line_addition(1,OD,DB);Collinear(ODB);["Equal(LengthOfLine(OB),Add(LengthOfLine(OD),LengthOfLine(DB)))"]
+3;line_addition(1,AO,OB);Collinear(AOB);["Equal(LengthOfLine(AB),Add(LengthOfLine(AO),LengthOfLine(OB)))"]
+4;line_addition(1,CO,OD);Collinear(COD);["Equal(LengthOfLine(CD),Add(LengthOfLine(CO),LengthOfLine(OD)))"]
+

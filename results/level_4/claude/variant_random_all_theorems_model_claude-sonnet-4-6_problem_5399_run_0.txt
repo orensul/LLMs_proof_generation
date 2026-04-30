@@ -1,0 +1,201 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AO=BO, DO=BO, ∠OAC=28°. Find the measure of ∠BOD.
+CONSTRUCTION_CDL:
+Shape(OA,AC,CO)
+Shape(BO,OD)
+Shape(OC,CD,DO)
+Collinear(AOB)
+Collinear(ACD)
+TEXT_CDL:
+Equal(LengthOfLine(AO),LengthOfLine(BO))
+Equal(LengthOfLine(DO),LengthOfLine(BO))
+Equal(MeasureOfAngle(OAC),28)
+GOAL_CDL:
+Value(MeasureOfAngle(BOD))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CO,OA)
+Shape(CO,OA,AC)
+Shape(CD,DO,OC)
+Shape(DO,OC,CD)
+Shape(OA,AC,CD,DO)
+Shape(AC,CD,DO,OA)
+Shape(CD,DO,OA,AC)
+Shape(DO,OA,AC,CD)
+Collinear(BOA)
+Collinear(DCA)
+Point(A)
+Point(B)
+Point(O)
+Point(D)
+Point(C)
+Line(AB)
+Line(BA)
+Line(AO)
+Line(OA)
+Line(OB)
+Line(BO)
+Line(AD)
+Line(DA)
+Line(AC)
+Line(CA)
+Line(CD)
+Line(DC)
+Line(CO)
+Line(OC)
+Line(OD)
+Line(DO)
+Angle(AOB)
+Angle(BOA)
+Angle(ACD)
+Angle(DCA)
+Angle(OAC)
+Angle(ACO)
+Angle(COA)
+Angle(OCD)
+Angle(CDO)
+Angle(DOC)
+Angle(ADO)
+Angle(DOA)
+Angle(COB)
+Angle(BOC)
+Angle(DOB)
+Angle(OAD)
+Angle(BAC)
+Angle(BAD)
+Angle(CAO)
+Angle(OCA)
+Angle(AOC)
+Angle(DCO)
+Angle(ODC)
+Angle(COD)
+Angle(ODA)
+Angle(AOD)
+Angle(DAO)
+Angle(CAB)
+Angle(DAB)
+Polygon(OAC)
+Polygon(ACO)
+Polygon(COA)
+Polygon(OCD)
+Polygon(CDO)
+Polygon(DOC)
+Polygon(OAD)
+Polygon(ADO)
+Polygon(DOA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the measure of ∠BOD given that AO=BO, DO=BO, and ∠OAC=28°.
+
+Let me analyze the geometry:
+- Points A, O, B are collinear (Collinear(AOB))
+- Points A, C, D are collinear (Collinear(ACD))
+- AO = BO, DO = BO
+
+Since AO = BO, triangle AOC... wait, let me think about triangle OAC.
+
+In triangle OAC:
+- ∠OAC = 28°
+- Since AO = BO and A, O, B are collinear, O is the midpoint of AB
+
+In triangle OAC, I need to find angles. Since AO = BO (given), but that doesn't directly give me angles in triangle OAC.
+
+Wait - let me reconsider. We have:
+- Triangle OAC with ∠OAC = 28°
+- AO = BO (but B is external to triangle OAC)
+
+Since A, O, B are collinear, ∠COB is the supplement of ∠COA (or they're related via vertical angles consideration).
+
+In triangle OAC:
+- ∠OAC = 28°
+- Let ∠AOC = α, then ∠OCA = 180° - 28° - α = 152° - α
+
+Since Collinear(AOB): ∠COB = 180° - ∠COA (supplementary)
+
+Now, DO = BO. In triangle OCD:
+- A, C, D are collinear, so ∠OCD = 180° - ∠OCA
+
+Since AO = BO and A,O,B collinear, triangle AOC: ∠COB = 180° - ∠COA.
+
+In triangle OAC: ∠OAC = 28°. Since AO = BO, triangle AOB... that's degenerate (collinear).
+
+Let me try: AO = BO means O is midpoint of AB. Triangle OAC is isosceles? No, AO = BO doesn't say AO = OC.
+
+Perhaps triangle OAC: ∠OAC = 28°. 
+∠AOC + ∠OCA + 28° = 180°
+
+For triangle OCD (with C on AD between A and D):
+DO = BO = AO
+
+In triangle OCD, OD = OC? No...
+
+Since AO = BO = DO, O is equidistant from A, B, D.
+
+In triangle OAC: ∠OAC = 28°. 
+Using isosceles triangle property: if OA = OC then ∠OAC = ∠OCA = 28°, making ∠AOC = 124°. But we need OA = OC.
+
+Actually, let me try: since A,C,D collinear and the shape OAC and OCD are triangles, perhaps OC = OA (from some property) making triangle OAC isosceles.
+
+If OC bisects... Let me try the exterior angle theorem approach.
+
+In triangle OAC: ∠OAC = 28°, and ∠COD is exterior to triangle OAC at C (since A,C,D collinear).
+∠OCD = ∠OAC + ∠AOC = exterior angle.
+
+In triangle OCD: OD = OB = AO. 
+∠BOD relates to ∠AOC via vertical/supplementary angles.
+
+Since Collinear(AOB): ∠BOC = 180° - ∠AOC.
+In triangle OCD: ∠OCD = 180° - ∠ACO, exterior angle at C of triangle OAC = 28° + ∠AOC.
+
+If DO = BO = AO, triangle OAD has OA = OD, so it's isosceles.
+∠OAD = ∠ODA = 28° (since ∠OAD = ∠OAC = 28°).
+So ∠AOD = 180° - 28° - 28° = 124°.
+∠BOD = 180° - ∠AOD = 180° - 124° = 56°.
+
+EQUATIONS:
+ma_oac - 28
+ll_ao = ll_bo
+ll_do = ll_bo
+
+GOAL_SYMBOL:
+ma_bod
+
+ANSWER:
+56
+
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OAD); Polygon(OAD)&Equal(LengthOfLine(OA),LengthOfLine(OD)); ["IsoscelesTriangle(OAD)"]
+2; isosceles_triangle_property_angle_equal(1,OAD); IsoscelesTriangle(OAD); ["Equal(MeasureOfAngle(OAD),MeasureOfAngle(ADO))"]
+3; triangle_property_angle_sum(1,OAD); Polygon(OAD); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(ADO),MeasureOfAngle(DOA)),180)"]
+4; adjacent_complementary_angle(1,AOD,DOB); Collinear(AOB)&Angle(AOD)&Angle(DOB); ["Equal(Add(MeasureOfAngle(AOD),MeasureOfAngle(DOB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ao-ll_bo
+-ll_bo+ll_do
+ma_oac-28
+GT_GOAL_SYMBOL:
+ma_bod
+GT_ANSWER:
+56
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,OAD);Polygon(OAD);["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(ADO),MeasureOfAngle(DOA)),180)"]
+2;isosceles_triangle_judgment_line_equal(1,OAD);Polygon(OAD)&Equal(LengthOfLine(OA),LengthOfLine(OD));["IsoscelesTriangle(OAD)"]
+3;isosceles_triangle_property_angle_equal(1,OAD);IsoscelesTriangle(OAD);["Equal(MeasureOfAngle(OAD),MeasureOfAngle(ADO))"]
+4;adjacent_complementary_angle(1,BOD,DOA);Collinear(BOA)&Angle(BOD)&Angle(DOA);["Equal(Add(MeasureOfAngle(BOD),MeasureOfAngle(DOA)),180)"]
+

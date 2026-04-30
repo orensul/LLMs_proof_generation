@@ -1,0 +1,177 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BD=12, ∠ABD=15°, ∠BDA=150°, ∠DCA=90°. Find the length of line AC.
+CONSTRUCTION_CDL:
+Shape(AB,BD,DA)
+Collinear(BDC)
+Shape(AD,DC,CA)
+TEXT_CDL:
+Equal(LengthOfLine(BD),12)
+Equal(MeasureOfAngle(ABD),15)
+Equal(MeasureOfAngle(BDA),150)
+Equal(MeasureOfAngle(DCA),90)
+GOAL_CDL:
+Value(LengthOfLine(AC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BD,DA,AB)
+Shape(DA,AB,BD)
+Shape(DC,CA,AD)
+Shape(CA,AD,DC)
+Shape(AB,BD,DC,CA)
+Shape(BD,DC,CA,AB)
+Shape(DC,CA,AB,BD)
+Shape(CA,AB,BD,DC)
+Collinear(CDB)
+Point(B)
+Point(C)
+Point(D)
+Point(A)
+Line(BC)
+Line(CB)
+Line(BD)
+Line(DB)
+Line(DC)
+Line(CD)
+Line(AB)
+Line(BA)
+Line(DA)
+Line(AD)
+Line(CA)
+Line(AC)
+Angle(BDC)
+Angle(CDB)
+Angle(ABD)
+Angle(BDA)
+Angle(DAB)
+Angle(ADC)
+Angle(DCA)
+Angle(CAD)
+Angle(BCA)
+Angle(CAB)
+Angle(ABC)
+Angle(DBA)
+Angle(ADB)
+Angle(BAD)
+Angle(CDA)
+Angle(ACD)
+Angle(DAC)
+Angle(ACB)
+Angle(BAC)
+Angle(CBA)
+Polygon(ABD)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ADC)
+Polygon(DCA)
+Polygon(CAD)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to fix the proof. The issue is that AD needs to be determined from triangle ABD using BD=12, and then AC can be found. Let me add the sine theorem for triangle ABD using BD.
+
+In triangle ABD:
+- ∠ABD = 15°, ∠BDA = 150°, ∠DAB = 15°
+- BD = 12
+- Since ∠ABD = ∠DAB = 15°, triangle is isosceles: AD = BD = 12
+
+I need to use sine_theorem relating BD to AD in triangle ABD.
+
+The sine theorem: AB/sin(BDA) = AD/sin(ABD) = BD/sin(DAB)
+
+So I need: Mul(LengthOfLine(BD), Sin(MeasureOfAngle(BDA))) relates to Mul(LengthOfLine(AD), Sin(MeasureOfAngle(DAB)))
+
+Let me use sine_theorem(1,ABD): Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABD))),Mul(LengthOfLine(AD),Sin(MeasureOfAngle(BDA))))
+
+And sine_theorem(1,BDA): Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),... wait, let me check the format.
+
+sine_theorem(ABC): Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))
+
+For polygon BDA: Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))... no wait:
+sine_theorem(BDA): AB→BD, BC→DA, angle ABC→BDA, angle BCA→DAB... 
+It gives: Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))
+
+For polygon DAB: Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAB))),Mul(LengthOfLine(DB),Sin(MeasureOfAngle(ABD))))... 
+sine_theorem(DAB): Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAB))),Mul(LengthOfLine(DA... 
+
+Let me try sine_theorem(1,DAB): Polygon(DAB) → Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAB))),Mul(LengthOfLine(DB),Sin(MeasureOfAngle(ABD))))
+
+This gives DA*sin(15°) = DB*sin(15°), so DA = DB = 12. That's what I need!
+
+EQUATIONS:
+ll_bd-12
+ma_abd-15
+ma_bda-150
+ma_dca-90
+
+GOAL_SYMBOL:
+ll_ac
+
+ANSWER:
+6
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ABD); Polygon(ABD); ["Equal(Add(MeasureOfAngle(ABD),MeasureOfAngle(BDA),MeasureOfAngle(DAB)),180)"]
+2; adjacent_complementary_angle(1,BDA,ADC); Collinear(BDC)&Angle(BDA)&Angle(ADC); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(ADC)),180)"]
+3; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+4; sine_theorem(1,DAB); Polygon(DAB); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAB))),Mul(LengthOfLine(DB),Sin(MeasureOfAngle(ABD))))"]
+5; sine_theorem(1,ADC); Polygon(ADC); ["Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ADC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(DCA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: length of line AC
+- Model answer: 6
+- Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value.
+- Available premises:
+  Collinear Points: BDC
+  Polygons: ABC, ABD, ADC
+- Theorems related to the goal:
+  Step 5 - sine_theorem(1, ADC): Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ADC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(DCA))))
+- Solver constraints directly related to this goal:
+  |AC| > 0
+  |AD|*24999999999999997/50000000000000000 = |AC|*1
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ABD); Polygon(ABD); ["Equal(Add(MeasureOfAngle(ABD),MeasureOfAngle(BDA),MeasureOfAngle(DAB)),180)"]
+2; adjacent_complementary_angle(1,BDA,ADC); Collinear(BDC)&Angle(BDA)&Angle(ADC); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(ADC)),180)"]
+3; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+4; sine_theorem(1,ABD); Polygon(ABD); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABD))),Mul(LengthOfLine(AD),Sin(MeasureOfAngle(BDA))))"]
+5; sine_theorem(1,ADC); Polygon(ADC); ["Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ADC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(DCA))))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_bd-12
+ma_abd-15
+ma_bda-150
+ma_dca-90
+GT_GOAL_SYMBOL:
+ll_ac
+GT_ANSWER:
+6
+GT_THEOREM_SEQUENCE:
+1;flat_angle(1,BDC);Collinear(BDC);["Equal(MeasureOfAngle(BDC),180)"]
+2;angle_addition(1,BDA,ADC);Angle(BDA)&Angle(ADC)&Angle(BDC);["Equal(MeasureOfAngle(BDC),Add(MeasureOfAngle(BDA),MeasureOfAngle(ADC)))"]
+3;triangle_property_angle_sum(1,ABD);Polygon(ABD);["Equal(Add(MeasureOfAngle(ABD),MeasureOfAngle(BDA),MeasureOfAngle(DAB)),180)"]
+4;sine_theorem(1,DAB);Polygon(DAB);["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAB))),Mul(LengthOfLine(DB),Sin(MeasureOfAngle(ABD))))"]
+5;sine_theorem(1,ADC);Polygon(ADC);["Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ADC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(DCA))))"]
+

@@ -1,0 +1,232 @@
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_4473_run_1_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 1
+[Attempt 1] Error: HTTP code 502 from API (<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+
+<title> | 502: Bad gateway</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/main.css" />
+</head>
+<body>
+<div id="cf-wrapper">
+    <div id="cf-error-details" class="p-0">
+        <header class="mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8">
+            <h1 class="inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2">
+                <span class="inline-block">Bad gateway</span>
+                <span class="code-label">Error code 502</span>
+            </h1>
+            <div>
+                Visit <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=api.openai.com" target="_blank" rel="noopener noreferrer">cloudflare.com</a> for more information.
+            </div>
+            <div class="mt-3">2026-04-20 13:00:14 UTC</div>
+        </header>
+        <div class="my-8 bg-gradient-gray">
+            <div class="w-240 lg:w-full mx-auto">
+                <div class="clearfix md:px-8">
+                    <div id="cf-browser-status" class=" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    
+    <span class="cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    
+  </div>
+  <span class="md:block w-full truncate">You</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+  
+    Browser
+  
+  </h3>
+  
+  <span class="leading-1.3 text-2xl text-green-success">Working</span>
+  
+</div>
+                    <div id="cf-cloudflare-status" class=" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&#38;utm_campaign=api.openai.com" target="_blank" rel="noopener noreferrer">
+    <span class="cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    </a>
+  </div>
+  <span class="md:block w-full truncate">Tel Aviv</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+  <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=api.openai.com" target="_blank" rel="noopener noreferrer">
+    Cloudflare
+  </a>
+  </h3>
+  
+  <span class="leading-1.3 text-2xl text-green-success">Working</span>
+  
+</div>
+                    <div id="cf-host-status" class="cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    
+    <span class="cf-icon-server block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    
+  </div>
+  <span class="md:block w-full truncate">api.openai.com</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+  
+    Host
+  
+  </h3>
+  
+  <span class="leading-1.3 text-2xl text-red-error">Error</span>
+  
+</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-240 lg:w-full mx-auto mb-8 lg:px-8">
+            <div class="clearfix">
+                <div class="w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed">
+                    <h2 class="text-3xl font-normal leading-1.3 mb-4">What happened?</h2>
+                    <p>The web server reported a bad gateway error.</p>
+                </div>
+                <div class="w-1/2 md:w-full float-left leading-relaxed">
+                    <h2 class="text-3xl font-normal leading-1.3 mb-4">What can I do?</h2>
+                    <p class="mb-6">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300">
+    <p class="text-13">
+      <span class="cf-footer-item sm:block sm:mb-1">Cloudflare Ray ID: <strong class="font-semibold">9ef4546cf8f97d94</strong></span>
+      <span class="cf-footer-separator sm:hidden">&bull;</span>
+      <span id="cf-footer-item-ip" class="cf-footer-item hidden sm:block sm:mb-1">
+        Your IP:
+        <button type="button" id="cf-footer-ip-reveal" class="cf-footer-ip-reveal-btn">Click to reveal</button>
+        <span class="hidden" id="cf-footer-ip">2.54.183.238</span>
+        <span class="cf-footer-separator sm:hidden">&bull;</span>
+      </span>
+      <span class="cf-footer-item sm:block sm:mb-1"><span>Performance &amp; security by</span> <a rel="noopener noreferrer" href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&#38;utm_campaign=api.openai.com" id="brand_link" target="_blank">Cloudflare</a></span>
+      
+    </p>
+    <script>(function(){function d(){var b=a.getElementById("cf-footer-item-ip"),c=a.getElementById("cf-footer-ip-reveal");b&&"classList"in b&&(b.classList.remove("hidden"),c.addEventListener("click",function(){c.classList.add("hidden");a.getElementById("cf-footer-ip").classList.remove("hidden")}))}var a=document;document.addEventListener&&a.addEventListener("DOMContentLoaded",d)})();</script>
+  </div><!-- /.error-footer -->
+
+    </div>
+</div>
+</body>
+</html>)
+Retrying in 1 seconds...
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: measure of angle CDA
+- Model answer: 100
+- Error: Your proof contains contradictory constraints. Check for incorrect values in premises, improper theorem application, or conclusions that contradict earlier assertions.
+  Contradictory constraints:
+    arc(OAC) + arc(OAC) = 360
+    ∠ABC = 80
+    ∠ABC = arc(OAC)*1/2
+- Available premises:
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, ABCD on circle O, ABD on circle O, AC on circle O, ACD on circle O, AD on circle O, B on circle O, BC on circle O, BCD on circle O, BD on circle O, C on circle O, CD on circle O, D on circle O
+  Circles: O center: O
+  Polygons: ABCD, BCDA, CDAB, DABC
+- Theorems related to the goal:
+  Step 2 - arc_property_circumference_angle_external(1, OAC, D): Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))
+- Solver constraints directly related to this goal:
+  ∠ADC <= 180
+  ∠ADC = arc(OAC)*1/2
+  ∠ADC > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCA,B); Cocircular(O,CAB)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OCA),1/2))"]
+2; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,ACD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 2
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCA,D)
+You output the following premises: Cocircular(O,CAD)&Angle(CDA)
+But the correct premises: Cocircular(O,CAD)&Angle(ADC)
+You output the following conclusions: Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 3
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,D)
+You output the following premises: Cocircular(O,CAD)&Angle(CDA)
+But the correct premises: Cocircular(O,ACD)&Angle(CDA)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCA,B); Cocircular(O,CAB)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OCA),1/2))"]
+2; arc_property_circumference_angle_external(1,OAC,D); Cocircular(O,CAD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 4
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: measure of angle CDA
+- Model answer: 100
+- Error: Your proof contains contradictory constraints. Check for incorrect values in premises, improper theorem application, or conclusions that contradict earlier assertions.
+  Contradictory constraints:
+    arc(OAC) + arc(OAC) = 360
+    ∠ABC = arc(OAC)*1/2
+    ∠ABC = 80
+- Available premises:
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, ABCD on circle O, ABD on circle O, AC on circle O, ACD on circle O, AD on circle O, B on circle O, BC on circle O, BCD on circle O, BD on circle O, C on circle O, CD on circle O, D on circle O
+  Circles: O center: O
+  Polygons: ABCD, BCDA, CDAB, DABC
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠ADC <= 180
+  ∠ADC = arc(OAC)*1/2
+  ∠ADC > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+2; arc_property_circumference_angle_external(1,OCA,D); Cocircular(O,CAD)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OCA),1/2))"]
+3; round_arc(1,OAC,OCA); Arc(OAC)&Arc(OCA); ["Equal(Add(MeasureOfArc(OAC),MeasureOfArc(OCA)),360)"]
+Retry attempt: 5
+Total time: 416.258s | per attempt: [78.368, 79.72, 105.483, 75.41, 77.277]
+Content written to results/level_2/gpt5/variant_random_all_theorems_model_gpt-5_problem_4473_run_1.txt

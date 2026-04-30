@@ -1,0 +1,117 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5431_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: cosine_theorem(1,ABC)
+You output the following conclusions: Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(AB),LengthOfLine(BC),Cos(MeasureOfAngle(ABC)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(BC),2)))
+But the correct conclusions: Equal(Add(Pow(LengthOfLine(BC),2),Mul(2,LengthOfLine(AB),LengthOfLine(AC),Cos(MeasureOfAngle(CAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AC),2)))
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+2; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+3; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+4; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+5; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+6; parallelogram_property_diagonal_bisection(1,BCDA,O); Parallelogram(BCDA)&Collinear(BOD)&Collinear(COA); ["IsMidpointOfLine(O,BD)"]
+7; cosine_theorem(1,ABC); Polygon(ABC); ["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(AB),LengthOfLine(BC),Cos(MeasureOfAngle(ABC)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(BC),2)))"]
+8; cosine_theorem(1,DAB); Polygon(DAB); ["Equal(Add(Pow(LengthOfLine(AB),2),Mul(2,LengthOfLine(DA),LengthOfLine(AB),Cos(MeasureOfAngle(DAB)))),Add(Pow(LengthOfLine(DA),2),Pow(LengthOfLine(AB),2)))"]
+9; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+10; parallel_property_alternate_interior_angle(1,AD,BC); ParallelBetweenLine(AD,BC)&Line(BD); ["Equal(MeasureOfAngle(BDA),MeasureOfAngle(DBC))"]
+11; cosine_theorem(1,ABD); Polygon(ABD); ["Equal(Add(Pow(LengthOfLine(BD),2),Mul(2,LengthOfLine(AB),LengthOfLine(AD),Cos(MeasureOfAngle(DAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AD),2)))"]
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5431_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,BA,CD)
+You output the following premises: ParallelBetweenLine(BA,CD)&Line(AD)
+But the correct premises: ParallelBetweenLine(BA,CD)&Line(BC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADC)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+3; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+4; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+5; parallelogram_property_diagonal_bisection(1,DABC,O); Parallelogram(DABC)&Collinear(DOB)&Collinear(AOC); ["IsMidpointOfLine(O,DB)"]
+6; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+7; parallel_property_ipsilateral_internal_angle(1,BA,CD); ParallelBetweenLine(BA,CD)&Line(AD); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADC)),180)"]
+8; cosine_theorem(1,ABD); Polygon(ABD); ["Equal(Add(Pow(LengthOfLine(BD),2),Mul(2,LengthOfLine(AB),LengthOfLine(AD),Cos(MeasureOfAngle(DAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AD),2)))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5431_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: length of line OB
+- Model answer: 2*sqrt(13)
+- Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value.
+- Available premises:
+  Parallel Lines: AB ∥ CD, AD ∥ BC
+  Collinear Points: AOC, BOD
+  Right Triangles: ABC
+  Polygons: ABC, ABCD, ABCDO, ABCOD, ABD, ABO, ABOCD, ACD, AOBCD, AOD, BCD, BCDA, BCDAO, BCDOA, BCO, BCODA, BOCDA, CDAB, CDABO, CDAOB, CDO, CDOAB, CODAB, DABC, DABCO, DABOC, DAOBC, DOABC, OABCD, OBCDA, OCDAB, ODABC
+- Theorems related to the goal:
+  Step 5 - parallelogram_property_diagonal_bisection(1, DABC, O): IsMidpointOfLine(O,DB)
+- Solver constraints directly related to this goal:
+  |BO| > 0
+  |DO| = |BO|
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+3; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+4; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+5; parallelogram_property_diagonal_bisection(1,DABC,O); Parallelogram(DABC)&Collinear(DOB)&Collinear(AOC); ["IsMidpointOfLine(O,DB)"]
+6; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+7; parallel_property_ipsilateral_internal_angle(1,AD,BC); ParallelBetweenLine(AD,BC)&Line(AB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABC)),180)"]
+8; cosine_theorem(1,ABD); Polygon(ABD); ["Equal(Add(Pow(LengthOfLine(BD),2),Mul(2,LengthOfLine(AB),LengthOfLine(AD),Cos(MeasureOfAngle(DAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AD),2)))"]
+Retry attempt: 3
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5431_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error in TIER1_THEOREM_CALL_SYNTAX_VIOLATION: Theorem 'midpoint_of_line_judgment' is not recognized or its premise validation is not supported by the current verifier version.
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+3; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+4; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+5; parallelogram_property_diagonal_bisection(1,DABC,O); Parallelogram(DABC)&Collinear(DOB)&Collinear(AOC); ["IsMidpointOfLine(O,DB)"]
+6; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+7; parallel_property_ipsilateral_internal_angle(1,AD,BC); ParallelBetweenLine(AD,BC)&Line(AB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABC)),180)"]
+8; cosine_theorem(1,ABD); Polygon(ABD); ["Equal(Add(Pow(LengthOfLine(BD),2),Mul(2,LengthOfLine(AB),LengthOfLine(AD),Cos(MeasureOfAngle(DAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AD),2)))"]
+9; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+10; midpoint_of_line_judgment(1,O,DB); Collinear(DOB)&Equal(LengthOfLine(DO),LengthOfLine(OB)); ["IsMidpointOfLine(O,DB)"]
+Retry attempt: 4
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5431_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: congruent_triangle_property_line_equal(1,ABO,CDO)
+You output the following conclusions: Equal(LengthOfLine(BO),LengthOfLine(OD))
+But the correct conclusions: Equal(LengthOfLine(BO),LengthOfLine(DO))
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+3; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+4; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+5; parallelogram_property_diagonal_bisection(1,DABC,O); Parallelogram(DABC)&Collinear(DOB)&Collinear(AOC); ["IsMidpointOfLine(O,DB)"]
+6; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+7; parallel_property_ipsilateral_internal_angle(1,AD,BC); ParallelBetweenLine(AD,BC)&Line(AB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABC)),180)"]
+8; cosine_theorem(1,ABD); Polygon(ABD); ["Equal(Add(Pow(LengthOfLine(BD),2),Mul(2,LengthOfLine(AB),LengthOfLine(AD),Cos(MeasureOfAngle(DAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AD),2)))"]
+9; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+10; congruent_triangle_judgment_sas(1,ABO,CDO); Polygon(ABO)&Polygon(CDO)&Equal(LengthOfLine(AB),LengthOfLine(CD))&Equal(MeasureOfAngle(OAB),MeasureOfAngle(OCD))&Equal(LengthOfLine(AO),LengthOfLine(CO)); ["CongruentBetweenTriangle(ABO,CDO)"]
+11; congruent_triangle_property_line_equal(1,ABO,CDO); CongruentBetweenTriangle(ABO,CDO); ["Equal(LengthOfLine(BO),LengthOfLine(OD))"]
+Retry attempt: 5
+Total time: 69.904s | per attempt: [22.155, 15.566, 9.105, 9.759, 13.318]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5431_run_0.txt

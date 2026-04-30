@@ -35,7 +35,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 
 GEMINI_API_BASE = os.environ.get("GEMINI_API_BASE",
                                  "https://generativelanguage.googleapis.com/v1beta/openai")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDyMDLtv8CZ5NqosB9pEFJS8wF25uSJQbs")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 
 dl = DatasetLoader(dataset_name="formalgeo7k_v1", datasets_path=os.path.join(PROJECT_ROOT, "formalgeo7k_v1"))

@@ -1,0 +1,236 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ADG=36°, ∠AGE=104°, ∠FEC=40°, GB⊥CB. Find the measure of ∠GAD.
+CONSTRUCTION_CDL:
+Shape(AD,DG,GA)
+Shape(GB,BE,FG)
+Shape(FE,EC)
+Shape(EB,BC,CE)
+Shape(AG,GE)
+Shape(GE,EF)
+Shape(BG,GD)
+Collinear(DGEC)
+Collinear(AGB)
+Collinear(BEF)
+TEXT_CDL:
+Equal(MeasureOfAngle(ADG),36)
+Equal(MeasureOfAngle(AGE),104)
+Equal(MeasureOfAngle(FEC),40)
+PerpendicularBetweenLine(GB,CB)
+GOAL_CDL:
+Value(MeasureOfAngle(GAD))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DG,GA,AD)
+Shape(GA,AD,DG)
+Shape(BE,FG,GB)
+Shape(FG,GB,BE)
+Shape(BC,CE,EB)
+Shape(CE,EB,BC)
+Shape(FG,GB,BC,CE)
+Shape(GB,BC,CE,FG)
+Shape(BC,CE,FG,GB)
+Shape(CE,FG,GB,BC)
+Collinear(CEGD)
+Collinear(DGE)
+Collinear(EGD)
+Collinear(DGC)
+Collinear(CGD)
+Collinear(DEC)
+Collinear(CED)
+Collinear(GEC)
+Collinear(CEG)
+Collinear(BGA)
+Collinear(FEB)
+Point(D)
+Point(C)
+Point(G)
+Point(E)
+Point(A)
+Point(B)
+Point(F)
+Line(DC)
+Line(CD)
+Line(DG)
+Line(GD)
+Line(GE)
+Line(EG)
+Line(GC)
+Line(CG)
+Line(DE)
+Line(ED)
+Line(EC)
+Line(CE)
+Line(AB)
+Line(BA)
+Line(AG)
+Line(GA)
+Line(GB)
+Line(BG)
+Line(BF)
+Line(FB)
+Line(BE)
+Line(EB)
+Line(EF)
+Line(FE)
+Line(AD)
+Line(DA)
+Line(FG)
+Line(GF)
+Line(BC)
+Line(CB)
+Angle(DGE)
+Angle(EGD)
+Angle(DGC)
+Angle(CGD)
+Angle(DEC)
+Angle(CED)
+Angle(GEC)
+Angle(CEG)
+Angle(AGB)
+Angle(BGA)
+Angle(BEF)
+Angle(FEB)
+Angle(ADG)
+Angle(DGA)
+Angle(GAD)
+Angle(GBE)
+Angle(BEG)
+Angle(FGB)
+Angle(EBC)
+Angle(BCE)
+Angle(CEB)
+Angle(GBC)
+Angle(EGA)
+Angle(CGA)
+Angle(DEB)
+Angle(CEF)
+Angle(FEG)
+Angle(DGB)
+Angle(FGA)
+Angle(FGD)
+Angle(FED)
+Angle(BGC)
+Angle(CGB)
+Angle(DEF)
+Angle(AGC)
+Angle(BED)
+Angle(FGC)
+Angle(ADE)
+Angle(ADC)
+Angle(BAD)
+Angle(ABE)
+Angle(ABF)
+Angle(GBF)
+Angle(FBC)
+Angle(BCD)
+Angle(BCG)
+Angle(ABC)
+Angle(GEB)
+Angle(BGE)
+Angle(EGB)
+Angle(FGE)
+Angle(GDA)
+Angle(AGD)
+Angle(DAG)
+Angle(EBG)
+Angle(BGF)
+Angle(CBE)
+Angle(ECB)
+Angle(BEC)
+Angle(CBG)
+Angle(AGF)
+Angle(DGF)
+Angle(CGF)
+Angle(EDA)
+Angle(CDA)
+Angle(DAB)
+Angle(EBA)
+Angle(FBA)
+Angle(FBG)
+Angle(CBF)
+Angle(DCB)
+Angle(GCB)
+Angle(CBA)
+Angle(EGF)
+Polygon(ADG)
+Polygon(DGA)
+Polygon(GAD)
+Polygon(EBC)
+Polygon(BCE)
+Polygon(CEB)
+Polygon(GBC)
+Polygon(BCG)
+Polygon(CGB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the `adjacent_complementary_angle` theorem format:
+- `adjacent_complementary_angle(AOB,BOC)`: premise is `Collinear(AOC)&Angle(AOB)&Angle(BOC)`
+
+So for angles AGD and AGE sharing ray GA, with D-G-E collinear:
+- The collinear condition should be the line containing the outer points: Collinear(DGE) gives the line, but the theorem needs the collinear through the vertex with the two outer rays.
+
+For `adjacent_complementary_angle(AGD, DGE)`: angles AGD and DGE are NOT supplementary pairs - they share ray GD.
+
+I need: ∠AGD + ∠AGE = 180° because D-G-E are collinear (D and E on opposite sides of G).
+The theorem `adjacent_complementary_angle(AOB,BOC)` with `Collinear(AOC)` means A,O,C collinear and the two angles AOB and BOC are supplementary.
+
+Here: A=D, O=G, C=E, B=A(point). So `adjacent_complementary_angle(DGA, AGE)` with `Collinear(DGE)`.
+
+EQUATIONS:
+ma_adg - 36
+ma_age - 104
+ma_dga + ma_age - 180
+ma_gad + ma_adg + ma_dga - 180
+
+GOAL_SYMBOL:
+MeasureOfAngle(GAD)
+
+ANSWER:
+68
+
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DGA,AGE); Collinear(DGE)&Angle(DGA)&Angle(AGE); ["Equal(Add(MeasureOfAngle(DGA),MeasureOfAngle(AGE)),180)"]
+2; triangle_property_angle_sum(1,GAD); Polygon(GAD); ["Equal(Add(MeasureOfAngle(GAD),MeasureOfAngle(ADG),MeasureOfAngle(DGA)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,AGD,DGE)
+You output the following premises: Collinear(DGE)&Angle(AGD)&Angle(DGE)
+But the correct premises: Collinear(AGE)&Angle(AGD)&Angle(DGE)
+
+Model Answer:
+RETRY_ANSWER:
+68
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AGD,DGE); Collinear(DGE)&Angle(AGD)&Angle(DGE); ["Equal(Add(MeasureOfAngle(AGD),MeasureOfAngle(DGE)),180)"]
+2; flat_angle(1,DGE); Collinear(DGE); ["Equal(MeasureOfAngle(DGE),180)"]
+3; adjacent_complementary_angle(1,AGD,AGE); Collinear(DGE)&Angle(AGD)&Angle(AGE); ["Equal(Add(MeasureOfAngle(AGD),MeasureOfAngle(AGE)),180)"]
+4; triangle_property_angle_sum(1,GAD); Polygon(GAD); ["Equal(Add(MeasureOfAngle(GAD),MeasureOfAngle(ADG),MeasureOfAngle(DGA)),180)"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_adg-36
+ma_age-104
+ma_fec-40
+ma_gbc-90
+GT_GOAL_SYMBOL:
+ma_gad
+GT_ANSWER:
+68
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,DGA,AGE);Collinear(DGE)&Angle(DGA)&Angle(AGE);["Equal(Add(MeasureOfAngle(DGA),MeasureOfAngle(AGE)),180)"]
+2;triangle_property_angle_sum(1,DGA);Polygon(DGA);["Equal(Add(MeasureOfAngle(DGA),MeasureOfAngle(GAD),MeasureOfAngle(ADG)),180)"]
+

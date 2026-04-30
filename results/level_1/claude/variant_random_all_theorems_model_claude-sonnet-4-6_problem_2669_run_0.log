@@ -1,0 +1,6 @@
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2669_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('F', 'F'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Theorem sequence verified correctly
+Total time: 11.549s | per attempt: [11.549]
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2669_run_0.txt

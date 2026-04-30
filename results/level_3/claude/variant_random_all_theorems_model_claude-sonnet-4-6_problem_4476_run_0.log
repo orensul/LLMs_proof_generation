@@ -1,0 +1,79 @@
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCD,A)
+You output the following premises: Cocircular(O,CDA)&Angle(DAB)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OCD),1/2))"]
+2; round_arc(1,OCD,ODC); Arc(OCD)&Arc(ODC); ["Equal(Add(MeasureOfArc(OCD),MeasureOfArc(ODC)),360)"]
+3; arc_property_circumference_angle_external(1,ODC,B); Cocircular(O,DCB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODC),1/2))"]
+4; adjacent_complementary_angle(1,DCB,BCE); Collinear(BCE)&Angle(DCB)&Angle(BCE); ["Equal(Add(MeasureOfAngle(DCB),MeasureOfAngle(BCE)),180)"]
+
+Wait, I need ∠DCE not ∠BCE. Since Collinear(BCE), ∠DCE = ∠DCB supplementary... Actually ∠DCE is the angle at C between CD and CE. Since E-C-B or B-C-E, ∠DCE + ∠DCB = 180°.
+
+EQUATIONS: ma_dab-100
+GOAL_SYMBOL: ma_dce
+Retry attempt: 1
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODB,A)
+You output the following premises: Cocircular(O,DAB)&Angle(DAB)
+But the correct premises: Cocircular(O,DBA)&Angle(BAD)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DAB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+2; round_arc(1,ODB,OBD); Arc(ODB)&Arc(OBD); ["Equal(Add(MeasureOfArc(ODB),MeasureOfArc(OBD)),360)"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OBD),1/2))"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 2
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2; round_arc(1,ODB,OBD); Arc(ODB)&Arc(OBD); ["Equal(Add(MeasureOfArc(ODB),MeasureOfArc(OBD)),360)"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 3
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2; round_arc(1,ODB,OBD); Arc(ODB)&Arc(OBD); ["Equal(Add(MeasureOfArc(ODB),MeasureOfArc(OBD)),360)"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 4
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2; round_arc(1,ODB,OBD); Arc(ODB)&Arc(OBD); ["Equal(Add(MeasureOfArc(ODB),MeasureOfArc(OBD)),360)"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+4; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 5
+Total time: 43.574s | per attempt: [15.949, 10.009, 6.332, 7.182, 4.102]
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4476_run_0.txt

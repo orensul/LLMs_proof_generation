@@ -1,0 +1,268 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ABE=x+10°, ∠BDG=31°, ∠CAF=x-11°, ∠GCH=2*x-42°. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(CA,AF)
+Shape(AB,BE)
+Shape(BD,DG)
+Shape(DC,CH)
+Shape(AC,CD,DB,BA)
+Collinear(FAB)
+Collinear(DBE)
+Collinear(CDG)
+Collinear(ACH)
+TEXT_CDL:
+Equal(MeasureOfAngle(ABE),x+10)
+Equal(MeasureOfAngle(BDG),31)
+Equal(MeasureOfAngle(CAF),x-11)
+Equal(MeasureOfAngle(GCH),2*x-42)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CD,DB,BA,AC)
+Shape(DB,BA,AC,CD)
+Shape(BA,AC,CD,DB)
+Collinear(BAF)
+Collinear(EBD)
+Collinear(GDC)
+Collinear(HCA)
+Point(F)
+Point(B)
+Point(A)
+Point(D)
+Point(E)
+Point(C)
+Point(G)
+Point(H)
+Line(FB)
+Line(BF)
+Line(FA)
+Line(AF)
+Line(AB)
+Line(BA)
+Line(DE)
+Line(ED)
+Line(DB)
+Line(BD)
+Line(BE)
+Line(EB)
+Line(CG)
+Line(GC)
+Line(CD)
+Line(DC)
+Line(DG)
+Line(GD)
+Line(AH)
+Line(HA)
+Line(AC)
+Line(CA)
+Line(CH)
+Line(HC)
+Angle(FAB)
+Angle(BAF)
+Angle(DBE)
+Angle(EBD)
+Angle(CDG)
+Angle(GDC)
+Angle(ACH)
+Angle(HCA)
+Angle(ACD)
+Angle(CDB)
+Angle(DBA)
+Angle(BAC)
+Angle(FAC)
+Angle(EBA)
+Angle(GDB)
+Angle(HCD)
+Angle(CAB)
+Angle(ABD)
+Angle(BDC)
+Angle(DCA)
+Angle(HAF)
+Angle(FBE)
+Angle(EDG)
+Angle(GCH)
+Angle(ACG)
+Angle(CDE)
+Angle(DBF)
+Angle(BAH)
+Angle(FAH)
+Angle(EBF)
+Angle(GDE)
+Angle(HCG)
+Angle(HAB)
+Angle(FBD)
+Angle(EDC)
+Angle(GCA)
+Polygon(ACDB)
+Polygon(CDBA)
+Polygon(DBAC)
+Polygon(BACD)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(AFC);ma_afg;None
+MeasureOfAngle(AFG);ma_afg;None
+Free(x);x;None
+MeasureOfAngle(BIH);ma_bid;None
+MeasureOfAngle(BID);ma_bid;None
+MeasureOfAngle(CGB);ma_cgb;None
+MeasureOfAngle(CGI);ma_cgb;None
+MeasureOfAngle(HDF);ma_hdf;None
+MeasureOfAngle(HDA);ma_hdf;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me reconsider the problem. The answer is 93, so let me work backwards.
+
+Given:
+- ∠ABE = x+10, ∠BDG = 31, ∠CAF = x-11, ∠GCH = 2x-42
+
+With x=93: ∠ABE=103, ∠BDG=31, ∠CAF=82, ∠GCH=144
+
+The collinear facts: FAB, DBE, CDG, ACH
+The quadrilateral is ACDB (vertices A, C, D, B).
+
+Interior angles of ACDB:
+- ∠BAC (at A): supplement of ∠CAF → 180-(x-11) = 180-x+11 = 191-x. At x=93: 98°
+- ∠DBA (at B): supplement of ∠ABE → 180-(x+10) = 170-x. At x=93: 77°
+- ∠CDB (at D): supplement of ∠BDG → 180-31 = 149°
+- ∠ACD (at C): related to ∠GCH
+
+For quadrilateral sum: 98+77+149+∠ACD = 360 → ∠ACD = 36°
+
+Now ∠GCH = 144°. With ACH collinear and CDG collinear: ∠ACD + ∠DCH = 180 (adjacent on line ACH). ∠DCH = 180-36 = 144 = ∠GCH ✓ (since G is on ray CD extended past D, so ∠GCH = ∠DCH).
+
+So the equations are correct but the relationship between ∠GCH and interior angle ∠ACD is: ∠GCH = 180 - ∠ACD (they're supplementary on line ACH with ray CD).
+
+Let me redo with correct sign: ∠GCH = DCH (since CDG means D between C and G... wait CDG: C-D-G, so G is beyond D. From C, ray CG passes through D. So ray CD = ray CG, meaning ∠GCH = ∠DCH).
+
+So ∠ACD + ∠GCH = 180. At x=93: 36+144=180 ✓
+
+The equations give: (191-x) + (170-x) + 149 + (180-(2x-42)) = 360
+= 191-x+170-x+149+180-2x+42 = 360
+= 732-4x = 360
+= 4x = 372
+= x = 93 ✓
+
+So my theorem sequence was logically correct but perhaps the DCH angle isn't matching GCH properly. The issue is that GCH = DCH needs to be established, or I should use vertical angles.
+
+Since CDG means C-D-G, from C the ray toward G passes through D, so ∠GCH = ∠DCH directly (same angle). The theorem sequence should work. Let me fix the equations in my answer.
+
+EQUATIONS:
+ma_abe - x - 10
+ma_bdg - 31
+ma_caf - x + 11
+ma_gch - 2*x + 42
+
+GOAL_SYMBOL:
+x
+
+ANSWER:
+93
+
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DBA,ABE); Collinear(DBE)&Angle(DBA)&Angle(ABE); ["Equal(Add(MeasureOfAngle(DBA),MeasureOfAngle(ABE)),180)"]
+2; adjacent_complementary_angle(1,CDB,BDG); Collinear(CDG)&Angle(CDB)&Angle(BDG); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDG)),180)"]
+3; adjacent_complementary_angle(1,BAC,CAF); Collinear(BAF)&Angle(BAC)&Angle(CAF); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(CAF)),180)"]
+4; adjacent_complementary_angle(1,ACD,DCH); Collinear(ACH)&Angle(ACD)&Angle(DCH); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(DCH)),180)"]
+5; quadrilateral_property_angle_sum(1,ACDB); Polygon(ACDB); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(CDB),MeasureOfAngle(DBA),MeasureOfAngle(BAC)),360)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: angle_addition(1,CAF,CAB)
+You output the following premises: Angle(CAF)&Angle(CAB)&Angle(FAB)
+But the correct premises: Angle(CAC)&Angle(CAB)&Angle(CAB)
+You output the following conclusions: Equal(MeasureOfAngle(FAB),Add(MeasureOfAngle(CAF),MeasureOfAngle(CAB)))
+But the correct conclusions: Equal(MeasureOfAngle(CAB),Add(MeasureOfAngle(CAC),MeasureOfAngle(CAB)))
+
+Model Answer:
+RETRY_ANSWER:
+52
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,FAB); Collinear(FAB); ["Equal(MeasureOfAngle(FAB),180)"]
+2; flat_angle(1,DBE); Collinear(DBE); ["Equal(MeasureOfAngle(DBE),180)"]
+3; flat_angle(1,CDG); Collinear(CDG); ["Equal(MeasureOfAngle(CDG),180)"]
+4; flat_angle(1,ACH); Collinear(ACH); ["Equal(MeasureOfAngle(ACH),180)"]
+5; angle_addition(1,CAF,CAB); Angle(CAF)&Angle(CAB)&Angle(FAB); ["Equal(MeasureOfAngle(FAB),Add(MeasureOfAngle(CAF),MeasureOfAngle(CAB)))"]
+6; angle_addition(1,ABE,ABD); Angle(ABE)&Angle(ABD)&Angle(DBE); ["Equal(MeasureOfAngle(DBE),Add(MeasureOfAngle(ABE),MeasureOfAngle(ABD)))"]
+7; angle_addition(1,BDG,BDC); Angle(BDG)&Angle(BDC)&Angle(CDG); ["Equal(MeasureOfAngle(CDG),Add(MeasureOfAngle(BDG),MeasureOfAngle(BDC)))"]
+8; angle_addition(1,GCH,ACD); Angle(GCH)&Angle(ACD)&Angle(ACH); ["Equal(MeasureOfAngle(ACH),Add(MeasureOfAngle(GCH),MeasureOfAngle(ACD)))"]
+9; quadrilateral_property_angle_sum(1,ACDB); Polygon(ACDB); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(CDB),MeasureOfAngle(DBA),MeasureOfAngle(BAC)),360)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,ABE,EBD)
+You output the following premises: Collinear(DBE)&Angle(ABE)&Angle(EBD)
+But the correct premises: Collinear(ABD)&Angle(ABE)&Angle(EBD)
+
+Model Answer:
+RETRY_ANSWER:
+52
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,FAC,CAB); Collinear(FAB)&Angle(FAC)&Angle(CAB); ["Equal(Add(MeasureOfAngle(FAC),MeasureOfAngle(CAB)),180)"]
+2; adjacent_complementary_angle(1,ABE,EBD); Collinear(DBE)&Angle(ABE)&Angle(EBD); ["Equal(Add(MeasureOfAngle(ABE),MeasureOfAngle(EBD)),180)"]
+3; adjacent_complementary_angle(1,BDG,GDC); Collinear(CDG)&Angle(BDG)&Angle(GDC); ["Equal(Add(MeasureOfAngle(BDG),MeasureOfAngle(GDC)),180)"]
+4; adjacent_complementary_angle(1,GCH,HCA); Collinear(ACH)&Angle(GCH)&Angle(HCA); ["Equal(Add(MeasureOfAngle(GCH),MeasureOfAngle(HCA)),180)"]
+5; vertical_angle(1,FAC,BAC); Collinear(FAB)&Collinear(CAC)&Angle(FAC)&Angle(BAC); ["Equal(MeasureOfAngle(FAC),MeasureOfAngle(BAC))"]
+6; vertical_angle(1,ABE,DBD); Collinear(ABD)&Collinear(EBE)&Angle(ABE)&Angle(DBD); ["Equal(MeasureOfAngle(ABE),MeasureOfAngle(DBD))"]
+7; quadrilateral_property_angle_sum(1,ACDB); Polygon(ACDB); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(CDB),MeasureOfAngle(DBA),MeasureOfAngle(BAC)),360)"]
+8; adjacent_complementary_angle(1,ACD,GCH); Collinear(ACH)&Angle(ACD)&Angle(GCH); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(GCH)),180)"]
+9; adjacent_complementary_angle(1,CDB,BDG); Collinear(CDG)&Angle(CDB)&Angle(BDG); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDG)),180)"]
+10; adjacent_complementary_angle(1,DBA,ABE); Collinear(DBE)&Angle(DBA)&Angle(ABE); ["Equal(Add(MeasureOfAngle(DBA),MeasureOfAngle(ABE)),180)"]
+11; adjacent_complementary_angle(1,BAC,CAF); Collinear(FAB)&Angle(BAC)&Angle(CAF); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(CAF)),180)"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,ACD,CDG)
+You output the following premises: Collinear(ACH)&Angle(ACD)&Angle(GCH)
+But the correct premises: Collinear(ADG)&Angle(ADC)&Angle(CDG)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(GCH)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(CDG)),180)
+
+Model Answer:
+RETRY_ANSWER:
+52
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DBA,ABE); Collinear(DBE)&Angle(DBA)&Angle(ABE); ["Equal(Add(MeasureOfAngle(DBA),MeasureOfAngle(ABE)),180)"]
+2; adjacent_complementary_angle(1,CDB,BDG); Collinear(CDG)&Angle(CDB)&Angle(BDG); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDG)),180)"]
+3; adjacent_complementary_angle(1,BAC,CAF); Collinear(BAF)&Angle(BAC)&Angle(CAF); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(CAF)),180)"]
+4; adjacent_complementary_angle(1,ACD,CDG); Collinear(ACH)&Angle(ACD)&Angle(GCH); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(GCH)),180)"]
+5; quadrilateral_property_angle_sum(1,ACDB); Polygon(ACDB); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(CDB),MeasureOfAngle(DBA),MeasureOfAngle(BAC)),360)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: value determination
+- Model answer: 52
+- Verifier expected answer: 93
+- Error: THE MODEL DETERMINED THE ANSWER TO BE 52 BUT IN THE GROUND TRUTH SOLUTION TO THE PROBLEM THE ANSWER IS 93.
+  Please review your theorem sequence and ensure it correctly establishes the expected answer.
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+52
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DBA,ABE); Collinear(DBE)&Angle(DBA)&Angle(ABE); ["Equal(Add(MeasureOfAngle(DBA),MeasureOfAngle(ABE)),180)"]
+2; adjacent_complementary_angle(1,CDB,BDG); Collinear(CDG)&Angle(CDB)&Angle(BDG); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDG)),180)"]
+3; adjacent_complementary_angle(1,BAC,CAF); Collinear(BAF)&Angle(BAC)&Angle(CAF); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(CAF)),180)"]
+4; adjacent_complementary_angle(1,ACD,DCH); Collinear(ACH)&Angle(ACD)&Angle(DCH); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(DCH)),180)"]
+5; quadrilateral_property_angle_sum(1,ACDB); Polygon(ACDB); ["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(CDB),MeasureOfAngle(DBA),MeasureOfAngle(BAC)),360)"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_abe-x-10
+ma_bdg-31
+ma_caf-x+11
+ma_gch-2*x+42
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+93
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,BAC,CAF);Collinear(BAF)&Angle(BAC)&Angle(CAF);["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(CAF)),180)"]
+2;adjacent_complementary_angle(1,ACG,GCH);Collinear(ACH)&Angle(ACG)&Angle(GCH);["Equal(Add(MeasureOfAngle(ACG),MeasureOfAngle(GCH)),180)"]
+3;adjacent_complementary_angle(1,CDE,EDG);Collinear(CDG)&Angle(CDE)&Angle(EDG);["Equal(Add(MeasureOfAngle(CDE),MeasureOfAngle(EDG)),180)"]
+4;adjacent_complementary_angle(1,DBA,ABE);Collinear(DBE)&Angle(DBA)&Angle(ABE);["Equal(Add(MeasureOfAngle(DBA),MeasureOfAngle(ABE)),180)"]
+5;quadrilateral_property_angle_sum(1,ACDB);Polygon(ACDB);["Equal(Add(MeasureOfAngle(ACD),MeasureOfAngle(CDB),MeasureOfAngle(DBA),MeasureOfAngle(BAC)),360)"]
+

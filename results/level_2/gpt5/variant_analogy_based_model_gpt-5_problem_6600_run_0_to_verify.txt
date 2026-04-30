@@ -1,0 +1,134 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠BAC=80°, the center of ⊙O is O. Find the measure of ∠BOC.
+CONSTRUCTION_CDL:
+Shape(BO,OC,OCB)
+Shape(AB,OBA)
+Shape(CA,OAC)
+Shape(OB,BA,AC,CO)
+Cocircular(O,ACB)
+TEXT_CDL:
+Equal(MeasureOfAngle(BAC),80)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(BOC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(OC,OCB,BO)
+Shape(OCB,BO,OC)
+Shape(OBA,AB)
+Shape(OAC,CA)
+Shape(BA,AC,CO,OB)
+Shape(AC,CO,OB,BA)
+Shape(CO,OB,BA,AC)
+Shape(OCB,BA,AC)
+Shape(BA,AC,OCB)
+Shape(AC,OCB,BA)
+Shape(OBA,AC,CO,OB)
+Shape(AC,CO,OB,OBA)
+Shape(CO,OB,OBA,AC)
+Shape(OB,OBA,AC,CO)
+Shape(OAC,CO,OB,BA)
+Shape(CO,OB,BA,OAC)
+Shape(OB,BA,OAC,CO)
+Shape(BA,OAC,CO,OB)
+Shape(OCB,OBA,AC)
+Shape(OBA,AC,OCB)
+Shape(AC,OCB,OBA)
+Shape(OCB,BA,OAC)
+Shape(BA,OAC,OCB)
+Shape(OAC,OCB,BA)
+Shape(OBA,OAC,CO,OB)
+Shape(OAC,CO,OB,OBA)
+Shape(CO,OB,OBA,OAC)
+Shape(OB,OBA,OAC,CO)
+Shape(OCB,OBA,OAC)
+Shape(OBA,OAC,OCB)
+Shape(OAC,OCB,OBA)
+Cocircular(O,A)
+Cocircular(O,C)
+Cocircular(O,B)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,CB)
+Cocircular(O,BC)
+Cocircular(O,CBA)
+Cocircular(O,BAC)
+Point(B)
+Point(O)
+Point(C)
+Point(A)
+Line(BO)
+Line(OB)
+Line(OC)
+Line(CO)
+Line(AB)
+Line(BA)
+Line(CA)
+Line(AC)
+Arc(OAC)
+Arc(OCA)
+Arc(OAB)
+Arc(OBA)
+Arc(OCB)
+Arc(OBC)
+Angle(BOC)
+Angle(OBA)
+Angle(BAC)
+Angle(ACO)
+Angle(COB)
+Angle(ABO)
+Angle(CAB)
+Angle(OCA)
+Polygon(OBAC)
+Polygon(BACO)
+Polygon(ACOB)
+Polygon(COBA)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(AOB);ma_aob;100
+MeasureOfAngle(BCA);ma_bca;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_bac-80
+GOAL_SYMBOL:
+ma_boc
+ANSWER:
+160
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCB,A); Cocircular(O,CBA)&Angle(BAC); ["Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OCB),1/2))"]
+2; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCB,A)
+You output the following premises: Cocircular(O,BAC)&Angle(BAC)
+But the correct premises: Cocircular(O,CBA)&Angle(BAC)
+
+Model Answer:
+RETRY_ANSWER:
+160
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCB,A); Cocircular(O,BAC)&Angle(BAC); ["Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OCB),1/2))"]
+2; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_bac-80
+GT_GOAL_SYMBOL:
+ma_boc
+GT_ANSWER:
+160
+GT_THEOREM_SEQUENCE:
+1;arc_property_center_angle(1,OCB,O);Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O);["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+2;arc_property_circumference_angle_external(1,OCB,A);Cocircular(O,CBA)&Angle(BAC);["Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OCB),1/2))"]
+

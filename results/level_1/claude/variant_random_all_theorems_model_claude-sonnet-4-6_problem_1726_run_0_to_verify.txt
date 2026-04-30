@@ -1,0 +1,125 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=21, CA=16, CB=15. Find the value of cos(CB).
+CONSTRUCTION_CDL:
+Shape(BA,AC,CB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),21)
+Equal(LengthOfLine(CA),16)
+Equal(LengthOfLine(CB),15)
+GOAL_CDL:
+Value(Cos(MeasureOfAngle(CBA)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CB,BA)
+Shape(CB,BA,AC)
+Point(B)
+Point(A)
+Point(C)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Line(CB)
+Line(BC)
+Angle(BAC)
+Angle(ACB)
+Angle(CBA)
+Angle(CAB)
+Angle(BCA)
+Angle(ABC)
+Polygon(BAC)
+Polygon(ACB)
+Polygon(CBA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(BCA);ma_bca;90
+MeasureOfAngle(OCA);ma_bca;90
+MeasureOfAngle(PCA);ma_bca;90
+LengthOfLine(CA);ll_ca;None
+LengthOfLine(AC);ll_ca;None
+LengthOfLine(CB);ll_cb;None
+LengthOfLine(BC);ll_cb;None
+MeasureOfAngle(FEA);ma_fea;None
+MeasureOfAngle(ACH);ma_ach;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find cos(∠CBA) in triangle CBA where AB=21, CA=16, CB=15.
+
+Let me analyze the problem. I have triangle CBA (or BAC) with:
+- AB = 21
+- CA = 16
+- CB = 15
+
+I need to find cos(∠CBA).
+
+Using the cosine theorem for triangle CBA:
+- The angle at B is ∠CBA
+- The side opposite to B is CA = 16
+- The other two sides from B are CB = 15 and AB = 21
+
+The cosine theorem states:
+CA² = CB² + AB² - 2·CB·AB·cos(∠CBA)
+
+Wait, let me use the correct form from the GDL:
+`cosine_theorem(ABC)`: Equal(Add(Pow(LengthOfLine(BC),2), Mul(2,LengthOfLine(AB),LengthOfLine(AC),Cos(MeasureOfAngle(CAB)))), Add(Pow(LengthOfLine(AB),2), Pow(LengthOfLine(AC),2)))
+
+This gives: BC² + 2·AB·AC·cos(∠CAB) = AB² + AC²
+
+For triangle CBA with angle at B (∠CBA):
+Using `cosine_theorem(1,CBA)`: 
+BC² + 2·CB·BA·cos(∠ACB) ... 
+
+Let me re-read: `cosine_theorem(ABC)` gives:
+Equal(Add(Pow(BC,2), Mul(2,AB,AC,Cos(CAB))), Add(Pow(AB,2), Pow(AC,2)))
+
+So BC² + 2·AB·AC·cos(∠CAB) = AB² + AC²
+
+For triangle CBA:
+- A→C, B→B, C→A
+- BC² + 2·CB·BA·cos(∠ACB... 
+
+For `cosine_theorem(1,BAC)`:
+Equal(Add(Pow(AC,2), Mul(2,BA,BC,Cos(CBA))), Add(Pow(BA,2), Pow(BC,2)))
+
+So: AC² + 2·BA·BC·cos(∠CBA) = BA² + BC²
+16² + 2·21·15·cos(∠CBA) = 21² + 15²
+256 + 630·cos(∠CBA) = 441 + 225 = 666
+630·cos(∠CBA) = 410
+cos(∠CBA) = 410/630 = 41/63
+
+Let me verify with the SYMBOLS_AND_VALUES - it seems the symbols might be from Problem A5 mistakenly copied. Let me just work with what I have.
+
+EQUATIONS:
+ll_ab - 21
+ll_ca - 16
+ll_cb - 15
+
+GOAL_SYMBOL:
+cos(pi*ma_cba/180)
+
+ANSWER:
+41/63
+
+THEOREM_SEQUENCE:
+1; cosine_theorem(1,BAC); Polygon(BAC); ["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-21
+ll_ca-16
+ll_cb-15
+GT_GOAL_SYMBOL:
+cos(pi*ma_cba/180)
+GT_ANSWER:
+41/63
+GT_THEOREM_SEQUENCE:
+1;cosine_theorem(1,BAC);Polygon(BAC);["Equal(Add(Pow(LengthOfLine(AC),2),Mul(2,LengthOfLine(BA),LengthOfLine(BC),Cos(MeasureOfAngle(CBA)))),Add(Pow(LengthOfLine(BA),2),Pow(LengthOfLine(BC),2)))"]
+

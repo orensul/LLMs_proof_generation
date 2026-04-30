@@ -1,0 +1,52 @@
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_51_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); ParallelBetweenLine(WL,XE)&Line(WX); ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 1
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_51_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); ParallelBetweenLine(WL,XE)&Line(WX); ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 2
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_51_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,LW,EX)
+You output the following premises: ParallelBetweenLine(LW,EX)&Line(LX)
+But the correct premises: ParallelBetweenLine(LW,EX)&Line(LE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(WLX),MeasureOfAngle(LXE)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(WLE),MeasureOfAngle(LEX)),180)
+
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,LW,EX); ParallelBetweenLine(LW,EX)&Line(LX); ["Equal(Add(MeasureOfAngle(WLX),MeasureOfAngle(LXE)),180)"]
+Retry attempt: 3
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_51_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); ParallelBetweenLine(WL,XE)&Line(WX); ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 4
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_51_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+23
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,WL,XE); ParallelBetweenLine(WL,XE)&Line(WX); ["Equal(Add(MeasureOfAngle(LWX),MeasureOfAngle(WXE)),180)"]
+Retry attempt: 5
+Total time: 51.029s | per attempt: [16.629, 8.673, 10.73, 6.924, 8.074]
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_51_run_0.txt

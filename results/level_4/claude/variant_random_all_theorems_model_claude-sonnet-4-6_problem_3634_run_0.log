@@ -1,0 +1,99 @@
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,AB,EF)
+You output the following premises: ParallelBetweenLine(AB,EF)&Line(BE)
+But the correct premises: ParallelBetweenLine(AB,EF)&Line(AF)
+You output the following conclusions: Equal(MeasureOfAngle(ABE),MeasureOfAngle(BEF))
+But the correct conclusions: Equal(MeasureOfAngle(BAF),MeasureOfAngle(EFA))
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(ABE),MeasureOfAngle(BEF))"]
+2; angle_addition(1,BEC,CEF); Angle(BEC)&Angle(CEF)&Angle(BEF); ["Equal(MeasureOfAngle(BEF),Add(MeasureOfAngle(BEC),MeasureOfAngle(CEF)))"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,EF)
+You output the following premises: ParallelBetweenLine(AB,EF)&Line(BF)
+But the correct premises: ParallelBetweenLine(AB,EF)&Line(AE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ABF),MeasureOfAngle(EFB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAE),MeasureOfAngle(AEF)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,AB,EF); ParallelBetweenLine(AB,EF)&Line(BF); ["Equal(Add(MeasureOfAngle(ABF),MeasureOfAngle(EFB)),180)"]
+2; adjacent_complementary_angle(1,CBA,ABF); Collinear(CBF)&Angle(CBA)&Angle(ABF); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(ABF)),180)"]
+3; adjacent_complementary_angle(1,BFE,ECD); Collinear(BFD)&Angle(BFE)&Angle(EFD); ["Equal(Add(MeasureOfAngle(BFE),MeasureOfAngle(EFD)),180)"]
+4; parallel_property_alternate_interior_angle(2,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(MeasureOfAngle(FEC),MeasureOfAngle(ECD))"]
+5; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 2
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,FE,BA)
+You output the following premises: ParallelBetweenLine(FE,BA)&Line(FB)
+But the correct premises: ParallelBetweenLine(FE,BA)&Line(EB)
+You output the following conclusions: Equal(MeasureOfAngle(BFE),MeasureOfAngle(FBA))
+But the correct conclusions: Equal(MeasureOfAngle(BEF),MeasureOfAngle(EBA))
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,FE,BA); ParallelBetweenLine(FE,BA)&Line(FB); ["Equal(MeasureOfAngle(BFE),MeasureOfAngle(FBA))"]
+2; adjacent_complementary_angle(1,ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,FE,DC); ParallelBetweenLine(FE,DC)&Line(FD); ["Equal(Add(MeasureOfAngle(EFD),MeasureOfAngle(FDC)),180)"]
+4; parallel_property_alternate_interior_angle(2,FE,DC); ParallelBetweenLine(FE,DC)&Line(EC); ["Equal(MeasureOfAngle(CEF),MeasureOfAngle(ECD))"]
+5; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+6; parallel_property_ipsilateral_internal_angle(1,FE,BA); ParallelBetweenLine(FE,BA)&Line(FB); ["Equal(Add(MeasureOfAngle(EFB),MeasureOfAngle(FBA)),180)"]
+7; angle_addition(1,CBF,FBC); Angle(CBF)&Angle(FBC)&Angle(CBC); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 3
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+3; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 4
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: parallel_property_collinear_extend(1,AB,CD,F);ParallelBetweenLine(AB,CD)&Collinear(FAB);['ParallelBetweenLine(FA,CD)', 'ParallelBetweenLine(FB,CD)']
+Missing premise: Expected collinear fact Collinear(FAB) not found.
+Details: Stored collinear facts: ['BFD', 'BFD']
+- Available premises:
+  Parallel Lines: AB ∥ CD, AB ∥ EF, CD ∥ EF
+  Collinear Points: BFD
+  Polygons: BCD, BCEF, CDFE, CEFB, DFEC, ECDF, EFBC, FBCE, FECD
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+2; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+3; parallel_property_collinear_extend(1,AB,CD,F); ParallelBetweenLine(AB,CD)&Collinear(FAB); ["ParallelBetweenLine(FA,CD)", "ParallelBetweenLine(FB,CD)"]
+4; parallel_property_ipsilateral_internal_angle(1,BA,CD); ParallelBetweenLine(BA,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+5; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 5
+Total time: 101.820s | per attempt: [24.438, 20.796, 18.749, 24.901, 12.935]
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3634_run_0.txt

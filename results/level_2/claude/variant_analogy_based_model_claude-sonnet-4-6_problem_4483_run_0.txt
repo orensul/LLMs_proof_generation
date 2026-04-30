@@ -1,0 +1,281 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠DAB=64°, O is the center of circle O. Find the measure of ∠DOB.
+CONSTRUCTION_CDL:
+Shape(OAB,BA)
+Shape(OBC,CB)
+Shape(OCD,DC)
+Shape(ODA,AD)
+Shape(AB,BO,OD,DA)
+Shape(OB,BC,CD,DO)
+Cocircular(O,ABCD)
+TEXT_CDL:
+Equal(MeasureOfAngle(DAB),64)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(DOB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,OAB)
+Shape(CB,OBC)
+Shape(DC,OCD)
+Shape(AD,ODA)
+Shape(BO,OD,DA,AB)
+Shape(OD,DA,AB,BO)
+Shape(DA,AB,BO,OD)
+Shape(BC,CD,DO,OB)
+Shape(CD,DO,OB,BC)
+Shape(DO,OB,BC,CD)
+Shape(OAB,BO,OD,DA)
+Shape(BO,OD,DA,OAB)
+Shape(OD,DA,OAB,BO)
+Shape(DA,OAB,BO,OD)
+Shape(OBC,CD,DO,OB)
+Shape(CD,DO,OB,OBC)
+Shape(DO,OB,OBC,CD)
+Shape(OB,OBC,CD,DO)
+Shape(OCD,DO,OB,BC)
+Shape(DO,OB,BC,OCD)
+Shape(OB,BC,OCD,DO)
+Shape(BC,OCD,DO,OB)
+Shape(ODA,AB,BO,OD)
+Shape(AB,BO,OD,ODA)
+Shape(BO,OD,ODA,AB)
+Shape(OD,ODA,AB,BO)
+Shape(DA,AB,BC,CD)
+Shape(AB,BC,CD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(OAB,BO,OD,ODA)
+Shape(BO,OD,ODA,OAB)
+Shape(OD,ODA,OAB,BO)
+Shape(ODA,OAB,BO,OD)
+Shape(OAB,BC,CD,DA)
+Shape(BC,CD,DA,OAB)
+Shape(CD,DA,OAB,BC)
+Shape(DA,OAB,BC,CD)
+Shape(OBC,OCD,DO,OB)
+Shape(OCD,DO,OB,OBC)
+Shape(DO,OB,OBC,OCD)
+Shape(OB,OBC,OCD,DO)
+Shape(OBC,CD,DA,AB)
+Shape(CD,DA,AB,OBC)
+Shape(DA,AB,OBC,CD)
+Shape(AB,OBC,CD,DA)
+Shape(OCD,DA,AB,BC)
+Shape(DA,AB,BC,OCD)
+Shape(AB,BC,OCD,DA)
+Shape(BC,OCD,DA,AB)
+Shape(ODA,AB,BC,CD)
+Shape(AB,BC,CD,ODA)
+Shape(BC,CD,ODA,AB)
+Shape(CD,ODA,AB,BC)
+Shape(OAB,OBC,CD,DA)
+Shape(OBC,CD,DA,OAB)
+Shape(CD,DA,OAB,OBC)
+Shape(DA,OAB,OBC,CD)
+Shape(OAB,BC,OCD,DA)
+Shape(BC,OCD,DA,OAB)
+Shape(OCD,DA,OAB,BC)
+Shape(DA,OAB,BC,OCD)
+Shape(OAB,BC,CD,ODA)
+Shape(BC,CD,ODA,OAB)
+Shape(CD,ODA,OAB,BC)
+Shape(ODA,OAB,BC,CD)
+Shape(OBC,OCD,DA,AB)
+Shape(OCD,DA,AB,OBC)
+Shape(DA,AB,OBC,OCD)
+Shape(AB,OBC,OCD,DA)
+Shape(OBC,CD,ODA,AB)
+Shape(CD,ODA,AB,OBC)
+Shape(ODA,AB,OBC,CD)
+Shape(AB,OBC,CD,ODA)
+Shape(OCD,ODA,AB,BC)
+Shape(ODA,AB,BC,OCD)
+Shape(AB,BC,OCD,ODA)
+Shape(BC,OCD,ODA,AB)
+Shape(OAB,OBC,OCD,DA)
+Shape(OBC,OCD,DA,OAB)
+Shape(OCD,DA,OAB,OBC)
+Shape(DA,OAB,OBC,OCD)
+Shape(OAB,OBC,CD,ODA)
+Shape(OBC,CD,ODA,OAB)
+Shape(CD,ODA,OAB,OBC)
+Shape(ODA,OAB,OBC,CD)
+Shape(OAB,BC,OCD,ODA)
+Shape(BC,OCD,ODA,OAB)
+Shape(OCD,ODA,OAB,BC)
+Shape(ODA,OAB,BC,OCD)
+Shape(OBC,OCD,ODA,AB)
+Shape(OCD,ODA,AB,OBC)
+Shape(ODA,AB,OBC,OCD)
+Shape(AB,OBC,OCD,ODA)
+Shape(OAB,OBC,OCD,ODA)
+Shape(OBC,OCD,ODA,OAB)
+Shape(OCD,ODA,OAB,OBC)
+Shape(ODA,OAB,OBC,OCD)
+Cocircular(O,A)
+Cocircular(O,B)
+Cocircular(O,C)
+Cocircular(O,D)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,BD)
+Cocircular(O,DB)
+Cocircular(O,CD)
+Cocircular(O,DC)
+Cocircular(O,ABC)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Cocircular(O,ABD)
+Cocircular(O,BDA)
+Cocircular(O,DAB)
+Cocircular(O,ACD)
+Cocircular(O,CDA)
+Cocircular(O,DAC)
+Cocircular(O,BCD)
+Cocircular(O,CDB)
+Cocircular(O,DBC)
+Cocircular(O,BCDA)
+Cocircular(O,CDAB)
+Cocircular(O,DABC)
+Point(B)
+Point(A)
+Point(C)
+Point(D)
+Point(O)
+Line(BA)
+Line(AB)
+Line(CB)
+Line(BC)
+Line(DC)
+Line(CD)
+Line(AD)
+Line(DA)
+Line(BO)
+Line(OB)
+Line(OD)
+Line(DO)
+Arc(OAB)
+Arc(OBA)
+Arc(OAC)
+Arc(OCA)
+Arc(OAD)
+Arc(ODA)
+Arc(OBC)
+Arc(OCB)
+Arc(OBD)
+Arc(ODB)
+Arc(OCD)
+Arc(ODC)
+Angle(ABO)
+Angle(BOD)
+Angle(ODA)
+Angle(DAB)
+Angle(OBC)
+Angle(BCD)
+Angle(CDO)
+Angle(DOB)
+Angle(ABC)
+Angle(CDA)
+Angle(OBA)
+Angle(ADO)
+Angle(BAD)
+Angle(CBO)
+Angle(DCB)
+Angle(ODC)
+Angle(CBA)
+Angle(ADC)
+Polygon(ABOD)
+Polygon(BODA)
+Polygon(ODAB)
+Polygon(DABO)
+Polygon(OBCD)
+Polygon(BCDO)
+Polygon(CDOB)
+Polygon(DOBC)
+Polygon(DABC)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(BCD);ma_bcd;110
+MeasureOfAngle(DOB);ma_dob;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find ∠DOB given that ∠DAB = 64° and O is the center of circle O, with A, B, C, D on the circle.
+
+**Analysis:**
+- ∠DAB is an inscribed angle that subtends arc DB (the arc not containing A)
+- The central angle ∠DOB subtends the same arc DB
+- By the inscribed angle theorem, the central angle is twice the inscribed angle
+
+Wait, let me check which arc. ∠DAB is an inscribed angle at A, subtending arc DB (the arc from D to B not passing through A).
+
+Looking at the analogous problems:
+- A4: Given ∠DOB=110° (central angle), find ∠BCD (inscribed angle on the opposite side) → answer 125° = 180 - 110/2
+- A5: Given ∠BCD=110° (inscribed angle internal), find ∠DOB → answer 140°
+
+In this problem, ∠DAB = 64° is an inscribed angle. Looking at the construction, A is on the circle and ∠DAB subtends arc DB (the arc from D to B not containing A). 
+
+The arc_property_circumference_angle_external theorem says: for a point C external to arc OAB (meaning C is on the major arc), angle BCA = ½ × arc(OAB).
+
+∠DAB at point A subtends arc DB. Since A is on the circle and the angle is DAB, this is an inscribed angle subtending arc DB (not containing A). So arc DB = 2 × ∠DAB = 128°.
+
+The central angle ∠DOB = arc OBD = arc DB = 128°.
+
+Let me verify using the theorem structure from A4/A5:
+- Use `arc_property_circumference_angle_external` for ∠DAB subtending arc OBD (with A as external point)
+- Then use `arc_property_center_angle` to get ∠DOB
+
+For `arc_property_circumference_angle_external(OBD, A)`: 
+- Premise: Cocircular(O, BDA) & Angle(DAB) (wait, the angle should be DAB... but the theorem says angle BCA for arc OAB)
+- The theorem: `arc_property_circumference_angle_external(OAB,C)`: Cocircular(O,ABC)&Angle(BCA) → Equal(MeasureOfAngle(BCA), Mul(MeasureOfArc(OAB), 1/2))
+
+For arc OBD with external point A: Cocircular(O,BDA)&Angle(DAB) → Equal(MeasureOfAngle(DAB), Mul(MeasureOfArc(OBD), 1/2))
+
+This matches since Cocircular(O,BDA) is in the extended CDL.
+
+Then arc_property_center_angle for arc OBD: Arc(OBD)&Angle(DOB)&IsCentreOfCircle(O,O) → Equal(MeasureOfArc(OBD), MeasureOfAngle(DOB))
+
+So ∠DOB = 2 × 64° = 128°.
+
+EQUATIONS:
+ma_dab-64
+
+GOAL_SYMBOL:
+ma_dob
+
+ANSWER:
+128
+
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+2; arc_property_center_angle(1,OBD,O); Arc(OBD)&Angle(DOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBD),MeasureOfAngle(DOB))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_dab-64
+GT_GOAL_SYMBOL:
+ma_dob
+GT_ANSWER:
+128
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,OBD,A);Cocircular(O,BDA)&Angle(DAB);["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+2;arc_property_center_angle(1,OBD,O);Arc(OBD)&Angle(DOB)&IsCentreOfCircle(O,O);["Equal(MeasureOfArc(OBD),MeasureOfAngle(DOB))"]
+

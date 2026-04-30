@@ -1,0 +1,100 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BA=h, CA=3, ∠BAC=45°, AC⊥BC. Find the value of h.
+CONSTRUCTION_CDL:
+Shape(CB,BA,AC)
+TEXT_CDL:
+Equal(LengthOfLine(BA),h)
+Equal(LengthOfLine(CA),3)
+Equal(MeasureOfAngle(BAC),45)
+PerpendicularBetweenLine(AC,BC)
+GOAL_CDL:
+Value(h)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,AC,CB)
+Shape(AC,CB,BA)
+Point(C)
+Point(B)
+Point(A)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Angle(CBA)
+Angle(BAC)
+Angle(ACB)
+Angle(ABC)
+Angle(CAB)
+Angle(BCA)
+Polygon(CBA)
+Polygon(BAC)
+Polygon(ACB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the value of h where BA=h, CA=3, ∠BAC=45°, and AC⊥BC.
+
+Let me analyze this problem:
+- Triangle ABC with BA=h, CA=3, ∠BAC=45°, AC⊥BC
+- AC⊥BC means ∠ACB = 90°
+
+Since ∠ACB = 90° and ∠BAC = 45°, then ∠ABC = 45°.
+In a right triangle with ∠ACB = 90°, ∠BAC = 45°, ∠ABC = 45°.
+So it's an isosceles right triangle with AC = BC = 3.
+Using the sine theorem or trigonometry: BA/sin(ACB) = CA/sin(ABC)
+h/sin(90°) = 3/sin(45°)
+h = 3/sin(45°) = 3/(√2/2) = 3√2
+
+Let me verify: In right triangle with legs AC=BC=3, hypotenuse BA = √(9+9) = 3√2. ✓
+
+Now let me construct the theorem sequence:
+
+The SYMBOLS_AND_VALUES section seems to have been copied incorrectly from Problem A5, but based on the CONSTRUCTION_CDL, the actual symbols should relate to the triangle CBA.
+
+EQUATIONS:
+ll_ba - h
+ll_ca - 3
+ma_bac - 45
+
+GOAL_SYMBOL:
+h
+
+ANSWER:
+3*sqrt(2)
+
+THEOREM_SEQUENCE:
+1; perpendicular_judgment_angle(1,AC,BC); Angle(ACB)&Equal(MeasureOfAngle(ACB),90); ["PerpendicularBetweenLine(AC,BC)"]
+2; triangle_property_angle_sum(1,CBA); Polygon(CBA); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BAC),MeasureOfAngle(ACB)),180)"]
+3; sine_theorem(1,CBA); Polygon(CBA); ["Equal(Mul(LengthOfLine(CB),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(BAC))))"]
+4; sine_theorem(1,BAC); Polygon(BAC); ["Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(BAC))),Mul(LengthOfLine(BC),Sin(MeasureOfAngle(ACB))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+-h+ll_ba
+ll_ca-3
+ma_bac-45
+ma_acb-90
+GT_GOAL_SYMBOL:
+h
+GT_ANSWER:
+3*sqrt(2)
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,ACB);Polygon(ACB);["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(CBA),MeasureOfAngle(BAC)),180)"]
+2;sine_theorem(1,ACB);Polygon(ACB);["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+

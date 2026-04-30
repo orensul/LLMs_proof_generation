@@ -1,0 +1,110 @@
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4099_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,BCE,ECA)
+You output the following premises: Collinear(ACE)&Angle(BCE)&Angle(ECA)
+But the correct premises: Collinear(BCA)&Angle(BCE)&Angle(ECA)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BCE,ECA); Collinear(ACE)&Angle(BCE)&Angle(ECA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(ECA)),180)"]
+2; adjacent_complementary_angle(1,ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+Retry attempt: 1
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4099_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: adjacent_complementary_angle(1,BCE,ECA);Collinear(BCA)&Angle(BCE)&Angle(ECA);['Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(ECA)),180)']
+Missing premise: Points BCA are not proven collinear
+Details: Known collinear facts: [['A', 'B', 'F'], ['A', 'C', 'E'], ['A', 'B', 'F'], ['A', 'C', 'E']]
+- Available premises:
+  Collinear Points: ABF, ACE
+  Polygons: ABC
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠ABC <= 180
+  ∠ABC > 0
+  ∠ABE <= 180
+  ∠ABE > 0
+  ∠ABF <= 180
+  ∠ABF > 0
+  ∠ACB <= 180
+  ∠ACB > 0
+  ∠ACE <= 180
+  ∠ACE > 0
+  ∠ACF <= 180
+  ∠ACF > 0
+  ∠AEB <= 180
+  ∠AEB > 0
+  ∠AEF <= 180
+  ∠AEF > 0
+  ∠AFC <= 180
+  ∠AFC > 0
+  ∠AFE <= 180
+  ∠AFE > 0
+  ∠BAC <= 180
+  ∠BAC = ∠BAE
+  ∠BAC = ∠CAF
+  ∠BAC > 0
+  ∠BAE <= 180
+  ∠BAE = ∠EAF
+  ∠BAE > 0
+  ∠BCE <= 180
+  ∠BCE = 130
+  ∠BCE > 0
+  ∠BEC <= 180
+  ∠BEC = ∠AEB
+  ∠BEC > 0
+  ∠BFC <= 180
+  ∠BFC = ∠AFC
+  ∠BFC > 0
+  ∠BFE <= 180
+  ∠BFE = ∠AFE
+  ∠BFE > 0
+  ∠CAF <= 180
+  ∠CAF = ∠EAF
+  ∠CAF > 0
+  ∠CBF <= 180
+  ∠CBF > 0
+  ∠CEF <= 180
+  ∠CEF = ∠AEF
+  ∠CEF > 0
+  ∠EAF <= 180
+  ∠EAF > 0
+  ∠EBF <= 180
+  ∠EBF > 0
+  ∠ECF <= 180
+  ∠ECF > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BCE,ECA); Collinear(BCA)&Angle(BCE)&Angle(ECA); ["Equal(Add(MeasureOfAngle(BCE),MeasureOfAngle(ECA)),180)"]
+2; adjacent_complementary_angle(1,ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+Retry attempt: 2
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4099_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,BCA,BCE)
+You output the following premises: Collinear(ACE)&Angle(BCA)&Angle(BCE)
+But the correct premises: Collinear(BCE)&Angle(BCB)&Angle(BCE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(BCE)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BCB),MeasureOfAngle(BCE)),180)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BCA,BCE); Collinear(ACE)&Angle(BCA)&Angle(BCE); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(BCE)),180)"]
+2; adjacent_complementary_angle(1,ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+Retry attempt: 3
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4099_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 34.051s | per attempt: [12.073, 6.686, 8.005, 7.287]
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4099_run_0.txt
