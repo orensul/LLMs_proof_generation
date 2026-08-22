@@ -31,8 +31,8 @@ conda activate FormalGeo_env
   The regressor model training (Section 3.2). Run with argument --run-model-pred 1 to run the model.
 - `formalgeo/similar_proofs_retrieval.py`
   Retrieve analogies for our analogy-based method, or random problems for the base model baseline (see Section 4). This code is used in LLM_analogy_based_solver.py. 
-- `formalgeo/LLM_analogy_based_solver.py`
-  Run the LLM solver, default base model is o1 (set in argument "model"). (whether with analogy-based / base model settings, should be set in "variant" argument). You should set your key for OpenAI model. You should set the problem you want to solve in chosen_problems_by_level. The output proof file and log will be generate in /results folder
+- `formalgeo/LLM_analogy_based_solver.py`, `formalgeo/LLM_claude_analogy_based_solver.py`, `formalgeo/LLM_gemini_analogy_based_solver.py`, `formalgeo/LLM_gpt5_analogy_based_solver.py`
+  Run the LLM solver for each of the four evaluated models (o1, Claude Sonnet 4.6, Gemini-2.5-Flash, GPT-5, respectively). Whether to run with analogy-based / base model settings is set in the "variant" argument. You should set your API key for the corresponding provider. You should set the problem you want to solve in chosen_problems_by_level. The output proof file and log will be generated in /results folder
 - `formalgeo/geometric_verifier.py`
   Our SMT verifier based on z3 library (see Section 3.4)
   
@@ -42,7 +42,7 @@ conda activate FormalGeo_env
 - `formalgeo/verifier/verifier.py`
   Our code for the verifier to support tier 1 errors, based on FormalGeo codebase (see Section 3.4)
 
-- `formalgeo/experiments/exp_new.py`
+- `formalgeo/experiments/plot_results.py`
   Our code to run the plots for the results of the experiments (see Section 5)
 
 
