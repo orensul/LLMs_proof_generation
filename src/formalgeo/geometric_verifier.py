@@ -6527,7 +6527,7 @@ class GeometricTheorem:
 
             # Check that at least one cyclic variation of T is recorded as isosceles.
 
-            if not (variations & self.isosceles_triangles):
+            if not (variations & getattr(self, 'isosceles_triangles', set())):
                 return return_error(GeometricError(
 
                     tier=ErrorTier.TIER2_PREMISE_VIOLATION,

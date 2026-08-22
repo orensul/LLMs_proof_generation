@@ -1,0 +1,51 @@
+
+
+
+We provide additional details on the results and statistical analyses, focusing on the o1 model; similar trends are observed across other models.
+
+We now assess the contribution of the different components of our pipeline: The analogy retrieval, the verifier, and the multiple runs.
+
+\noindent\textbf{Analogy retrieval.}
+To measure the effect of analogy retrieval, we compare our method to the base model (non-analogy), under the same three settings:
+(1) first run, no retries,
+(2) first run, with retries (verifier),
+(3) multiple runs, with retries (verifier). 
+
+In setting (1) our method achieved an overall accuracy of 48\%, substantially outperforming the baseline's 10\% (blue circle vs. red hollow circle), $p=$3.81e-06 in the McNemar test at the 0.05 level. % (both solved the same 5 problems, but our method succeeded on 19 additional problems).
+In setting (2), our method achieved 68\% overall accuracy, while the base model reaches 38\% (blue square vs. red hollow square), $p=$6.10e-05 in the McNemar test at the  0.05 level. % as the analogy-based method solving 16 more problems than the baseline (34 vs. 18).
+In setting (3) we observe a 80\% overall accuracy for our method vs. 52\% for the base model (blue triangle vs. red hollow triangle). This improvement is also statistically significant, with $p=$1.22e-04 in the McNemar test at the  0.05 level. 
+% with 14 additional problems solved by our method (40 vs. 26).
+That is, analogy retrieval boosts model performance across all settings.
+
+
+\noindent\textbf{Disentangling analogy retrieval and theorem dictionary construction.}
+The comparison above jointly varies two factors: whether examples are retrieved analogies or random problems, and whether the theorem dictionary is analogy-derived or full. To isolate each factor's individual contribution, we evaluate three additional configurations on Gemini-Flash-2.5 and Claude Sonnet-4.6, using the same 50 evaluation problems and inference protocol (Table~\ref{tab:ablation_dict}): (i) retrieved analogies with the full theorem dictionary, isolating the effect of analogy retrieval alone; (ii) random examples with a theorem dictionary narrowed from those random examples, isolating the effect of dictionary narrowing without analogy retrieval; and (iii) retrieved analogies with a random, size-matched theorem dictionary, isolating the effect of the analogy-derived theorem selection specifically.
+
+Our complete method consistently achieves the best performance across all evaluation settings, and is the top-performing configuration for both models under a single attempt, verifier-guided retries, and the full inference budget.
+
+The intermediate ablations further validate the contribution of analogy retrieval. Both setting (i) (retrieved analogies + full dictionary) and setting (iii) (retrieved analogies + random size-matched dictionary) consistently outperform setting (ii) (random examples + narrowed dictionary), showing that retrieving analogous proofs provides useful guidance even before considering theorem-dictionary construction. Compared with the baseline, settings (i) and (iii) improve performance in nearly all evaluation settings, with the largest gains on the first attempt (e.g., +8 and +10 points for Gemini, +14 and +8 points for Claude).
+
+Finally, comparing our method with settings (i) and (iii) isolates the contribution of the analogy-derived theorem dictionary. Replacing the analogy-derived dictionary with either the full theorem dictionary (setting (i)) or a random size-matched dictionary (setting (iii)) consistently reduces accuracy, demonstrating that the improvement comes from selecting theorems that are specifically relevant to the retrieved analogies, rather than simply reducing prompt size. This is consistent with Table~\ref{tab:theorems_coverage}, where the analogy-derived theorem dictionary retains the complete target-proof theorem set for more problems than a random-example-derived dictionary of comparable size, while reducing the prompt from approximately 18K to 2.5K tokens on average.
+
+
+\noindent\textbf{Verifier feedback.}
+%As a reminder, allowing retries means the LLM iterates following a verifier feedback. 
+We now measure the impact of retries following feedback.
+As shown in Figure~\ref{fig:experiments_result}, allowing retries consistently improves results across all difficulty levels. For our analogy-based method, 
+retries (blue square) yields an average gain of additional 20\% over no retries (blue circle), with gains ranging from 10\% to 30\% at different levels.
+The improvement is even more pronounced for the base model (red hollow square vs.\ red hollow circle), where verifier feedback results in an average gain of 28\%, ranging from 10\% to 40\% per level.
+
+
+
+\noindent\textbf{Multiple runs.}  
+In RQ1, we evaluated the effect of multiple runs when comparing our full method to the base model. We now analyze the impact of multiple runs for the same method (blue triangle vs.~square, red hollow triangle vs.~square).
+We find that additional runs improve performance for both our method and the base model. Notably, for our method multiple runs help more on harder problems (gains of 20-30\% for levels 4-5), where the potential for improvement is greater. 
+ 
+
+ % +10\% (level 1), +50\% (level 2), +20\% (level 4) for the base model.
+
+\smallskip
+
+To conclude, our method outperforms the baseline across all settings, with each component contributing to performance.  Although the verifier alone does enhance the base model’s results, analogy retrieval supplies stronger initial proof candidates for the verifier to correct.  
+
+%it does not match the effectiveness of our full method -- analogy retrieval offers better starting points, which the verifier can improve more effectively.

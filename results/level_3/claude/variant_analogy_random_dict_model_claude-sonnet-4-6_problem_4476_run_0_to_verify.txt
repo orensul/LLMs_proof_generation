@@ -1,0 +1,246 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠DAB=100°, O is the center of ⊙O. Find the measure of ∠DCE.
+CONSTRUCTION_CDL:
+Shape(OAB,BA)
+Shape(OBC,CB)
+Shape(OCD,DC)
+Shape(ODA,AD)
+Shape(AB,BC,CD,DA)
+Shape(DC,CE)
+Collinear(BCE)
+Cocircular(O,ABCD)
+TEXT_CDL:
+Equal(MeasureOfAngle(DAB),100)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(DCE))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,OAB)
+Shape(CB,OBC)
+Shape(DC,OCD)
+Shape(AD,ODA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(DA,AB,BC,CD)
+Shape(OAB,BC,CD,DA)
+Shape(BC,CD,DA,OAB)
+Shape(CD,DA,OAB,BC)
+Shape(DA,OAB,BC,CD)
+Shape(OBC,CD,DA,AB)
+Shape(CD,DA,AB,OBC)
+Shape(DA,AB,OBC,CD)
+Shape(AB,OBC,CD,DA)
+Shape(OCD,DA,AB,BC)
+Shape(DA,AB,BC,OCD)
+Shape(AB,BC,OCD,DA)
+Shape(BC,OCD,DA,AB)
+Shape(ODA,AB,BC,CD)
+Shape(AB,BC,CD,ODA)
+Shape(BC,CD,ODA,AB)
+Shape(CD,ODA,AB,BC)
+Shape(OAB,OBC,CD,DA)
+Shape(OBC,CD,DA,OAB)
+Shape(CD,DA,OAB,OBC)
+Shape(DA,OAB,OBC,CD)
+Shape(OAB,BC,OCD,DA)
+Shape(BC,OCD,DA,OAB)
+Shape(OCD,DA,OAB,BC)
+Shape(DA,OAB,BC,OCD)
+Shape(OAB,BC,CD,ODA)
+Shape(BC,CD,ODA,OAB)
+Shape(CD,ODA,OAB,BC)
+Shape(ODA,OAB,BC,CD)
+Shape(OBC,OCD,DA,AB)
+Shape(OCD,DA,AB,OBC)
+Shape(DA,AB,OBC,OCD)
+Shape(AB,OBC,OCD,DA)
+Shape(OBC,CD,ODA,AB)
+Shape(CD,ODA,AB,OBC)
+Shape(ODA,AB,OBC,CD)
+Shape(AB,OBC,CD,ODA)
+Shape(OCD,ODA,AB,BC)
+Shape(ODA,AB,BC,OCD)
+Shape(AB,BC,OCD,ODA)
+Shape(BC,OCD,ODA,AB)
+Shape(OAB,OBC,OCD,DA)
+Shape(OBC,OCD,DA,OAB)
+Shape(OCD,DA,OAB,OBC)
+Shape(DA,OAB,OBC,OCD)
+Shape(OAB,OBC,CD,ODA)
+Shape(OBC,CD,ODA,OAB)
+Shape(CD,ODA,OAB,OBC)
+Shape(ODA,OAB,OBC,CD)
+Shape(OAB,BC,OCD,ODA)
+Shape(BC,OCD,ODA,OAB)
+Shape(OCD,ODA,OAB,BC)
+Shape(ODA,OAB,BC,OCD)
+Shape(OBC,OCD,ODA,AB)
+Shape(OCD,ODA,AB,OBC)
+Shape(ODA,AB,OBC,OCD)
+Shape(AB,OBC,OCD,ODA)
+Shape(OAB,OBC,OCD,ODA)
+Shape(OBC,OCD,ODA,OAB)
+Shape(OCD,ODA,OAB,OBC)
+Shape(ODA,OAB,OBC,OCD)
+Collinear(ECB)
+Cocircular(O,A)
+Cocircular(O,B)
+Cocircular(O,C)
+Cocircular(O,D)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,BD)
+Cocircular(O,DB)
+Cocircular(O,CD)
+Cocircular(O,DC)
+Cocircular(O,ABC)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Cocircular(O,ABD)
+Cocircular(O,BDA)
+Cocircular(O,DAB)
+Cocircular(O,ACD)
+Cocircular(O,CDA)
+Cocircular(O,DAC)
+Cocircular(O,BCD)
+Cocircular(O,CDB)
+Cocircular(O,DBC)
+Cocircular(O,BCDA)
+Cocircular(O,CDAB)
+Cocircular(O,DABC)
+Point(B)
+Point(E)
+Point(C)
+Point(A)
+Point(D)
+Line(BE)
+Line(EB)
+Line(BC)
+Line(CB)
+Line(CE)
+Line(EC)
+Line(BA)
+Line(AB)
+Line(DC)
+Line(CD)
+Line(AD)
+Line(DA)
+Arc(OAB)
+Arc(OBA)
+Arc(OAC)
+Arc(OCA)
+Arc(OAD)
+Arc(ODA)
+Arc(OBC)
+Arc(OCB)
+Arc(OBD)
+Arc(ODB)
+Arc(OCD)
+Arc(ODC)
+Angle(BCE)
+Angle(ECB)
+Angle(ABC)
+Angle(BCD)
+Angle(CDA)
+Angle(DAB)
+Angle(ECD)
+Angle(DCB)
+Angle(ABE)
+Angle(CBA)
+Angle(ADC)
+Angle(BAD)
+Angle(EBA)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Polygon(DABC)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ECB);ma_ecb;70
+MeasureOfAngle(DAB);ma_dab;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find ∠DCE given that ∠DAB = 100° and O is the center of circle O, with ABCD inscribed in the circle and BCE collinear.
+
+Let me analyze the structure:
+- ABCD is a cyclic quadrilateral
+- ∠DAB = 100°
+- BCE is collinear (E is on the extension of CB beyond B, or B is between C and E... looking at "Collinear(BCE)", B is between C and E or E is beyond B)
+- DC extended meets line BCE at E (Shape(DC,CE) means CE is part of the figure)
+
+Wait, looking more carefully: Collinear(BCE) means B, C, E are collinear. Shape(DC,CE) means DC and CE form a shape, so E is on the extension of BC beyond C. So ∠DCE is the angle at C between DC and CE, where E is on line BC extended beyond C.
+
+This is the reverse of Problem A1 (where ∠DCE=75° and we find ∠DAB=75°). Here ∠DAB=100° and we find ∠DCE.
+
+The approach (reverse of A1/A4):
+1. Use arc property: ∠DAB is an inscribed angle, relates to arc ODB
+2. Then ∠BCD (inscribed angle on the other side) relates to the same arc
+3. Then ∠DCE is supplementary to ∠BCD
+
+Step 1: ∠DAB is an internal angle of cyclic quadrilateral. Using arc_property_circumference_angle_internal:
+∠DAB = 180 - (1/2)·arc(ODB)
+
+So arc(ODB) = 2·(180 - 100) = 160°
+
+Step 2: ∠BCD is circumference angle external to arc ODB:
+∠BCD = (1/2)·arc(ODB) = 80°
+
+Step 3: ∠DCE = 180 - ∠BCD = 100°... 
+
+Wait, let me reconsider. Looking at A1: ∠DCE=75°, ∠DAB=75°. The answer equals the given angle.
+
+In A1 theorem sequence:
+1. ∠BCD + ∠DCE = 180 (supplementary, collinear BCE)
+2. ∠BCD = (1/2)·arc(ODB) [external circumference angle]
+3. ∠DAB = 180 - (1/2)·arc(ODB) [internal circumference angle]
+
+So ∠DAB = 180 - ∠BCD = ∠DCE. Thus ∠DCE = ∠DAB = 100°.
+
+The theorem sequence for Problem B (reverse direction):
+
+1. Use arc_property_circumference_angle_internal for ∠DAB with arc ODB
+2. Use arc_property_circumference_angle_external for ∠BCD with arc ODB  
+3. Use adjacent_complementary_angle for ∠DCE
+
+EQUATIONS:
+ma_dab-100
+
+GOAL_SYMBOL:
+ma_dce
+
+ANSWER:
+100
+
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1,ODB,A); Cocircular(O,DAB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Sub(180,Mul(MeasureOfArc(ODB),1/2)))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_dab-100
+GT_GOAL_SYMBOL:
+ma_dce
+GT_ANSWER:
+100
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,OBD,A);Cocircular(O,BDA)&Angle(DAB);["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+2;arc_property_circumference_angle_internal(1,OBD,C);Cocircular(O,BCD)&Angle(BCD);["Equal(MeasureOfAngle(BCD),Sub(180,Mul(MeasureOfArc(OBD),1/2)))"]
+3;adjacent_complementary_angle(1,BCD,DCE);Collinear(BCE)&Angle(BCD)&Angle(DCE);["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+

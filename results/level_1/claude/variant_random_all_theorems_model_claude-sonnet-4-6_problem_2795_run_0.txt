@@ -1,0 +1,347 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠YXW=30°, WY⊥ZY, quadrilateral WYZX is a rectangle. Find the measure of ∠ZXA.
+CONSTRUCTION_CDL:
+Shape(WY,YA,AW)
+Shape(AY,YZ,ZA)
+Shape(AZ,ZX,XA)
+Shape(AX,XW,WA)
+Collinear(WAZ)
+Collinear(YAX)
+TEXT_CDL:
+Equal(MeasureOfAngle(YXW),30)
+PerpendicularBetweenLine(WY,ZY)
+Rectangle(WYZX)
+GOAL_CDL:
+Value(MeasureOfAngle(ZXA))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(YA,AW,WY)
+Shape(AW,WY,YA)
+Shape(YZ,ZA,AY)
+Shape(ZA,AY,YZ)
+Shape(ZX,XA,AZ)
+Shape(XA,AZ,ZX)
+Shape(XW,WA,AX)
+Shape(WA,AX,XW)
+Shape(WY,YA,AX,XW)
+Shape(YA,AX,XW,WY)
+Shape(AX,XW,WY,YA)
+Shape(XW,WY,YA,AX)
+Shape(AW,WY,YZ,ZA)
+Shape(WY,YZ,ZA,AW)
+Shape(YZ,ZA,AW,WY)
+Shape(ZA,AW,WY,YZ)
+Shape(AY,YZ,ZX,XA)
+Shape(YZ,ZX,XA,AY)
+Shape(ZX,XA,AY,YZ)
+Shape(XA,AY,YZ,ZX)
+Shape(AZ,ZX,XW,WA)
+Shape(ZX,XW,WA,AZ)
+Shape(XW,WA,AZ,ZX)
+Shape(WA,AZ,ZX,XW)
+Shape(WY,YA,AZ,ZX,XW)
+Shape(YA,AZ,ZX,XW,WY)
+Shape(AZ,ZX,XW,WY,YA)
+Shape(ZX,XW,WY,YA,AZ)
+Shape(XW,WY,YA,AZ,ZX)
+Shape(AW,WY,YZ,ZX,XA)
+Shape(WY,YZ,ZX,XA,AW)
+Shape(YZ,ZX,XA,AW,WY)
+Shape(ZX,XA,AW,WY,YZ)
+Shape(XA,AW,WY,YZ,ZX)
+Shape(AY,YZ,ZX,XW,WA)
+Shape(YZ,ZX,XW,WA,AY)
+Shape(ZX,XW,WA,AY,YZ)
+Shape(XW,WA,AY,YZ,ZX)
+Shape(WA,AY,YZ,ZX,XW)
+Shape(YZ,ZA,AX,XW,WY)
+Shape(ZA,AX,XW,WY,YZ)
+Shape(AX,XW,WY,YZ,ZA)
+Shape(XW,WY,YZ,ZA,AX)
+Shape(WY,YZ,ZA,AX,XW)
+Shape(WY,YZ,ZX,XW)
+Shape(YZ,ZX,XW,WY)
+Shape(ZX,XW,WY,YZ)
+Shape(XW,WY,YZ,ZX)
+Collinear(ZAW)
+Collinear(XAY)
+Point(W)
+Point(Z)
+Point(A)
+Point(Y)
+Point(X)
+Line(WZ)
+Line(ZW)
+Line(WA)
+Line(AW)
+Line(AZ)
+Line(ZA)
+Line(YX)
+Line(XY)
+Line(YA)
+Line(AY)
+Line(AX)
+Line(XA)
+Line(WY)
+Line(YW)
+Line(YZ)
+Line(ZY)
+Line(ZX)
+Line(XZ)
+Line(XW)
+Line(WX)
+Angle(WAZ)
+Angle(ZAW)
+Angle(YAX)
+Angle(XAY)
+Angle(WYA)
+Angle(YAW)
+Angle(AWY)
+Angle(AYZ)
+Angle(YZA)
+Angle(ZAY)
+Angle(AZX)
+Angle(ZXA)
+Angle(XAZ)
+Angle(AXW)
+Angle(XWA)
+Angle(WAX)
+Angle(YXW)
+Angle(XWY)
+Angle(WYZ)
+Angle(YZX)
+Angle(ZXW)
+Angle(YAZ)
+Angle(XAW)
+Angle(WAY)
+Angle(ZAX)
+Angle(WYX)
+Angle(ZWY)
+Angle(XYZ)
+Angle(YZW)
+Angle(WZX)
+Angle(ZXY)
+Angle(XWZ)
+Angle(AYW)
+Angle(YWA)
+Angle(ZYA)
+Angle(AZY)
+Angle(XZA)
+Angle(AXZ)
+Angle(WXA)
+Angle(AWX)
+Angle(WXY)
+Angle(YWX)
+Angle(ZYW)
+Angle(XZY)
+Angle(WXZ)
+Angle(XYW)
+Angle(YWZ)
+Angle(ZYX)
+Angle(WZY)
+Angle(XZW)
+Angle(YXZ)
+Angle(ZWX)
+Polygon(WYA)
+Polygon(YAW)
+Polygon(AWY)
+Polygon(AYZ)
+Polygon(YZA)
+Polygon(ZAY)
+Polygon(AZX)
+Polygon(ZXA)
+Polygon(XAZ)
+Polygon(AXW)
+Polygon(XWA)
+Polygon(WAX)
+Polygon(WYX)
+Polygon(YXW)
+Polygon(XWY)
+Polygon(WYZ)
+Polygon(YZW)
+Polygon(ZWY)
+Polygon(YZX)
+Polygon(ZXY)
+Polygon(XYZ)
+Polygon(ZXW)
+Polygon(XWZ)
+Polygon(WZX)
+Polygon(WYAZX)
+Polygon(YAZXW)
+Polygon(AZXWY)
+Polygon(ZXWYA)
+Polygon(XWYAZ)
+Polygon(AWYZX)
+Polygon(WYZXA)
+Polygon(YZXAW)
+Polygon(ZXAWY)
+Polygon(XAWYZ)
+Polygon(AYZXW)
+Polygon(YZXWA)
+Polygon(ZXWAY)
+Polygon(XWAYZ)
+Polygon(WAYZX)
+Polygon(YZAXW)
+Polygon(ZAXWY)
+Polygon(AXWYZ)
+Polygon(XWYZA)
+Polygon(WYZAX)
+Polygon(WYZX)
+Polygon(YZXW)
+Polygon(ZXWY)
+Polygon(XWYZ)
+Parallelogram(WYZX)
+Parallelogram(YZXW)
+Parallelogram(ZXWY)
+Parallelogram(XWYZ)
+Rectangle(YZXW)
+Rectangle(ZXWY)
+Rectangle(XWYZ)
+ParallelBetweenLine(WX,YZ)
+ParallelBetweenLine(ZY,XW)
+ParallelBetweenLine(YW,ZX)
+ParallelBetweenLine(XZ,WY)
+PerpendicularBetweenLine(YZ,XZ)
+PerpendicularBetweenLine(ZX,WX)
+PerpendicularBetweenLine(XW,YW)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully check the alternate interior angle theorem format:
+
+From GDL:
+```
+"parallel_property_alternate_interior_angle(AB,CD)": {
+    "1": {
+        "premise": "ParallelBetweenLine(AB,CD)&Line(AD)",
+        "conclusion": ["Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))"]
+    },
+    "2": {
+        "premise": "ParallelBetweenLine(AB,CD)&Line(BC)",
+        "conclusion": ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+    }
+}
+```
+
+So for `ParallelBetweenLine(WY,ZX)&Line(WX)`: AB=WY, CD=ZX, need Line(AD)=Line(WX). That means A=W, D=X. So conclusion is `Equal(MeasureOfAngle(YWX),MeasureOfAngle(ZXW))`. ✓
+
+The issue was using `YW` instead of `WY`. Let me fix this and keep the rest correct.
+
+EQUATIONS:
+ma_yxw-30
+
+GOAL_SYMBOL:
+ma_zxa
+
+ANSWER:
+60
+
+THEOREM_SEQUENCE:
+1; perpendicular_judgment_angle(1,ZX,WX); Angle(ZXW)&Equal(MeasureOfAngle(ZXW),90); ["PerpendicularBetweenLine(ZX,WX)"]
+2; angle_addition(1,ZXA,AXW); Angle(ZXA)&Angle(AXW)&Angle(ZXW); ["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXA),MeasureOfAngle(AXW)))"]
+3; vertical_angle(1,XAW,YAZ); Collinear(XAY)&Collinear(WAZ)&Angle(XAW)&Angle(YAZ); ["Equal(MeasureOfAngle(XAW),MeasureOfAngle(YAZ))"]
+4; triangle_property_angle_sum(1,YXW); Polygon(YXW); ["Equal(Add(MeasureOfAngle(YXW),MeasureOfAngle(XWY),MeasureOfAngle(WYX)),180)"]
+5; parallel_property_alternate_interior_angle(1,WY,ZX); ParallelBetweenLine(WY,ZX)&Line(WX); ["Equal(MeasureOfAngle(YWX),MeasureOfAngle(ZXW))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallelogram_property_opposite_angle_equal(1,WYZX)
+You output the following conclusions: Equal(MeasureOfAngle(ZWY),MeasureOfAngle(YZX))
+But the correct conclusions: Equal(MeasureOfAngle(XWY),MeasureOfAngle(YZX))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; rectangle_judgment_right_angle(1,WYZX); Parallelogram(WYZX)&Equal(MeasureOfAngle(WYZ),90); ["Rectangle(WYZX)"]
+2; parallelogram_property_opposite_angle_equal(1,WYZX); Parallelogram(WYZX); ["Equal(MeasureOfAngle(ZWY),MeasureOfAngle(YZX))"]
+3; triangle_property_angle_sum(1,YXW); Polygon(YXW); ["Equal(Add(MeasureOfAngle(YXW),MeasureOfAngle(XWY),MeasureOfAngle(WYX)),180)"]
+4; parallel_property_alternate_interior_angle(1,WY,ZX); ParallelBetweenLine(YW,ZX)&Line(YX); ["Equal(MeasureOfAngle(WYX),MeasureOfAngle(ZXY))"]
+5; angle_addition(1,ZXY,YXW); Angle(ZXY)&Angle(YXW)&Angle(ZXW); ["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXY),MeasureOfAngle(YXW)))"]
+
+Wait, I need to reconsider. ∠ZXA = ∠ZXY since A is on segment XY.
+
+The key insight: In rectangle WYZX, ∠WYX = 90° (angle at Y between WY and YX). 
+Triangle WYX: ∠WYX = 90°, ∠YXW = 30°, so ∠YWX = 60°.
+By alternate interior angles (WY ∥ ZX), ∠ZXY = ∠WYX... 
+
+Actually ∠WYZ = 90° in rectangle. ∠WYX is part of that.
+
+EQUATIONS:
+ma_yxw-30
+
+GOAL_SYMBOL:
+ma_zxa
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,XAW,YAZ)
+You output the following premises: Collinear(YAX)&Collinear(WAZ)&Angle(XAW)&Angle(YAZ)
+But the correct premises: Collinear(XAY)&Collinear(WAZ)&Angle(XAW)&Angle(YAZ)
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; angle_addition(1,ZXY,YXW); Angle(ZXY)&Angle(YXW)&Angle(ZXW); ["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXY),MeasureOfAngle(YXW)))"]
+2; vertical_angle(1,XAW,YAZ); Collinear(YAX)&Collinear(WAZ)&Angle(XAW)&Angle(YAZ); ["Equal(MeasureOfAngle(XAW),MeasureOfAngle(YAZ))"]
+3; triangle_property_angle_sum(1,ZXA); Polygon(ZXA); ["Equal(Add(MeasureOfAngle(ZXA),MeasureOfAngle(XAZ),MeasureOfAngle(AZX)),180)"]
+4; triangle_property_angle_sum(1,YXW); Polygon(YXW); ["Equal(Add(MeasureOfAngle(YXW),MeasureOfAngle(XWY),MeasureOfAngle(WYX)),180)"]
+5; parallel_property_ipsilateral_internal_angle(1,WY,ZX); ParallelBetweenLine(YW,ZX)&Line(WX); ["Equal(Add(MeasureOfAngle(YWX),MeasureOfAngle(ZXW)),180)"]
+6; angle_addition(1,ZXA,AXW); Angle(ZXA)&Angle(AXW)&Angle(ZXW); ["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXA),MeasureOfAngle(AXW)))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,WY,ZX)
+You output the following premises: ParallelBetweenLine(YW,ZX)&Line(WX)
+But the correct premises: ParallelBetweenLine(WY,ZX)&Line(WZ)
+You output the following conclusions: Equal(Add(MeasureOfAngle(YWX),MeasureOfAngle(ZXW)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(YWZ),MeasureOfAngle(WZX)),180)
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; angle_addition(1,ZXA,AXW); Angle(ZXA)&Angle(AXW)&Angle(ZXW); ["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXA),MeasureOfAngle(AXW)))"]
+2; parallel_property_ipsilateral_internal_angle(1,WY,ZX); ParallelBetweenLine(YW,ZX)&Line(WX); ["Equal(Add(MeasureOfAngle(YWX),MeasureOfAngle(ZXW)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,WX,YZ); ParallelBetweenLine(WX,YZ)&Line(XZ); ["Equal(Add(MeasureOfAngle(ZXW),MeasureOfAngle(YZX)),180)"]
+4; vertical_angle(1,XAW,YAZ); Collinear(XAY)&Collinear(WAZ)&Angle(XAW)&Angle(YAZ); ["Equal(MeasureOfAngle(XAW),MeasureOfAngle(YAZ))"]
+5; triangle_property_angle_sum(1,YXW); Polygon(YXW); ["Equal(Add(MeasureOfAngle(YXW),MeasureOfAngle(XWY),MeasureOfAngle(WYX)),180)"]
+6; parallel_property_alternate_interior_angle(2,WX,YZ); ParallelBetweenLine(WX,YZ)&Line(XY); ["Equal(MeasureOfAngle(ZXY),MeasureOfAngle(XYW))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,WY,ZX)
+You output the following premises: ParallelBetweenLine(YW,ZX)&Line(WX)
+But the correct premises: ParallelBetweenLine(WY,ZX)&Line(WX)
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; perpendicular_judgment_angle(1,ZX,WX); Angle(ZXW)&Equal(MeasureOfAngle(ZXW),90); ["PerpendicularBetweenLine(ZX,WX)"]
+2; angle_addition(1,ZXA,AXW); Angle(ZXA)&Angle(AXW)&Angle(ZXW); ["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXA),MeasureOfAngle(AXW)))"]
+3; vertical_angle(1,XAW,YAZ); Collinear(XAY)&Collinear(WAZ)&Angle(XAW)&Angle(YAZ); ["Equal(MeasureOfAngle(XAW),MeasureOfAngle(YAZ))"]
+4; triangle_property_angle_sum(1,YXW); Polygon(YXW); ["Equal(Add(MeasureOfAngle(YXW),MeasureOfAngle(XWY),MeasureOfAngle(WYX)),180)"]
+5; parallel_property_alternate_interior_angle(1,WY,ZX); ParallelBetweenLine(YW,ZX)&Line(WX); ["Equal(MeasureOfAngle(YWX),MeasureOfAngle(ZXW))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_yxw-30
+ma_wyz-90
+ma_yzx-90
+ma_zxw-90
+ma_xwy-90
+GT_GOAL_SYMBOL:
+ma_zxa
+GT_ANSWER:
+60
+GT_THEOREM_SEQUENCE:
+1;angle_addition(1,ZXA,AXW);Angle(ZXA)&Angle(AXW)&Angle(ZXW);["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXA),MeasureOfAngle(AXW)))"]
+

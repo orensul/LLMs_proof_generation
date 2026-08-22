@@ -1,0 +1,34 @@
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5983_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBC,A)
+You output the following premises: Cocircular(O,CBA)&Angle(BAC)
+But the correct premises: Cocircular(O,BCA)&Angle(CAB)
+You output the following conclusions: Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OBC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,CBA)&Angle(BAC); ["Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+Retry attempt: 1
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5983_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,OBC,O)
+You output the following premises: Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O)
+But the correct premises: Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O)
+You output the following conclusions: Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))
+But the correct conclusions: Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,BCA)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+Retry attempt: 2
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5983_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 50.450s | per attempt: [10.367, 21.349, 18.734]
+Content written to results/level_2/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5983_run_0.txt

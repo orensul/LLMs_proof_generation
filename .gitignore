@@ -1,2 +1,4 @@
 problems_similarity_results.csv
-problems_similarity_results.csv
+.DS_Store
+__pycache__/
+*.pyc

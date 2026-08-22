@@ -1,0 +1,20 @@
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1244_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: bisector_of_angle_property_line_ratio(1,DA,BDC)
+You output the following premises: IsBisectorOfAngle(DA,BDC)&Collinear(BAC)
+But the correct premises: IsBisectorOfAngle(DA,BDC)&Collinear(CAB)
+You output the following conclusions: Equal(Mul(LengthOfLine(BA),LengthOfLine(DC)),Mul(LengthOfLine(AC),LengthOfLine(DB)))
+But the correct conclusions: Equal(Mul(LengthOfLine(CA),LengthOfLine(DB)),Mul(LengthOfLine(AB),LengthOfLine(DC)))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,DA,BDC); Angle(BDA)&Angle(ADC)&Equal(MeasureOfAngle(BDA),MeasureOfAngle(ADC)); ["IsBisectorOfAngle(DA,BDC)"]
+2; bisector_of_angle_property_line_ratio(1,DA,BDC); IsBisectorOfAngle(DA,BDC)&Collinear(BAC); ["Equal(Mul(LengthOfLine(BA),LengthOfLine(DC)),Mul(LengthOfLine(AC),LengthOfLine(DB)))"]
+3; line_addition(1,BA,AC); Collinear(BAC); ["Equal(LengthOfLine(BC),Add(LengthOfLine(BA),LengthOfLine(AC)))"]
+Retry attempt: 1
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1244_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 23.966s | per attempt: [15.949, 8.017]
+Content written to results/level_3/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1244_run_0.txt

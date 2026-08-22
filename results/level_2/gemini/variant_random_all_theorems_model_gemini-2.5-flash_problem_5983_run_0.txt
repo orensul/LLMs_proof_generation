@@ -1,0 +1,152 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠BAC=30°, the center of ⊙O is O. Find the measure of ∠BOC.
+CONSTRUCTION_CDL:
+Shape(CA,OAC)
+Shape(AB,OBA)
+Shape(AC,CO,OB,BA)
+Shape(BO,OC,OCB)
+Cocircular(O,CBA)
+TEXT_CDL:
+Equal(MeasureOfAngle(BAC),30)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(BOC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(OAC,CA)
+Shape(OBA,AB)
+Shape(CO,OB,BA,AC)
+Shape(OB,BA,AC,CO)
+Shape(BA,AC,CO,OB)
+Shape(OC,OCB,BO)
+Shape(OCB,BO,OC)
+Shape(OAC,CO,OB,BA)
+Shape(CO,OB,BA,OAC)
+Shape(OB,BA,OAC,CO)
+Shape(BA,OAC,CO,OB)
+Shape(OBA,AC,CO,OB)
+Shape(AC,CO,OB,OBA)
+Shape(CO,OB,OBA,AC)
+Shape(OB,OBA,AC,CO)
+Shape(BA,AC,OCB)
+Shape(AC,OCB,BA)
+Shape(OCB,BA,AC)
+Shape(OAC,CO,OB,OBA)
+Shape(CO,OB,OBA,OAC)
+Shape(OB,OBA,OAC,CO)
+Shape(OBA,OAC,CO,OB)
+Shape(OAC,OCB,BA)
+Shape(OCB,BA,OAC)
+Shape(BA,OAC,OCB)
+Shape(OBA,AC,OCB)
+Shape(AC,OCB,OBA)
+Shape(OCB,OBA,AC)
+Shape(OAC,OCB,OBA)
+Shape(OCB,OBA,OAC)
+Shape(OBA,OAC,OCB)
+Cocircular(O,C)
+Cocircular(O,B)
+Cocircular(O,A)
+Cocircular(O,CB)
+Cocircular(O,BC)
+Cocircular(O,CA)
+Cocircular(O,AC)
+Cocircular(O,BA)
+Cocircular(O,AB)
+Cocircular(O,BAC)
+Cocircular(O,ACB)
+Point(C)
+Point(A)
+Point(B)
+Point(O)
+Line(CA)
+Line(AC)
+Line(AB)
+Line(BA)
+Line(CO)
+Line(OC)
+Line(OB)
+Line(BO)
+Arc(OCB)
+Arc(OBC)
+Arc(OCA)
+Arc(OAC)
+Arc(OBA)
+Arc(OAB)
+Angle(ACO)
+Angle(COB)
+Angle(OBA)
+Angle(BAC)
+Angle(BOC)
+Angle(OCA)
+Angle(ABO)
+Angle(CAB)
+Polygon(ACOB)
+Polygon(COBA)
+Polygon(OBAC)
+Polygon(BACO)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_bac-30
+GOAL_SYMBOL:
+ma_boc
+ANSWER:
+60
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,BCA)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBC,A)
+You output the following premises: Cocircular(O,CBA)&Angle(BAC)
+But the correct premises: Cocircular(O,BCA)&Angle(CAB)
+You output the following conclusions: Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OBC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,CBA)&Angle(BAC); ["Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,OBC,O)
+You output the following premises: Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O)
+But the correct premises: Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O)
+You output the following conclusions: Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))
+But the correct conclusions: Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,BCA)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_bac-30
+GT_GOAL_SYMBOL:
+ma_boc
+GT_ANSWER:
+60
+GT_THEOREM_SEQUENCE:
+1;arc_property_center_angle(1,OCB,O);Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O);["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+2;arc_property_circumference_angle_external(1,OCB,A);Cocircular(O,CBA)&Angle(BAC);["Equal(MeasureOfAngle(BAC),Mul(MeasureOfArc(OCB),1/2))"]
+

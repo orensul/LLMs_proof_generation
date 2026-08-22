@@ -1,0 +1,59 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1855_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,RT,QP,S)
+You output the following premises: ParallelBetweenLine(RT,QP)&Collinear(STP)
+But the correct premises: ParallelBetweenLine(RT,QP)&Collinear(SRQ)
+You output the following conclusions: Equal(MeasureOfAngle(STR),MeasureOfAngle(TPQ))
+But the correct conclusions: Equal(MeasureOfAngle(SRT),MeasureOfAngle(RQP))
+
+Model Answer:
+RETRY_ANSWER:
+14/3
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,PT,TS); Collinear(PTS); ["Equal(LengthOfLine(PS),Add(LengthOfLine(PT),LengthOfLine(TS)))"]
+2; parallel_property_corresponding_angle(1,RT,QP,S); ParallelBetweenLine(RT,QP)&Collinear(STP); ["Equal(MeasureOfAngle(STR),MeasureOfAngle(TPQ))"]
+3; parallel_property_corresponding_angle(1,RT,QP,S); ParallelBetweenLine(RT,QP)&Collinear(SRQ); ["Equal(MeasureOfAngle(SRT),MeasureOfAngle(RQP))"]
+4; similar_triangle_judgment_aa(1,SRT,SQP); Polygon(SRT)&Polygon(SQP)&Equal(MeasureOfAngle(SRT),MeasureOfAngle(SQP))&Equal(MeasureOfAngle(RTS),MeasureOfAngle(QPS)); ["SimilarBetweenTriangle(SRT,SQP)"]
+5; similar_triangle_property_line_ratio(1,SRT,SQP); SimilarBetweenTriangle(SRT,SQP); ["Equal(LengthOfLine(RT),Mul(LengthOfLine(QP),RatioOfSimilarTriangle(SRT,SQP)))"]
+6; similar_triangle_property_line_ratio(1,RST,QSP); SimilarBetweenTriangle(RST,QSP); ["Equal(LengthOfLine(ST),Mul(LengthOfLine(SP),RatioOfSimilarTriangle(RST,QSP)))"]
+7; similar_triangle_property_line_ratio(1,TRS,PQS); SimilarBetweenTriangle(TRS,PQS); ["Equal(LengthOfLine(RS),Mul(LengthOfLine(QS),RatioOfSimilarTriangle(TRS,PQS)))"]
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1855_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: similar_triangle_judgment_aa(1,SRT,SQP)
+You output the following premises: Polygon(SRT)&Polygon(SQP)&Equal(MeasureOfAngle(SRT),MeasureOfAngle(SQP))&Equal(MeasureOfAngle(TSR),MeasureOfAngle(PSQ))
+But the correct premises: Polygon(SRT)&Polygon(SQP)&Equal(MeasureOfAngle(SRT),MeasureOfAngle(SQP))&Equal(MeasureOfAngle(RTS),MeasureOfAngle(QPS))
+
+Model Answer:
+RETRY_ANSWER:
+14/3
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,PT,TS); Collinear(PTS); ["Equal(LengthOfLine(PS),Add(LengthOfLine(PT),LengthOfLine(TS)))"]
+2; parallel_property_corresponding_angle(1,RT,QP,S); ParallelBetweenLine(RT,QP)&Collinear(SRQ); ["Equal(MeasureOfAngle(SRT),MeasureOfAngle(RQP))"]
+3; similar_triangle_judgment_aa(1,SRT,SQP); Polygon(SRT)&Polygon(SQP)&Equal(MeasureOfAngle(SRT),MeasureOfAngle(SQP))&Equal(MeasureOfAngle(TSR),MeasureOfAngle(PSQ)); ["SimilarBetweenTriangle(SRT,SQP)"]
+4; similar_triangle_property_line_ratio(1,RST,QSP); SimilarBetweenTriangle(RST,QSP); ["Equal(LengthOfLine(ST),Mul(LengthOfLine(SP),RatioOfSimilarTriangle(RST,QSP)))"]
+5; similar_triangle_property_line_ratio(1,TRS,PQS); SimilarBetweenTriangle(TRS,PQS); ["Equal(LengthOfLine(RS),Mul(LengthOfLine(QS),RatioOfSimilarTriangle(TRS,PQS)))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1855_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,RT,QP,S)
+You output the following premises: ParallelBetweenLine(RT,QP)&Collinear(STP)
+But the correct premises: ParallelBetweenLine(RT,QP)&Collinear(SRQ)
+You output the following conclusions: Equal(MeasureOfAngle(STR),MeasureOfAngle(TPQ))
+But the correct conclusions: Equal(MeasureOfAngle(SRT),MeasureOfAngle(RQP))
+
+Model Answer:
+RETRY_ANSWER:
+14/3
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,PT,TS); Collinear(PTS); ["Equal(LengthOfLine(PS),Add(LengthOfLine(PT),LengthOfLine(TS)))"]
+2; parallel_property_corresponding_angle(1,RT,QP,S); ParallelBetweenLine(RT,QP)&Collinear(SRQ); ["Equal(MeasureOfAngle(SRT),MeasureOfAngle(RQP))"]
+3; parallel_property_corresponding_angle(1,RT,QP,S); ParallelBetweenLine(RT,QP)&Collinear(STP); ["Equal(MeasureOfAngle(STR),MeasureOfAngle(TPQ))"]
+4; similar_triangle_judgment_aa(1,SRT,SQP); Polygon(SRT)&Polygon(SQP)&Equal(MeasureOfAngle(SRT),MeasureOfAngle(SQP))&Equal(MeasureOfAngle(RTS),MeasureOfAngle(QPS)); ["SimilarBetweenTriangle(SRT,SQP)"]
+5; similar_triangle_property_line_ratio(1,RST,QSP); SimilarBetweenTriangle(RST,QSP); ["Equal(LengthOfLine(ST),Mul(LengthOfLine(SP),RatioOfSimilarTriangle(RST,QSP)))"]
+6; similar_triangle_property_line_ratio(1,TRS,PQS); SimilarBetweenTriangle(TRS,PQS); ["Equal(LengthOfLine(RS),Mul(LengthOfLine(QS),RatioOfSimilarTriangle(TRS,PQS)))"]
+Retry attempt: 3
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1855_run_1_to_verify.txt
+Theorem sequence verified correctly
+Total time: 54.510s | per attempt: [18.569, 11.702, 10.567, 13.671]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_1855_run_1.txt

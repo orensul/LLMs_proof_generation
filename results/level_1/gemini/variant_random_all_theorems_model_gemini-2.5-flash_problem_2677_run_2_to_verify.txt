@@ -1,0 +1,152 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=15, AC=9, BC=12, BC is perpendicular to AC. Find the area of △ABC.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),15)
+Equal(LengthOfLine(AC),9)
+Equal(LengthOfLine(BC),12)
+PerpendicularBetweenLine(BC,AC)
+GOAL_CDL:
+Value(AreaOfTriangle(ABC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Point(A)
+Point(B)
+Point(C)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Line(CA)
+Line(AC)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_ab-15
+ll_ac-9
+ll_bc-12
+GOAL_SYMBOL:
+at_abc
+ANSWER:
+54
+THEOREM_SEQUENCE:
+1; altitude_of_triangle_judgment(1,AC,ABC); Polygon(ABC)&Line(AC)&Collinear(BCC)&Equal(MeasureOfAngle(BCA),90); ["IsAltitudeOfTriangle(AC,ABC)"]
+2; triangle_area_formula_common(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <altitude_of_triangle_judgment> variation id is not supplied. Expected dict_keys(['1', '2', '3']) but got None.
+Your call: altitude_of_triangle_judgment(A,C,A,B,C)
+
+Please rewrite your response by adding the variation id as the first argument. For example:
+For variation 1: altitude_of_triangle_judgment(1, A,C,A,B,C)
+For variation 2: altitude_of_triangle_judgment(2, A,C,A,B,C)
+For variation 3: altitude_of_triangle_judgment(3, A,C,A,B,C)
+
+Model Answer:
+RETRY_ANSWER:
+54
+RETRY_THEOREM_SEQUENCE:
+1; altitude_of_triangle_judgment(AC,ABC); Polygon(ABC)&Line(AC)&Collinear(BCA)&Equal(MeasureOfAngle(BCA),90); ["IsAltitudeOfTriangle(AC,ABC)"]
+2; triangle_area_formula_common(ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: triangle_area ABC
+- Model answer: 54
+- Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value.
+- Available premises:
+  Perpendicular Lines: AC ⊥ BC
+  Polygons: ABC
+- Theorems related to the goal:
+  Step 1 - triangle_area_formula_common(1, ABC): Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+54
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_common(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: altitude_of_triangle_judgment(1,AC,ABC);Polygon(ABC)&Line(AC)&Collinear(BCC)&Equal(MeasureOfAngle(BCA),90);['IsAltitudeOfTriangle(AC,ABC)']
+Missing premise: Collinearity fact Collinear(BCC) not established
+Details: Known collinear facts: []
+- Available premises:
+  Perpendicular Lines: AC ⊥ BC
+  Polygons: ABC
+- Theorems related to the goal:
+  Step 1 - altitude_of_triangle_judgment(1, AC, ABC): IsAltitudeOfTriangle(AC,ABC)
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+54
+RETRY_THEOREM_SEQUENCE:
+1; altitude_of_triangle_judgment(1,AC,ABC); Polygon(ABC)&Line(AC)&Collinear(BCC)&Equal(MeasureOfAngle(BCA),90); ["IsAltitudeOfTriangle(AC,ABC)"]
+2; triangle_area_formula_common(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: altitude_of_triangle_judgment(1,AC,ABC);Polygon(ABC)&Line(AC)&Collinear(BCC)&Equal(MeasureOfAngle(BCA),90);['IsAltitudeOfTriangle(AC,ABC)']
+Missing premise: Collinearity fact Collinear(BCC) not established
+Details: Known collinear facts: []
+- Available premises:
+  Perpendicular Lines: AC ⊥ BC
+  Polygons: ABC
+- Theorems related to the goal:
+  Step 1 - altitude_of_triangle_judgment(1, AC, ABC): IsAltitudeOfTriangle(AC,ABC)
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+54
+RETRY_THEOREM_SEQUENCE:
+1; altitude_of_triangle_judgment(1,AC,ABC); Polygon(ABC)&Line(AC)&Collinear(BCC)&Equal(MeasureOfAngle(BCA),90); ["IsAltitudeOfTriangle(AC,ABC)"]
+2; triangle_area_formula_common(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))"]
+#RETRIES:
+4
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ll_ab-15
+ll_ac-9
+ll_bc-12
+ma_bca-90
+GT_GOAL_SYMBOL:
+at_abc
+GT_ANSWER:
+54
+GT_THEOREM_SEQUENCE:
+1;triangle_area_formula_sine(1,CAB);Polygon(CAB);["Equal(AreaOfTriangle(CAB),Mul(LengthOfLine(CA),LengthOfLine(CB),Sin(MeasureOfAngle(BCA)),1/2))"]
+

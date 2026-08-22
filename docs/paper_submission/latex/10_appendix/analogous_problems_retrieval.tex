@@ -1,0 +1,5 @@
+
+
+
+We trained a neural network to predict proof similarity between two problems, using the Jaccard similarity of their proofs as the target. The model inputs a 3D feature vector capturing structural and semantic similarities: (1) Jaccard over abstract constructions, (2) Jaccard over abstract conditions, and (3) goal similarity -- computed from abstracted problem representations.
+The model has three fully connected layers: 3→128 (ReLU), 128→64 (ReLU), and 64→1 (linear). It was trained for 10 epochs with batch size 32 using MSE loss and the Adam optimizer (learning rate 0.001).

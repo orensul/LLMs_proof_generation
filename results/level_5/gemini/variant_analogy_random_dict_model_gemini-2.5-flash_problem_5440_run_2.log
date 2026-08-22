@@ -1,0 +1,84 @@
+Content written to results/level_5/gemini/variant_analogy_random_dict_model_gemini-2.5-flash_problem_5440_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <bisector_of_angle_property_angle_equal> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_angle_equal(1,BE,ABC); IsBisectorOfAngle(BE,ABC); ["Equal(MeasureOfAngle(ABE),MeasureOfAngle(EBC))"]
+2; parallel_property_alternate_interior_angle(2,DE,BC,EB); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+3; isosceles_triangle_judgment_angle_equal(1,BDE); Polygon(BDE)&Equal(MeasureOfAngle(ABE),MeasureOfAngle(DEB)); ["IsoscelesTriangle(BDE)"]
+4; isosceles_triangle_property_line_equal(1,BDE); IsoscelesTriangle(BDE); ["Equal(LengthOfLine(BD),LengthOfLine(DE))"]
+5; bisector_of_angle_property_angle_equal(1,CD,BCA); IsBisectorOfAngle(CD,BCA); ["Equal(MeasureOfAngle(BCD),MeasureOfAngle(ACD))"]
+6; parallel_property_alternate_interior_angle(2,DE,BC,DC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+7; isosceles_triangle_judgment_angle_equal(1,CDE); Polygon(CDE)&Equal(MeasureOfAngle(ACD),MeasureOfAngle(EDC)); ["IsoscelesTriangle(CDE)"]
+8; isosceles_triangle_property_line_equal(1,CDE); IsoscelesTriangle(CDE); ["Equal(LengthOfLine(CE),LengthOfLine(DE))"]
+9; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+10; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+11; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(BD),LengthOfLine(AC)),Mul(LengthOfLine(DA),LengthOfLine(BC)))"]
+12; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(AEC); ["Equal(Mul(LengthOfLine(AE),LengthOfLine(BC)),Mul(LengthOfLine(EC),LengthOfLine(AB)))"]
+Retry attempt: 1
+Content written to results/level_5/gemini/variant_analogy_random_dict_model_gemini-2.5-flash_problem_5440_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <parallel_property_alternate_interior_angle> para length error. Expected 4 but got ('D', 'E', 'B', 'C', 'E', 'B').
+Model Answer:
+RETRY_ANSWER:
+7
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,DE,BC,EB); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+2; isosceles_triangle_judgment_angle_equal(1,BDE); Polygon(BDE)&Equal(MeasureOfAngle(ABE),MeasureOfAngle(DEB)); ["IsoscelesTriangle(BDE)"]
+3; isosceles_triangle_property_line_equal(1,BDE); IsoscelesTriangle(BDE); ["Equal(LengthOfLine(BD),LengthOfLine(DE))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC,DC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+5; isosceles_triangle_judgment_angle_equal(1,CDE); Polygon(CDE)&Equal(MeasureOfAngle(ACD),MeasureOfAngle(EDC)); ["IsoscelesTriangle(CDE)"]
+6; isosceles_triangle_property_line_equal(1,CDE); IsoscelesTriangle(CDE); ["Equal(LengthOfLine(CE),LengthOfLine(DE))"]
+7; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+8; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+9; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(BD),LengthOfLine(AC)),Mul(LengthOfLine(DA),LengthOfLine(BC)))"]
+10; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(AEC); ["Equal(Mul(LengthOfLine(AE),LengthOfLine(BC)),Mul(LengthOfLine(EC),LengthOfLine(AB)))"]
+Retry attempt: 2
+Content written to results/level_5/gemini/variant_analogy_random_dict_model_gemini-2.5-flash_problem_5440_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+Retry attempt: 3
+Content written to results/level_5/gemini/variant_analogy_random_dict_model_gemini-2.5-flash_problem_5440_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <parallel_property_alternate_interior_angle> para length error. Expected 4 but got ('D', 'E', 'B', 'C', 'E', 'B').
+Model Answer:
+RETRY_ANSWER:
+7
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,DE,BC,EB); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+2; isosceles_triangle_judgment_angle_equal(1,BDE); Polygon(BDE)&Equal(MeasureOfAngle(ABE),MeasureOfAngle(EBC))&Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC)); ["IsoscelesTriangle(BDE)"]
+3; isosceles_triangle_property_line_equal(1,BDE); IsoscelesTriangle(BDE); ["Equal(LengthOfLine(BD),LengthOfLine(DE))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC,DC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+5; isosceles_triangle_judgment_angle_equal(1,CDE); Polygon(CDE)&Equal(MeasureOfAngle(ACD),MeasureOfAngle(BCD))&Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD)); ["IsoscelesTriangle(CDE)"]
+6; isosceles_triangle_property_line_equal(1,CDE); IsoscelesTriangle(CDE); ["Equal(LengthOfLine(CE),LengthOfLine(DE))"]
+7; line_addition(1,BA,AD); Collinear(BAD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BA),LengthOfLine(AD)))"]
+8; line_addition(1,CA,AE); Collinear(CAE); ["Equal(LengthOfLine(CE),Add(LengthOfLine(CA),LengthOfLine(AE)))"]
+9; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(AD),LengthOfLine(BC)),Mul(LengthOfLine(DB),LengthOfLine(AC)))"]
+10; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(AEC); ["Equal(Mul(LengthOfLine(AE),LengthOfLine(BC)),Mul(LengthOfLine(EC),LengthOfLine(AB)))"]
+Retry attempt: 4
+Content written to results/level_5/gemini/variant_analogy_random_dict_model_gemini-2.5-flash_problem_5440_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <bisector_of_angle_property_angle_equal> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_angle_equal(1,BE,ABC); IsBisectorOfAngle(BE,ABC); ["Equal(MeasureOfAngle(ABE),MeasureOfAngle(EBC))"]
+2; parallel_property_alternate_interior_angle(2,DE,BC,EB); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+3; isosceles_triangle_judgment_angle_equal(1,BDE); Polygon(BDE)&Equal(MeasureOfAngle(ABE),MeasureOfAngle(EBC))&Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC)); ["IsoscelesTriangle(BDE)"]
+4; isosceles_triangle_property_line_equal(1,BDE); IsoscelesTriangle(BDE); ["Equal(LengthOfLine(BD),LengthOfLine(DE))"]
+5; bisector_of_angle_property_angle_equal(1,CD,BCA); IsBisectorOfAngle(CD,BCA); ["Equal(MeasureOfAngle(BCD),MeasureOfAngle(ACD))"]
+6; parallel_property_alternate_interior_angle(2,DE,BC,DC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+7; isosceles_triangle_judgment_angle_equal(1,CDE); Polygon(CDE)&Equal(MeasureOfAngle(ACD),MeasureOfAngle(BCD))&Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD)); ["IsoscelesTriangle(CDE)"]
+8; isosceles_triangle_property_line_equal(1,CDE); IsoscelesTriangle(CDE); ["Equal(LengthOfLine(CE),LengthOfLine(DE))"]
+9; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+10; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+11; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(AD),LengthOfLine(BC)),Mul(LengthOfLine(DB),LengthOfLine(AC)))"]
+12; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(AEC); ["Equal(Mul(LengthOfLine(AE),LengthOfLine(BC)),Mul(LengthOfLine(EC),LengthOfLine(AB)))"]
+Retry attempt: 5
+Total time: 336.176s | per attempt: [68.527, 57.415, 70.333, 70.378, 69.523]
+Content written to results/level_5/gemini/variant_analogy_random_dict_model_gemini-2.5-flash_problem_5440_run_2.txt

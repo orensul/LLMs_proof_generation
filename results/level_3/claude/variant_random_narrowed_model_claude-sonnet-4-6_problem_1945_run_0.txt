@@ -1,0 +1,138 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠YBX=106°, the center of ⊙B is B, the tangent to circle B is WX, WY is the tangent to circle B. Find the measure of ∠XWY.
+CONSTRUCTION_CDL:
+Shape(XW,WY,BXY)
+Shape(BXY,YB,BX)
+Shape(BYX,XB,BY)
+Cocircular(B,XYZ)
+TEXT_CDL:
+Equal(MeasureOfAngle(YBX),106)
+IsCentreOfCircle(B,B)
+IsTangentOfCircle(WX,B)
+IsTangentOfCircle(WY,B)
+GOAL_CDL:
+Value(MeasureOfAngle(XWY))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(WY,BXY,XW)
+Shape(BXY,XW,WY)
+Shape(YB,BX,BXY)
+Shape(BX,BXY,YB)
+Shape(XB,BY,BYX)
+Shape(BY,BYX,XB)
+Shape(XW,WY,YB,BX)
+Shape(WY,YB,BX,XW)
+Shape(YB,BX,XW,WY)
+Shape(BX,XW,WY,YB)
+Shape(BXY,BYX)
+Shape(BYX,BXY)
+Shape(XW,WY,BYX)
+Shape(WY,BYX,XW)
+Shape(BYX,XW,WY)
+Cocircular(B,X)
+Cocircular(B,Y)
+Cocircular(B,Z)
+Cocircular(B,XY)
+Cocircular(B,YX)
+Cocircular(B,XZ)
+Cocircular(B,ZX)
+Cocircular(B,YZ)
+Cocircular(B,ZY)
+Cocircular(B,YZX)
+Cocircular(B,ZXY)
+Point(X)
+Point(W)
+Point(Y)
+Point(B)
+Line(XW)
+Line(WX)
+Line(WY)
+Line(YW)
+Line(YB)
+Line(BY)
+Line(BX)
+Line(XB)
+Arc(BXY)
+Arc(BYX)
+Arc(BXZ)
+Arc(BZX)
+Arc(BYZ)
+Arc(BZY)
+Angle(XWY)
+Angle(YBX)
+Angle(XBY)
+Angle(WYB)
+Angle(BXW)
+Angle(YWX)
+Angle(BYW)
+Angle(WXB)
+Polygon(XWYB)
+Polygon(WYBX)
+Polygon(YBXW)
+Polygon(BXWY)
+Circle(B)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the measure of ∠XWY given that ∠YBX = 106°, B is the center of circle B, and WX and WY are tangents to circle B.
+
+Let me analyze this problem:
+- WX is tangent to circle B at X, so BX ⊥ WX, meaning ∠BXW = 90°
+- WY is tangent to circle B at Y, so BY ⊥ WY, meaning ∠BYW = 90°
+- The quadrilateral XWYB has angle sum = 360°
+- ∠YBX = 106°
+- So ∠XWY = 360° - 90° - 90° - 106° = 74°
+
+Now let me construct the theorem sequence:
+
+1. Use `tangent_of_circle_property_perpendicular` for WX tangent at X: gives BX ⊥ WX → ∠BXW = 90°
+2. Use `tangent_of_circle_property_perpendicular` for WY tangent at Y: gives BY ⊥ WY → ∠BYW = 90°
+3. Use `quadrilateral_property_angle_sum` for polygon XWYB: gives sum of angles = 360°
+
+The tangent perpendicular theorem:
+- For WX tangent: `tangent_of_circle_property_perpendicular(PA,O,Q)` variant 1: premise `IsTangentOfCircle(PA,O)&Angle(QAP)&IsCentreOfCircle(Q,O)` → `PerpendicularBetweenLine(QA,PA)`
+  - PA = WX, A = X, Q = B: IsTangentOfCircle(WX,B)&Angle(BXW)&IsCentreOfCircle(B,B) → PerpendicularBetweenLine(BX,WX) → ∠BXW = 90°
+- For WY tangent: PA = WY, A = Y, Q = B: IsTangentOfCircle(WY,B)&Angle(BYW)&IsCentreOfCircle(B,B) → PerpendicularBetweenLine(BY,WY) → ∠BYW = 90°
+
+Then quadrilateral angle sum for XWYB gives:
+∠XWY + ∠WYB + ∠YBX + ∠BXW = 360°
+∠XWY + 90° + 106° + 90° = 360°
+∠XWY = 74°
+
+EQUATIONS:
+ma_ybx-106
+GOAL_SYMBOL:
+ma_xwy
+ANSWER:
+74
+THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,WX,B,B); IsTangentOfCircle(WX,B)&Angle(BXW)&IsCentreOfCircle(B,B); ["PerpendicularBetweenLine(BX,WX)"]
+2; tangent_of_circle_property_perpendicular(1,WY,B,B); IsTangentOfCircle(WY,B)&Angle(BYW)&IsCentreOfCircle(B,B); ["PerpendicularBetweenLine(BY,WY)"]
+3; quadrilateral_property_angle_sum(1,XWYB); Polygon(XWYB); ["Equal(Add(MeasureOfAngle(XWY),MeasureOfAngle(WYB),MeasureOfAngle(YBX),MeasureOfAngle(BXW)),360)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_ybx-106
+GT_GOAL_SYMBOL:
+ma_xwy
+GT_ANSWER:
+74
+GT_THEOREM_SEQUENCE:
+1;tangent_of_circle_property_perpendicular(1,WX,B,B);IsTangentOfCircle(WX,B)&Angle(BXW)&IsCentreOfCircle(B,B);["PerpendicularBetweenLine(BX,WX)"]
+2;tangent_of_circle_property_perpendicular(2,WY,B,B);IsTangentOfCircle(WY,B)&Angle(WYB)&IsCentreOfCircle(B,B);["PerpendicularBetweenLine(WY,BY)"]
+3;quadrilateral_property_angle_sum(1,WYBX);Polygon(WYBX);["Equal(Add(MeasureOfAngle(WYB),MeasureOfAngle(YBX),MeasureOfAngle(BXW),MeasureOfAngle(XWY)),360)"]
+

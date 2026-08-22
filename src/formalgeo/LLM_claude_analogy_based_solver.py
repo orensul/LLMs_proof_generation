@@ -1,6 +1,8 @@
-import json
+    import json
 import os
 import argparse
+import hashlib
+import random
 import logging
 import sys
 import io
@@ -34,17 +36,14 @@ with open(os.path.join(PROJECT_ROOT, 'formalgeo7k_v1/gdl/theorem_GDL.json'), 'r'
     theorems = json.load(f)
 
 
+# The original 50 problems (first 10 per level), for the ablation runs
+# separating analogy retrieval from theorem-dictionary reduction.
 chosen_problems_by_level = {
-    5: [6485, 5080, 437, 5563, 532, 6660, 696, 5431, 847, 5440],
-     # 1: [1975, 1490, 1726, 178, 2669, 2614, 51, 2323, 192, 2624, 2795, 1168, 688, 2677, 380, 221, 944, 2940, 2187, 1562],
-     # 2: [144, 69, 991, 358, 4473, 4483, 5645, 127, 2410, 4523, 3075, 49, 4610, 6966, 1433, 3998, 5983, 497, 1586, 2397],
-     # 4: [2114, 464, 5510, 3272, 5230, 3634, 6924, 4797, 5399, 6155, 4318, 4801, 4062, 6021, 1872, 4705, 2543, 4199, 6641, 5200],
-     # 5: [5440, 6485, 696, 847, 5563, 532, 5431, 437, 5080, 6660, 6615, 3210, 2556, 5777, 3705, 4096, 1855, 5101, 5642, 4170],
-     # 6: [4923, 3298, 759, 4910, 5805, 5708, 6417, 5835, 5808, 5779, 6398, 424, 4666, 6743, 5665, 6440, 3462, 5505, 5834, 4945],
-     # 7: [3580, 4898, 6802, 6247, 449, 1854, 5208, 6322, 3412, 3027, 6330, 6644, 6147, 6932, 929, 3859, 5426, 1571, 3891, 4306],
-     # 8: [6760, 3983, 2761, 2875, 3434, 1258, 246, 6806, 4793, 2106, 4736, 4816, 5379, 6598, 6401, 5531, 2917, 1858, 4549, 5022],
-     # 9: [4892, 5092, 5522, 4796, 3418, 6850, 6790, 5116, 2851, 716, 6491, 6026, 4250, 6889, 5497, 429, 4932, 6840, 4481, 3249],
-     # 10: [4134, 3419, 2196, 4489, 6146, 6018, 6376, 5353, 3114, 5197, 4672, 4465, 3840, 6549, 5181, 6024, 4888, 392, 6239, 2371],
+    1: [1975, 1490, 1726, 178, 2614, 51, 2323, 192, 2624, 2669],
+    2: [69, 144, 358, 991, 2410, 4473, 4523, 5645, 127, 4483],
+    3: [844, 4187, 4476, 1945, 4099, 4254, 2200, 2765, 5062, 5244],
+    4: [2114, 6155, 3272, 3634, 5230, 5399, 4797, 464, 6924, 5510],
+    5: [6485, 437, 696, 532, 847, 5080, 5431, 5563, 5440, 6660],
 }
 
 
@@ -189,11 +188,24 @@ def setup_logging(output_file):
 
 def find_relevant_theorems(args, theorems, problems_set):
     relevant_theorems = {}
+    if args.variant == "analogy_random_dict":
+        # Ablation (iii): dictionary of the same size as the analogy-derived
+        # one, but with randomly chosen theorems (seeded per problem for
+        # reproducibility via the retrieved-theorems set).
+        matched = [key for key in theorems.keys()
+                   if any(problem in key for problem in problems_set)]
+        seed = int(hashlib.md5("".join(sorted(problems_set)).encode()).hexdigest(), 16) % (2 ** 32)
+        rng = random.Random(seed)
+        for key in rng.sample(sorted(theorems.keys()), len(matched)):
+            relevant_theorems[key] = theorems[key]
+        return relevant_theorems
     for key in theorems.keys():
         for problem in problems_set:
             if args.variant == "random_no_theorems":
                 continue
-            if args.variant == "analogy_based" and problem in key:
+            # "random_narrowed" (ablation ii): same dictionary construction as
+            # analogy_based, but problems_set comes from random problems.
+            if args.variant in ["analogy_based", "random_narrowed"] and problem in key:
                 relevant_theorems[key] = theorems[key]
             if args.variant in ["random_all_theorems", "analogy_based_all_theorems"]:
                 relevant_theorems[key] = theorems[key]
@@ -308,7 +320,8 @@ def add_model_answer_to_feedback(feedback, resp):
     if "ANSWER:" in resp:
         answer_section = resp.split("ANSWER:")[1]
         answer_part = answer_section.split("THEOREM_SEQUENCE:")[0].strip()
-        model_response = f"RETRY_ANSWER:\n{answer_part}\nRETRY_THEOREM_SEQUENCE:\n{answer_section.split('THEOREM_SEQUENCE:')[1].strip()}"
+        theorem_sequence = answer_section.split("THEOREM_SEQUENCE:")[1].strip() if "THEOREM_SEQUENCE:" in answer_section else ""
+        model_response = f"RETRY_ANSWER:\n{answer_part}\nRETRY_THEOREM_SEQUENCE:\n{theorem_sequence}"
     return f"{feedback}\nModel Answer:\n{model_response}"
 
 
@@ -509,7 +522,7 @@ def process_problem(problem_id, solver=None, problems=None):
 
 
 def run(args, problem2_id, problems, run_id):
-    if args.variant in ["analogy_based", "analogy_based_all_theorems"]:
+    if args.variant in ["analogy_based", "analogy_based_all_theorems", "analogy_random_dict"]:
         similar_problem_ids = retrieve_similar_proofs(problem2_id, n=SIMILAR_PROBLEMS)
     else:
         similar_problem_ids = retrieve_random_proofs(problem2_id, n=SIMILAR_PROBLEMS)
@@ -577,7 +590,11 @@ if __name__ == "__main__":
                         help="Anthropic API key (overrides ANTHROPIC_API_KEY env var)")
     parser.add_argument("--prompt_path", dest="prompt_path", type=str,
                         default="src/formalgeo/prompt/geometry_similar_problems_prompt.txt")
+    parser.add_argument("--problems", dest="problems", type=str, default=None,
+                        help='JSON dict {"level": [problem_ids]} overriding chosen_problems_by_level')
     args = parser.parse_args()
+    if args.problems:
+        chosen_problems_by_level = {int(k): v for k, v in json.loads(args.problems).items()}
 
     problems = save_problems(os.path.join(PROJECT_ROOT, 'formalgeo7k_v1/problems'))
     run_solver = True

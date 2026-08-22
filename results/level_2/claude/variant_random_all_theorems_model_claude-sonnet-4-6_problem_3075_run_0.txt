@@ -1,0 +1,168 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠BAC=130°, AB∥CD, DE⊥CE. Find the measure of ∠CDE.
+CONSTRUCTION_CDL:
+Shape(AE,ED,DB,BA)
+Shape(EC,CD,DE)
+Collinear(AEC)
+TEXT_CDL:
+Equal(MeasureOfAngle(BAC),130)
+ParallelBetweenLine(AB,CD)
+PerpendicularBetweenLine(DE,CE)
+GOAL_CDL:
+Value(MeasureOfAngle(CDE))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(ED,DB,BA,AE)
+Shape(DB,BA,AE,ED)
+Shape(BA,AE,ED,DB)
+Shape(CD,DE,EC)
+Shape(DE,EC,CD)
+Shape(DB,BA,AE,EC,CD)
+Shape(BA,AE,EC,CD,DB)
+Shape(AE,EC,CD,DB,BA)
+Shape(EC,CD,DB,BA,AE)
+Shape(CD,DB,BA,AE,EC)
+Collinear(CEA)
+Point(A)
+Point(C)
+Point(E)
+Point(D)
+Point(B)
+Line(AC)
+Line(CA)
+Line(AE)
+Line(EA)
+Line(EC)
+Line(CE)
+Line(ED)
+Line(DE)
+Line(DB)
+Line(BD)
+Line(BA)
+Line(AB)
+Line(CD)
+Line(DC)
+Angle(AEC)
+Angle(CEA)
+Angle(AED)
+Angle(EDB)
+Angle(DBA)
+Angle(BAE)
+Angle(ECD)
+Angle(CDE)
+Angle(DEC)
+Angle(ACD)
+Angle(CDB)
+Angle(DEA)
+Angle(BAC)
+Angle(BDE)
+Angle(ABD)
+Angle(EAB)
+Angle(DCE)
+Angle(EDC)
+Angle(CED)
+Angle(DCA)
+Angle(BDC)
+Angle(CAB)
+Polygon(AEDB)
+Polygon(EDBA)
+Polygon(DBAE)
+Polygon(BAED)
+Polygon(ECD)
+Polygon(CDE)
+Polygon(DEC)
+Polygon(DBAC)
+Polygon(BACD)
+Polygon(ACDB)
+Polygon(CDBA)
+ParallelBetweenLine(DC,BA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the measure of ∠CDE given that ∠BAC = 130°, AB∥CD, and DE⊥CE.
+
+Let me analyze the problem:
+- Points are A, E, C collinear (Collinear(AEC))
+- ∠BAC = 130°
+- AB∥CD
+- DE⊥CE (so ∠DEC = 90°)
+- Need to find ∠CDE
+
+**Strategy:**
+1. Since A, E, C are collinear, ∠BAE and ∠BAC are related (∠BAC = 130°, and since AEC is collinear, ∠BAC = ∠BAE = 130°... wait, E is between A and C based on Collinear(AEC))
+
+2. Since AB∥CD and AEC is a transversal, we can find ∠DCE (or ∠ACD) using corresponding/alternate angles.
+
+3. Since DE⊥CE, ∠DEC = 90°
+
+4. In triangle CDE, angles sum to 180°.
+
+**Step 1:** Since AB∥CD and line AC (with E between A and C) is a transversal:
+- Using parallel_property_corresponding_angle with AB∥CD and Collinear(AEC):
+  - ∠BAE (= ∠BAC = 130°) corresponds to ∠DCE... 
+  
+Actually, using the collinear ACE direction: Collinear(AEC) means A-E-C.
+- AB∥CD, transversal through A and C
+- ∠BAC = 130° (angle at A, between AB and AC)
+- Corresponding angle at C would be ∠DCA... 
+
+Using `parallel_property_corresponding_angle(2, AB, CD, E)`: ParallelBetweenLine(AB,CD)&Collinear(ACE) → Equal(MeasureOfAngle(BAC), MeasureOfAngle(DCE))
+
+So ∠DCE = ∠BAC = 130°. But wait, ∠DCE is the angle at C in triangle CDE... that seems large.
+
+Actually ∠DEC = 90° (DE⊥CE), and ∠DCE + ∠CDE = 90°.
+If ∠DCE = 130°, that's impossible in a triangle.
+
+Let me reconsider: ∠BAC = 130° is the angle, and using ipsilateral internal angles:
+∠BAC + ∠ACD = 180° → ∠ACD = 50°
+Since ∠DCE = ∠ACD = 50° (same angle, E is on AC extended... wait E is between A and C).
+
+So ∠DCA = 50°, and since E is between A and C, ∠DCE = ∠DCA = 50°.
+
+Then in triangle CDE: ∠DEC = 90°, ∠DCE = 50°, so ∠CDE = 40°.
+
+**Theorem sequence:**
+1. Use `parallel_property_ipsilateral_internal_angle` with AB∥CD and line AC to get ∠BAC + ∠ACD = 180°
+2. Use perpendicular to get ∠DEC = 90°
+3. Use triangle angle sum on CDE
+
+EQUATIONS:
+ma_bac - 130
+
+GOAL_SYMBOL:
+ma_cde
+
+ANSWER:
+40
+
+THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(AC); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)"]
+2; perpendicular_judgment_angle(1,DE,CE); Angle(DEC)&Equal(MeasureOfAngle(DEC),90); ["PerpendicularBetweenLine(DE,CE)"]
+3; triangle_property_angle_sum(1,CDE); Polygon(CDE); ["Equal(Add(MeasureOfAngle(CDE),MeasureOfAngle(DEC),MeasureOfAngle(ECD)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_bac-130
+ma_dec-90
+GT_GOAL_SYMBOL:
+ma_cde
+GT_ANSWER:
+40
+GT_THEOREM_SEQUENCE:
+1;parallel_property_ipsilateral_internal_angle(1,AB,CD);ParallelBetweenLine(AB,CD)&Line(AC);["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)"]
+2;triangle_property_angle_sum(1,ECD);Polygon(ECD);["Equal(Add(MeasureOfAngle(ECD),MeasureOfAngle(CDE),MeasureOfAngle(DEC)),180)"]
+

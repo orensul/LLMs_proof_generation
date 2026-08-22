@@ -1,0 +1,329 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠YXW=30°, WY⊥ZY, quadrilateral WYZX is a rectangle. Find the measure of ∠ZXA.
+CONSTRUCTION_CDL:
+Shape(WY,YA,AW)
+Shape(AY,YZ,ZA)
+Shape(AZ,ZX,XA)
+Shape(AX,XW,WA)
+Collinear(WAZ)
+Collinear(YAX)
+TEXT_CDL:
+Equal(MeasureOfAngle(YXW),30)
+PerpendicularBetweenLine(WY,ZY)
+Rectangle(WYZX)
+GOAL_CDL:
+Value(MeasureOfAngle(ZXA))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(YA,AW,WY)
+Shape(AW,WY,YA)
+Shape(YZ,ZA,AY)
+Shape(ZA,AY,YZ)
+Shape(ZX,XA,AZ)
+Shape(XA,AZ,ZX)
+Shape(XW,WA,AX)
+Shape(WA,AX,XW)
+Shape(AW,WY,YZ,ZA)
+Shape(WY,YZ,ZA,AW)
+Shape(YZ,ZA,AW,WY)
+Shape(ZA,AW,WY,YZ)
+Shape(WY,YA,AX,XW)
+Shape(YA,AX,XW,WY)
+Shape(AX,XW,WY,YA)
+Shape(XW,WY,YA,AX)
+Shape(AY,YZ,ZX,XA)
+Shape(YZ,ZX,XA,AY)
+Shape(ZX,XA,AY,YZ)
+Shape(XA,AY,YZ,ZX)
+Shape(AZ,ZX,XW,WA)
+Shape(ZX,XW,WA,AZ)
+Shape(XW,WA,AZ,ZX)
+Shape(WA,AZ,ZX,XW)
+Shape(AW,WY,YZ,ZX,XA)
+Shape(WY,YZ,ZX,XA,AW)
+Shape(YZ,ZX,XA,AW,WY)
+Shape(ZX,XA,AW,WY,YZ)
+Shape(XA,AW,WY,YZ,ZX)
+Shape(WY,YA,AZ,ZX,XW)
+Shape(YA,AZ,ZX,XW,WY)
+Shape(AZ,ZX,XW,WY,YA)
+Shape(ZX,XW,WY,YA,AZ)
+Shape(XW,WY,YA,AZ,ZX)
+Shape(AY,YZ,ZX,XW,WA)
+Shape(YZ,ZX,XW,WA,AY)
+Shape(ZX,XW,WA,AY,YZ)
+Shape(XW,WA,AY,YZ,ZX)
+Shape(WA,AY,YZ,ZX,XW)
+Shape(YZ,ZA,AX,XW,WY)
+Shape(ZA,AX,XW,WY,YZ)
+Shape(AX,XW,WY,YZ,ZA)
+Shape(XW,WY,YZ,ZA,AX)
+Shape(WY,YZ,ZA,AX,XW)
+Shape(WY,YZ,ZX,XW)
+Shape(YZ,ZX,XW,WY)
+Shape(ZX,XW,WY,YZ)
+Shape(XW,WY,YZ,ZX)
+Collinear(ZAW)
+Collinear(XAY)
+Point(W)
+Point(Z)
+Point(A)
+Point(Y)
+Point(X)
+Line(WZ)
+Line(ZW)
+Line(WA)
+Line(AW)
+Line(AZ)
+Line(ZA)
+Line(YX)
+Line(XY)
+Line(YA)
+Line(AY)
+Line(AX)
+Line(XA)
+Line(WY)
+Line(YW)
+Line(YZ)
+Line(ZY)
+Line(ZX)
+Line(XZ)
+Line(XW)
+Line(WX)
+Angle(WAZ)
+Angle(ZAW)
+Angle(YAX)
+Angle(XAY)
+Angle(WYA)
+Angle(YAW)
+Angle(AWY)
+Angle(AYZ)
+Angle(YZA)
+Angle(ZAY)
+Angle(AZX)
+Angle(ZXA)
+Angle(XAZ)
+Angle(AXW)
+Angle(XWA)
+Angle(WAX)
+Angle(WYZ)
+Angle(YXW)
+Angle(XWY)
+Angle(YZX)
+Angle(ZXW)
+Angle(XAW)
+Angle(YAZ)
+Angle(WAY)
+Angle(ZAX)
+Angle(WYX)
+Angle(ZWY)
+Angle(XYZ)
+Angle(YZW)
+Angle(WZX)
+Angle(ZXY)
+Angle(XWZ)
+Angle(AYW)
+Angle(YWA)
+Angle(ZYA)
+Angle(AZY)
+Angle(XZA)
+Angle(AXZ)
+Angle(WXA)
+Angle(AWX)
+Angle(ZYW)
+Angle(WXY)
+Angle(YWX)
+Angle(XZY)
+Angle(WXZ)
+Angle(XYW)
+Angle(YWZ)
+Angle(ZYX)
+Angle(WZY)
+Angle(XZW)
+Angle(YXZ)
+Angle(ZWX)
+Polygon(WYA)
+Polygon(YAW)
+Polygon(AWY)
+Polygon(AYZ)
+Polygon(YZA)
+Polygon(ZAY)
+Polygon(AZX)
+Polygon(ZXA)
+Polygon(XAZ)
+Polygon(AXW)
+Polygon(XWA)
+Polygon(WAX)
+Polygon(WYZ)
+Polygon(YZW)
+Polygon(ZWY)
+Polygon(WYX)
+Polygon(YXW)
+Polygon(XWY)
+Polygon(YZX)
+Polygon(ZXY)
+Polygon(XYZ)
+Polygon(ZXW)
+Polygon(XWZ)
+Polygon(WZX)
+Polygon(AWYZX)
+Polygon(WYZXA)
+Polygon(YZXAW)
+Polygon(ZXAWY)
+Polygon(XAWYZ)
+Polygon(WYAZX)
+Polygon(YAZXW)
+Polygon(AZXWY)
+Polygon(ZXWYA)
+Polygon(XWYAZ)
+Polygon(AYZXW)
+Polygon(YZXWA)
+Polygon(ZXWAY)
+Polygon(XWAYZ)
+Polygon(WAYZX)
+Polygon(YZAXW)
+Polygon(ZAXWY)
+Polygon(AXWYZ)
+Polygon(XWYZA)
+Polygon(WYZAX)
+Polygon(WYZX)
+Polygon(YZXW)
+Polygon(ZXWY)
+Polygon(XWYZ)
+Parallelogram(WYZX)
+Parallelogram(YZXW)
+Parallelogram(ZXWY)
+Parallelogram(XWYZ)
+Rectangle(YZXW)
+Rectangle(ZXWY)
+Rectangle(XWYZ)
+ParallelBetweenLine(WX,YZ)
+ParallelBetweenLine(ZY,XW)
+ParallelBetweenLine(YW,ZX)
+ParallelBetweenLine(XZ,WY)
+PerpendicularBetweenLine(YZ,XZ)
+PerpendicularBetweenLine(ZX,WX)
+PerpendicularBetweenLine(XW,YW)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_yxw-30
+GOAL_SYMBOL:
+ma_zxa
+ANSWER:
+60
+THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; isosceles_triangle_judgment_line_equal(1,AYW); Polygon(AYW)&Equal(LengthOfLine(AW),LengthOfLine(AY)); ["IsoscelesTriangle(AYW)"]
+4; parallel_property_par_per(1,WX,ZY); ParallelBetweenLine(WX,ZY)&PerpendicularBetweenLine(WY,ZY); ["PerpendicularBetweenLine(XW,YW)"]
+5; triangle_property_angle_sum(1,XWY); Polygon(XWY); ["Equal(Add(MeasureOfAngle(XWY),MeasureOfAngle(WYX),MeasureOfAngle(YXW)),180)"]
+6; isosceles_triangle_property_angle_equal(1,AYW); IsoscelesTriangle(AYW); ["Equal(MeasureOfAngle(AWY),MeasureOfAngle(AYW))"]
+7; triangle_property_angle_sum(1,AYW); Polygon(AYW); ["Equal(Add(MeasureOfAngle(AYW),MeasureOfAngle(AWY),MeasureOfAngle(YAW)),180)"]
+8; vertical_angle(1,XAZ,YAW); Collinear(YAX)&Collinear(WAZ)&Angle(XAZ)&Angle(YAW); ["Equal(MeasureOfAngle(XAZ),MeasureOfAngle(YAW))"]
+9; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+10; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+11; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,AZX)
+You output the following conclusions: Equal(MeasureOfAngle(AZX),MeasureOfAngle(AXZ))
+But the correct conclusions: Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+2; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+3; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+4; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(AXZ))"]
+5; angle_addition(1, YXW, WXZ); Angle(YXW)&Angle(WXZ)&Angle(YXZ); ["Equal(MeasureOfAngle(YXZ),Add(MeasureOfAngle(YXW),MeasureOfAngle(WXZ)))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,AXW)
+You output the following conclusions: Equal(MeasureOfAngle(AXW),MeasureOfAngle(AWX))
+But the correct conclusions: Equal(MeasureOfAngle(AXW),MeasureOfAngle(XWA))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; isosceles_triangle_judgment_line_equal(1,AXW); Polygon(AXW)&Equal(LengthOfLine(AX),LengthOfLine(AW)); ["IsoscelesTriangle(AXW)"]
+4; isosceles_triangle_property_angle_equal(1,AXW); IsoscelesTriangle(AXW); ["Equal(MeasureOfAngle(AXW),MeasureOfAngle(AWX))"]
+5; triangle_property_angle_sum(1,AXW); Polygon(AXW); ["Equal(Add(MeasureOfAngle(AXW),MeasureOfAngle(AWX),MeasureOfAngle(WAX)),180)"]
+6; adjacent_complementary_angle(1,WAX,XAZ); Collinear(WAZ)&Angle(WAX)&Angle(XAZ); ["Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(XAZ)),180)"]
+7; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+8; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+9; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+#run: 1; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,AXW)
+You output the following premises: Polygon(AXW)&Equal(LengthOfLine(AW),LengthOfLine(AX))
+But the correct premises: Polygon(AXW)&Equal(LengthOfLine(AX),LengthOfLine(AW))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; isosceles_triangle_judgment_line_equal(1,AXW); Polygon(AXW)&Equal(LengthOfLine(AW),LengthOfLine(AX)); ["IsoscelesTriangle(AXW)"]
+4; isosceles_triangle_property_angle_equal(1,AXW); IsoscelesTriangle(AXW); ["Equal(MeasureOfAngle(AWX),MeasureOfAngle(AXW))"]
+5; triangle_property_angle_sum(1,AXW); Polygon(AXW); ["Equal(Add(MeasureOfAngle(AXW),MeasureOfAngle(AWX),MeasureOfAngle(WAX)),180)"]
+6; adjacent_complementary_angle(1,WAX,XAZ); Collinear(WAZ)&Angle(WAX)&Angle(XAZ); ["Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(XAZ)),180)"]
+7; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+8; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+9; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+#run: 1; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,WAX,WAY)
+You output the following premises: Collinear(YAX)&Angle(WAX)&Angle(WAY)
+But the correct premises: Collinear(WAY)&Angle(WAW)&Angle(WAY)
+You output the following conclusions: Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(WAY)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(WAW),MeasureOfAngle(WAY)),180)
+
+Model Answer:
+RETRY_ANSWER:
+30
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; right_triangle_judgment_angle(1,XWY); Polygon(XWY)&Equal(MeasureOfAngle(XWY),90); ["RightTriangle(XWY)"]
+4; triangle_property_angle_sum(1,XWY); Polygon(XWY); ["Equal(Add(MeasureOfAngle(XWY),MeasureOfAngle(WYX),MeasureOfAngle(YXW)),180)"]
+5; isosceles_triangle_judgment_line_equal(1,AXW); Polygon(AXW)&Equal(LengthOfLine(AX),LengthOfLine(AW)); ["IsoscelesTriangle(AXW)"]
+6; isosceles_triangle_property_angle_equal(1,AXW); IsoscelesTriangle(AXW); ["Equal(MeasureOfAngle(AXW),MeasureOfAngle(XWA))"]
+7; triangle_property_angle_sum(1,AXW); Polygon(AXW); ["Equal(Add(MeasureOfAngle(AXW),MeasureOfAngle(XWA),MeasureOfAngle(WAX)),180)"]
+8; adjacent_complementary_angle(1,WAX,WAY); Collinear(YAX)&Angle(WAX)&Angle(WAY); ["Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(WAY)),180)"]
+9; vertical_angle(1,XAZ,WAY); Collinear(YAX)&Collinear(WAZ)&Angle(XAZ)&Angle(WAY); ["Equal(MeasureOfAngle(XAZ),MeasureOfAngle(WAY))"]
+10; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+11; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+12; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+#RETRIES:
+4
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ma_yxw-30
+ma_wyz-90
+ma_yzx-90
+ma_zxw-90
+ma_xwy-90
+GT_GOAL_SYMBOL:
+ma_zxa
+GT_ANSWER:
+60
+GT_THEOREM_SEQUENCE:
+1;angle_addition(1,ZXA,AXW);Angle(ZXA)&Angle(AXW)&Angle(ZXW);["Equal(MeasureOfAngle(ZXW),Add(MeasureOfAngle(ZXA),MeasureOfAngle(AXW)))"]
+

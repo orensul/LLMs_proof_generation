@@ -1,0 +1,355 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠CPA=26°, the center of ⊙O is O, the tangent to circle O is PA. Find the measure of ∠ABC.
+CONSTRUCTION_CDL:
+Shape(CD,DB,BC)
+Shape(DA,AO,OD)
+Shape(OCA,AD,DC)
+Shape(OBC,CB)
+Shape(CP,PA,OCA)
+Shape(OAB,BD,DO,OA)
+Collinear(PCDO)
+Collinear(ADB)
+Cocircular(O,ABC)
+TEXT_CDL:
+Equal(MeasureOfAngle(CPA),26)
+IsCentreOfCircle(O,O)
+IsTangentOfCircle(PA,O)
+GOAL_CDL:
+Value(MeasureOfAngle(ABC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DB,BC,CD)
+Shape(BC,CD,DB)
+Shape(AO,OD,DA)
+Shape(OD,DA,AO)
+Shape(AD,DC,OCA)
+Shape(DC,OCA,AD)
+Shape(CB,OBC)
+Shape(PA,OCA,CP)
+Shape(OCA,CP,PA)
+Shape(BD,DO,OA,OAB)
+Shape(DO,OA,OAB,BD)
+Shape(OA,OAB,BD,DO)
+Shape(DB,BC,OCA,AD)
+Shape(BC,OCA,AD,DB)
+Shape(OCA,AD,DB,BC)
+Shape(AD,DB,BC,OCA)
+Shape(BC,CD,DO,OA,OAB)
+Shape(CD,DO,OA,OAB,BC)
+Shape(DO,OA,OAB,BC,CD)
+Shape(OA,OAB,BC,CD,DO)
+Shape(OAB,BC,CD,DO,OA)
+Shape(CD,DB,OBC)
+Shape(DB,OBC,CD)
+Shape(OBC,CD,DB)
+Shape(AO,OD,DC,OCA)
+Shape(OD,DC,OCA,AO)
+Shape(DC,OCA,AO,OD)
+Shape(OCA,AO,OD,DC)
+Shape(DA,OAB,BD)
+Shape(OAB,BD,DA)
+Shape(BD,DA,OAB)
+Shape(AD,DC,CP,PA)
+Shape(DC,CP,PA,AD)
+Shape(CP,PA,AD,DC)
+Shape(PA,AD,DC,CP)
+Shape(DB,BC,OCA,AO,OD)
+Shape(BC,OCA,AO,OD,DB)
+Shape(OCA,AO,OD,DB,BC)
+Shape(AO,OD,DB,BC,OCA)
+Shape(OD,DB,BC,OCA,AO)
+Shape(DB,BC,CP,PA,AD)
+Shape(BC,CP,PA,AD,DB)
+Shape(CP,PA,AD,DB,BC)
+Shape(PA,AD,DB,BC,CP)
+Shape(AD,DB,BC,CP,PA)
+Shape(BC,CD,DA,OAB)
+Shape(CD,DA,OAB,BC)
+Shape(DA,OAB,BC,CD)
+Shape(OAB,BC,CD,DA)
+Shape(AO,OD,DC,CP,PA)
+Shape(OD,DC,CP,PA,AO)
+Shape(DC,CP,PA,AO,OD)
+Shape(CP,PA,AO,OD,DC)
+Shape(PA,AO,OD,DC,CP)
+Shape(DC,OCA,OAB,BD)
+Shape(OCA,OAB,BD,DC)
+Shape(OAB,BD,DC,OCA)
+Shape(BD,DC,OCA,OAB)
+Shape(OCA,AD,DB,OBC)
+Shape(AD,DB,OBC,OCA)
+Shape(DB,OBC,OCA,AD)
+Shape(OBC,OCA,AD,DB)
+Shape(OBC,CD,DO,OA,OAB)
+Shape(CD,DO,OA,OAB,OBC)
+Shape(DO,OA,OAB,OBC,CD)
+Shape(OA,OAB,OBC,CD,DO)
+Shape(OAB,OBC,CD,DO,OA)
+Shape(DB,BC,CP,PA,AO,OD)
+Shape(BC,CP,PA,AO,OD,DB)
+Shape(CP,PA,AO,OD,DB,BC)
+Shape(PA,AO,OD,DB,BC,CP)
+Shape(AO,OD,DB,BC,CP,PA)
+Shape(OD,DB,BC,CP,PA,AO)
+Shape(BC,OCA,OAB)
+Shape(OCA,OAB,BC)
+Shape(OAB,BC,OCA)
+Shape(AO,OD,DB,OBC,OCA)
+Shape(OD,DB,OBC,OCA,AO)
+Shape(DB,OBC,OCA,AO,OD)
+Shape(OBC,OCA,AO,OD,DB)
+Shape(OCA,AO,OD,DB,OBC)
+Shape(DA,OAB,OBC,CD)
+Shape(OAB,OBC,CD,DA)
+Shape(OBC,CD,DA,OAB)
+Shape(CD,DA,OAB,OBC)
+Shape(OBC,CP,PA,AD,DB)
+Shape(CP,PA,AD,DB,OBC)
+Shape(PA,AD,DB,OBC,CP)
+Shape(AD,DB,OBC,CP,PA)
+Shape(DB,OBC,CP,PA,AD)
+Shape(CP,PA,OAB,BD,DC)
+Shape(PA,OAB,BD,DC,CP)
+Shape(OAB,BD,DC,CP,PA)
+Shape(BD,DC,CP,PA,OAB)
+Shape(DC,CP,PA,OAB,BD)
+Shape(BC,CP,PA,OAB)
+Shape(CP,PA,OAB,BC)
+Shape(PA,OAB,BC,CP)
+Shape(OAB,BC,CP,PA)
+Shape(AO,OD,DB,OBC,CP,PA)
+Shape(OD,DB,OBC,CP,PA,AO)
+Shape(DB,OBC,CP,PA,AO,OD)
+Shape(OBC,CP,PA,AO,OD,DB)
+Shape(CP,PA,AO,OD,DB,OBC)
+Shape(PA,AO,OD,DB,OBC,CP)
+Shape(OCA,OAB,OBC)
+Shape(OAB,OBC,OCA)
+Shape(OBC,OCA,OAB)
+Shape(OBC,CP,PA,OAB)
+Shape(CP,PA,OAB,OBC)
+Shape(PA,OAB,OBC,CP)
+Shape(OAB,OBC,CP,PA)
+Collinear(ODCP)
+Collinear(PCD)
+Collinear(DCP)
+Collinear(PCO)
+Collinear(OCP)
+Collinear(PDO)
+Collinear(ODP)
+Collinear(CDO)
+Collinear(ODC)
+Collinear(BDA)
+Cocircular(O,A)
+Cocircular(O,B)
+Cocircular(O,C)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Point(P)
+Point(O)
+Point(C)
+Point(D)
+Point(A)
+Point(B)
+Line(PO)
+Line(OP)
+Line(PC)
+Line(CP)
+Line(CD)
+Line(DC)
+Line(CO)
+Line(OC)
+Line(PD)
+Line(DP)
+Line(DO)
+Line(OD)
+Line(AB)
+Line(BA)
+Line(AD)
+Line(DA)
+Line(DB)
+Line(BD)
+Line(BC)
+Line(CB)
+Line(AO)
+Line(OA)
+Line(PA)
+Line(AP)
+Arc(OAB)
+Arc(OBA)
+Arc(OAC)
+Arc(OCA)
+Arc(OBC)
+Arc(OCB)
+Angle(PCD)
+Angle(DCP)
+Angle(PCO)
+Angle(OCP)
+Angle(PDO)
+Angle(ODP)
+Angle(CDO)
+Angle(ODC)
+Angle(ADB)
+Angle(BDA)
+Angle(CDB)
+Angle(DBC)
+Angle(BCD)
+Angle(DAO)
+Angle(AOD)
+Angle(ODA)
+Angle(ADC)
+Angle(CPA)
+Angle(BDO)
+Angle(DOA)
+Angle(COA)
+Angle(DPA)
+Angle(PAD)
+Angle(ODB)
+Angle(BCP)
+Angle(CDA)
+Angle(OPA)
+Angle(PAO)
+Angle(BDC)
+Angle(PDB)
+Angle(BDP)
+Angle(BCO)
+Angle(ABC)
+Angle(BAO)
+Angle(AOP)
+Angle(AOC)
+Angle(ADP)
+Angle(POA)
+Angle(PAB)
+Angle(PDA)
+Angle(CBD)
+Angle(DCB)
+Angle(OAD)
+Angle(ADO)
+Angle(APC)
+Angle(APD)
+Angle(DAP)
+Angle(PCB)
+Angle(APO)
+Angle(OAP)
+Angle(OCB)
+Angle(CBA)
+Angle(OAB)
+Angle(BAP)
+Polygon(CDB)
+Polygon(DBC)
+Polygon(BCD)
+Polygon(DAO)
+Polygon(AOD)
+Polygon(ODA)
+Polygon(ADP)
+Polygon(DPA)
+Polygon(PAD)
+Polygon(BCPA)
+Polygon(CPAB)
+Polygon(PABC)
+Polygon(ABCP)
+Polygon(AOP)
+Polygon(OPA)
+Polygon(PAO)
+Polygon(DBCPAO)
+Polygon(BCPAOD)
+Polygon(CPAODB)
+Polygon(PAODBC)
+Polygon(AODBCP)
+Polygon(ODBCPA)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The verifier keeps saying "No answer provided in ANSWER section." I need to make sure the format is exactly right with no extra spaces or formatting issues.
+
+EQUATIONS: ma_cpa - 26
+GOAL_SYMBOL: ma_abc
+ANSWER: 64
+THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,AOP); Polygon(AOP); ["Equal(Add(MeasureOfAngle(AOP),MeasureOfAngle(OPA),MeasureOfAngle(PAO)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: tangent_of_circle_property_perpendicular(1,PA,O,O)
+You output the following conclusions: PerpendicularBetweenLine(PA,OA)
+But the correct conclusions: PerpendicularBetweenLine(OA,PA)
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(PA,OA)"]
+2; triangle_property_angle_sum(1,PAD); Polygon(PAD); ["Equal(Add(MeasureOfAngle(PAD),MeasureOfAngle(ADP),MeasureOfAngle(DPA)),180)"]
+3; circle_property_angle_of_osculation(1,OAC,P); Arc(OAC)&Angle(CAP)&IsTangentOfCircle(PA,O); ["Equal(MeasureOfAngle(CAP),Mul(MeasureOfArc(OAC),1/2))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,AOP); Polygon(AOP); ["Equal(Add(MeasureOfAngle(AOP),MeasureOfAngle(OPA),MeasureOfAngle(PAO)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,AOP); Polygon(AOP); ["Equal(Add(MeasureOfAngle(AOP),MeasureOfAngle(OPA),MeasureOfAngle(PAO)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,AOP); Polygon(AOP); ["Equal(Add(MeasureOfAngle(AOP),MeasureOfAngle(OPA),MeasureOfAngle(PAO)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ACB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_cpa-26
+GT_GOAL_SYMBOL:
+ma_abc
+GT_ANSWER:
+32
+GT_THEOREM_SEQUENCE:
+1;tangent_of_circle_property_perpendicular(2,PA,O,O);IsTangentOfCircle(PA,O)&Angle(PAO)&IsCentreOfCircle(O,O);["PerpendicularBetweenLine(PA,OA)"]
+2;triangle_property_angle_sum(1,AOP);Polygon(AOP);["Equal(Add(MeasureOfAngle(AOP),MeasureOfAngle(OPA),MeasureOfAngle(PAO)),180)"]
+3;arc_property_center_angle(1,OCA,O);Arc(OCA)&Angle(AOC)&IsCentreOfCircle(O,O);["Equal(MeasureOfArc(OCA),MeasureOfAngle(AOC))"]
+4;arc_property_circumference_angle_external(1,OCA,B);Cocircular(O,CAB)&Angle(ABC);["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OCA),1/2))"]
+

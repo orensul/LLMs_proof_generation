@@ -1,0 +1,21 @@
+%Our method builds on the insight that structurally similar problems often admit similar proofs. While the proof for the target problem is unknown, we can still retrieve 
+Analogous problems share a similar underlying structure, but could differ on surface-level details such as entity names or measurements.
+%
+To identify such problems, the pipeline first abstracts the target problem and all problems in the dataset. %, replacing entity names and numeric values with placeholders. 
+We chose a very simple abstraction schema:
+ entity names are replaced with ``<word>'' and numbers with ``<num>''.  
+ For example,  %``Shape(CA,AB,BC)'' becomes ``Shape(<word>,<word>,<word>)'', and 
+ ``Equal(MeasureOfAngle(ABC),40)'' becomes ``Equal(MeasureOfAngle(<word>), <num>)''. This process is applied to the formal representations of construction, conditions, and goal. More nuanced abstraction schemas (e.g., preserving shared symbols between words) are left for future work.
+
+
+
+
+
+%Our goal in this section is to convert the problems in FormalGeo-7K into abstract representations. This abstraction removes surface-level differences between problems while preserving their underlying structural and semantic forms, and serves as a foundation for retrieving structurally analogous problems later in the pipeline (see Section \S\ref{subsec:similar_problems_retrieval}).
+
+ 
+
+
+
+
+%To achieve this, we abstract away instance-specific information by replacing all entity names with the placeholder ``<word>'' and all numerical values with ``<num>''. This process is applied to the CONSTRUCTION, TEXT, and GOAL CDL components of each problem. For example, the expression ``Shape(CA,AB,BC)'' is abstracted as ``Shape(<word>,<word>,<word>)'', and ``Equal(MeasureOfAngle(ABC),40)'' becomes ``Equal(MeasureOfAngle(<word>), <num>)''.

@@ -1,0 +1,42 @@
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_6021_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:471: UserWarning: FV check not passed: [Angle, ('B', 'A', 'A'), (111,), ('extended', None, None)]
+  warnings.warn(w_msg)
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:471: UserWarning: FV check not passed: [Angle, ('D', 'A', 'A'), (134,), ('extended', None, None)]
+  warnings.warn(w_msg)
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:471: UserWarning: FV check not passed: [Angle, ('D', 'A', 'A'), (148,), ('extended', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: diameter_of_circle_property_right_angle(1,ADB,O)
+You output the following premises: IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB)
+But the correct premises: IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB)
+
+Model Answer:
+RETRY_ANSWER:
+48
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+4; triangle_property_angle_sum(1,DAB); Polygon(DAB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_6021_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAD,C)
+You output the following premises: Cocircular(O,ACD)&Angle(ACD)
+But the correct premises: Cocircular(O,ADC)&Angle(DCA)
+You output the following conclusions: Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+48
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+4; triangle_property_angle_sum(1,DAB); Polygon(DAB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+Retry attempt: 2
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_6021_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 26.821s | per attempt: [16.856, 5.16, 4.805]
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_6021_run_0.txt

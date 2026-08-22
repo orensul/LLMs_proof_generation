@@ -1,0 +1,111 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ABC=6*x+14°, ∠BCD=7*y+2°, ∠CDA=8*x-8°, ∠DAB=6*y+16°, AD and BC are opposite sides of the ▱ DABC. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(DA,AB,BC,CD)
+TEXT_CDL:
+Equal(MeasureOfAngle(ABC),6*x+14)
+Equal(MeasureOfAngle(BCD),7*y+2)
+Equal(MeasureOfAngle(CDA),8*x-8)
+Equal(MeasureOfAngle(DAB),6*y+16)
+Parallelogram(DABC)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AB,BC,CD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Point(D)
+Point(A)
+Point(B)
+Point(C)
+Line(DA)
+Line(AD)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Line(CD)
+Line(DC)
+Angle(DAB)
+Angle(ABC)
+Angle(BCD)
+Angle(CDA)
+Angle(BAD)
+Angle(CBA)
+Angle(DCB)
+Angle(ADC)
+Polygon(DABC)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Parallelogram(ABCD)
+Parallelogram(BCDA)
+Parallelogram(CDAB)
+ParallelBetweenLine(DC,AB)
+ParallelBetweenLine(BA,CD)
+ParallelBetweenLine(AD,BC)
+ParallelBetweenLine(CB,DA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+MeasureOfAngle(ABC)-(6*x+14)
+MeasureOfAngle(BCD)-(7*y+2)
+MeasureOfAngle(CDA)-(8*x-8)
+MeasureOfAngle(DAB)-(6*y+16)
+Equal(MeasureOfAngle(CDA),MeasureOfAngle(ABC))
+GOAL_SYMBOL:
+x
+ANSWER:
+11
+THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_angle_equal(1,DABC); Parallelogram(DABC); ["Equal(MeasureOfAngle(CDA),MeasureOfAngle(ABC))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallelogram_property_opposite_angle_equal(1,DABC)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),MeasureOfAngle(BCD))
+But the correct conclusions: Equal(MeasureOfAngle(CDA),MeasureOfAngle(ABC))
+
+Model Answer:
+RETRY_ANSWER:
+11
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_angle_equal(1,DABC); Parallelogram(DABC); ["Equal(MeasureOfAngle(DAB),MeasureOfAngle(BCD))", "Equal(MeasureOfAngle(ABC),MeasureOfAngle(CDA))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallelogram_property_opposite_angle_equal(1,DABC)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),MeasureOfAngle(CDA))
+But the correct conclusions: Equal(MeasureOfAngle(CDA),MeasureOfAngle(ABC))
+
+Model Answer:
+RETRY_ANSWER:
+11
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_angle_equal(1,DABC); Parallelogram(DABC); ["Equal(MeasureOfAngle(ABC),MeasureOfAngle(CDA))"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_abc-6*x-14
+ma_bcd-7*y-2
+ma_cda-8*x+8
+ma_dab-6*y-16
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+11
+GT_THEOREM_SEQUENCE:
+1;parallelogram_property_opposite_angle_equal(1,BCDA);Parallelogram(BCDA);["Equal(MeasureOfAngle(ABC),MeasureOfAngle(CDA))"]
+

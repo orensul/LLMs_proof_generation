@@ -1,0 +1,215 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠CBA=46°, ∠FEC=160°, AB∥EF, EF is parallel to CD. Find the measure of ∠BCE.
+CONSTRUCTION_CDL:
+Shape(CB,BA)
+Shape(BC,CE,EF,FB)
+Shape(EC,CD,DF,FE)
+Collinear(BFD)
+TEXT_CDL:
+Equal(MeasureOfAngle(CBA),46)
+Equal(MeasureOfAngle(FEC),160)
+ParallelBetweenLine(AB,EF)
+ParallelBetweenLine(EF,CD)
+GOAL_CDL:
+Value(MeasureOfAngle(BCE))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CE,EF,FB,BC)
+Shape(EF,FB,BC,CE)
+Shape(FB,BC,CE,EF)
+Shape(CD,DF,FE,EC)
+Shape(DF,FE,EC,CD)
+Shape(FE,EC,CD,DF)
+Shape(FB,BC,CD,DF)
+Shape(BC,CD,DF,FB)
+Shape(CD,DF,FB,BC)
+Shape(DF,FB,BC,CD)
+Collinear(DFB)
+Point(B)
+Point(D)
+Point(F)
+Point(C)
+Point(A)
+Point(E)
+Line(BD)
+Line(DB)
+Line(BF)
+Line(FB)
+Line(FD)
+Line(DF)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Line(CE)
+Line(EC)
+Line(EF)
+Line(FE)
+Line(CD)
+Line(DC)
+Angle(BFD)
+Angle(DFB)
+Angle(BCE)
+Angle(CEF)
+Angle(EFB)
+Angle(FBC)
+Angle(ECD)
+Angle(CDF)
+Angle(DFE)
+Angle(FEC)
+Angle(BCD)
+Angle(BFE)
+Angle(EFD)
+Angle(FBA)
+Angle(DBC)
+Angle(CDB)
+Angle(DBA)
+Angle(ABC)
+Angle(ECB)
+Angle(CBF)
+Angle(DCE)
+Angle(FDC)
+Angle(DCB)
+Angle(ABF)
+Angle(CBD)
+Angle(BDC)
+Angle(ABD)
+Polygon(BCEF)
+Polygon(CEFB)
+Polygon(EFBC)
+Polygon(FBCE)
+Polygon(ECDF)
+Polygon(CDFE)
+Polygon(DFEC)
+Polygon(FECD)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+ParallelBetweenLine(FE,BA)
+ParallelBetweenLine(DC,FE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_abc;100
+MeasureOfAngle(CAB);ma_cab;50
+MeasureOfAngle(CAD);ma_cab;50
+MeasureOfAngle(CBE);ma_cbe;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully re-read the angle_addition theorem format:
+
+`angle_addition(ABC,CBD)`: premise `Angle(ABC)&Angle(CBD)&Angle(ABD)`, conclusion `Equal(MeasureOfAngle(ABD),Add(MeasureOfAngle(ABC),MeasureOfAngle(CBD)))`
+
+The key: the two angles share the **middle letter** (vertex B), and ABD is the combined angle. So `angle_addition(BEC,CEF)` would have vertex E, combining BEC and CEF to give BEF.
+
+The verifier confirmed: `angle_addition(1,BCE,CEF)` → correct premises are `Angle(BEC)&Angle(CEF)&Angle(BEF)`, conclusion `Equal(MeasureOfAngle(BEF),Add(MeasureOfAngle(BEC),MeasureOfAngle(CEF)))`.
+
+So the arguments should be `angle_addition(BEC,CEF)` not `angle_addition(BCE,CEF)`.
+
+Now let me plan the proof:
+1. AB∥EF, Line(BE) → ∠EBA = ∠BEF (alternate interior angles)
+2. ∠EBA = ∠CBA = 46°, so ∠BEF = 46°
+3. ∠FEC = 160°, and angle_addition at E: ∠BEF = ∠BEC + ∠CEF... but ∠FEC=160° and ∠BEF=46° < 160°, so B is between the rays EC and EF? Then ∠FEC = ∠FEB + ∠BEC → ∠BEC = 160° - 46° = 114°.
+
+For quadrilateral BCEF: ∠FBC + ∠BCE + ∠CEF + ∠EFB = 360°
+Need ∠FBC and ∠EFB.
+
+Using EF∥CD, and EF∥AB: 
+∠EFB: AB∥EF with transversal BF → alternate interior ∠ABF = ∠BFE, or co-interior.
+
+Let me use: EF∥AB, transversal BF (collinear BFD):
+version 2: `ParallelBetweenLine(AB,EF)&Line(BF)` → `Equal(MeasureOfAngle(EBF... ` 
+
+Actually for version 2 of parallel_property_alternate_interior_angle(AB,CD): `ParallelBetweenLine(AB,CD)&Line(BC)` → `Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))`
+
+So `parallel_property_alternate_interior_angle(2,AB,EF)` with Line(BF): `Equal(MeasureOfAngle(FBA),MeasureOfAngle(BFE))`
+
+∠FBA = 180° - ∠CBA = 134°? Only if C,B,F collinear, which isn't stated.
+
+Let me just try the straightforward sequence using what we know works:
+
+EQUATIONS: ma_cba-46, ma_fec-160
+GOAL_SYMBOL: ma_bce
+ANSWER: 108
+
+THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))"]
+2; angle_addition(1,FEB,BEC); Angle(FEB)&Angle(BEC)&Angle(FEC); ["Equal(MeasureOfAngle(FEC),Add(MeasureOfAngle(FEB),MeasureOfAngle(BEC)))"]
+3; parallel_property_alternate_interior_angle(2,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(MeasureOfAngle(CEF),MeasureOfAngle(ECD))"]
+4; angle_addition(1,ECB,BCE); Angle(ECB)&Angle(BCE)&Angle(ECE); ["Equal(MeasureOfAngle(BCE),Add(MeasureOfAngle(ECB),MeasureOfAngle(BCE)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,AB,EF)
+You output the following premises: ParallelBetweenLine(AB,EF)&Line(BF)
+But the correct premises: ParallelBetweenLine(AB,EF)&Line(AF)
+You output the following conclusions: Equal(MeasureOfAngle(ABF),MeasureOfAngle(EFB))
+But the correct conclusions: Equal(MeasureOfAngle(BAF),MeasureOfAngle(EFA))
+
+Model Answer:
+RETRY_ANSWER:
+108
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AB,EF); ParallelBetweenLine(AB,EF)&Line(BF); ["Equal(MeasureOfAngle(ABF),MeasureOfAngle(EFB))"]
+2; angle_addition(1,ABC,CBF); Angle(ABC)&Angle(CBF)&Angle(ABF); ["Equal(MeasureOfAngle(ABF),Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)))"]
+3; angle_addition(1,BCE,CEF); Angle(BCE)&Angle(CEF)&Angle(BEF); ["Equal(MeasureOfAngle(BEF),Add(MeasureOfAngle(BCE),MeasureOfAngle(CEF)))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AB,EF)
+You output the following conclusions: Equal(MeasureOfAngle(ABE),MeasureOfAngle(BEF))
+But the correct conclusions: Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))
+
+Model Answer:
+RETRY_ANSWER:
+108
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(ABE),MeasureOfAngle(BEF))"]
+2; angle_addition(1,ABF,FBC); Angle(ABF)&Angle(FBC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Add(MeasureOfAngle(ABF),MeasureOfAngle(FBC)))"]
+3; angle_addition(1,BCE,CEF); Angle(BCE)&Angle(CEF)&Angle(BEF); ["Equal(MeasureOfAngle(BEF),Add(MeasureOfAngle(BCE),MeasureOfAngle(CEF)))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: angle_addition(1,FBC,BCE)
+You output the following premises: Angle(FBC)&Angle(BCE)&Angle(FBE)
+But the correct premises: Angle(FCB)&Angle(BCE)&Angle(FCE)
+You output the following conclusions: Equal(MeasureOfAngle(FBE),Add(MeasureOfAngle(FBC),MeasureOfAngle(BCE)))
+But the correct conclusions: Equal(MeasureOfAngle(FCE),Add(MeasureOfAngle(FCB),MeasureOfAngle(BCE)))
+
+Model Answer:
+RETRY_ANSWER:
+108
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))"]
+2; angle_addition(1,BEF,FEC); Angle(BEF)&Angle(FEC)&Angle(BEC); ["Equal(MeasureOfAngle(BEC),Add(MeasureOfAngle(BEF),MeasureOfAngle(FEC)))"]
+3; angle_addition(1,FBC,BCE); Angle(FBC)&Angle(BCE)&Angle(FBE); ["Equal(MeasureOfAngle(FBE),Add(MeasureOfAngle(FBC),MeasureOfAngle(BCE)))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: angle_addition(1,BCE,CEF)
+You output the following premises: Angle(BCE)&Angle(CEF)&Angle(BCF)
+But the correct premises: Angle(BEC)&Angle(CEF)&Angle(BEF)
+You output the following conclusions: Equal(MeasureOfAngle(BCF),Add(MeasureOfAngle(BCE),MeasureOfAngle(CEF)))
+But the correct conclusions: Equal(MeasureOfAngle(BEF),Add(MeasureOfAngle(BEC),MeasureOfAngle(CEF)))
+
+Model Answer:
+RETRY_ANSWER:
+108
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,AB,EF); ParallelBetweenLine(AB,EF)&Line(BE); ["Equal(MeasureOfAngle(EBA),MeasureOfAngle(BEF))"]
+2; angle_addition(1,CBF,FBA); Angle(CBF)&Angle(FBA)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Add(MeasureOfAngle(CBF),MeasureOfAngle(FBA)))"]
+3; angle_addition(1,BCE,CEF); Angle(BCE)&Angle(CEF)&Angle(BCF); ["Equal(MeasureOfAngle(BCF),Add(MeasureOfAngle(BCE),MeasureOfAngle(CEF)))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_cba-46
+ma_fec-160
+GT_GOAL_SYMBOL:
+ma_bce
+GT_ANSWER:
+26
+GT_THEOREM_SEQUENCE:
+1;parallel_judgment_par_par(1,AB,EF,CD);ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD);["ParallelBetweenLine(AB,CD)"]
+2;parallel_property_alternate_interior_angle(2,AB,CD);ParallelBetweenLine(AB,CD)&Line(BC);["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+3;parallel_property_ipsilateral_internal_angle(1,EF,CD);ParallelBetweenLine(EF,CD)&Line(EC);["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4;angle_addition(1,BCE,ECD);Angle(BCE)&Angle(ECD)&Angle(BCD);["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+

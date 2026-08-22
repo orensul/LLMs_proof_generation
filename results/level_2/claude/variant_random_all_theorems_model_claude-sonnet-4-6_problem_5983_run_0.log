@@ -1,0 +1,32 @@
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5983_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBC,A)
+You output the following premises: Cocircular(O,BAC)&Angle(CAB)
+But the correct premises: Cocircular(O,BCA)&Angle(CAB)
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,BAC)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+Retry attempt: 1
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5983_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,OBC,O)
+You output the following premises: Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O)
+But the correct premises: Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O)
+You output the following conclusions: Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))
+But the correct conclusions: Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,A); Cocircular(O,BCA)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(BOC))"]
+Retry attempt: 2
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5983_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 14.920s | per attempt: [9.173, 3.224, 2.523]
+Content written to results/level_2/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5983_run_0.txt

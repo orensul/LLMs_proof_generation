@@ -1,0 +1,344 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=10, AD=6, ∠BCA=90°, AD and BC are opposite sides of the ▱ ABCD. Find the length of line OB.
+CONSTRUCTION_CDL:
+Shape(AB,BO,OA)
+Shape(AO,OD,DA)
+Shape(OB,BC,CO)
+Shape(DO,OC,CD)
+Collinear(AOC)
+Collinear(BOD)
+TEXT_CDL:
+Equal(LengthOfLine(AB),10)
+Equal(LengthOfLine(AD),6)
+Equal(MeasureOfAngle(BCA),90)
+Parallelogram(ABCD)
+GOAL_CDL:
+Value(LengthOfLine(OB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BO,OA,AB)
+Shape(OA,AB,BO)
+Shape(OD,DA,AO)
+Shape(DA,AO,OD)
+Shape(BC,CO,OB)
+Shape(CO,OB,BC)
+Shape(OC,CD,DO)
+Shape(CD,DO,OC)
+Shape(AB,BO,OD,DA)
+Shape(BO,OD,DA,AB)
+Shape(OD,DA,AB,BO)
+Shape(DA,AB,BO,OD)
+Shape(OA,AB,BC,CO)
+Shape(AB,BC,CO,OA)
+Shape(BC,CO,OA,AB)
+Shape(CO,OA,AB,BC)
+Shape(DA,AO,OC,CD)
+Shape(AO,OC,CD,DA)
+Shape(OC,CD,DA,AO)
+Shape(CD,DA,AO,OC)
+Shape(OB,BC,CD,DO)
+Shape(BC,CD,DO,OB)
+Shape(CD,DO,OB,BC)
+Shape(DO,OB,BC,CD)
+Shape(AB,BO,OC,CD,DA)
+Shape(BO,OC,CD,DA,AB)
+Shape(OC,CD,DA,AB,BO)
+Shape(CD,DA,AB,BO,OC)
+Shape(DA,AB,BO,OC,CD)
+Shape(OA,AB,BC,CD,DO)
+Shape(AB,BC,CD,DO,OA)
+Shape(BC,CD,DO,OA,AB)
+Shape(CD,DO,OA,AB,BC)
+Shape(DO,OA,AB,BC,CD)
+Shape(OD,DA,AB,BC,CO)
+Shape(DA,AB,BC,CO,OD)
+Shape(AB,BC,CO,OD,DA)
+Shape(BC,CO,OD,DA,AB)
+Shape(CO,OD,DA,AB,BC)
+Shape(DA,AO,OB,BC,CD)
+Shape(AO,OB,BC,CD,DA)
+Shape(OB,BC,CD,DA,AO)
+Shape(BC,CD,DA,AO,OB)
+Shape(CD,DA,AO,OB,BC)
+Shape(AB,BC,CD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(DA,AB,BC,CD)
+Collinear(COA)
+Collinear(DOB)
+Point(A)
+Point(C)
+Point(O)
+Point(B)
+Point(D)
+Line(AC)
+Line(CA)
+Line(AO)
+Line(OA)
+Line(OC)
+Line(CO)
+Line(BD)
+Line(DB)
+Line(BO)
+Line(OB)
+Line(OD)
+Line(DO)
+Line(AB)
+Line(BA)
+Line(DA)
+Line(AD)
+Line(BC)
+Line(CB)
+Line(CD)
+Line(DC)
+Angle(AOC)
+Angle(COA)
+Angle(BOD)
+Angle(DOB)
+Angle(ABO)
+Angle(BOA)
+Angle(OAB)
+Angle(AOD)
+Angle(ODA)
+Angle(DAO)
+Angle(OBC)
+Angle(BCO)
+Angle(COB)
+Angle(DOC)
+Angle(OCD)
+Angle(CDO)
+Angle(BDA)
+Angle(DAB)
+Angle(ABC)
+Angle(ACD)
+Angle(CDA)
+Angle(BCD)
+Angle(BOC)
+Angle(DOA)
+Angle(COD)
+Angle(AOB)
+Angle(ABD)
+Angle(CAB)
+Angle(DAC)
+Angle(DBC)
+Angle(BCA)
+Angle(CDB)
+Angle(OBA)
+Angle(BAO)
+Angle(ADO)
+Angle(OAD)
+Angle(CBO)
+Angle(OCB)
+Angle(DCO)
+Angle(ODC)
+Angle(ADB)
+Angle(BAD)
+Angle(CBA)
+Angle(DCA)
+Angle(ADC)
+Angle(DCB)
+Angle(DBA)
+Angle(BAC)
+Angle(CAD)
+Angle(CBD)
+Angle(ACB)
+Angle(BDC)
+Polygon(ABO)
+Polygon(BOA)
+Polygon(OAB)
+Polygon(AOD)
+Polygon(ODA)
+Polygon(DAO)
+Polygon(OBC)
+Polygon(BCO)
+Polygon(COB)
+Polygon(DOC)
+Polygon(OCD)
+Polygon(CDO)
+Polygon(ABD)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(DAC)
+Polygon(ACD)
+Polygon(CDA)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+Polygon(ABOCD)
+Polygon(BOCDA)
+Polygon(OCDAB)
+Polygon(CDABO)
+Polygon(DABOC)
+Polygon(OABCD)
+Polygon(ABCDO)
+Polygon(BCDOA)
+Polygon(CDOAB)
+Polygon(DOABC)
+Polygon(ODABC)
+Polygon(DABCO)
+Polygon(ABCOD)
+Polygon(BCODA)
+Polygon(CODAB)
+Polygon(DAOBC)
+Polygon(AOBCD)
+Polygon(OBCDA)
+Polygon(BCDAO)
+Polygon(CDAOB)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Polygon(DABC)
+Parallelogram(BCDA)
+Parallelogram(CDAB)
+Parallelogram(DABC)
+ParallelBetweenLine(AD,BC)
+ParallelBetweenLine(CB,DA)
+ParallelBetweenLine(BA,CD)
+ParallelBetweenLine(DC,AB)
+SYMBOLS_AND_VALUES:
+LengthOfLine(AF);ll_af;4
+LengthOfLine(FA);ll_af;4
+LengthOfLine(GA);ll_ga;3
+LengthOfLine(AG);ll_ga;3
+LengthOfLine(CG);ll_cg;None
+LengthOfLine(GC);ll_cg;None
+LengthOfLine(CD);ll_cd;None
+LengthOfLine(DC);ll_cd;None
+LengthOfLine(FG);ll_fg;None
+LengthOfLine(GF);ll_fg;None
+LengthOfLine(FD);ll_fd;None
+LengthOfLine(DF);ll_fd;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the theorem `right_triangle_judgment_angle(1,XYZ)`, the right angle must be at the middle vertex Y, so the premise requires `Equal(MeasureOfAngle(XYZ),90)`. For triangle OCB with right angle at C, I need `right_triangle_judgment_angle(1,OCB)` with premise `Equal(MeasureOfAngle(OCB),90)`.
+
+Since O is on segment AC (collinear AOC), angle OCB = angle ACB = BCA = 90°. So MeasureOfAngle(OCB) = 90°. This should be directly available since ∠BCA = 90° is given and O is on AC.
+
+EQUATIONS: ll_ab-10 ll_ad-6 ma_bca-90
+GOAL_SYMBOL: ll_ob
+ANSWER: 2*sqrt(13)
+
+THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+3; parallelogram_property_diagonal_bisection(1,BCDA,O); Parallelogram(BCDA)&Collinear(BOD)&Collinear(COA); ["IsMidpointOfLine(O,BD)"]
+4; line_addition(1,AO,OC); Collinear(AOC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AO),LengthOfLine(OC)))"]
+5; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+6; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+7; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+8; right_triangle_judgment_angle(1,OCB); Polygon(OCB)&Equal(MeasureOfAngle(OCB),90); ["RightTriangle(OCB)"]
+9; right_triangle_property_pythagorean(1,OCB); RightTriangle(OCB); ["Equal(Add(Pow(LengthOfLine(OC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(OB),2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallelogram_property_opposite_line_equal(1,BCDA)
+You output the following conclusions: Equal(LengthOfLine(CB),LengthOfLine(AD))
+But the correct conclusions: Equal(LengthOfLine(CB),LengthOfLine(DA))
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+2; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(AD))"]
+3; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+4; parallelogram_property_diagonal_bisection(1,BCDA,O); Parallelogram(BCDA)&Collinear(BOD)&Collinear(COA); ["IsMidpointOfLine(O,BD)"]
+5; line_addition(1,AO,OC); Collinear(AOC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AO),LengthOfLine(OC)))"]
+6; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+7; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+8; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+9; right_triangle_judgment_angle(1,OBC); Polygon(OBC)&Equal(MeasureOfAngle(BCO),90); ["RightTriangle(OBC)"]
+10; right_triangle_property_pythagorean(1,OBC); RightTriangle(OBC); ["Equal(Add(Pow(LengthOfLine(OB),2),Pow(LengthOfLine(BC),2)),Pow(LengthOfLine(OC),2))"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: right_triangle_judgment_angle(1,COB);Polygon(COB)&Equal(MeasureOfAngle(COB),90);['RightTriangle(COB)']
+Missing premise: Angle measure 90° for triangle COB is not established in the premise.
+Details: Premise provided: Polygon(COB)&Equal(MeasureOfAngle(COB),90)
+- Available premises:
+  Parallel Lines: AB ∥ CD, AD ∥ BC
+  Collinear Points: AOC, BOD
+  Right Triangles: ABC
+  Polygons: ABC, ABCD, ABCDO, ABCOD, ABD, ABO, ABOCD, ACD, AOBCD, AOD, BCD, BCDA, BCDAO, BCDOA, BCO, BCODA, BOCDA, CDAB, CDABO, CDAOB, CDO, CDOAB, CODAB, DABC, DABCO, DABOC, DAOBC, DOABC, OABCD, OBCDA, OCDAB, ODABC
+- Theorems related to the goal:
+  Step 8 - right_triangle_judgment_angle(1, COB): RightTriangle(COB)
+- Solver constraints directly related to this goal:
+  |BD| = |BO| + |DO|
+  |BO| = |DO|
+  |BO| > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+3; parallelogram_property_diagonal_bisection(1,BCDA,O); Parallelogram(BCDA)&Collinear(BOD)&Collinear(COA); ["IsMidpointOfLine(O,BD)"]
+4; line_addition(1,AO,OC); Collinear(AOC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AO),LengthOfLine(OC)))"]
+5; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+6; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+7; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+8; right_triangle_judgment_angle(1,COB); Polygon(COB)&Equal(MeasureOfAngle(COB),90); ["RightTriangle(COB)"]
+9; right_triangle_property_pythagorean(1,COB); RightTriangle(COB); ["Equal(Add(Pow(LengthOfLine(CO),2),Pow(LengthOfLine(OB),2)),Pow(LengthOfLine(CB),2))"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+3; parallelogram_property_diagonal_bisection(1,BCDA,O); Parallelogram(BCDA)&Collinear(BOD)&Collinear(COA); ["IsMidpointOfLine(O,BD)"]
+4; line_addition(1,AO,OC); Collinear(AOC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AO),LengthOfLine(OC)))"]
+5; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+6; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+7; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+8; perpendicular_judgment_angle(1,BC,OC); Angle(BCO)&Equal(MeasureOfAngle(BCO),90); ["PerpendicularBetweenLine(BC,OC)"]
+9; right_triangle_judgment_angle(1,OCB); Polygon(OCB)&Equal(MeasureOfAngle(OCB),90); ["RightTriangle(OCB)"]
+10; right_triangle_property_pythagorean(1,OCB); RightTriangle(OCB); ["Equal(Add(Pow(LengthOfLine(OC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(OB),2))"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_judgment_angle(1,ABC)
+You output the following premises: Polygon(ABC)&Equal(MeasureOfAngle(BCA),90)
+But the correct premises: Polygon(ABC)&Equal(MeasureOfAngle(ABC),90)
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(13)
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,BCDA); Parallelogram(BCDA); ["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+2; parallelogram_property_diagonal_bisection(1,ABCD,O); Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD); ["IsMidpointOfLine(O,AC)"]
+3; parallelogram_property_diagonal_bisection(1,BCDA,O); Parallelogram(BCDA)&Collinear(BOD)&Collinear(COA); ["IsMidpointOfLine(O,BD)"]
+4; line_addition(1,AO,OC); Collinear(AOC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AO),LengthOfLine(OC)))"]
+5; line_addition(1,BO,OD); Collinear(BOD); ["Equal(LengthOfLine(BD),Add(LengthOfLine(BO),LengthOfLine(OD)))"]
+6; right_triangle_judgment_angle(1,BCA); Polygon(BCA)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(BCA)"]
+7; right_triangle_property_pythagorean(1,BCA); RightTriangle(BCA); ["Equal(Add(Pow(LengthOfLine(BC),2),Pow(LengthOfLine(CA),2)),Pow(LengthOfLine(BA),2))"]
+8; right_triangle_judgment_angle(1,ABC); Polygon(ABC)&Equal(MeasureOfAngle(BCA),90); ["RightTriangle(ABC)"]
+9; right_triangle_property_pythagorean(1,OCB); RightTriangle(OCB); ["Equal(Add(Pow(LengthOfLine(OC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(OB),2))"]
+#RETRIES:
+4
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ll_ab-10
+ll_ad-6
+ma_bca-90
+GT_GOAL_SYMBOL:
+ll_ob
+GT_ANSWER:
+2*sqrt(13)
+GT_THEOREM_SEQUENCE:
+1;line_addition(1,AO,OC);Collinear(AOC);["Equal(LengthOfLine(AC),Add(LengthOfLine(AO),LengthOfLine(OC)))"]
+2;parallelogram_property_diagonal_bisection(1,ABCD,O);Parallelogram(ABCD)&Collinear(AOC)&Collinear(BOD);["IsMidpointOfLine(O,AC)"]
+3;parallelogram_property_opposite_line_equal(1,BCDA);Parallelogram(BCDA);["Equal(LengthOfLine(CB),LengthOfLine(DA))"]
+4;cosine_theorem(1,CAB);Polygon(CAB);["Equal(Add(Pow(LengthOfLine(AB),2),Mul(2,LengthOfLine(CA),LengthOfLine(CB),Cos(MeasureOfAngle(BCA)))),Add(Pow(LengthOfLine(CA),2),Pow(LengthOfLine(CB),2)))"]
+5;cosine_theorem(1,COB);Polygon(COB);["Equal(Add(Pow(LengthOfLine(OB),2),Mul(2,LengthOfLine(CO),LengthOfLine(CB),Cos(MeasureOfAngle(BCO)))),Add(Pow(LengthOfLine(CO),2),Pow(LengthOfLine(CB),2)))"]
+

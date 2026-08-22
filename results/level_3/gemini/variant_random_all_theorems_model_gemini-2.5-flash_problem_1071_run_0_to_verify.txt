@@ -1,0 +1,158 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, DB=70, EC=70, ∠EDC=60°, CB and ED are opposite sides of the ▱ CEDB, CE⊥DE. Find the area of CEDB.
+CONSTRUCTION_CDL:
+Shape(CE,ED,DC)
+Shape(BC,CD,DB)
+TEXT_CDL:
+Equal(LengthOfLine(DB),70)
+Equal(LengthOfLine(EC),70)
+Equal(MeasureOfAngle(EDC),60)
+Parallelogram(CEDB)
+PerpendicularBetweenLine(CE,DE)
+GOAL_CDL:
+Value(AreaOfQuadrilateral(CEDB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(ED,DC,CE)
+Shape(DC,CE,ED)
+Shape(CD,DB,BC)
+Shape(DB,BC,CD)
+Shape(CE,ED,DB,BC)
+Shape(ED,DB,BC,CE)
+Shape(DB,BC,CE,ED)
+Shape(BC,CE,ED,DB)
+Point(C)
+Point(E)
+Point(D)
+Point(B)
+Line(CE)
+Line(EC)
+Line(ED)
+Line(DE)
+Line(DC)
+Line(CD)
+Line(BC)
+Line(CB)
+Line(DB)
+Line(BD)
+Angle(CED)
+Angle(EDC)
+Angle(DCE)
+Angle(BCD)
+Angle(CDB)
+Angle(DBC)
+Angle(EDB)
+Angle(BCE)
+Angle(DEC)
+Angle(CDE)
+Angle(ECD)
+Angle(DCB)
+Angle(BDC)
+Angle(CBD)
+Angle(BDE)
+Angle(ECB)
+Polygon(CED)
+Polygon(EDC)
+Polygon(DCE)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+Polygon(CEDB)
+Polygon(EDBC)
+Polygon(DBCE)
+Polygon(BCED)
+Parallelogram(EDBC)
+Parallelogram(DBCE)
+Parallelogram(BCED)
+ParallelBetweenLine(CB,ED)
+ParallelBetweenLine(DE,BC)
+ParallelBetweenLine(EC,DB)
+ParallelBetweenLine(BD,CE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_db-70
+ll_ec-70
+ma_edc-60
+ma_ced-90
+ma_dce-(180-ma_edc-ma_ced)
+Mul(ll_ed,Sin(ma_edc))-Mul(ll_ec,Sin(ma_dce))
+AreaOfQuadrilateral(CEDB)-Mul(ll_ec,ll_ed)
+GOAL_SYMBOL:
+AreaOfQuadrilateral(CEDB)
+ANSWER:
+4900*sqrt(3)/3
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,EDC); Polygon(EDC); ["Equal(Add(MeasureOfAngle(EDC),MeasureOfAngle(DCE),MeasureOfAngle(CED)),180)"]
+2; sine_theorem(1,EDC); Polygon(EDC); ["Equal(Mul(LengthOfLine(ED),Sin(MeasureOfAngle(EDC))),Mul(LengthOfLine(EC),Sin(MeasureOfAngle(DCE))))"]
+3; parallelogram_area_formula_sine(1,CEDB); Parallelogram(CEDB); ["Equal(AreaOfQuadrilateral(CEDB),Mul(LengthOfLine(CE),LengthOfLine(ED),Sin(MeasureOfAngle(CED))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: rectangle_judgment_right_angle(1,CEDB)
+You output the following premises: Parallelogram(CEDB)&Equal(MeasureOfAngle(DEC),90)
+But the correct premises: Parallelogram(CEDB)&Equal(MeasureOfAngle(CED),90)
+
+Model Answer:
+RETRY_ANSWER:
+4900*sqrt(3)/3
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,EDC); Polygon(EDC); ["Equal(Add(MeasureOfAngle(EDC),MeasureOfAngle(DCE),MeasureOfAngle(CED)),180)"]
+2; sine_theorem(1,EDC); Polygon(EDC); ["Equal(Mul(LengthOfLine(ED),Sin(MeasureOfAngle(EDC))),Mul(LengthOfLine(EC),Sin(MeasureOfAngle(DCE))))"]
+3; rectangle_judgment_right_angle(1,CEDB); Parallelogram(CEDB)&Equal(MeasureOfAngle(DEC),90); ["Rectangle(CEDB)"]
+4; parallelogram_area_formula_common(1,CEDB); Parallelogram(CEDB); ["Equal(AreaOfQuadrilateral(CEDB),Mul(HeightOfQuadrilateral(CEDB),LengthOfLine(ED)))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: parallelogram_area_formula_common(1,CEDB);Parallelogram(CEDB);['Equal(AreaOfQuadrilateral(CEDB),Mul(HeightOfQuadrilateral(CEDB),LengthOfLine(ED)))']
+Missing premise: No height established for quadrilateral CEDB
+Details: Height must be established through an altitude theorem first
+- Available premises:
+  Parallel Lines: BC ∥ DE, BD ∥ CE
+  Perpendicular Lines: CE ⊥ DE
+  Rectangles: BCED, CEDB, DBCE, EDBC
+  Polygons: BCD, BCED, CED, CEDB, DBCE, EDBC
+- Theorems related to the goal:
+  Step 3 - rectangle_judgment_right_angle(1, CEDB): Rectangle(CEDB)
+  Step 4 - parallelogram_area_formula_common(1, CEDB): Equal(AreaOfQuadrilateral(CEDB),Mul(HeightOfQuadrilateral(CEDB),LengthOfLine(ED)))
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+4900*sqrt(3)/3
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,EDC); Polygon(EDC); ["Equal(Add(MeasureOfAngle(EDC),MeasureOfAngle(DCE),MeasureOfAngle(CED)),180)"]
+2; sine_theorem(1,EDC); Polygon(EDC); ["Equal(Mul(LengthOfLine(ED),Sin(MeasureOfAngle(EDC))),Mul(LengthOfLine(EC),Sin(MeasureOfAngle(DCE))))"]
+3; rectangle_judgment_right_angle(1,CEDB); Parallelogram(CEDB)&Equal(MeasureOfAngle(CED),90); ["Rectangle(CEDB)"]
+4; parallelogram_area_formula_common(1,CEDB); Parallelogram(CEDB); ["Equal(AreaOfQuadrilateral(CEDB),Mul(HeightOfQuadrilateral(CEDB),LengthOfLine(ED)))"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_db-70
+ll_ec-70
+ma_edc-60
+ma_ced-90
+GT_GOAL_SYMBOL:
+aq_cedb
+GT_ANSWER:
+4900*sqrt(3)/3
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,CED);Polygon(CED);["Equal(Add(MeasureOfAngle(CED),MeasureOfAngle(EDC),MeasureOfAngle(DCE)),180)"]
+2;sine_theorem(1,EDC);Polygon(EDC);["Equal(Mul(LengthOfLine(ED),Sin(MeasureOfAngle(EDC))),Mul(LengthOfLine(EC),Sin(MeasureOfAngle(DCE))))"]
+3;parallelogram_area_formula_sine(1,CEDB);Parallelogram(CEDB);["Equal(AreaOfQuadrilateral(CEDB),Mul(LengthOfLine(CE),LengthOfLine(ED),Sin(MeasureOfAngle(CED))))"]
+

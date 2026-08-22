@@ -1,0 +1,85 @@
+Content written to results/level_2/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,HGJ,JGA)
+You output the following premises: Collinear(JGAE)&Angle(HGJ)&Angle(JGA)
+But the correct premises: Collinear(HGA)&Angle(HGJ)&Angle(JGA)
+
+Model Answer:
+RETRY_ANSWER:
+138
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,HGJ,JGA); Collinear(JGAE)&Angle(HGJ)&Angle(JGA); ["Equal(Add(MeasureOfAngle(HGJ),MeasureOfAngle(JGA)),180)"]
+2; parallel_property_alternate_interior_angle(1,GA,HD); ParallelBetweenLine(GA,HD)&Line(GH); ["Equal(MeasureOfAngle(AGH),MeasureOfAngle(GHD))"]
+Retry attempt: 1
+Content written to results/level_2/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,GA,HD)
+You output the following premises: ParallelBetweenLine(GA,HD)&Line(GH)
+But the correct premises: ParallelBetweenLine(GA,HD)&Line(GD)
+You output the following conclusions: Equal(MeasureOfAngle(AGH),MeasureOfAngle(GHD))
+But the correct conclusions: Equal(MeasureOfAngle(AGD),MeasureOfAngle(HDG))
+
+Model Answer:
+RETRY_ANSWER:
+138
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,HGJ,JGA); Collinear(HGA)&Angle(HGJ)&Angle(JGA); ["Equal(Add(MeasureOfAngle(HGJ),MeasureOfAngle(JGA)),180)"]
+2; parallel_property_alternate_interior_angle(1,GA,HD); ParallelBetweenLine(GA,HD)&Line(GH); ["Equal(MeasureOfAngle(AGH),MeasureOfAngle(GHD))"]
+Retry attempt: 2
+Content written to results/level_2/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(2,GA,HD,J)
+You output the following premises: ParallelBetweenLine(GA,HD)&Collinear(JGA)
+But the correct premises: ParallelBetweenLine(GA,HD)&Collinear(GHJ)
+
+Model Answer:
+RETRY_ANSWER:
+42
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(2,GA,HD,J); ParallelBetweenLine(GA,HD)&Collinear(JGA); ["Equal(MeasureOfAngle(AGH),MeasureOfAngle(DHJ))"]
+2; vertical_angle(1,GHD,IHA); Collinear(IHD)&Collinear(GHA)&Angle(GHD)&Angle(IHA); ["Equal(MeasureOfAngle(GHD),MeasureOfAngle(IHA))"]
+3; parallel_property_alternate_interior_angle(1,GA,HD); ParallelBetweenLine(GA,HD)&Line(GD); ["Equal(MeasureOfAngle(AGD),MeasureOfAngle(HDG))"]
+4; parallel_property_ipsilateral_internal_angle(1,GA,HD); ParallelBetweenLine(GA,HD)&Line(GH); ["Equal(Add(MeasureOfAngle(AGH),MeasureOfAngle(GHD)),180)"]
+Retry attempt: 3
+Content written to results/level_2/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: adjacent_complementary_angle(1,HGJ,JGA);Collinear(HGA)&Angle(HGJ)&Angle(JGA);['Equal(Add(MeasureOfAngle(HGJ),MeasureOfAngle(JGA)),180)']
+Missing premise: Points HGA are not proven collinear
+Details: Known collinear facts: [['C', 'H', 'D', 'K'], ['E', 'A', 'G', 'J'], ['L', 'D', 'A', 'M'], ['F', 'G', 'H', 'I'], ['C', 'H', 'D'], ['C', 'H', 'K'], ['C', 'D', 'K'], ['H', 'D', 'K'], ['H', 'D', 'K'], ['H', 'D', 'K'], ['C', 'D', 'K'], ['C', 'D', 'K'], ['C', 'H', 'K'], ['C', 'H', 'K'], ['C', 'H', 'D'], ['C', 'H', 'D'], ['A', 'G', 'J'], ['E', 'G', 'J'], ['E', 'A', 'J'], ['E', 'A', 'G'], ['E', 'A', 'G'], ['E', 'A', 'G'], ['E', 'A', 'J'], ['E', 'A', 'J'], ['E', 'G', 'J'], ['E', 'G', 'J'], ['A', 'G', 'J'], ['A', 'G', 'J'], ['D', 'A', 'M'], ['L', 'A', 'M'], ['L', 'D', 'M'], ['A', 'D', 'L'], ['A', 'D', 'L'], ['A', 'D', 'L'], ['L', 'D', 'M'], ['L', 'D', 'M'], ['L', 'A', 'M'], ['L', 'A', 'M'], ['D', 'A', 'M'], ['D', 'A', 'M'], ['F', 'G', 'H'], ['F', 'G', 'I'], ['F', 'H', 'I'], ['G', 'H', 'I'], ['G', 'H', 'I'], ['G', 'H', 'I'], ['F', 'H', 'I'], ['F', 'H', 'I'], ['F', 'G', 'I'], ['F', 'G', 'I'], ['F', 'G', 'H'], ['F', 'G', 'H']]
+- Available premises:
+  Parallel Lines: AG ∥ DH
+  Collinear Points: ADL, AGJ, CDK, CHD, CHDK, CHK, DAM, EAG, EAGJ, EAJ, EGJ, FGH, FGHI, FGI, FHI, GHI, HDK, LAM, LDAM, LDM
+  Polygons: AGHD, DAGH, GHDA, HDAG
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠DHG <= 180
+  ∠DHG = ∠DHF
+  ∠DHG = ∠GHK
+  ∠DHG > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+42
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,HGJ,JGA); Collinear(HGA)&Angle(HGJ)&Angle(JGA); ["Equal(Add(MeasureOfAngle(HGJ),MeasureOfAngle(JGA)),180)"]
+2; parallel_property_ipsilateral_internal_angle(1,GA,HD); ParallelBetweenLine(GA,HD)&Line(GH); ["Equal(Add(MeasureOfAngle(AGH),MeasureOfAngle(GHD)),180)"]
+Retry attempt: 4
+Content written to results/level_2/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_127_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,HGJ,JGA)
+You output the following premises: Collinear(JGA)&Angle(HGJ)&Angle(JGA)
+But the correct premises: Collinear(HGA)&Angle(HGJ)&Angle(JGA)
+
+Model Answer:
+RETRY_ANSWER:
+42
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,HGJ,JGA); Collinear(JGA)&Angle(HGJ)&Angle(JGA); ["Equal(Add(MeasureOfAngle(HGJ),MeasureOfAngle(JGA)),180)"]
+2; parallel_property_ipsilateral_internal_angle(1,GA,HD); ParallelBetweenLine(GA,HD)&Line(GH); ["Equal(Add(MeasureOfAngle(AGH),MeasureOfAngle(GHD)),180)"]
+Retry attempt: 5
+Total time: 67.071s | per attempt: [20.745, 8.165, 14.956, 9.12, 14.084]
+Content written to results/level_2/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_127_run_0.txt

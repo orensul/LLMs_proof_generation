@@ -1,0 +1,97 @@
+Content written to results/level_5/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_696_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('E', 'E'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,AFG,BFG)
+You output the following premises: Collinear(AFB)&Angle(AFG)&Angle(BFG)
+But the correct premises: Collinear(AFG)&Angle(AFB)&Angle(BFG)
+You output the following conclusions: Equal(Add(MeasureOfAngle(AFG),MeasureOfAngle(BFG)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(AFB),MeasureOfAngle(BFG)),180)
+
+Model Answer:
+RETRY_ANSWER:
+Mul(6,Sub(Pow(6,Div(1,2)),1))
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,DB,BF); Collinear(DBF); ["Equal(LengthOfLine(DF),Add(LengthOfLine(DB),LengthOfLine(BF)))"]
+2; circle_property_circular_power_tangent_and_segment_line(1,DC,DBF,E); IsTangentOfCircle(DC,E)&Cocircular(E,BF)&Collinear(DBF); ["Equal(Mul(LengthOfLine(DC),LengthOfLine(DC)),Mul(LengthOfLine(DB),LengthOfLine(DF)))"]
+3; line_addition(1,AF,FB); Collinear(AFB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AF),LengthOfLine(FB)))"]
+4; line_addition(1,AG,GC); Collinear(AGC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AG),LengthOfLine(GC)))"]
+5; adjacent_complementary_angle(1,AFG,BFG); Collinear(AFB)&Angle(AFG)&Angle(BFG); ["Equal(Add(MeasureOfAngle(AFG),MeasureOfAngle(BFG)),180)"]
+6; quadrilateral_property_angle_sum(1,BCGF); Polygon(BCGF); ["Equal(Add(MeasureOfAngle(BCG),MeasureOfAngle(CGF),MeasureOfAngle(GFB),MeasureOfAngle(FBC)),360)"]
+7; arc_property_circumference_angle_external(1,EBG,F); Cocircular(E,BFG)&Angle(BFG); ["Equal(MeasureOfAngle(BFG),Mul(MeasureOfArc(EBG),1/2))"]
+8; arc_property_circumference_angle_external(1,EBG,C); Cocircular(E,BCG)&Angle(BCG); ["Equal(MeasureOfAngle(BCG),Mul(MeasureOfArc(EBG),1/2))"]
+9; similar_triangle_judgment_aa(1,AFG,ABC); Polygon(AFG)&Polygon(ABC)&Equal(MeasureOfAngle(FAG),MeasureOfAngle(CAB))&Equal(MeasureOfAngle(AFG),MeasureOfAngle(BCA)); ["SimilarBetweenTriangle(AFG,ABC)"]
+10; similar_triangle_property_line_ratio(1,AFG,ABC); SimilarBetweenTriangle(AFG,ABC); ["Equal(LengthOfLine(AF),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(AFG,ABC)))"]
+Retry attempt: 1
+Content written to results/level_5/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_696_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('E', 'B', 'C', 'G', 'F').
+Model Answer:
+RETRY_ANSWER:
+Mul(6,Sub(Pow(6,Div(1,2)),1))
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,DB,BF); Collinear(DBF); ["Equal(LengthOfLine(DF),Add(LengthOfLine(DB),LengthOfLine(BF)))"]
+2; circle_property_circular_power_tangent_and_segment_line(1,DC,DBF,E); IsTangentOfCircle(DC,E)&Cocircular(E,BF)&Collinear(DBF); ["Equal(Mul(LengthOfLine(DC),LengthOfLine(DC)),Mul(LengthOfLine(DB),LengthOfLine(DF)))"]
+3; line_addition(1,AF,FB); Collinear(AFB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AF),LengthOfLine(FB)))"]
+4; line_addition(1,AG,GC); Collinear(AGC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AG),LengthOfLine(GC)))"]
+5; adjacent_complementary_angle(1,AFG,GFB); Collinear(AFB)&Angle(AFG)&Angle(GFB); ["Equal(Add(MeasureOfAngle(AFG),MeasureOfAngle(GFB)),180)"]
+6; arc_property_circumference_angle_external(1,EBCG,F); Cocircular(E,BCGF)&Angle(BFG); ["Equal(MeasureOfAngle(BFG),Mul(MeasureOfArc(EBCG),1/2))"]
+7; arc_property_circumference_angle_external(1,EBFG,C); Cocircular(E,BCGF)&Angle(BCG); ["Equal(MeasureOfAngle(BCG),Mul(MeasureOfArc(EBFG),1/2))"]
+8; round_angle(1,EBCG,EBFG); Arc(EBCG)&Arc(EBFG); ["Equal(Add(MeasureOfArc(EBCG),MeasureOfArc(EBFG)),360)"]
+9; similar_triangle_judgment_aa(1,AFG,ACB); Polygon(AFG)&Polygon(ACB)&Equal(MeasureOfAngle(FAG),MeasureOfAngle(CAB))&Equal(MeasureOfAngle(AFG),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(AFG,ACB)"]
+10; similar_triangle_property_line_ratio(1,AFG,ACB); SimilarBetweenTriangle(AFG,ACB); ["Equal(LengthOfLine(AF),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(AFG,ACB)))
+Retry attempt: 2
+Content written to results/level_5/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_696_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+Retry attempt: 3
+Content written to results/level_5/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_696_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,EBG,F)
+You output the following premises: Cocircular(E,BFG)&Angle(BFG)
+But the correct premises: Cocircular(E,BGF)&Angle(GFB)
+You output the following conclusions: Equal(MeasureOfAngle(BFG),Mul(MeasureOfArc(EBG),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(GFB),Mul(MeasureOfArc(EBG),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+Mul(6,Sub(Pow(6,Div(1,2)),1))
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,DB,BF); Collinear(DBF); ["Equal(LengthOfLine(DF),Add(LengthOfLine(DB),LengthOfLine(BF)))"]
+2; circle_property_circular_power_tangent_and_segment_line(1,DC,DBF,E); IsTangentOfCircle(DC,E)&Cocircular(E,BF)&Collinear(DBF); ["Equal(Mul(LengthOfLine(DC),LengthOfLine(DC)),Mul(LengthOfLine(DB),LengthOfLine(DF)))"]
+3; line_addition(1,AF,FB); Collinear(AFB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AF),LengthOfLine(FB)))"]
+4; line_addition(1,AG,GC); Collinear(AGC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AG),LengthOfLine(GC)))"]
+5; adjacent_complementary_angle(1,AFG,GFB); Collinear(AFB)&Angle(AFG)&Angle(GFB); ["Equal(Add(MeasureOfAngle(AFG),MeasureOfAngle(GFB)),180)"]
+6; arc_property_circumference_angle_external(1,EBG,F); Cocircular(E,BFG)&Angle(BFG); ["Equal(MeasureOfAngle(BFG),Mul(MeasureOfArc(EBG),1/2))"]
+7; arc_property_circumference_angle_external(1,EBG,C); Cocircular(E,BCG)&Angle(BCG); ["Equal(MeasureOfAngle(BCG),Mul(MeasureOfArc(EBG),1/2))"]
+8; similar_triangle_judgment_aa(1,AFG,ACB); Polygon(AFG)&Polygon(ACB)&Equal(MeasureOfAngle(FAG),MeasureOfAngle(CAB))&Equal(MeasureOfAngle(AFG),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(AFG,ACB)"]
+9; similar_triangle_property_line_ratio(1,AFG,ACB); SimilarBetweenTriangle(AFG,ACB); ["Equal(LengthOfLine(AF),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(AFG,ACB)))"]
+Retry attempt: 4
+Content written to results/level_5/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_696_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,EBG,C)
+You output the following premises: Cocircular(E,BCGF)&Angle(BCG)
+But the correct premises: Cocircular(E,BGC)&Angle(GCB)
+You output the following conclusions: Equal(MeasureOfAngle(BCG),Mul(MeasureOfArc(EBG),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(GCB),Mul(MeasureOfArc(EBG),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+Mul(6,Sub(Pow(6,Div(1,2)),1))
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,DB,BF); Collinear(DBF); ["Equal(LengthOfLine(DF),Add(LengthOfLine(DB),LengthOfLine(BF)))"]
+2; circle_property_circular_power_tangent_and_segment_line(1,DC,DBF,E); IsTangentOfCircle(DC,E)&Cocircular(E,BF)&Collinear(DBF); ["Equal(Mul(LengthOfLine(DC),LengthOfLine(DC)),Mul(LengthOfLine(DB),LengthOfLine(DF)))"]
+3; line_addition(1,AF,FB); Collinear(AFB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AF),LengthOfLine(FB)))"]
+4; line_addition(1,AG,GC); Collinear(AGC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AG),LengthOfLine(GC)))"]
+5; adjacent_complementary_angle(1,AFG,GFB); Collinear(AFB)&Angle(AFG)&Angle(GFB); ["Equal(Add(MeasureOfAngle(AFG),MeasureOfAngle(GFB)),180)"]
+6; arc_property_circumference_angle_external(1,EBG,C); Cocircular(E,BCGF)&Angle(BCG); ["Equal(MeasureOfAngle(BCG),Mul(MeasureOfArc(EBG),1/2))"]
+7; arc_property_circumference_angle_external(1,EGB,F); Cocircular(E,BCGF)&Angle(BFG); ["Equal(MeasureOfAngle(BFG),Mul(MeasureOfArc(EGB),1/2))"]
+8; round_angle(1,EBG,EGB); Arc(EBG)&Arc(EGB); ["Equal(Add(MeasureOfArc(EBG),MeasureOfArc(EGB)),360)"]
+9; similar_triangle_judgment_aa(1,AFG,ACB); Polygon(AFG)&Polygon(ACB)&Equal(MeasureOfAngle(FAG),MeasureOfAngle(CAB))&Equal(MeasureOfAngle(AFG),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(AFG,ACB)"]
+10; similar_triangle_property_line_ratio(1,GAF,BAC); SimilarBetweenTriangle(GAF,BAC); ["Equal(LengthOfLine(AF),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(GAF,BAC)))"]
+11; similar_triangle_property_line_ratio(1,FGA,CBA); SimilarBetweenTriangle(FGA,CBA); ["Equal(LengthOfLine(AG),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(FGA,CBA)))"]
+Retry attempt: 5
+Total time: 335.190s | per attempt: [70.366, 66.757, 67.816, 70.63, 59.62]
+Content written to results/level_5/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_696_run_0.txt

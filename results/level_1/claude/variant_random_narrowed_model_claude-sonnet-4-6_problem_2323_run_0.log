@@ -1,0 +1,13 @@
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2323_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+115
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+Retry attempt: 1
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2323_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 11.379s | per attempt: [4.583, 6.796]
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2323_run_0.txt

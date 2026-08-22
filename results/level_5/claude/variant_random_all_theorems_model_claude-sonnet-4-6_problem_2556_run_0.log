@@ -1,0 +1,78 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2556_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,RS,TP)
+You output the following premises: ParallelBetweenLine(RS,TP)&Line(PR)
+But the correct premises: ParallelBetweenLine(RS,TP)&Line(RP)
+
+Model Answer:
+RETRY_ANSWER:
+4
+
+Wait, let me reconsider. With x=0, PQ=6. But let me try PQ·QR = TQ·QS (power of a point style):
+(6-x)(6+x) = 3(3+x) → 36-x² = 9+3x → x²+3x-27=0, no clean answer.
+
+With similar triangles TQP ~ SQR: TQ/SQ = QP/QR = TP/SR
+3/(3+x) = (6-x)/(6+x)
+3(6+x) = (3+x)(6-x) = 18+3x-x² → 18+3x = 18+3x-x² → x=0, PQ=6.
+
+EQUATIONS: ll_pq-(6-x), ll_qr-(6+x), ll_sq-(3+x), ll_tq-3
+GOAL_SYMBOL: ll_pq
+RETRY_THEOREM_SEQUENCE:
+
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2556_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,TQP,SQR)
+You output the following premises: Collinear(RQP)&Collinear(SQT)&Angle(TQP)&Angle(SQR)
+But the correct premises: Collinear(TQS)&Collinear(PQR)&Angle(TQP)&Angle(SQR)
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,TQP,SQR); Collinear(RQP)&Collinear(SQT)&Angle(TQP)&Angle(SQR); ["Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))"]
+2; parallel_property_alternate_interior_angle(1,PT,SR); ParallelBetweenLine(PT,SR)&Line(RP); ["Equal(MeasureOfAngle(TPR),MeasureOfAngle(SRP))"]
+3; similar_triangle_judgment_aa(1,TQP,SQR); Polygon(TQP)&Polygon(SQR)&Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))&Equal(MeasureOfAngle(QPT),MeasureOfAngle(QRS)); ["SimilarBetweenTriangle(TQP,SQR)"]
+4; similar_triangle_property_line_ratio(1,TQP,SQR); SimilarBetweenTriangle(TQP,SQR); ["Equal(LengthOfLine(QP),Mul(LengthOfLine(QR),RatioOfSimilarTriangle(TQP,SQR)))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2556_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,PT,SR)
+You output the following premises: ParallelBetweenLine(PT,SR)&Line(RP)
+But the correct premises: ParallelBetweenLine(PT,SR)&Line(PR)
+
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,TQP,SQR); Collinear(TQS)&Collinear(PQR)&Angle(TQP)&Angle(SQR); ["Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))"]
+2; parallel_property_alternate_interior_angle(1,PT,SR); ParallelBetweenLine(PT,SR)&Line(RP); ["Equal(MeasureOfAngle(TPR),MeasureOfAngle(SRP))"]
+3; similar_triangle_judgment_aa(1,TQP,SQR); Polygon(TQP)&Polygon(SQR)&Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))&Equal(MeasureOfAngle(QPT),MeasureOfAngle(QRS)); ["SimilarBetweenTriangle(TQP,SQR)"]
+4; similar_triangle_property_line_ratio(1,TQP,SQR); SimilarBetweenTriangle(TQP,SQR); ["Equal(LengthOfLine(QP),Mul(LengthOfLine(QR),RatioOfSimilarTriangle(TQP,SQR)))"]
+Retry attempt: 3
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2556_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,TQP,SQR); Collinear(TQS)&Collinear(PQR)&Angle(TQP)&Angle(SQR); ["Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))"]
+2; parallel_property_alternate_interior_angle(1,PT,SR); ParallelBetweenLine(PT,SR)&Line(PR); ["Equal(MeasureOfAngle(TPR),MeasureOfAngle(SRP))"]
+3; similar_triangle_judgment_aa(1,TQP,SQR); Polygon(TQP)&Polygon(SQR)&Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))&Equal(MeasureOfAngle(QPT),MeasureOfAngle(QRS)); ["SimilarBetweenTriangle(TQP,SQR)"]
+4; similar_triangle_property_line_ratio(1,TQP,SQR); SimilarBetweenTriangle(TQP,SQR); ["Equal(LengthOfLine(QP),Mul(LengthOfLine(QR),RatioOfSimilarTriangle(TQP,SQR)))"]
+Retry attempt: 4
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2556_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,TQP,SQR); Collinear(TQS)&Collinear(PQR)&Angle(TQP)&Angle(SQR); ["Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))"]
+2; parallel_property_alternate_interior_angle(1,PT,SR); ParallelBetweenLine(PT,SR)&Line(PR); ["Equal(MeasureOfAngle(TPR),MeasureOfAngle(SRP))"]
+3; similar_triangle_judgment_aa(1,TQP,SQR); Polygon(TQP)&Polygon(SQR)&Equal(MeasureOfAngle(TQP),MeasureOfAngle(SQR))&Equal(MeasureOfAngle(QPT),MeasureOfAngle(QRS)); ["SimilarBetweenTriangle(TQP,SQR)"]
+4; similar_triangle_property_line_ratio(1,TQP,SQR); SimilarBetweenTriangle(TQP,SQR); ["Equal(LengthOfLine(QP),Mul(LengthOfLine(QR),RatioOfSimilarTriangle(TQP,SQR)))"]
+Retry attempt: 5
+Total time: 52.102s | per attempt: [25.79, 9.515, 7.012, 5.42, 4.365]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_2556_run_0.txt

@@ -1,0 +1,43 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3705_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,AOB,AOD)
+You output the following premises: Collinear(BOD)&Angle(AOB)&Angle(AOD)
+But the correct premises: Collinear(AOD)&Angle(AOA)&Angle(AOD)
+You output the following conclusions: Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(AOD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(AOA),MeasureOfAngle(AOD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+40
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OBA); Polygon(OBA)&Equal(LengthOfLine(OB),LengthOfLine(OA)); ["IsoscelesTriangle(OBA)"]
+2; isosceles_triangle_property_angle_equal(1,OBA); IsoscelesTriangle(OBA); ["Equal(MeasureOfAngle(OBA),MeasureOfAngle(BAO))"]
+3; triangle_property_angle_sum(1,OBA); Polygon(OBA); ["Equal(Add(MeasureOfAngle(OBA),MeasureOfAngle(BAO),MeasureOfAngle(AOB)),180)"]
+4; adjacent_complementary_angle(1,AOB,AOD); Collinear(BOD)&Angle(AOB)&Angle(AOD); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(AOD)),180)"]
+5; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+6; perpendicular_judgment_angle(1,OA,DA); Angle(OAD)&Equal(MeasureOfAngle(OAD),90); ["PerpendicularBetweenLine(OA,DA)"]
+7; triangle_property_angle_sum(1,OAD); Polygon(OAD); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(ADO),MeasureOfAngle(DOA)),180)"]
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3705_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,BOA,DOA)
+You output the following premises: Collinear(BOD)&Angle(BOA)&Angle(DOA)
+But the correct premises: Collinear(BOA)&Angle(BOD)&Angle(DOA)
+You output the following conclusions: Equal(Add(MeasureOfAngle(BOA),MeasureOfAngle(DOA)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BOD),MeasureOfAngle(DOA)),180)
+
+Model Answer:
+RETRY_ANSWER:
+40
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OBA); Polygon(OBA)&Equal(LengthOfLine(OB),LengthOfLine(OA)); ["IsoscelesTriangle(OBA)"]
+2; isosceles_triangle_property_angle_equal(1,OBA); IsoscelesTriangle(OBA); ["Equal(MeasureOfAngle(OBA),MeasureOfAngle(BAO))"]
+3; triangle_property_angle_sum(1,OBA); Polygon(OBA); ["Equal(Add(MeasureOfAngle(OBA),MeasureOfAngle(BAO),MeasureOfAngle(AOB)),180)"]
+4; adjacent_complementary_angle(1,BOA,DOA); Collinear(BOD)&Angle(BOA)&Angle(DOA); ["Equal(Add(MeasureOfAngle(BOA),MeasureOfAngle(DOA)),180)"]
+5; tangent_of_circle_property_perpendicular(1,DA,O,O); IsTangentOfCircle(DA,O)&Angle(OAD)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,DA)"]
+6; triangle_property_angle_sum(1,OAD); Polygon(OAD); ["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(ADO),MeasureOfAngle(DOA)),180)"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3705_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 44.894s | per attempt: [19.101, 12.563, 13.23]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_3705_run_0.txt

@@ -1,0 +1,105 @@
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2795_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,AZX)
+You output the following conclusions: Equal(MeasureOfAngle(AZX),MeasureOfAngle(AXZ))
+But the correct conclusions: Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+2; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+3; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+4; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(AXZ))"]
+5; angle_addition(1, YXW, WXZ); Angle(YXW)&Angle(WXZ)&Angle(YXZ); ["Equal(MeasureOfAngle(YXZ),Add(MeasureOfAngle(YXW),MeasureOfAngle(WXZ)))"]
+Retry attempt: 1
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2795_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,AXW)
+You output the following conclusions: Equal(MeasureOfAngle(AXW),MeasureOfAngle(AWX))
+But the correct conclusions: Equal(MeasureOfAngle(AXW),MeasureOfAngle(XWA))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; isosceles_triangle_judgment_line_equal(1,AXW); Polygon(AXW)&Equal(LengthOfLine(AX),LengthOfLine(AW)); ["IsoscelesTriangle(AXW)"]
+4; isosceles_triangle_property_angle_equal(1,AXW); IsoscelesTriangle(AXW); ["Equal(MeasureOfAngle(AXW),MeasureOfAngle(AWX))"]
+5; triangle_property_angle_sum(1,AXW); Polygon(AXW); ["Equal(Add(MeasureOfAngle(AXW),MeasureOfAngle(AWX),MeasureOfAngle(WAX)),180)"]
+6; adjacent_complementary_angle(1,WAX,XAZ); Collinear(WAZ)&Angle(WAX)&Angle(XAZ); ["Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(XAZ)),180)"]
+7; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+8; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+9; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+Retry attempt: 2
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2795_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,AXW)
+You output the following premises: Polygon(AXW)&Equal(LengthOfLine(AW),LengthOfLine(AX))
+But the correct premises: Polygon(AXW)&Equal(LengthOfLine(AX),LengthOfLine(AW))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; isosceles_triangle_judgment_line_equal(1,AXW); Polygon(AXW)&Equal(LengthOfLine(AW),LengthOfLine(AX)); ["IsoscelesTriangle(AXW)"]
+4; isosceles_triangle_property_angle_equal(1,AXW); IsoscelesTriangle(AXW); ["Equal(MeasureOfAngle(AWX),MeasureOfAngle(AXW))"]
+5; triangle_property_angle_sum(1,AXW); Polygon(AXW); ["Equal(Add(MeasureOfAngle(AXW),MeasureOfAngle(AWX),MeasureOfAngle(WAX)),180)"]
+6; adjacent_complementary_angle(1,WAX,XAZ); Collinear(WAZ)&Angle(WAX)&Angle(XAZ); ["Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(XAZ)),180)"]
+7; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+8; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+9; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+Retry attempt: 3
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2795_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,WAX,WAY)
+You output the following premises: Collinear(YAX)&Angle(WAX)&Angle(WAY)
+But the correct premises: Collinear(WAY)&Angle(WAW)&Angle(WAY)
+You output the following conclusions: Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(WAY)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(WAW),MeasureOfAngle(WAY)),180)
+
+Model Answer:
+RETRY_ANSWER:
+30
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; right_triangle_judgment_angle(1,XWY); Polygon(XWY)&Equal(MeasureOfAngle(XWY),90); ["RightTriangle(XWY)"]
+4; triangle_property_angle_sum(1,XWY); Polygon(XWY); ["Equal(Add(MeasureOfAngle(XWY),MeasureOfAngle(WYX),MeasureOfAngle(YXW)),180)"]
+5; isosceles_triangle_judgment_line_equal(1,AXW); Polygon(AXW)&Equal(LengthOfLine(AX),LengthOfLine(AW)); ["IsoscelesTriangle(AXW)"]
+6; isosceles_triangle_property_angle_equal(1,AXW); IsoscelesTriangle(AXW); ["Equal(MeasureOfAngle(AXW),MeasureOfAngle(XWA))"]
+7; triangle_property_angle_sum(1,AXW); Polygon(AXW); ["Equal(Add(MeasureOfAngle(AXW),MeasureOfAngle(XWA),MeasureOfAngle(WAX)),180)"]
+8; adjacent_complementary_angle(1,WAX,WAY); Collinear(YAX)&Angle(WAX)&Angle(WAY); ["Equal(Add(MeasureOfAngle(WAX),MeasureOfAngle(WAY)),180)"]
+9; vertical_angle(1,XAZ,WAY); Collinear(YAX)&Collinear(WAZ)&Angle(XAZ)&Angle(WAY); ["Equal(MeasureOfAngle(XAZ),MeasureOfAngle(WAY))"]
+10; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+11; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+12; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+Retry attempt: 4
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2795_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,AYW)
+You output the following premises: Polygon(AYW)&Equal(LengthOfLine(AW),LengthOfLine(AY))
+But the correct premises: Polygon(AYW)&Equal(LengthOfLine(AY),LengthOfLine(AW))
+
+Model Answer:
+RETRY_ANSWER:
+60
+RETRY_THEOREM_SEQUENCE:
+1; parallelogram_property_diagonal_bisection(1,WYZX,A); Parallelogram(WYZX)&Collinear(WAZ)&Collinear(YAX); ["IsMidpointOfLine(A,WZ)", "IsMidpointOfLine(A,YX)"]
+2; rectangle_property_diagonal_equal(1,WYZX); Rectangle(WYZX)&Line(WZ)&Line(YX); ["Equal(LengthOfLine(WZ),LengthOfLine(YX))"]
+3; isosceles_triangle_judgment_line_equal(1,AYW); Polygon(AYW)&Equal(LengthOfLine(AW),LengthOfLine(AY)); ["IsoscelesTriangle(AYW)"]
+4; parallel_property_par_per(1,WX,ZY); ParallelBetweenLine(WX,ZY)&PerpendicularBetweenLine(WY,ZY); ["PerpendicularBetweenLine(XW,YW)"]
+5; triangle_property_angle_sum(1,XWY); Polygon(XWY); ["Equal(Add(MeasureOfAngle(XWY),MeasureOfAngle(WYX),MeasureOfAngle(YXW)),180)"]
+6; isosceles_triangle_property_angle_equal(1,AYW); IsoscelesTriangle(AYW); ["Equal(MeasureOfAngle(AWY),MeasureOfAngle(AYW))"]
+7; triangle_property_angle_sum(1,AYW); Polygon(AYW); ["Equal(Add(MeasureOfAngle(AYW),MeasureOfAngle(AWY),MeasureOfAngle(YAW)),180)"]
+8; vertical_angle(1,XAZ,YAW); Collinear(YAX)&Collinear(WAZ)&Angle(XAZ)&Angle(YAW); ["Equal(MeasureOfAngle(XAZ),MeasureOfAngle(YAW))"]
+9; isosceles_triangle_judgment_line_equal(1,AZX); Polygon(AZX)&Equal(LengthOfLine(AZ),LengthOfLine(AX)); ["IsoscelesTriangle(AZX)"]
+10; isosceles_triangle_property_angle_equal(1,AZX); IsoscelesTriangle(AZX); ["Equal(MeasureOfAngle(AZX),MeasureOfAngle(ZXA))"]
+11; triangle_property_angle_sum(1,AZX); Polygon(AZX); ["Equal(Add(MeasureOfAngle(AZX),MeasureOfAngle(ZXA),MeasureOfAngle(XAZ)),180)"]
+Retry attempt: 5
+Total time: 319.897s | per attempt: [72.44, 52.731, 68.274, 63.023, 63.427]
+Content written to results/level_1/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_2795_run_1.txt

@@ -1,0 +1,36 @@
+
+
+
+
+
+
+Large language models (LLMs) struggle with formal domains that require rigorous logical deduction and symbolic reasoning, such as mathematical proof generation. 
+We propose a neuro-symbolic approach that combines LLMs' generative strengths with structured components to overcome this challenge. 
+As a proof-of-concept, we focus on SAT-level geometry problems.
+%
+%, yet progress is hindered by the fundamental challenge of automatically verifying their outputs.
+%
+%
+% Endowing / Empowering / Equipping
+%
+Our approach is two-fold: 
+(1) We retrieve \emph{analogous problems} and use their proofs to guide the LLM, and 
+(2) a \emph{formal verifier} evaluates the generated proofs and provides feedback, helping the model fix incorrect proofs. 
+
+
+Our complete pipeline substantially improves proof accuracy across model families, achieving 68\%-96\% accuracy compared with 10\%-44\% for LLM-only baselines that use neither analogy retrieval nor verifier feedback. When comparing against models with the same verifier feedback and inference budget, adding analogy retrieval still improves accuracy from 88\% to 96\% for GPT-5, 78\% to 86\% for Claude Sonnet 4.6, 72\% to 86\% for Gemini-Flash-2.5, and 52\% to 80\% for OpenAI o1.
+More broadly, shifting to LLMs that generate provably correct conclusions has the potential to dramatically improve their reliability, accuracy and consistency, unlocking complex tasks and critical real-world applications that require trustworthiness.
+
+%engineering applications. 
+
+%critical applications
+%complex application
+%both are true (and different)
+%wonder which one we should mention
+
+% with broad implications 
+
+
+%We hope our approach will inspire future research in other mathematical domains and proof-based reasoning tasks.
+
+%Improving LLMs' ability to produce rigorous proofs would unlock significant potential

@@ -1,0 +1,122 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠TWV=3*x-4°, ∠UTW=x°, ∠VUT=3*x-4°, ∠WVU=x°. Find the measure of ∠VUT.
+CONSTRUCTION_CDL:
+Shape(UT,TW,WV,VU)
+TEXT_CDL:
+Equal(MeasureOfAngle(TWV),3*x-4)
+Equal(MeasureOfAngle(UTW),x)
+Equal(MeasureOfAngle(VUT),3*x-4)
+Equal(MeasureOfAngle(WVU),x)
+GOAL_CDL:
+Value(MeasureOfAngle(VUT))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(TW,WV,VU,UT)
+Shape(WV,VU,UT,TW)
+Shape(VU,UT,TW,WV)
+Point(U)
+Point(T)
+Point(W)
+Point(V)
+Line(UT)
+Line(TU)
+Line(TW)
+Line(WT)
+Line(WV)
+Line(VW)
+Line(VU)
+Line(UV)
+Angle(UTW)
+Angle(TWV)
+Angle(WVU)
+Angle(VUT)
+Angle(WTU)
+Angle(VWT)
+Angle(UVW)
+Angle(TUV)
+Polygon(UTWV)
+Polygon(TWVU)
+Polygon(WVUT)
+Polygon(VUTW)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The verifier keeps saying TIER1_THEOREM_CALL_SYNTAX_VIOLATION. Let me look very carefully at the example format again:
+
+`1; angle_addition(1,BFE,EFG); Angle(BFE)&Angle(EFG)&Angle(BFG); ["Equal(MeasureOfAngle(BFG),Add(MeasureOfAngle(BFE),MeasureOfAngle(EFG)))"]`
+
+The GDL key is `angle_addition(AB,BC)` but called as `angle_addition(1,BFE,EFG)`. So the format is `theorem_name(variation_number, args...)`.
+
+For `quadrilateral_property_angle_sum(ABCD)`, it should be called as `quadrilateral_property_angle_sum(1,UTWV)`.
+
+My calls look correct. The issue might be that the conclusion doesn't match exactly what the theorem produces. For Polygon(UTWV) with A=U,B=T,C=W,D=V, the conclusion should be `MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)` - this matches ABC,BCD,CDA,DAB pattern.
+
+EQUATIONS: ma_twv-(3*x-4) ma_utw-x ma_vut-(3*x-4) ma_wvu-x
+GOAL_SYMBOL: ma_vut
+ANSWER: 134
+THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+134
+RETRY_THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+134
+RETRY_THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+134
+RETRY_THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+134
+RETRY_THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+#run: 0; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+134
+RETRY_THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+#RETRIES:
+5
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_twv-3*x+4
+ma_utw-x
+ma_vut-3*x+4
+ma_wvu-x
+GT_GOAL_SYMBOL:
+ma_vut
+GT_ANSWER:
+134
+GT_THEOREM_SEQUENCE:
+1;parallelogram_judgment_angle_and_angle(1,UTWV);Polygon(UTWV)&Equal(MeasureOfAngle(VUT),MeasureOfAngle(TWV))&Equal(MeasureOfAngle(UTW),MeasureOfAngle(WVU));["Parallelogram(UTWV)"]
+2;parallel_property_ipsilateral_internal_angle(1,UV,TW);ParallelBetweenLine(UV,TW)&Line(UT);["Equal(Add(MeasureOfAngle(VUT),MeasureOfAngle(UTW)),180)"]
+

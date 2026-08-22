@@ -1,0 +1,122 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=12, BC=y, CA=x, ∠BCA=60°, CA⊥BA. Find the value of y.
+CONSTRUCTION_CDL:
+Shape(CA,AB,BC)
+TEXT_CDL:
+Equal(LengthOfLine(AB),12)
+Equal(LengthOfLine(BC),y)
+Equal(LengthOfLine(CA),x)
+Equal(MeasureOfAngle(BCA),60)
+PerpendicularBetweenLine(CA,BA)
+GOAL_CDL:
+Value(y)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AB,BC,CA)
+Shape(BC,CA,AB)
+Point(C)
+Point(A)
+Point(B)
+Line(CA)
+Line(AC)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Angle(CAB)
+Angle(ABC)
+Angle(BCA)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(BCA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, I need to properly establish the right angle at CAB from the perpendicular condition CA⊥BA, and then use the sine theorem correctly to relate BC to AB.
+
+The perpendicular CA⊥BA means ∠CAB = 90°. I need to use the perpendicular judgment to establish this angle equals 90°, then use sine theorem relating BC (y) to AB (12).
+
+In triangle BCA:
+- ∠CAB = 90°
+- ∠BCA = 60°
+- AB = 12
+
+Sine theorem: BC/sin(CAB) = AB/sin(BCA)
+y/sin(90°) = 12/sin(60°)
+y = 12/sin(60°) = 8√3
+
+I need to explicitly use the perpendicular to angle relationship and then the sine theorem that directly involves BC and AB.
+
+EQUATIONS:
+ll_ab-12
+ll_bc-y
+ll_ca-x
+ma_bca-60
+ma_cab-90
+
+GOAL_SYMBOL:
+y
+
+ANSWER:
+8*sqrt(3)
+
+THEOREM_SEQUENCE:
+1; perpendicular_judgment_angle(1,CA,BA); Angle(CAB)&Equal(MeasureOfAngle(CAB),90); ["PerpendicularBetweenLine(CA,BA)"]
+2; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+3; sine_theorem(1,ABC); Polygon(ABC); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+4; sine_theorem(1,BCA); Polygon(BCA); ["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CAB))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: value of y
+- Model answer: 8*sqrt(3)
+- Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value.
+- Available premises:
+  Perpendicular Lines: AB ⊥ AC
+  Polygons: ABC
+- Theorems related to the goal:
+  Step 1 - triangle_property_angle_sum(1, BCA): Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)
+  Step 2 - sine_theorem(1, CAB): Equal(Mul(LengthOfLine(CA),Sin(MeasureOfAngle(CAB))),Mul(LengthOfLine(CB),Sin(MeasureOfAngle(ABC))))
+- Solver constraints directly related to this goal:
+  None found
+
+Variable y is not uniquely determined
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+8*sqrt(3)
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,BCA); Polygon(BCA); ["Equal(Add(MeasureOfAngle(BCA),MeasureOfAngle(CAB),MeasureOfAngle(ABC)),180)"]
+2; sine_theorem(1,CAB); Polygon(CAB); ["Equal(Mul(LengthOfLine(CA),Sin(MeasureOfAngle(CAB))),Mul(LengthOfLine(CB),Sin(MeasureOfAngle(ABC))))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-12
+ll_bc-y
+ll_ca-x
+ma_bca-60
+ma_cab-90
+GT_GOAL_SYMBOL:
+y
+GT_ANSWER:
+8*sqrt(3)
+GT_THEOREM_SEQUENCE:
+1;sine_theorem(1,BCA);Polygon(BCA);["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CAB))))"]
+

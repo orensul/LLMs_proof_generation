@@ -1,0 +1,20 @@
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4096_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: similar_triangle_property_line_ratio(1,HMN,CDE)
+You output the following conclusions: Equal(LengthOfLine(HM),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(HMN,CDE)))
+But the correct conclusions: Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))
+
+Model Answer:
+RETRY_ANSWER:
+8
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(HM),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(HMN,CDE)))"]
+2; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))"]
+3; line_addition(1,BD,DE); Collinear(BDE); ["Equal(LengthOfLine(BE),Add(LengthOfLine(BD),LengthOfLine(DE)))"]
+4; similar_triangle_property_line_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["Equal(LengthOfLine(HM),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(HMN,ABE)))"]
+5; similar_triangle_property_line_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(BE),RatioOfSimilarTriangle(HMN,ABE)))"]
+Retry attempt: 1
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4096_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 64.598s | per attempt: [31.1, 33.497]
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4096_run_0.txt

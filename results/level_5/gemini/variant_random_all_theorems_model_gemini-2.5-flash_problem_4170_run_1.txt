@@ -1,0 +1,305 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, OA=OB, OA=OC, OC=OB, ∠ABO=40°, the center of circle O is O. Find the measure of ∠BCA.
+CONSTRUCTION_CDL:
+Shape(AB,BO,OA)
+Shape(OB,BC,CO)
+Shape(AO,OC,CA)
+Shape(AC,OCA)
+Shape(BA,OAB)
+Shape(CB,OBC)
+Cocircular(O,ABC)
+TEXT_CDL:
+Equal(LengthOfLine(OA),LengthOfLine(OB))
+Equal(LengthOfLine(OA),LengthOfLine(OC))
+Equal(LengthOfLine(OC),LengthOfLine(OB))
+Equal(MeasureOfAngle(ABO),40)
+IsCentreOfCircle(O,O)
+GOAL_CDL:
+Value(MeasureOfAngle(BCA))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BO,OA,AB)
+Shape(OA,AB,BO)
+Shape(BC,CO,OB)
+Shape(CO,OB,BC)
+Shape(OC,CA,AO)
+Shape(CA,AO,OC)
+Shape(OCA,AC)
+Shape(OAB,BA)
+Shape(OBC,CB)
+Shape(AB,BO,OC,CA)
+Shape(BO,OC,CA,AB)
+Shape(OC,CA,AB,BO)
+Shape(CA,AB,BO,OC)
+Shape(BO,OA,OAB)
+Shape(OA,OAB,BO)
+Shape(OAB,BO,OA)
+Shape(OA,AB,BC,CO)
+Shape(AB,BC,CO,OA)
+Shape(BC,CO,OA,AB)
+Shape(CO,OA,AB,BC)
+Shape(CO,OB,OBC)
+Shape(OB,OBC,CO)
+Shape(OBC,CO,OB)
+Shape(OB,BC,CA,AO)
+Shape(BC,CA,AO,OB)
+Shape(CA,AO,OB,BC)
+Shape(AO,OB,BC,CA)
+Shape(AO,OC,OCA)
+Shape(OC,OCA,AO)
+Shape(OCA,AO,OC)
+Shape(AB,BC,CA)
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Shape(AB,BO,OC,OCA)
+Shape(BO,OC,OCA,AB)
+Shape(OC,OCA,AB,BO)
+Shape(OCA,AB,BO,OC)
+Shape(OA,AB,OBC,CO)
+Shape(AB,OBC,CO,OA)
+Shape(OBC,CO,OA,AB)
+Shape(CO,OA,AB,OBC)
+Shape(BC,CO,OA,OAB)
+Shape(CO,OA,OAB,BC)
+Shape(OA,OAB,BC,CO)
+Shape(OAB,BC,CO,OA)
+Shape(OB,BC,OCA,AO)
+Shape(BC,OCA,AO,OB)
+Shape(OCA,AO,OB,BC)
+Shape(AO,OB,BC,OCA)
+Shape(OC,CA,OAB,BO)
+Shape(CA,OAB,BO,OC)
+Shape(OAB,BO,OC,CA)
+Shape(BO,OC,CA,OAB)
+Shape(CA,AO,OB,OBC)
+Shape(AO,OB,OBC,CA)
+Shape(OB,OBC,CA,AO)
+Shape(OBC,CA,AO,OB)
+Shape(AB,BC,OCA)
+Shape(BC,OCA,AB)
+Shape(OCA,AB,BC)
+Shape(AB,OBC,CA)
+Shape(OBC,CA,AB)
+Shape(CA,AB,OBC)
+Shape(BC,CA,OAB)
+Shape(CA,OAB,BC)
+Shape(OAB,BC,CA)
+Shape(OCA,OAB,BO,OC)
+Shape(OAB,BO,OC,OCA)
+Shape(BO,OC,OCA,OAB)
+Shape(OC,OCA,OAB,BO)
+Shape(OCA,AO,OB,OBC)
+Shape(AO,OB,OBC,OCA)
+Shape(OB,OBC,OCA,AO)
+Shape(OBC,OCA,AO,OB)
+Shape(OAB,OBC,CO,OA)
+Shape(OBC,CO,OA,OAB)
+Shape(CO,OA,OAB,OBC)
+Shape(OA,OAB,OBC,CO)
+Shape(AB,OBC,OCA)
+Shape(OBC,OCA,AB)
+Shape(OCA,AB,OBC)
+Shape(BC,OCA,OAB)
+Shape(OCA,OAB,BC)
+Shape(OAB,BC,OCA)
+Shape(CA,OAB,OBC)
+Shape(OAB,OBC,CA)
+Shape(OBC,CA,OAB)
+Shape(OCA,OAB,OBC)
+Shape(OAB,OBC,OCA)
+Shape(OBC,OCA,OAB)
+Cocircular(O,A)
+Cocircular(O,B)
+Cocircular(O,C)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Point(A)
+Point(B)
+Point(O)
+Point(C)
+Line(AB)
+Line(BA)
+Line(BO)
+Line(OB)
+Line(OA)
+Line(AO)
+Line(BC)
+Line(CB)
+Line(CO)
+Line(OC)
+Line(CA)
+Line(AC)
+Arc(OAB)
+Arc(OBA)
+Arc(OAC)
+Arc(OCA)
+Arc(OBC)
+Arc(OCB)
+Angle(ABO)
+Angle(BOA)
+Angle(OAB)
+Angle(OBC)
+Angle(BCO)
+Angle(COB)
+Angle(AOC)
+Angle(OCA)
+Angle(CAO)
+Angle(BOC)
+Angle(CAB)
+Angle(ABC)
+Angle(COA)
+Angle(BCA)
+Angle(AOB)
+Angle(OBA)
+Angle(BAO)
+Angle(CBO)
+Angle(OCB)
+Angle(ACO)
+Angle(OAC)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(ABO)
+Polygon(BOA)
+Polygon(OAB)
+Polygon(OBC)
+Polygon(BCO)
+Polygon(COB)
+Polygon(AOC)
+Polygon(OCA)
+Polygon(CAO)
+Polygon(ABOC)
+Polygon(BOCA)
+Polygon(OCAB)
+Polygon(CABO)
+Polygon(OABC)
+Polygon(ABCO)
+Polygon(BCOA)
+Polygon(COAB)
+Polygon(OBCA)
+Polygon(BCAO)
+Polygon(CAOB)
+Polygon(AOBC)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_oa-ll_ob
+ll_oa-ll_oc
+ll_oc-ll_ob
+ma_abo-40
+GOAL_SYMBOL:
+ma_bca
+ANSWER:
+50
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,O,A,B); Polygon(OAB)&Equal(LengthOfLine(OA),LengthOfLine(OB)); ["IsoscelesTriangle(OAB)"]
+2; isosceles_triangle_property_angle_equal(1,OAB); IsoscelesTriangle(OAB); ["Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))"]
+3; triangle_property_angle_sum(1,OAB); Polygon(OAB); ["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(OBA),MeasureOfAngle(AOB)),180)"]
+4; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_circumference_angle_external(1,OAB,C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <isosceles_triangle_judgment_line_equal> variation id is not supplied. Expected dict_keys(['1']) but got None.
+Your call: isosceles_triangle_judgment_line_equal(A,B,O)
+
+Please rewrite your response by adding the variation id as the first argument. For example:
+For variation 1: isosceles_triangle_judgment_line_equal(1, A,B,O)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(ABO); Polygon(ABO)&Equal(LengthOfLine(OA),LengthOfLine(OB)); ["IsoscelesTriangle(ABO)"]
+2; isosceles_triangle_property_angle_equal(ABO); IsoscelesTriangle(ABO); ["Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))"]
+3; triangle_property_angle_sum(ABO); Polygon(ABO); ["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(OBA),MeasureOfAngle(AOB)),180)"]
+4; arc_property_center_angle(OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_circumference_angle_external(OAB,C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <isosceles_triangle_judgment_line_equal> para length error. Expected 3 but got (' ', 'A', 'B', 'O').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1, ABO); Polygon(ABO)&Equal(LengthOfLine(OA),LengthOfLine(OB)); ["IsoscelesTriangle(ABO)"]
+2; isosceles_triangle_property_angle_equal(1, ABO); IsoscelesTriangle(ABO); ["Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))"]
+3; triangle_property_angle_sum(1, ABO); Polygon(ABO); ["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(OBA),MeasureOfAngle(AOB)),180)"]
+4; arc_property_center_angle(1, OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_circumference_angle_external(1, OAB,C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+#run: 1; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <isosceles_triangle_judgment_line_equal> para length error. Expected 3 but got (' ', 'O', ' ', 'A', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1, O, A, B); Polygon(OAB)&Equal(LengthOfLine(OA),LengthOfLine(OB)); ["IsoscelesTriangle(OAB)"]
+2; isosceles_triangle_property_angle_equal(1, O, A, B); IsoscelesTriangle(OAB); ["Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))"]
+3; triangle_property_angle_sum(1, O, A, B); Polygon(OAB); ["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(OBA),MeasureOfAngle(AOB)),180)"]
+4; arc_property_center_angle(1, OAB, O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_circumference_angle_external(1, OAB, C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+#run: 1; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <isosceles_triangle_judgment_line_equal> para length error. Expected 3 but got (' ', 'O', 'A', 'B').
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1, OAB); Polygon(OAB)&Equal(LengthOfLine(OA),LengthOfLine(OB)); ["IsoscelesTriangle(OAB)"]
+2; isosceles_triangle_property_angle_equal(1, OAB); IsoscelesTriangle(OAB); ["Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))"]
+3; triangle_property_angle_sum(1, OAB); Polygon(OAB); ["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(OBA),MeasureOfAngle(AOB)),180)"]
+4; arc_property_center_angle(1, OAB, O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_circumference_angle_external(1, OAB, C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+#run: 1; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,OAB)
+You output the following conclusions: Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))
+But the correct conclusions: Equal(MeasureOfAngle(OAB),MeasureOfAngle(ABO))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,O,A,B); Polygon(OAB)&Equal(LengthOfLine(OA),LengthOfLine(OB)); ["IsoscelesTriangle(OAB)"]
+2; isosceles_triangle_property_angle_equal(1,OAB); IsoscelesTriangle(OAB); ["Equal(MeasureOfAngle(OAB),MeasureOfAngle(OBA))"]
+3; triangle_property_angle_sum(1,OAB); Polygon(OAB); ["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(OBA),MeasureOfAngle(AOB)),180)"]
+4; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+5; arc_property_circumference_angle_external(1,OAB,C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+#RETRIES:
+5
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ll_oa-ll_ob
+ll_oa-ll_oc
+-ll_ob+ll_oc
+ma_abo-40
+GT_GOAL_SYMBOL:
+ma_bca
+GT_ANSWER:
+50
+GT_THEOREM_SEQUENCE:
+1;isosceles_triangle_judgment_line_equal(1,OAB);Polygon(OAB)&Equal(LengthOfLine(OA),LengthOfLine(OB));["IsoscelesTriangle(OAB)"]
+2;isosceles_triangle_property_angle_equal(1,OAB);IsoscelesTriangle(OAB);["Equal(MeasureOfAngle(OAB),MeasureOfAngle(ABO))"]
+3;triangle_property_angle_sum(1,OAB);Polygon(OAB);["Equal(Add(MeasureOfAngle(OAB),MeasureOfAngle(ABO),MeasureOfAngle(BOA)),180)"]
+4;arc_property_center_angle(1,OAB,O);Arc(OAB)&Angle(BOA)&IsCentreOfCircle(O,O);["Equal(MeasureOfArc(OAB),MeasureOfAngle(BOA))"]
+5;arc_property_circumference_angle_external(1,OAB,C);Cocircular(O,ABC)&Angle(BCA);["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+

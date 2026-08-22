@@ -1,0 +1,81 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6641_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: diameter_of_circle_property_right_angle(1,ADB,O)
+You output the following premises: IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB)
+But the correct premises: IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB)
+You output the following conclusions: PerpendicularBetweenLine(AD,DB)
+But the correct conclusions: PerpendicularBetweenLine(AD,BD)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,DB)"]
+2; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+4; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6641_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBD,C)
+You output the following premises: Cocircular(O,BCD)&Angle(BCD)
+But the correct premises: Cocircular(O,BDC)&Angle(DCB)
+You output the following conclusions: Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OBD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+4; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6641_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: diameter_of_circle_property_right_angle(1,ADB,O)
+You output the following premises: IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB)
+But the correct premises: IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+4; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6641_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBD,A)
+You output the following premises: Cocircular(O,ABD)&Angle(DAB)
+But the correct premises: Cocircular(O,BDA)&Angle(DAB)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+4; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6641_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: triangle_property_angle_sum(1,ADB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+4; triangle_property_angle_sum(1,ADB); Polygon(ADB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ADB),MeasureOfAngle(DBA)),180)"]
+Retry attempt: 5
+Total time: 96.576s | per attempt: [24.149, 26.23, 18.9, 13.851, 13.445]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_6641_run_0.txt

@@ -1,0 +1,111 @@
+% \begin{table}[!t]
+%     \centering
+%     \scriptsize
+%     \setlength{\tabcolsep}{4pt} % reduces space between columns
+%     \begin{tabular}{l cc cc}
+%         \toprule
+%         \textbf{\# Examples} & \multicolumn{2}{c}{\textbf{Analogy}} & \multicolumn{2}{c}{\textbf{Random}} \\
+%         & Coverage & Theorems (avg.) & Coverage  & Theorems (avg.) \\
+%         \midrule
+%         20 & 88 & 14.21 & 46 & 32.99 \\
+%         \midrule
+%         50 & 91 & 22.25 & 68 & 50.33 \\
+%         \midrule
+%         100 & 94 & 30.10 & 78 & 67.33 \\
+%          \midrule
+%         150 & 96 & 35.68 & 82 & 83.58 \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Coverage of 100 target problems using theorems from top-$k$ analogous vs. random examples. Higher $k$ improves coverage but increases the number of theorems in the reduced GDL. Using analogous problems achieves better coverage with fewer theorems. Each target has 3.93 theorems on average; the full GDL contains 196 theorems (not including the variations).
+% }
+%     \label{tab:theorems_coverage}
+% \end{table}
+
+
+
+% \begin{table}[!t]
+%     \centering
+%     \small
+%     \setlength{\tabcolsep}{4pt} 
+%     \begin{tabular}{l cc cc}
+%         \toprule
+%         \textbf{$k$} & \multicolumn{2}{c}{\textbf{Analogy}} & \multicolumn{2}{c}{\textbf{Random}} \\
+%         & \%Coverage~$\uparrow$ & \#Theorems~$\downarrow$ & \%Coverage~$\uparrow$  & \#Theorems~$\downarrow$  \\
+%         \midrule
+%         20 & 88 & 11.06 & 62 & 32.92 \\
+%         \midrule
+%         50 & 93 & 18.57 & 79 & 49.87 \\
+%         \midrule
+%         100 & 96 & 26.66 & 88 & 66.98 \\
+%         \midrule
+%         150 & 98 & 31.96 & 92 & 82.82 \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Average number of problems that had their entire proof covered by the union of theorems from their top‑$k$ analogies vs.~random problems, over 100 random problems (20 per level, 1–5). Increasing $k$ improves coverage, but results in more theorems. Analogous retrieval consistently achieves higher coverage with fewer theorems.}
+%     \label{tab:theorems_coverage}
+% \end{table}
+
+
+\begin{table}[!t]
+    \centering
+    \small
+    \setlength{\tabcolsep}{4pt} 
+    \begin{tabular}{l cc cc}
+        \toprule
+        \textbf{$k$} & \multicolumn{2}{c}{\textbf{Analogy}} & \multicolumn{2}{c}{\textbf{Random}} \\
+        & Coverage~$\uparrow$ & Theorems~$\downarrow$ & Coverage~$\uparrow$  & Theorems~$\downarrow$  \\
+        \midrule
+        20 & 88\% & 11.06 & 62\% & 32.92 \\
+        \midrule
+        50 & 93\% & 18.57 & 79\% & 49.87 \\
+        \midrule
+        100 & 96\% & 26.66 & 88\% & 66.98 \\
+        \midrule
+        150 & 98\% & 31.96 & 92\% & 82.82 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Average number of problems whose entire proof was covered by the union of theorems from their top‑$k$ analogies vs.~random problems, over 100 random target problems (20 per level, 1–5). %Increasing $k$ improves coverage, but results in more theorems. 
+    Analogies consistently achieve higher coverage despite fewer theorems.}
+    \label{tab:theorems_coverage}
+\end{table}
+
+
+
+% \dnote{we want to say that we might still be able to prove with those theorems, even if ground truth includes another theorem}
+
+% Moreover, prior work has shown that even models with access to diagrams, such as vision-language models, show only modest gains on similar tasks~\cite{lu2023mathvista}, underscoring the challenge of visual geometric reasoning.
+
+
+%We then present the top-ranked problems along with their proofs as in-context examples to the LLM, alongside a dictionary of  theorems, expressed in GDL  {(\S\ref{subsec:llm_solver})}.
+
+%Our goal is to prompt the LLM to generate a correct proof for a given target problem.
+We use a few-shot prompt (in-context learning) that begins with the target problem, including its textual description, construction, conditions and goal. This is followed by the top analogous problems selected using the regressor from Section~\ref{subsec:similar_problems_retrieval}, along with their full proofs and numeric answers.
+%
+%
+%
+Additionally, the LLM is given a theorem dictionary, which defines geometry theorems in terms of formal premises and conclusions (see Figure~\ref{fig:dataset_example}). The LLM's task is to generate a correct proof, using only the theorems from the dictionary. See Appendix~\ref{appendix:LLM_proof_generation} for the prompt.
+
+
+One challenge we encountered is that the full theorem dictionary contains 196 theorems (234 including  variations), resulting in a large token count and, consequently, 
+high costs. This also limits scalability, as adding more theorems would further increase the input size.
+
+To address this problem, we propose a more efficient approach. We have just shown that analogous problems tend to have similar proofs; thus, we test whether we could similarly narrow down the dictionary to include only \emph{theorems used in analogous proofs}. 
+This reduction not only reduces costs, but also narrows the search space, helping the model focus on more relevant theorems. 
+
+To evaluate the effectiveness of this approach, we measure the extent to which the narrowed-down dictionary still captures all the theorems needed for the proof of the target problem.
+%
+We sample 100 problems (20 from each level 1-5) 
+and evaluate how many of their target proofs are completely covered using theorems from their top-$k$ similar problems (retrieved with the regressor of  Section~\ref{subsec:similar_problems_retrieval}), and compare to a random set of $k$ problems.
+
+Note that even if a proof of a problem includes a theorem not present in its analogous set, it might still be possible to construct a valid proof using only the covered theorems. %That is, there may be multiple valid ways to prove a given goal. 
+Therefore, our coverage metric is a conservative estimate of effectiveness.
+
+
+
+See Table~\ref{tab:theorems_coverage} for results.  
+Theorems from analogous problems consistently outperform the baseline of theorems from random $k$ problems, providing higher coverage despite lower number of theorems. A larger $k$ increases coverage but also expands the input; we find that $k=100$ offers a good trade-off, achieving coverage of 96\% with only 26.66 theorems on average, that is 13.6\% of the full dictionary. Exploring other values of $k$ is left for future work.
+
+
+
+
+

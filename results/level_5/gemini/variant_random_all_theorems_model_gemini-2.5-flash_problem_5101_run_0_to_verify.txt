@@ -1,0 +1,200 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=10, CD=3, M is the midpoint of segment AC, N is the midpoint of segment DB. Find the length of line MN.
+CONSTRUCTION_CDL:
+Collinear(AMCDNB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),10)
+Equal(LengthOfLine(CD),3)
+IsMidpointOfLine(M,AC)
+IsMidpointOfLine(N,DB)
+GOAL_CDL:
+Value(LengthOfLine(MN))
+CONSTRUCTION_CDL_EXTENDED:
+Collinear(BNDCMA)
+Collinear(AMC)
+Collinear(CMA)
+Collinear(AMD)
+Collinear(DMA)
+Collinear(AMN)
+Collinear(NMA)
+Collinear(AMB)
+Collinear(BMA)
+Collinear(ACD)
+Collinear(DCA)
+Collinear(ACN)
+Collinear(NCA)
+Collinear(ACB)
+Collinear(BCA)
+Collinear(ADN)
+Collinear(NDA)
+Collinear(ADB)
+Collinear(BDA)
+Collinear(ANB)
+Collinear(BNA)
+Collinear(MCD)
+Collinear(DCM)
+Collinear(MCN)
+Collinear(NCM)
+Collinear(MCB)
+Collinear(BCM)
+Collinear(MDN)
+Collinear(NDM)
+Collinear(MDB)
+Collinear(BDM)
+Collinear(MNB)
+Collinear(BNM)
+Collinear(CDN)
+Collinear(NDC)
+Collinear(CDB)
+Collinear(BDC)
+Collinear(CNB)
+Collinear(BNC)
+Collinear(DNB)
+Collinear(BND)
+Point(A)
+Point(B)
+Point(M)
+Point(C)
+Point(D)
+Point(N)
+Line(AB)
+Line(BA)
+Line(AM)
+Line(MA)
+Line(MC)
+Line(CM)
+Line(MD)
+Line(DM)
+Line(MN)
+Line(NM)
+Line(MB)
+Line(BM)
+Line(AC)
+Line(CA)
+Line(CD)
+Line(DC)
+Line(CN)
+Line(NC)
+Line(CB)
+Line(BC)
+Line(AD)
+Line(DA)
+Line(DN)
+Line(ND)
+Line(DB)
+Line(BD)
+Line(AN)
+Line(NA)
+Line(NB)
+Line(BN)
+Angle(AMC)
+Angle(CMA)
+Angle(AMD)
+Angle(DMA)
+Angle(AMN)
+Angle(NMA)
+Angle(AMB)
+Angle(BMA)
+Angle(ACD)
+Angle(DCA)
+Angle(ACN)
+Angle(NCA)
+Angle(ACB)
+Angle(BCA)
+Angle(ADN)
+Angle(NDA)
+Angle(ADB)
+Angle(BDA)
+Angle(ANB)
+Angle(BNA)
+Angle(MCD)
+Angle(DCM)
+Angle(MCN)
+Angle(NCM)
+Angle(MCB)
+Angle(BCM)
+Angle(MDN)
+Angle(NDM)
+Angle(MDB)
+Angle(BDM)
+Angle(MNB)
+Angle(BNM)
+Angle(CDN)
+Angle(NDC)
+Angle(CDB)
+Angle(BDC)
+Angle(CNB)
+Angle(BNC)
+Angle(DNB)
+Angle(BND)
+IsMidpointOfLine(M,CA)
+IsMidpointOfLine(N,BD)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+LengthOfLine(AB)-10
+LengthOfLine(CD)-3
+LengthOfLine(MN)-Add(LengthOfLine(MC),LengthOfLine(CD),LengthOfLine(DN))
+LengthOfLine(AB)-Add(Mul(2,LengthOfLine(MC)),LengthOfLine(CD),Mul(2,LengthOfLine(DN)))
+GOAL_SYMBOL:
+LengthOfLine(MN)
+ANSWER:
+6.5
+THEOREM_SEQUENCE:
+1; line_addition(1,MC,CD); Collinear(MCD); ["Equal(LengthOfLine(MD),Add(LengthOfLine(MC),LengthOfLine(CD)))"]
+2; line_addition(1,MD,DN); Collinear(MDN); ["Equal(LengthOfLine(MN),Add(LengthOfLine(MD),LengthOfLine(DN)))"]
+3; line_addition(1,AM,MC); Collinear(AMC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AM),LengthOfLine(MC)))"]
+4; line_addition(1,CD,DN); Collinear(CDN); ["Equal(LengthOfLine(CN),Add(LengthOfLine(CD),LengthOfLine(DN)))"]
+5; line_addition(1,CN,NB); Collinear(CNB); ["Equal(LengthOfLine(CB),Add(LengthOfLine(CN),LengthOfLine(NB)))"]
+6; line_addition(1,AC,CB); Collinear(ACB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AC),LengthOfLine(CB)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <line_addition> variation id is not supplied. Expected dict_keys(['1']) but got None.
+Your call: line_addition(M,C,C,D)
+
+Please rewrite your response by adding the variation id as the first argument. For example:
+For variation 1: line_addition(1, M,C,C,D)
+
+Model Answer:
+RETRY_ANSWER:
+6.5
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(MC,CD); Collinear(MCD); ["Equal(LengthOfLine(MD),Add(LengthOfLine(MC),LengthOfLine(CD)))"]
+2; line_addition(MD,DN); Collinear(MDN); ["Equal(LengthOfLine(MN),Add(LengthOfLine(MD),LengthOfLine(DN)))"]
+3; line_addition(AM,MC); Collinear(AMC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AM),LengthOfLine(MC)))"]
+4; line_addition(CD,DN); Collinear(CDN); ["Equal(LengthOfLine(CN),Add(LengthOfLine(CD),LengthOfLine(DN)))"]
+5; line_addition(CN,NB); Collinear(CNB); ["Equal(LengthOfLine(CB),Add(LengthOfLine(CN),LengthOfLine(NB)))"]
+6; line_addition(AC,CB); Collinear(ACB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AC),LengthOfLine(CB)))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-10
+ll_cd-3
+ll_am-ll_mc
+ll_dn-ll_nb
+GT_GOAL_SYMBOL:
+ll_mn
+GT_ANSWER:
+13/2
+GT_THEOREM_SEQUENCE:
+1;line_addition(1,AM,MC);Collinear(AMC);["Equal(LengthOfLine(AC),Add(LengthOfLine(AM),LengthOfLine(MC)))"]
+2;line_addition(1,AM,MN);Collinear(AMN);["Equal(LengthOfLine(AN),Add(LengthOfLine(AM),LengthOfLine(MN)))"]
+3;line_addition(1,AC,CD);Collinear(ACD);["Equal(LengthOfLine(AD),Add(LengthOfLine(AC),LengthOfLine(CD)))"]
+4;line_addition(1,AD,DN);Collinear(ADN);["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+5;line_addition(1,AN,NB);Collinear(ANB);["Equal(LengthOfLine(AB),Add(LengthOfLine(AN),LengthOfLine(NB)))"]
+

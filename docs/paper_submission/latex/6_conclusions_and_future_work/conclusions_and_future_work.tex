@@ -1,0 +1,33 @@
+
+
+
+We introduced a neuro-symbolic approach for proof generation, coupling LLMs with retrieval of analogous proofs and symbolic verification. The analogies help guide the LLM, and the verifier provides feedback on the generated proofs.
+%By retrieving structurally similar problems and their corresponding proofs, the model is guided to adapt known reasoning patterns to new problems. A verifier then analyzes the generated proof, enabling iterative correctness through feedback. 
+
+We evaluate our approach in Euclidean geometry. Experiments on the FormalGeo-7k dataset show substantial improvements in proof correctness over the base model across four leading LLMs from three families, with each component contributing to the gains. It also reduces cost by narrowing the theorem dictionary via analogous proofs.
+These results demonstrate the potential of neuro-symbolic methods for mathematical reasoning.
+
+
+
+% In the future, we plan to extend our work to other domains in math, and exploring other ways to find analogies, beyond our simple schema.
+% Two particularly interesting applications are (1) \emph{education}, helping students to solve questions and enabling personalized feedback and guidance, and (2) \emph{science}, where enhanced proof generation and verification capabilities can help automate the process of checking complex derivations, validating theoretical models, and ensuring that logical steps in scientific arguments are complete — thereby improving the reliability and efficiency of scientific research. 
+% We hope this work inspires the development of novel neuro-symbolic approaches across other areas of mathematics.
+
+
+
+In the future, we plan to extend our approach beyond geometry to other %mathematical domains and scientific fields such as physics and chemistry, 
+areas, where automated proof verification could help validate complex derivations and ensure the consistency of models. We also see an interesting use case in education, where analogical retrieval can surface similar solved problems to guide students, and a symbolic verifier can offer targeted hints and feedback. %Methodologically, we are interested in advancing verifier-guided proof planning, where the verifier actively contributes to the generation process by identifying missing steps or suggesting useful theorems. 
+
+We also aim to explore more expressive forms of formal verification, such as model checking with temporal logics (LTL and CTL), enabling reasoning about dynamic systems that evolve over time, as well as more sophisticated mechanisms for analogy retrieval and %, including learned representations that capture deeper 
+structural similarity.
+
+
+
+We hope this work inspires future research on neuro-symbolic systems that combine the flexibility of LLMs with the precision of formal reasoning, as a step toward more reliable AI systems for domains where correctness is crucial.
+
+% \dnote{don't correct it, that's the right way}
+%\dnote{not sure about that last sentence, but I wanted go beyond math}
+
+%from mathematics and formal logic to scientific modeling and engineering.
+
+

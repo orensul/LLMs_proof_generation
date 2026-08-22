@@ -1,0 +1,242 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠EMB=68°, AB is parallel to CD. Find the measure of ∠CNM.
+CONSTRUCTION_CDL:
+Shape(AM,ME)
+Shape(EM,MB)
+Shape(NM,MA)
+Shape(BM,MN)
+Shape(CN,NM)
+Shape(MN,ND)
+Shape(FN,NC)
+Shape(DN,NF)
+Collinear(AMB)
+Collinear(CND)
+Collinear(EMNF)
+TEXT_CDL:
+Equal(MeasureOfAngle(EMB),68)
+ParallelBetweenLine(AB,CD)
+GOAL_CDL:
+Value(MeasureOfAngle(CNM))
+CONSTRUCTION_CDL_EXTENDED:
+Collinear(BMA)
+Collinear(DNC)
+Collinear(FNME)
+Collinear(EMN)
+Collinear(NME)
+Collinear(EMF)
+Collinear(FME)
+Collinear(ENF)
+Collinear(FNE)
+Collinear(MNF)
+Collinear(FNM)
+Point(A)
+Point(B)
+Point(M)
+Point(C)
+Point(D)
+Point(N)
+Point(E)
+Point(F)
+Line(AB)
+Line(BA)
+Line(AM)
+Line(MA)
+Line(MB)
+Line(BM)
+Line(CD)
+Line(DC)
+Line(CN)
+Line(NC)
+Line(ND)
+Line(DN)
+Line(EF)
+Line(FE)
+Line(EM)
+Line(ME)
+Line(MN)
+Line(NM)
+Line(MF)
+Line(FM)
+Line(EN)
+Line(NE)
+Line(NF)
+Line(FN)
+Angle(AMB)
+Angle(BMA)
+Angle(CND)
+Angle(DNC)
+Angle(EMN)
+Angle(NME)
+Angle(EMF)
+Angle(FME)
+Angle(ENF)
+Angle(FNE)
+Angle(MNF)
+Angle(FNM)
+Angle(AMN)
+Angle(BME)
+Angle(CNF)
+Angle(DNM)
+Angle(EMA)
+Angle(NMB)
+Angle(FMB)
+Angle(ENC)
+Angle(MNC)
+Angle(FND)
+Angle(AMF)
+Angle(DNE)
+Angle(BMF)
+Angle(CNE)
+Angle(FMA)
+Angle(END)
+ParallelBetweenLine(DC,BA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to understand the theorem format properly. The theorem `parallel_property_alternate_interior_angle(1,AB,CD)` uses literal letters A,B,C,D from the theorem definition, not from my problem. The premise is `ParallelBetweenLine(AB,CD)&Line(AD)` and conclusion is `Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))`.
+
+So I need to substitute my problem's points into A,B,C,D. In my problem:
+- Line AB (my problem) is parallel to line CD (my problem)
+- The transversal connects M (on AB) to N (on CD)
+- I need the theorem with the transversal as "AD" connecting a point on AB to a point on CD
+
+Mapping: theorem's A→M, theorem's B→B(my), theorem's C→N... wait.
+
+Theorem: `ParallelBetweenLine(AB,CD)&Line(AD)` → `Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))`
+
+I need ParallelBetweenLine(AB,CD) where AB and CD are my parallel lines, and Line(AD) is my transversal MN.
+
+So: theorem-A = my-A (on line AB), theorem-B = my-B (on line AB), theorem-C = my-C (on line CD), theorem-D = my-D (on line CD), but transversal is AD in theorem = MN in my problem.
+
+Let me substitute: theorem-A→M, theorem-B→B(problem's B), theorem-C→N, theorem-D→D(problem's D)... No, the parallel lines must match.
+
+The theorem says: ParallelBetweenLine(AB,CD) with A,B on one line and C,D on the other, Line(AD) is transversal. Conclusion: ∠BAD = ∠CDA (alternate interior angles).
+
+My mapping: ParallelBetweenLine(BM, CN) with transversal Line(MN):
+- theorem-A→B(problem), theorem-B→M(problem)... 
+
+Let me try: `parallel_property_alternate_interior_angle(1,BM,CN)` with premise `ParallelBetweenLine(BM,CN)&Line(BC)` - but I need ParallelBetweenLine(BM,CN) established first.
+
+Simpler: use `parallel_property_ipsilateral_internal_angle(1,AB,CD)`: premise `ParallelBetweenLine(AB,CD)&Line(AC)` → `Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)`.
+
+Map theorem's A→M, B→B(prob), C→N, D→D(prob): ParallelBetweenLine(MB,ND)&Line(MN) → Equal(Add(∠BMN,∠NMD... no.
+
+Map theorem's A→M, B→A(prob), C→N, D→C(prob): ParallelBetweenLine(MA,NC)&Line(MN) → Equal(Add(∠AMN,∠CNM),180).
+
+Since ParallelBetweenLine(AB,CD) implies ParallelBetweenLine(MA,NC) (same lines), I need to establish that first using `parallel_property_collinear_extend`.
+
+EQUATIONS: ma_emb - 68
+GOAL_SYMBOL: ma_cnm
+ANSWER: 112
+
+THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,AB,CD,M); ParallelBetweenLine(AB,CD)&Collinear(AMB); ["ParallelBetweenLine(AM,CD)", "ParallelBetweenLine(MB,CD)"]
+2; parallel_property_collinear_extend(3,CD,AM,N); ParallelBetweenLine(AM,CD)&Collinear(CND); ["ParallelBetweenLine(CN,AM)", "ParallelBetweenLine(ND,AM)"]
+3; parallel_property_ipsilateral_internal_angle(1,AM,CN); ParallelBetweenLine(AM,CN)&Line(MN); ["Equal(Add(MeasureOfAngle(AMN),MeasureOfAngle(CNM)),180)"]
+4; adjacent_complementary_angle(1,EMA,AMB); Collinear(EMB)&Angle(EMA)&Angle(AMB); ["Equal(Add(MeasureOfAngle(EMA),MeasureOfAngle(AMB)),180)"]
+5; adjacent_complementary_angle(1,EMB,BMA); Collinear(AMB)&Angle(EMB)&Angle(BMA); ["Equal(Add(MeasureOfAngle(EMB),MeasureOfAngle(BMA)),180)"]
+6; vertical_angle(1,AMN,EMB); Collinear(EMA)&Collinear(BMN)&Angle(AMN)&Angle(EMB); ["Equal(MeasureOfAngle(AMN),MeasureOfAngle(EMB))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,EMB,AMF)
+You output the following premises: Collinear(AMB)&Collinear(EMF)&Angle(EMB)&Angle(AMF)
+But the correct premises: Collinear(EMA)&Collinear(BMF)&Angle(EMB)&Angle(AMF)
+
+Model Answer:
+RETRY_ANSWER:
+112
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,EMB,AMF); Collinear(AMB)&Collinear(EMF)&Angle(EMB)&Angle(AMF); ["Equal(MeasureOfAngle(EMB),MeasureOfAngle(AMF))"]
+2; parallel_property_corresponding_angle(1,AB,CD,E); ParallelBetweenLine(AB,CD)&Collinear(EMN); ["Equal(MeasureOfAngle(EMA),MeasureOfAngle(MNC))"]
+3; adjacent_complementary_angle(1,EMA,EMB); Collinear(AMB)&Angle(EMA)&Angle(EMB); ["Equal(Add(MeasureOfAngle(EMA),MeasureOfAngle(EMB)),180)"]
+4; adjacent_complementary_angle(1,MNC,MND); Collinear(CND)&Angle(MNC)&Angle(MND); ["Equal(Add(MeasureOfAngle(MNC),MeasureOfAngle(MND)),180)"]
+5; parallel_property_corresponding_angle(2,AB,CD,F); ParallelBetweenLine(AB,CD)&Collinear(MNF); ["Equal(MeasureOfAngle(BMN),MeasureOfAngle(DNF))"]
+6; adjacent_complementary_angle(1,CNM,CNF); Collinear(FNME)&Angle(CNM)&Angle(CNF); ["Equal(Add(MeasureOfAngle(CNM),MeasureOfAngle(CNF)),180)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,EMB,BNM)
+You output the following premises: Collinear(EMN)&Angle(EMB)&Angle(BMN)
+But the correct premises: Collinear(ENM)&Angle(ENB)&Angle(BNM)
+You output the following conclusions: Equal(Add(MeasureOfAngle(EMB),MeasureOfAngle(BMN)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(ENB),MeasureOfAngle(BNM)),180)
+
+Model Answer:
+RETRY_ANSWER:
+112
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,EMB,BNM); Collinear(EMN)&Angle(EMB)&Angle(BMN); ["Equal(Add(MeasureOfAngle(EMB),MeasureOfAngle(BMN)),180)"]
+2; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(MN); ["Equal(MeasureOfAngle(NMB),MeasureOfAngle(MNC))"]
+3; adjacent_complementary_angle(1,CNM,MND); Collinear(CND)&Angle(CNM)&Angle(MND); ["Equal(Add(MeasureOfAngle(CNM),MeasureOfAngle(MND)),180)"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,AB,CD,E)
+You output the following premises: ParallelBetweenLine(AB,CD)&Collinear(EMN)
+But the correct premises: ParallelBetweenLine(AB,CD)&Collinear(EAC)
+You output the following conclusions: Equal(MeasureOfAngle(EMA),MeasureOfAngle(MNC))
+But the correct conclusions: Equal(MeasureOfAngle(EAB),MeasureOfAngle(ACD))
+
+Model Answer:
+RETRY_ANSWER:
+112
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,EMB,AMF); Collinear(EMA)&Collinear(BMF)&Angle(EMB)&Angle(AMF); ["Equal(MeasureOfAngle(EMB),MeasureOfAngle(AMF))"]
+2; parallel_property_corresponding_angle(1,AB,CD,E); ParallelBetweenLine(AB,CD)&Collinear(EMN); ["Equal(MeasureOfAngle(EMA),MeasureOfAngle(MNC))"]
+3; adjacent_complementary_angle(1,EMA,AMF); Collinear(EMF)&Angle(EMA)&Angle(AMF); ["Equal(Add(MeasureOfAngle(EMA),MeasureOfAngle(AMF)),180)"]
+4; adjacent_complementary_angle(1,MNC,CNF); Collinear(MNF)&Angle(MNC)&Angle(CNF); ["Equal(Add(MeasureOfAngle(MNC),MeasureOfAngle(CNF)),180)"]
+5; vertical_angle(1,CNM,DNF); Collinear(CND)&Collinear(MNF)&Angle(CNM)&Angle(DNF); ["Equal(MeasureOfAngle(CNM),MeasureOfAngle(DNF))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(MN)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AD)
+You output the following conclusions: Equal(MeasureOfAngle(BMN),MeasureOfAngle(DNM))
+But the correct conclusions: Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))
+
+Model Answer:
+RETRY_ANSWER:
+112
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(MN); ["Equal(MeasureOfAngle(BMN),MeasureOfAngle(DNM))"]
+2; adjacent_complementary_angle(1,EMB,BMN); Collinear(EMN)&Angle(EMB)&Angle(BMN); ["Equal(Add(MeasureOfAngle(EMB),MeasureOfAngle(BMN)),180)"]
+3; adjacent_complementary_angle(1,CNM,MND); Collinear(CND)&Angle(CNM)&Angle(MND); ["Equal(Add(MeasureOfAngle(CNM),MeasureOfAngle(MND)),180)"]
+#run: 0; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_collinear_extend(3,CD,AM,N)
+You output the following premises: ParallelBetweenLine(AM,CD)&Collinear(CND)
+But the correct premises: ParallelBetweenLine(CD,AM)&Collinear(CND)
+
+Model Answer:
+RETRY_ANSWER:
+112
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,AB,CD,M); ParallelBetweenLine(AB,CD)&Collinear(AMB); ["ParallelBetweenLine(AM,CD)", "ParallelBetweenLine(MB,CD)"]
+2; parallel_property_collinear_extend(3,CD,AM,N); ParallelBetweenLine(AM,CD)&Collinear(CND); ["ParallelBetweenLine(CN,AM)", "ParallelBetweenLine(ND,AM)"]
+3; parallel_property_ipsilateral_internal_angle(1,AM,CN); ParallelBetweenLine(AM,CN)&Line(MN); ["Equal(Add(MeasureOfAngle(AMN),MeasureOfAngle(CNM)),180)"]
+4; adjacent_complementary_angle(1,EMA,AMB); Collinear(EMB)&Angle(EMA)&Angle(AMB); ["Equal(Add(MeasureOfAngle(EMA),MeasureOfAngle(AMB)),180)"]
+5; adjacent_complementary_angle(1,EMB,BMA); Collinear(AMB)&Angle(EMB)&Angle(BMA); ["Equal(Add(MeasureOfAngle(EMB),MeasureOfAngle(BMA)),180)"]
+6; vertical_angle(1,AMN,EMB); Collinear(EMA)&Collinear(BMN)&Angle(AMN)&Angle(EMB); ["Equal(MeasureOfAngle(AMN),MeasureOfAngle(EMB))"]
+#RETRIES:
+5
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_emb-68
+GT_GOAL_SYMBOL:
+ma_cnm
+GT_ANSWER:
+112
+GT_THEOREM_SEQUENCE:
+1;parallel_property_collinear_extend(3,AB,CD,M);ParallelBetweenLine(AB,CD)&Collinear(AMB);["ParallelBetweenLine(AM,CD)", "ParallelBetweenLine(MB,CD)"]
+2;parallel_property_collinear_extend(3,DC,BM,N);ParallelBetweenLine(DC,BM)&Collinear(DNC);["ParallelBetweenLine(DN,BM)", "ParallelBetweenLine(NC,BM)"]
+3;parallel_property_corresponding_angle(1,MB,ND,E);ParallelBetweenLine(MB,ND)&Collinear(EMN);["Equal(MeasureOfAngle(EMB),MeasureOfAngle(MND))"]
+4;flat_angle(1,CND);Collinear(CND);["Equal(MeasureOfAngle(CND),180)"]
+5;angle_addition(1,CNM,MND);Angle(CNM)&Angle(MND)&Angle(CND);["Equal(MeasureOfAngle(CND),Add(MeasureOfAngle(CNM),MeasureOfAngle(MND)))"]
+

@@ -1,0 +1,101 @@
+Content written to results/level_4/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_6924_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DEA,AEB)
+You output the following premises: Collinear(AEB)&Angle(DEA)&Angle(AEB)
+But the correct premises: Collinear(DEB)&Angle(DEA)&Angle(AEB)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+2; adjacent_complementary_angle(1,DEA,AEB); Collinear(AEB)&Angle(DEA)&Angle(AEB); ["Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(AEB)),180)"]
+3; adjacent_complementary_angle(1,CDB,EDB); Collinear(CED)&Angle(CDB)&Angle(EDB); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(EDB)),180)"]
+4; arc_property_circumference_angle_external(1,OCB,D); Cocircular(O,CDB)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OCB),1/2))"]
+5; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_6924_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,CDB,BDE)
+You output the following premises: Collinear(CED)&Angle(CDB)&Angle(BDE)
+But the correct premises: Collinear(CDE)&Angle(CDB)&Angle(BDE)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AED,DEB); Collinear(AEB)&Angle(AED)&Angle(DEB); ["Equal(Add(MeasureOfAngle(AED),MeasureOfAngle(DEB)),180)"]
+2; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+3; adjacent_complementary_angle(1,CDB,BDE); Collinear(CED)&Angle(CDB)&Angle(BDE); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OCB,D); Cocircular(O,CDB)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OCB),1/2))"]
+5; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+Retry attempt: 2
+Content written to results/level_4/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_6924_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCB,D)
+You output the following premises: Cocircular(O,CDB)&Angle(CDB)
+But the correct premises: Cocircular(O,CBD)&Angle(BDC)
+You output the following conclusions: Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OCB),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(BDC),Mul(MeasureOfArc(OCB),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AED,DEB); Collinear(AEB)&Angle(AED)&Angle(DEB); ["Equal(Add(MeasureOfAngle(AED),MeasureOfAngle(DEB)),180)"]
+2; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+3; adjacent_complementary_angle(1,CDB,BDE); Collinear(CDE)&Angle(CDB)&Angle(BDE); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OCB,D); Cocircular(O,CDB)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OCB),1/2))"]
+5; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+Retry attempt: 3
+Content written to results/level_4/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_6924_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: adjacent_complementary_angle(1,CDB,BDE);Collinear(CDE)&Angle(CDB)&Angle(BDE);['Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDE)),180)']
+Missing premise: Points CDE are not proven collinear
+Details: Known collinear facts: [['A', 'E', 'O', 'B'], ['C', 'E', 'D'], ['B', 'O', 'E'], ['A', 'O', 'B'], ['A', 'E', 'B'], ['A', 'E', 'O'], ['A', 'E', 'O'], ['A', 'E', 'O'], ['A', 'E', 'B'], ['A', 'E', 'B'], ['A', 'O', 'B'], ['A', 'O', 'B'], ['B', 'O', 'E'], ['B', 'O', 'E'], ['C', 'E', 'D']]
+- Available premises:
+  Collinear Points: AEB, AEO, AEOB, AOB, BOE, CED
+  Cocircular Points: A on circle O, AB on circle O, ABC on circle O, ABCD on circle O, ABD on circle O, AC on circle O, ACD on circle O, AD on circle O, B on circle O, BC on circle O, BCD on circle O, BD on circle O, C on circle O, CD on circle O, D on circle O
+  Circles: O center: O
+  Polygons: BED, BOCD, CDBO, CEO, DBOC, OCDB
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠BOC <= 180
+  ∠BOC > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AED,DEB); Collinear(AEB)&Angle(AED)&Angle(DEB); ["Equal(Add(MeasureOfAngle(AED),MeasureOfAngle(DEB)),180)"]
+2; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+3; adjacent_complementary_angle(1,CDB,BDE); Collinear(CDE)&Angle(CDB)&Angle(BDE); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OCB,D); Cocircular(O,CBD)&Angle(BDC); ["Equal(MeasureOfAngle(BDC),Mul(MeasureOfArc(OCB),1/2))"]
+5; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+Retry attempt: 4
+Content written to results/level_4/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_6924_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,OAD,DCB)
+You output the following premises: Arc(OAD)&Arc(ODCB)&Arc(OAB)
+But the correct premises: Arc(DAC)&Arc(DCB)&Arc(DAB)
+You output the following conclusions: Equal(MeasureOfArc(OAB),Add(MeasureOfArc(OAD),MeasureOfArc(ODCB)))
+But the correct conclusions: Equal(MeasureOfArc(DAB),Add(MeasureOfArc(DAC),MeasureOfArc(DCB)))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+2; adjacent_complementary_angle(1,AED,DEB); Collinear(AEB)&Angle(AED)&Angle(DEB); ["Equal(Add(MeasureOfAngle(AED),MeasureOfAngle(DEB)),180)"]
+3; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+4; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ADC)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))"]
+5; arc_property_circumference_angle_external(1,OCB,D); Cocircular(O,CBD)&Angle(BDC); ["Equal(MeasureOfAngle(BDC),Mul(MeasureOfArc(OCB),1/2))"]
+6; arc_addition_measure(1,OAD,DCB); Arc(OAD)&Arc(ODCB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(OAD),MeasureOfArc(ODCB)))"]
+7; arc_property_center_angle(1,OCB,O); Arc(OCB)&Angle(BOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OCB),MeasureOfAngle(BOC))"]
+Retry attempt: 5
+Total time: 69.543s | per attempt: [24.481, 14.337, 8.31, 7.547, 14.867]
+Content written to results/level_4/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_6924_run_1.txt

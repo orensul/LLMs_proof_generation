@@ -1,0 +1,273 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠EFB=122°, △EFB is mirror congruent to △EBA. Find the sum of the measure of ∠CAB and the measure of ∠EAD.
+CONSTRUCTION_CDL:
+Shape(FB,BE,EF)
+Shape(BA,AE,EB)
+Shape(BC,CA,AB)
+Shape(EA,AD,DE)
+Collinear(CAD)
+TEXT_CDL:
+Equal(MeasureOfAngle(EFB),122)
+MirrorCongruentBetweenTriangle(EFB,EBA)
+GOAL_CDL:
+Value(Add(MeasureOfAngle(CAB),MeasureOfAngle(EAD)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BE,EF,FB)
+Shape(EF,FB,BE)
+Shape(AE,EB,BA)
+Shape(EB,BA,AE)
+Shape(CA,AB,BC)
+Shape(AB,BC,CA)
+Shape(AD,DE,EA)
+Shape(DE,EA,AD)
+Shape(EF,FB,BA,AE)
+Shape(FB,BA,AE,EF)
+Shape(BA,AE,EF,FB)
+Shape(AE,EF,FB,BA)
+Shape(EB,BA,AD,DE)
+Shape(BA,AD,DE,EB)
+Shape(AD,DE,EB,BA)
+Shape(DE,EB,BA,AD)
+Shape(AE,EB,BC,CA)
+Shape(EB,BC,CA,AE)
+Shape(BC,CA,AE,EB)
+Shape(CA,AE,EB,BC)
+Shape(EF,FB,BA,AD,DE)
+Shape(FB,BA,AD,DE,EF)
+Shape(BA,AD,DE,EF,FB)
+Shape(AD,DE,EF,FB,BA)
+Shape(DE,EF,FB,BA,AD)
+Shape(EF,FB,BC,CA,AE)
+Shape(FB,BC,CA,AE,EF)
+Shape(BC,CA,AE,EF,FB)
+Shape(CA,AE,EF,FB,BC)
+Shape(AE,EF,FB,BC,CA)
+Shape(BC,CA,AD,DE,EB)
+Shape(CA,AD,DE,EB,BC)
+Shape(AD,DE,EB,BC,CA)
+Shape(DE,EB,BC,CA,AD)
+Shape(EB,BC,CA,AD,DE)
+Shape(EF,FB,BC,CA,AD,DE)
+Shape(FB,BC,CA,AD,DE,EF)
+Shape(BC,CA,AD,DE,EF,FB)
+Shape(CA,AD,DE,EF,FB,BC)
+Shape(AD,DE,EF,FB,BC,CA)
+Shape(DE,EF,FB,BC,CA,AD)
+Collinear(DAC)
+Point(C)
+Point(D)
+Point(A)
+Point(F)
+Point(B)
+Point(E)
+Line(CD)
+Line(DC)
+Line(CA)
+Line(AC)
+Line(AD)
+Line(DA)
+Line(FB)
+Line(BF)
+Line(BE)
+Line(EB)
+Line(EF)
+Line(FE)
+Line(BA)
+Line(AB)
+Line(AE)
+Line(EA)
+Line(BC)
+Line(CB)
+Line(DE)
+Line(ED)
+Angle(CAD)
+Angle(DAC)
+Angle(FBE)
+Angle(BEF)
+Angle(EFB)
+Angle(BAE)
+Angle(AEB)
+Angle(EBA)
+Angle(BCA)
+Angle(CAB)
+Angle(ABC)
+Angle(EAD)
+Angle(ADE)
+Angle(DEA)
+Angle(FBA)
+Angle(AEF)
+Angle(BAD)
+Angle(DEB)
+Angle(EBC)
+Angle(CAE)
+Angle(DEF)
+Angle(FBC)
+Angle(CDE)
+Angle(DAB)
+Angle(EAC)
+Angle(BCD)
+Angle(EBF)
+Angle(FEB)
+Angle(BFE)
+Angle(EAB)
+Angle(BEA)
+Angle(ABE)
+Angle(ACB)
+Angle(BAC)
+Angle(CBA)
+Angle(DAE)
+Angle(EDA)
+Angle(AED)
+Angle(ABF)
+Angle(FEA)
+Angle(BED)
+Angle(CBE)
+Angle(FED)
+Angle(CBF)
+Angle(EDC)
+Angle(DCB)
+Polygon(FBE)
+Polygon(BEF)
+Polygon(EFB)
+Polygon(BAE)
+Polygon(AEB)
+Polygon(EBA)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(EAD)
+Polygon(ADE)
+Polygon(DEA)
+Polygon(EFBA)
+Polygon(FBAE)
+Polygon(BAEF)
+Polygon(AEFB)
+Polygon(EBAD)
+Polygon(BADE)
+Polygon(ADEB)
+Polygon(DEBA)
+Polygon(AEBC)
+Polygon(EBCA)
+Polygon(BCAE)
+Polygon(CAEB)
+Polygon(EFBAD)
+Polygon(FBADE)
+Polygon(BADEF)
+Polygon(ADEFB)
+Polygon(DEFBA)
+Polygon(EFBCA)
+Polygon(FBCAE)
+Polygon(BCAEF)
+Polygon(CAEFB)
+Polygon(AEFBC)
+Polygon(BCDE)
+Polygon(CDEB)
+Polygon(DEBC)
+Polygon(EBCD)
+Polygon(EFBCD)
+Polygon(FBCDE)
+Polygon(BCDEF)
+Polygon(CDEFB)
+Polygon(DEFBC)
+MirrorCongruentBetweenTriangle(FBE,AEB)
+MirrorCongruentBetweenTriangle(BEF,BAE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The problem asks for the sum of `MeasureOfAngle(CAB)` and `MeasureOfAngle(EAD)`.
+
+1.  We are given that `Collinear(CAD)`. This means that `CAD` forms a straight line, and thus the measure of `Angle(CAD)` is 180 degrees.
+    *   **Theorem Used:** `flat_angle`
+    *   **Premise:** `Collinear(CAD)`
+    *   **Conclusion:** `Equal(MeasureOfAngle(CAD),180)`
+
+2.  The angles `CAB`, `BAE`, and `EAD` are adjacent angles along the straight line `CAD`. Therefore, their sum is equal to `MeasureOfAngle(CAD)`. We can express this using the `angle_addition` theorem twice.
+    *   First, `Angle(CAB)` and `Angle(BAE)` add up to `Angle(CAE)`.
+        *   **Theorem Used:** `angle_addition`
+        *   **Premise:** `Angle(CAB)&Angle(BAE)&Angle(CAE)`
+        *   **Conclusion:** `Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))`
+    *   Second, `Angle(CAE)` and `Angle(EAD)` add up to `Angle(CAD)`.
+        *   **Theorem Used:** `angle_addition`
+        *   **Premise:** `Angle(CAE)&Angle(EAD)&Angle(CAD)`
+        *   **Conclusion:** `Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))`
+    *   Combining these, we get: `Add(MeasureOfAngle(CAB), MeasureOfAngle(BAE), MeasureOfAngle(EAD)) = MeasureOfAngle(CAD)`.
+    *   Substituting from step 1: `Add(MeasureOfAngle(CAB), MeasureOfAngle(BAE), MeasureOfAngle(EAD)) = 180`.
+    *   Rearranging to find the goal: `Add(MeasureOfAngle(CAB), MeasureOfAngle(EAD)) = 180 - MeasureOfAngle(BAE)`.
+
+3.  Now, we need to find the value of `MeasureOfAngle(BAE)`.
+    We are given `Equal(MeasureOfAngle(EFB),122)` and `MirrorCongruentBetweenTriangle(EFB,EBA)`.
+    For mirror congruent triangles, corresponding angles are equal. Let's establish the vertex correspondence based on the `mirror_congruent_triangle_judgment_aas` theorem in the GDL:
+    If `MirrorCongruentBetweenTriangle(ABC,DEF)` holds, then one of the angle correspondences is `Equal(MeasureOfAngle(ABC),MeasureOfAngle(EFD))`.
+    Mapping `EFB` to `ABC` and `EBA` to `DEF`:
+    *   `A` in `
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER3_GOAL_NOT_REACHED
+verification failed.
+
+- Goal: sum_angle CAB+EAD
+- Model answer: 58
+- Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value.
+- Available premises:
+  Collinear Points: CAD
+  Mirror Congruent Triangles: BEF mirror congruent to AEB
+  Polygons: ABC, ADE, ADEB, ADEFB, AEB, AEBC, AEFB, AEFBC, BADE, BADEF, BAEF, BCAE, BCAEF, BCDE, BCDEF, BEF, CAEB, CAEFB, CDEB, CDEFB, DEBA, DEBC, DEFBA, DEFBC, EBAD, EBCA, EBCD, EFBA, EFBAD, EFBCA, EFBCD, FBADE, FBAE, FBCAE, FBCDE
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  None found
+
+Angle 1: CAB
+Angle 2: EAD
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+58
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+2; angle_addition(1,CAB,BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3; angle_addition(1,CAE,EAD); Angle(CAE)&Angle(EAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <flat_angle> para length error. Expected 3 but got (' ', 'C', 'A', 'D').
+Model Answer:
+RETRY_ANSWER:
+58
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1, CAD); Collinear(CAD); ["Equal(MeasureOfAngle(CAD),180)"]
+2; angle_addition(1, CAB, BAE); Angle(CAB)&Angle(BAE)&Angle(CAE); ["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3; angle_addition(1, CAE, EAD); Angle(CAE)&Angle(EAD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)))"]
+4; mirror_congruent_triangle_judgment_aas(1, EFB, EBA); Polygon(EFB)&Polygon(EBA)&MirrorCongruentBetweenTriangle(EFB,EBA); ["Equal(MeasureOfAngle(EFB),MeasureOfAngle(EAB))"]
+#RETRIES:
+4
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ma_efb-122
+GT_GOAL_SYMBOL:
+ma_cab+ma_ead
+GT_ANSWER:
+58
+GT_THEOREM_SEQUENCE:
+1;mirror_congruent_triangle_property_angle_equal(1,FBE,AEB);MirrorCongruentBetweenTriangle(FBE,AEB);["Equal(MeasureOfAngle(EFB),MeasureOfAngle(BAE))"]
+2;angle_addition(1,CAB,BAE);Angle(CAB)&Angle(BAE)&Angle(CAE);["Equal(MeasureOfAngle(CAE),Add(MeasureOfAngle(CAB),MeasureOfAngle(BAE)))"]
+3;adjacent_complementary_angle(1,CAE,EAD);Collinear(CAD)&Angle(CAE)&Angle(EAD);["Equal(Add(MeasureOfAngle(CAE),MeasureOfAngle(EAD)),180)"]
+

@@ -1,0 +1,150 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠BCA=30°, ∠DAB=20°, BD⊥AD. Find the measure of ∠CAB.
+CONSTRUCTION_CDL:
+Shape(AB,BD,DA)
+Shape(AD,DC,CA)
+Collinear(BDC)
+TEXT_CDL:
+Equal(MeasureOfAngle(BCA),30)
+Equal(MeasureOfAngle(DAB),20)
+PerpendicularBetweenLine(BD,AD)
+GOAL_CDL:
+Value(MeasureOfAngle(CAB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BD,DA,AB)
+Shape(DA,AB,BD)
+Shape(DC,CA,AD)
+Shape(CA,AD,DC)
+Shape(AB,BD,DC,CA)
+Shape(BD,DC,CA,AB)
+Shape(DC,CA,AB,BD)
+Shape(CA,AB,BD,DC)
+Collinear(CDB)
+Point(B)
+Point(C)
+Point(D)
+Point(A)
+Line(BC)
+Line(CB)
+Line(BD)
+Line(DB)
+Line(DC)
+Line(CD)
+Line(AB)
+Line(BA)
+Line(DA)
+Line(AD)
+Line(CA)
+Line(AC)
+Angle(BDC)
+Angle(CDB)
+Angle(ABD)
+Angle(BDA)
+Angle(DAB)
+Angle(ADC)
+Angle(DCA)
+Angle(CAD)
+Angle(BCA)
+Angle(CAB)
+Angle(ABC)
+Angle(DBA)
+Angle(ADB)
+Angle(BAD)
+Angle(CDA)
+Angle(ACD)
+Angle(DAC)
+Angle(ACB)
+Angle(BAC)
+Angle(CBA)
+Polygon(ABD)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ADC)
+Polygon(DCA)
+Polygon(CAD)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(BCA);ma_bca;90
+MeasureOfAngle(OCA);ma_bca;90
+MeasureOfAngle(PCA);ma_bca;90
+LengthOfLine(CA);ll_ca;None
+LengthOfLine(AC);ll_ca;None
+LengthOfLine(CB);ll_cb;None
+LengthOfLine(BC);ll_cb;None
+MeasureOfAngle(FEA);ma_fea;None
+MeasureOfAngle(ACH);ma_ach;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the measure of ∠CAB given that ∠BCA=30°, ∠DAB=20°, and BD⊥AD.
+
+Let me analyze the problem:
+- We have points B, C, D, A where D is on BC (Collinear(BDC))
+- ∠BCA = 30°
+- ∠DAB = 20°
+- BD⊥AD means ∠BDA = 90°
+
+Let me set up the relationships:
+- In triangle ABD: ∠BDA = 90°, ∠DAB = 20°, so ∠ABD = 180° - 90° - 20° = 70°
+- In triangle ABC: ∠BCA = 30°, ∠ABC = ∠ABD = 70° (same angle since D is on BC)
+- So ∠CAB = 180° - 30° - 70° = 80°
+
+Wait, but ∠CAB = ∠CAD + ∠DAB, and D is on BC between B and C.
+
+Actually, ∠ABC in triangle ABC is the same as ∠ABD (since D is on BC).
+- In triangle ABD: ∠ADB = 90°, ∠DAB = 20°, so ∠ABD = 70°
+- In triangle ABC: ∠ABC = 70°, ∠BCA = 30°
+- ∠CAB = 180° - 70° - 30° = 80°
+
+But ∠CAB = ∠CAD + ∠DAB = ∠CAD + 20°, so ∠CAD = 60°.
+
+Let me construct the theorem sequence:
+
+1. First, use the perpendicular to get ∠BDA = 90°
+2. Use triangle angle sum in ABD to get ∠ABD
+3. Use triangle angle sum in ABC to get ∠CAB
+
+The SYMBOLS_AND_VALUES seem to be copied from A5, but the actual problem values are:
+- MeasureOfAngle(BCA) = 30
+- MeasureOfAngle(DAB) = 20
+- ∠BDA = 90°
+
+EQUATIONS:
+ma_bca-30
+ma_dab-20
+
+GOAL_SYMBOL:
+ma_cab
+
+ANSWER:
+80
+
+THEOREM_SEQUENCE:
+1; perpendicular_judgment_angle(1,BD,AD); Angle(BDA)&Equal(MeasureOfAngle(BDA),90); ["PerpendicularBetweenLine(BD,AD)"]
+2; triangle_property_angle_sum(1,ABD); Polygon(ABD); ["Equal(Add(MeasureOfAngle(ABD),MeasureOfAngle(BDA),MeasureOfAngle(DAB)),180)"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_bca-30
+ma_dab-20
+ma_bda-90
+GT_GOAL_SYMBOL:
+ma_cab
+GT_ANSWER:
+80
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,ABD);Polygon(ABD);["Equal(Add(MeasureOfAngle(ABD),MeasureOfAngle(BDA),MeasureOfAngle(DAB)),180)"]
+2;triangle_property_angle_sum(1,ABC);Polygon(ABC);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+

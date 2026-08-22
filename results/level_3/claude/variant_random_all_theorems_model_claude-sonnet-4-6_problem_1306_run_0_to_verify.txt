@@ -1,0 +1,119 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, DE=8, EH=8, quadrilateral KDEH is a ▱, DE is perpendicular to HE, EH is perpendicular to KH, HK⊥DK, KD⊥ED. Find the perimeter of quadrilateral KDEH.
+CONSTRUCTION_CDL:
+Shape(KD,DE,EH,HK)
+TEXT_CDL:
+Equal(LengthOfLine(DE),8)
+Equal(LengthOfLine(EH),8)
+Parallelogram(KDEH)
+PerpendicularBetweenLine(DE,HE)
+PerpendicularBetweenLine(EH,KH)
+PerpendicularBetweenLine(HK,DK)
+PerpendicularBetweenLine(KD,ED)
+GOAL_CDL:
+Value(PerimeterOfQuadrilateral(KDEH))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DE,EH,HK,KD)
+Shape(EH,HK,KD,DE)
+Shape(HK,KD,DE,EH)
+Point(K)
+Point(D)
+Point(E)
+Point(H)
+Line(KD)
+Line(DK)
+Line(DE)
+Line(ED)
+Line(EH)
+Line(HE)
+Line(HK)
+Line(KH)
+Angle(KDE)
+Angle(DEH)
+Angle(EHK)
+Angle(HKD)
+Angle(EDK)
+Angle(HED)
+Angle(KHE)
+Angle(DKH)
+Polygon(KDEH)
+Polygon(DEHK)
+Polygon(EHKD)
+Polygon(HKDE)
+Parallelogram(DEHK)
+Parallelogram(EHKD)
+Parallelogram(HKDE)
+ParallelBetweenLine(KH,DE)
+ParallelBetweenLine(ED,HK)
+ParallelBetweenLine(DK,EH)
+ParallelBetweenLine(HE,KD)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the perimeter of parallelogram KDEH where DE=8, EH=8, and all angles are right angles (perpendicular conditions given).
+
+Let me analyze the problem:
+- KDEH is a parallelogram
+- DE=8, EH=8
+- DE⊥HE, EH⊥KH, HK⊥DK, KD⊥ED (all sides are perpendicular to each other)
+
+This means all angles are 90°, making KDEH a rectangle. Since it's both a parallelogram and has perpendicular adjacent sides, and DE=EH=8, it's actually a square.
+
+In a parallelogram, opposite sides are equal:
+- KD = EH = 8
+- HK = DE = 8
+
+So the perimeter = KD + DE + EH + HK = 8 + 8 + 8 + 8 = 32.
+
+Let me construct the theorem sequence:
+
+1. Use `parallelogram_property_opposite_line_equal` to get KD = EH (or HK = DE)
+2. Use `quadrilateral_perimeter_formula` to compute the perimeter
+
+EQUATIONS:
+ll_de-8
+ll_eh-8
+
+GOAL_SYMBOL:
+pq_kdeh
+
+ANSWER:
+32
+
+THEOREM_SEQUENCE:
+1; parallelogram_property_opposite_line_equal(1,KDEH); Parallelogram(KDEH); ["Equal(LengthOfLine(DK),LengthOfLine(EH))"]
+2; parallelogram_property_opposite_line_equal(1,DEHK); Parallelogram(DEHK); ["Equal(LengthOfLine(ED),LengthOfLine(HK))"]
+3; quadrilateral_perimeter_formula(1,KDEH); Polygon(KDEH); ["Equal(Add(LengthOfLine(KD),LengthOfLine(DE),LengthOfLine(EH),LengthOfLine(HK)),PerimeterOfQuadrilateral(KDEH))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_de-8
+ll_eh-8
+ma_deh-90
+ma_ehk-90
+ma_hkd-90
+ma_kde-90
+GT_GOAL_SYMBOL:
+pq_kdeh
+GT_ANSWER:
+32
+GT_THEOREM_SEQUENCE:
+1;parallelogram_property_opposite_line_equal(1,KDEH);Parallelogram(KDEH);["Equal(LengthOfLine(DK),LengthOfLine(EH))"]
+2;parallelogram_property_opposite_line_equal(1,DEHK);Parallelogram(DEHK);["Equal(LengthOfLine(ED),LengthOfLine(HK))"]
+3;quadrilateral_perimeter_formula(1,KDEH);Polygon(KDEH);["Equal(Add(LengthOfLine(KD),LengthOfLine(DE),LengthOfLine(EH),LengthOfLine(HK)),PerimeterOfQuadrilateral(KDEH))"]
+

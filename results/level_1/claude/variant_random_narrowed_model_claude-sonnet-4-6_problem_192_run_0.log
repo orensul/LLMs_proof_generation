@@ -1,0 +1,106 @@
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,BSU,BVT)
+You output the following premises: Arc(BSU)&Arc(BVT)&Arc(BST)
+But the correct premises: Arc(BSV)&Arc(BVT)&Arc(BST)
+You output the following conclusions: Equal(MeasureOfArc(BST),Add(MeasureOfArc(BSU),MeasureOfArc(BVT)))
+But the correct conclusions: Equal(MeasureOfArc(BST),Add(MeasureOfArc(BSV),MeasureOfArc(BVT)))
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_addition_measure(1,BSU,BVT); Arc(BSU)&Arc(BVT)&Arc(BST); ["Equal(MeasureOfArc(BST),Add(MeasureOfArc(BSU),MeasureOfArc(BVT)))"]
+2; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+3; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+4; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+5; flat_angle(1,RST); Collinear(RST); ["Equal(MeasureOfAngle(RST),180)"]
+6; flat_angle(1,RUV); Collinear(RUV); ["Equal(MeasureOfAngle(RUV),180)"]
+Retry attempt: 1
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,UTS,STR)
+You output the following premises: Collinear(RUV)&Angle(UTS)&Angle(STR)
+But the correct premises: Collinear(UTR)&Angle(UTS)&Angle(STR)
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; flat_angle(1,RST); Collinear(RST); ["Equal(MeasureOfAngle(RST),180)"]
+4; flat_angle(1,VUR); Collinear(VUR); ["Equal(MeasureOfAngle(VUR),180)"]
+5; adjacent_complementary_angle(1,UTS,STR); Collinear(RUV)&Angle(UTS)&Angle(STR); ["Equal(Add(MeasureOfAngle(UTS),MeasureOfAngle(STR)),180)"]
+6; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+7; adjacent_complementary_angle(1,SUT,TUV); Collinear(RUV)&Angle(SUT)&Angle(TUV); ["Equal(Add(MeasureOfAngle(SUT),MeasureOfAngle(TUV)),180)"]
+8; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+Retry attempt: 2
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,UTS,TSR)
+You output the following premises: Collinear(UTR)&Angle(UTS)&Angle(TSR)
+But the correct premises: Collinear(USR)&Angle(UST)&Angle(TSR)
+You output the following conclusions: Equal(Add(MeasureOfAngle(UTS),MeasureOfAngle(TSR)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(UST),MeasureOfAngle(TSR)),180)
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+3; adjacent_complementary_angle(1,UTS,TSR); Collinear(UTR)&Angle(UTS)&Angle(TSR); ["Equal(Add(MeasureOfAngle(UTS),MeasureOfAngle(TSR)),180)"]
+4; adjacent_complementary_angle(1,TUV,VUR); Collinear(TUR)&Angle(TUV)&Angle(VUR); ["Equal(Add(MeasureOfAngle(TUV),MeasureOfAngle(VUR)),180)"]
+5; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+Retry attempt: 3
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: adjacent_complementary_angle(1,UST,TSR);Collinear(USR)&Angle(UST)&Angle(TSR);['Equal(Add(MeasureOfAngle(UST),MeasureOfAngle(TSR)),180)']
+Missing premise: Points USR are not proven collinear
+Details: Known collinear facts: [['R', 'S', 'T'], ['R', 'U', 'V'], ['R', 'S', 'T'], ['R', 'U', 'V']]
+- Available premises:
+  Collinear Points: RST, RUV
+  Cocircular Points: S on circle B, ST on circle B, STU on circle B, STUV on circle B, STV on circle B, SU on circle B, SUV on circle B, SV on circle B, T on circle B, TU on circle B, TUV on circle B, TV on circle B, U on circle B, UV on circle B, V on circle B
+- Theorems related to the goal:
+  Step 1 - arc_property_circumference_angle_external(1, BSU, T): Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))
+- Solver constraints directly related to this goal:
+  arc(BSU) <= 360
+  arc(BSU) >= 0
+  ∠STU = arc(BSU)*1/2
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+3; adjacent_complementary_angle(1,UST,TSR); Collinear(USR)&Angle(UST)&Angle(TSR); ["Equal(Add(MeasureOfAngle(UST),MeasureOfAngle(TSR)),180)"]
+4; adjacent_complementary_angle(1,TUV,VUR); Collinear(TUR)&Angle(TUV)&Angle(VUR); ["Equal(Add(MeasureOfAngle(TUV),MeasureOfAngle(VUR)),180)"]
+5; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+Retry attempt: 4
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,UTS,RSV)
+You output the following premises: Collinear(RST)&Collinear(USV)&Angle(UTS)&Angle(RSV)
+But the correct premises: Collinear(USR)&Collinear(SSV)&Angle(USS)&Angle(RSV)
+You output the following conclusions: Equal(MeasureOfAngle(UTS),MeasureOfAngle(RSV))
+But the correct conclusions: Equal(MeasureOfAngle(USS),MeasureOfAngle(RSV))
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; adjacent_complementary_angle(1,RSU,UST); Collinear(RST)&Angle(RSU)&Angle(UST); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(UST)),180)"]
+4; adjacent_complementary_angle(1,RUS,SUV); Collinear(RUV)&Angle(RUS)&Angle(SUV); ["Equal(Add(MeasureOfAngle(RUS),MeasureOfAngle(SUV)),180)"]
+5; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+6; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+7; vertical_angle(1,UTS,RSV); Collinear(RST)&Collinear(USV)&Angle(UTS)&Angle(RSV); ["Equal(MeasureOfAngle(UTS),MeasureOfAngle(RSV))"]
+Retry attempt: 5
+Total time: 86.427s | per attempt: [22.294, 18.57, 14.845, 11.521, 19.197]
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_0.txt

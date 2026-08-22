@@ -1,0 +1,222 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=10, CD=3, M is the midpoint of segment AC, N is the midpoint of segment DB. Find the length of line MN.
+CONSTRUCTION_CDL:
+Collinear(AMCDNB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),10)
+Equal(LengthOfLine(CD),3)
+IsMidpointOfLine(M,AC)
+IsMidpointOfLine(N,DB)
+GOAL_CDL:
+Value(LengthOfLine(MN))
+CONSTRUCTION_CDL_EXTENDED:
+Collinear(BNDCMA)
+Collinear(AMC)
+Collinear(CMA)
+Collinear(AMD)
+Collinear(DMA)
+Collinear(AMN)
+Collinear(NMA)
+Collinear(AMB)
+Collinear(BMA)
+Collinear(ACD)
+Collinear(DCA)
+Collinear(ACN)
+Collinear(NCA)
+Collinear(ACB)
+Collinear(BCA)
+Collinear(ADN)
+Collinear(NDA)
+Collinear(ADB)
+Collinear(BDA)
+Collinear(ANB)
+Collinear(BNA)
+Collinear(MCD)
+Collinear(DCM)
+Collinear(MCN)
+Collinear(NCM)
+Collinear(MCB)
+Collinear(BCM)
+Collinear(MDN)
+Collinear(NDM)
+Collinear(MDB)
+Collinear(BDM)
+Collinear(MNB)
+Collinear(BNM)
+Collinear(CDN)
+Collinear(NDC)
+Collinear(CDB)
+Collinear(BDC)
+Collinear(CNB)
+Collinear(BNC)
+Collinear(DNB)
+Collinear(BND)
+Point(A)
+Point(B)
+Point(M)
+Point(C)
+Point(D)
+Point(N)
+Line(AB)
+Line(BA)
+Line(AM)
+Line(MA)
+Line(MC)
+Line(CM)
+Line(MD)
+Line(DM)
+Line(MN)
+Line(NM)
+Line(MB)
+Line(BM)
+Line(AC)
+Line(CA)
+Line(CD)
+Line(DC)
+Line(CN)
+Line(NC)
+Line(CB)
+Line(BC)
+Line(AD)
+Line(DA)
+Line(DN)
+Line(ND)
+Line(DB)
+Line(BD)
+Line(AN)
+Line(NA)
+Line(NB)
+Line(BN)
+Angle(AMC)
+Angle(CMA)
+Angle(AMD)
+Angle(DMA)
+Angle(AMN)
+Angle(NMA)
+Angle(AMB)
+Angle(BMA)
+Angle(ACD)
+Angle(DCA)
+Angle(ACN)
+Angle(NCA)
+Angle(ACB)
+Angle(BCA)
+Angle(ADN)
+Angle(NDA)
+Angle(ADB)
+Angle(BDA)
+Angle(ANB)
+Angle(BNA)
+Angle(MCD)
+Angle(DCM)
+Angle(MCN)
+Angle(NCM)
+Angle(MCB)
+Angle(BCM)
+Angle(MDN)
+Angle(NDM)
+Angle(MDB)
+Angle(BDM)
+Angle(MNB)
+Angle(BNM)
+Angle(CDN)
+Angle(NDC)
+Angle(CDB)
+Angle(BDC)
+Angle(CNB)
+Angle(BNC)
+Angle(DNB)
+Angle(BND)
+IsMidpointOfLine(M,CA)
+IsMidpointOfLine(N,BD)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the length of MN where M is the midpoint of AC and N is the midpoint of DB, with points in order A, M, C, D, N, B on a line, AB=10, CD=3.
+
+Let me set up the problem. Points are collinear in order A, M, C, D, N, B.
+- M is midpoint of AC, so AM = MC
+- N is midpoint of DB, so DN = NB
+
+MN = MC + CD + DN = AM + CD + DN
+
+Also:
+- AB = AM + MC + CD + DN + NB = 2AM + 3 + 2DN = 10
+- So 2AM + 2DN = 7, meaning AM + DN = 3.5
+
+MN = MC + CD + DN = AM + 3 + DN = 3.5 + 3 = 6.5
+
+Now let me construct the theorem sequence using the GDL.
+
+Key steps:
+1. Use line_addition to express AB in terms of segments
+2. Use midpoint properties
+3. Use line_addition for MN
+
+Let me trace through using line_addition theorems:
+
+From Collinear(AMCDNB):
+- AB = AM + MC + CD + DN + NB (via line additions)
+- MN = MC + CD + DN
+
+Since M is midpoint of AC: AM = MC
+Since N is midpoint of DB: DN = NB
+
+MN = MC + CD + DN
+AB = AM + MC + CD + DN + NB = 2MC + CD + 2DN
+
+Also MN = MC + CD + DN, so 2·MN = 2MC + 2CD + 2DN = (AB - CD) + 2CD = AB + CD
+
+Therefore MN = (AB + CD)/2 = (10 + 3)/2 = 6.5
+
+EQUATIONS:
+ll_ab - 10
+ll_cd - 3
+ll_mn - (ll_ab + ll_cd)/2
+
+GOAL_SYMBOL:
+LengthOfLine(MN)
+
+ANSWER:
+6.5
+
+THEOREM_SEQUENCE:
+1; line_addition(1,AM,MC); Collinear(AMC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AM),LengthOfLine(MC)))"]
+2; line_addition(1,DN,NB); Collinear(DNB); ["Equal(LengthOfLine(DB),Add(LengthOfLine(DN),LengthOfLine(NB)))"]
+3; line_addition(1,MC,CD); Collinear(MCD); ["Equal(LengthOfLine(MD),Add(LengthOfLine(MC),LengthOfLine(CD)))"]
+4; line_addition(1,MD,DN); Collinear(MDN); ["Equal(LengthOfLine(MN),Add(LengthOfLine(MD),LengthOfLine(DN)))"]
+5; line_addition(1,AM,MB); Collinear(AMB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AM),LengthOfLine(MB)))"]
+6; line_addition(1,MN,NB); Collinear(MNB); ["Equal(LengthOfLine(MB),Add(LengthOfLine(MN),LengthOfLine(NB)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-10
+ll_cd-3
+ll_am-ll_mc
+ll_dn-ll_nb
+GT_GOAL_SYMBOL:
+ll_mn
+GT_ANSWER:
+13/2
+GT_THEOREM_SEQUENCE:
+1;line_addition(1,AM,MC);Collinear(AMC);["Equal(LengthOfLine(AC),Add(LengthOfLine(AM),LengthOfLine(MC)))"]
+2;line_addition(1,AM,MN);Collinear(AMN);["Equal(LengthOfLine(AN),Add(LengthOfLine(AM),LengthOfLine(MN)))"]
+3;line_addition(1,AC,CD);Collinear(ACD);["Equal(LengthOfLine(AD),Add(LengthOfLine(AC),LengthOfLine(CD)))"]
+4;line_addition(1,AD,DN);Collinear(ADN);["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+5;line_addition(1,AN,NB);Collinear(ANB);["Equal(LengthOfLine(AB),Add(LengthOfLine(AN),LengthOfLine(NB)))"]
+

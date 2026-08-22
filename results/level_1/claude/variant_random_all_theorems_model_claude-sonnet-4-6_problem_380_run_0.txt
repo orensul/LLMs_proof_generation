@@ -1,0 +1,155 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=26, AD=10, CB=16, DC=8, AD is the altitude of triangle ACB. Find the area of △ACB.
+CONSTRUCTION_CDL:
+Shape(AD,DC,CA)
+Shape(AC,CB,BA)
+Collinear(DCB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),26)
+Equal(LengthOfLine(AD),10)
+Equal(LengthOfLine(CB),16)
+Equal(LengthOfLine(DC),8)
+IsAltitudeOfTriangle(AD,ACB)
+GOAL_CDL:
+Value(AreaOfTriangle(ACB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DC,CA,AD)
+Shape(CA,AD,DC)
+Shape(CB,BA,AC)
+Shape(BA,AC,CB)
+Shape(AD,DC,CB,BA)
+Shape(DC,CB,BA,AD)
+Shape(CB,BA,AD,DC)
+Shape(BA,AD,DC,CB)
+Collinear(BCD)
+Point(D)
+Point(B)
+Point(C)
+Point(A)
+Line(DB)
+Line(BD)
+Line(DC)
+Line(CD)
+Line(CB)
+Line(BC)
+Line(AD)
+Line(DA)
+Line(CA)
+Line(AC)
+Line(BA)
+Line(AB)
+Angle(DCB)
+Angle(BCD)
+Angle(ADC)
+Angle(DCA)
+Angle(CAD)
+Angle(ACB)
+Angle(CBA)
+Angle(BAC)
+Angle(DBA)
+Angle(BAD)
+Angle(ADB)
+Angle(CDA)
+Angle(ACD)
+Angle(DAC)
+Angle(BCA)
+Angle(ABC)
+Angle(CAB)
+Angle(ABD)
+Angle(DAB)
+Angle(BDA)
+Polygon(ADC)
+Polygon(DCA)
+Polygon(CAD)
+Polygon(ACB)
+Polygon(CBA)
+Polygon(BAC)
+Polygon(ADB)
+Polygon(DBA)
+Polygon(BAD)
+PerpendicularBetweenLine(CD,AD)
+PerpendicularBetweenLine(AD,BD)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(BCA);ma_bca;90
+MeasureOfAngle(OCA);ma_bca;90
+MeasureOfAngle(PCA);ma_bca;90
+LengthOfLine(CA);ll_ca;None
+LengthOfLine(AC);ll_ca;None
+LengthOfLine(CB);ll_cb;None
+LengthOfLine(BC);ll_cb;None
+MeasureOfAngle(FEA);ma_fea;None
+MeasureOfAngle(ACH);ma_ach;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the area of triangle ACB, given AB=26, AD=10, CB=16, DC=8, and AD is the altitude of triangle ACB.
+
+Let me analyze the problem:
+- D is on CB (from Collinear(DCB))
+- AD is the altitude of triangle ACB, meaning AD ⊥ CB
+- AB=26, AD=10, CB=16, DC=8
+
+From the construction, D lies on BC with DC=8, and since CB=16, DB=CB-DC=16-8=8.
+
+Wait, let me reconsider. Collinear(DCB) means D, C, B are collinear with C between D and B.
+
+So DB = DC + CB = 8 + 16 = 24... but that seems off. Let me re-read.
+
+Actually, Collinear(BCD) means B, C, D are collinear. So BC + CD = BD, or CB=16, DC=8.
+
+Since AD is altitude of triangle ACB, AD ⊥ CB, so angle ADC = 90°.
+
+The area of triangle ACB = (1/2) × CB × AD = (1/2) × 16 × 10 = 80.
+
+Wait, but I need to verify this using the theorem sequence. The altitude AD goes to side CB (extended), and the area formula uses the height and base.
+
+Let me check: IsAltitudeOfTriangle(AD,ACB) means AD is altitude from A to CB. So the height is AD=10 and base is CB=16.
+
+Area = (1/2) × base × height = (1/2) × 16 × 10 = 80.
+
+The theorem to use is `triangle_area_formula_common(ACB)` which gives:
+Equal(AreaOfTriangle(ACB), Mul(HeightOfTriangle(ACB), LengthOfLine(CB), 1/2))
+
+And HeightOfTriangle(ACB) = AD = 10.
+
+EQUATIONS:
+ll_ab-26
+ll_ad-10
+ll_cb-16
+ll_dc-8
+
+GOAL_SYMBOL:
+AreaOfTriangle(ACB)
+
+ANSWER:
+80
+
+THEOREM_SEQUENCE:
+1; triangle_area_formula_common(1,ACB); Polygon(ACB); ["Equal(AreaOfTriangle(ACB),Mul(HeightOfTriangle(ACB),LengthOfLine(CB),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-26
+ll_ad-10
+ll_cb-16
+ll_dc-8
+-ht_acb+ll_ad
+ma_cda-90
+ma_adb-90
+ht_acb-10
+GT_GOAL_SYMBOL:
+at_acb
+GT_ANSWER:
+80
+GT_THEOREM_SEQUENCE:
+1;triangle_area_formula_common(1,ACB);Polygon(ACB);["Equal(AreaOfTriangle(ACB),Mul(HeightOfTriangle(ACB),LengthOfLine(CB),1/2))"]
+

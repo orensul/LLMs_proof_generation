@@ -1,0 +1,147 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=12, BC=y, BD=x, CD=z, DA=10, AB is perpendicular to CB, BD is perpendicular to AD. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(BC,CD,DB)
+Shape(BD,DA,AB)
+Collinear(CDA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),12)
+Equal(LengthOfLine(BC),y)
+Equal(LengthOfLine(BD),x)
+Equal(LengthOfLine(CD),z)
+Equal(LengthOfLine(DA),10)
+PerpendicularBetweenLine(AB,CB)
+PerpendicularBetweenLine(BD,AD)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CD,DB,BC)
+Shape(DB,BC,CD)
+Shape(DA,AB,BD)
+Shape(AB,BD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(DA,AB,BC,CD)
+Shape(AB,BC,CD,DA)
+Collinear(ADC)
+Point(C)
+Point(A)
+Point(D)
+Point(B)
+Line(CA)
+Line(AC)
+Line(CD)
+Line(DC)
+Line(DA)
+Line(AD)
+Line(BC)
+Line(CB)
+Line(DB)
+Line(BD)
+Line(AB)
+Line(BA)
+Angle(CDA)
+Angle(ADC)
+Angle(BCD)
+Angle(CDB)
+Angle(DBC)
+Angle(BDA)
+Angle(DAB)
+Angle(ABD)
+Angle(CAB)
+Angle(ABC)
+Angle(BCA)
+Angle(DCB)
+Angle(BDC)
+Angle(CBD)
+Angle(ADB)
+Angle(BAD)
+Angle(DBA)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABD)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to fix the conclusion - it should use BA not AB for the hypotenuse.
+
+EQUATIONS:
+ll_ab - 12
+ll_da - 10
+
+GOAL_SYMBOL:
+ll_bd
+
+ANSWER:
+2*sqrt(11)
+
+THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,BDA); Polygon(BDA)&Equal(MeasureOfAngle(BDA),90); ["RightTriangle(BDA)"]
+2; right_triangle_property_pythagorean(1,BDA); RightTriangle(BDA); ["Equal(Add(Pow(LengthOfLine(BD),2),Pow(LengthOfLine(DA),2)),Pow(LengthOfLine(BA),2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_judgment_angle(1,DAB)
+You output the following premises: Polygon(DAB)&Equal(MeasureOfAngle(BDA),90)
+But the correct premises: Polygon(DAB)&Equal(MeasureOfAngle(DAB),90)
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(11)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ABD); Polygon(ABD)&Equal(MeasureOfAngle(ABD),90); ["RightTriangle(ABD)"]
+2; right_triangle_property_pythagorean(1,ABD); RightTriangle(ABD); ["Equal(Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(BD),2)),Pow(LengthOfLine(AD),2))"]
+3; perpendicular_judgment_angle(1,AB,CB); Angle(ABC)&Equal(MeasureOfAngle(ABC),90); ["PerpendicularBetweenLine(AB,CB)"]
+4; right_triangle_judgment_angle(1,DAB); Polygon(DAB)&Equal(MeasureOfAngle(BDA),90); ["RightTriangle(DAB)"]
+5; right_triangle_property_pythagorean(1,DAB); RightTriangle(DAB); ["Equal(Add(Pow(LengthOfLine(DA),2),Pow(LengthOfLine(AB),2)),Pow(LengthOfLine(BD),2))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_property_pythagorean(1,BDA)
+You output the following conclusions: Equal(Add(Pow(LengthOfLine(BD),2),Pow(LengthOfLine(DA),2)),Pow(LengthOfLine(AB),2))
+But the correct conclusions: Equal(Add(Pow(LengthOfLine(BD),2),Pow(LengthOfLine(DA),2)),Pow(LengthOfLine(BA),2))
+
+Model Answer:
+RETRY_ANSWER:
+2*sqrt(11)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,BDA); Polygon(BDA)&Equal(MeasureOfAngle(BDA),90); ["RightTriangle(BDA)"]
+2; right_triangle_property_pythagorean(1,BDA); RightTriangle(BDA); ["Equal(Add(Pow(LengthOfLine(BD),2),Pow(LengthOfLine(DA),2)),Pow(LengthOfLine(AB),2))"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-12
+ll_bc-y
+ll_bd-x
+ll_cd-z
+ll_da-10
+ma_abc-90
+ma_bda-90
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+2*sqrt(11)
+GT_THEOREM_SEQUENCE:
+1;right_triangle_judgment_angle(1,BDA);Polygon(BDA)&Equal(MeasureOfAngle(BDA),90);["RightTriangle(BDA)"]
+2;right_triangle_property_pythagorean(1,BDA);RightTriangle(BDA);["Equal(Add(Pow(LengthOfLine(BD),2),Pow(LengthOfLine(DA),2)),Pow(LengthOfLine(BA),2))"]
+

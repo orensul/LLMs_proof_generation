@@ -1,0 +1,147 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BD=15, CA=b, CB=28, CD=27, ∠ADB=∠CDA. Find the value of b.
+CONSTRUCTION_CDL:
+Shape(DB,BA,AD)
+Shape(DA,AC,CD)
+Collinear(BAC)
+TEXT_CDL:
+Equal(LengthOfLine(BD),15)
+Equal(LengthOfLine(CA),b)
+Equal(LengthOfLine(CB),28)
+Equal(LengthOfLine(CD),27)
+Equal(MeasureOfAngle(ADB),MeasureOfAngle(CDA))
+GOAL_CDL:
+Value(b)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,AD,DB)
+Shape(AD,DB,BA)
+Shape(AC,CD,DA)
+Shape(CD,DA,AC)
+Shape(DB,BA,AC,CD)
+Shape(BA,AC,CD,DB)
+Shape(AC,CD,DB,BA)
+Shape(CD,DB,BA,AC)
+Collinear(CAB)
+Point(B)
+Point(C)
+Point(A)
+Point(D)
+Line(BC)
+Line(CB)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Line(DB)
+Line(BD)
+Line(AD)
+Line(DA)
+Line(CD)
+Line(DC)
+Angle(BAC)
+Angle(CAB)
+Angle(DBA)
+Angle(BAD)
+Angle(ADB)
+Angle(DAC)
+Angle(ACD)
+Angle(CDA)
+Angle(BCD)
+Angle(CDB)
+Angle(DBC)
+Angle(ABD)
+Angle(DAB)
+Angle(BDA)
+Angle(CAD)
+Angle(DCA)
+Angle(ADC)
+Angle(DCB)
+Angle(BDC)
+Angle(CBD)
+Polygon(DBA)
+Polygon(BAD)
+Polygon(ADB)
+Polygon(DAC)
+Polygon(ACD)
+Polygon(CDA)
+Polygon(DBC)
+Polygon(BCD)
+Polygon(CDB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, I need to fix the premise for `bisector_of_angle_property_line_ratio`. The correct collinear order is `CAB` (not `BAC`), and the conclusion uses `CA`, `AB`, `DB`, `DC` in a specific order.
+
+The theorem `bisector_of_angle_property_line_ratio(BD,ABC)` with `Collinear(CDA)` gives `Equal(Mul(LengthOfLine(CD),LengthOfLine(BA)),Mul(LengthOfLine(DA),LengthOfLine(BC)))`.
+
+So for `DA,BDC` with `Collinear(CAB)`, it gives `Equal(Mul(LengthOfLine(CA),LengthOfLine(DB)),Mul(LengthOfLine(AB),LengthOfLine(DC)))`.
+
+This means CA/AB = DC/DB = 27/15 = 9/5, so CA = AB × 9/5.
+
+And CA + AB = CB = 28 (from line_addition with Collinear(CAB)).
+
+So CA = 18, AB = 10. Thus b = 18.
+
+EQUATIONS:
+ll_bd-15
+ll_ca-b
+ll_cb-28
+ll_cd-27
+ma_adb-ma_cda
+
+GOAL_SYMBOL:
+b
+
+ANSWER:
+18
+
+THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,DA,BDC); Angle(BDA)&Angle(ADC)&Equal(MeasureOfAngle(BDA),MeasureOfAngle(ADC)); ["IsBisectorOfAngle(DA,BDC)"]
+2; bisector_of_angle_property_line_ratio(1,DA,BDC); IsBisectorOfAngle(DA,BDC)&Collinear(CAB); ["Equal(Mul(LengthOfLine(CA),LengthOfLine(DB)),Mul(LengthOfLine(AB),LengthOfLine(DC)))"]
+3; line_addition(1,CA,AB); Collinear(CAB); ["Equal(LengthOfLine(CB),Add(LengthOfLine(CA),LengthOfLine(AB)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: bisector_of_angle_property_line_ratio(1,DA,BDC)
+You output the following premises: IsBisectorOfAngle(DA,BDC)&Collinear(BAC)
+But the correct premises: IsBisectorOfAngle(DA,BDC)&Collinear(CAB)
+You output the following conclusions: Equal(Mul(LengthOfLine(BA),LengthOfLine(DC)),Mul(LengthOfLine(AC),LengthOfLine(DB)))
+But the correct conclusions: Equal(Mul(LengthOfLine(CA),LengthOfLine(DB)),Mul(LengthOfLine(AB),LengthOfLine(DC)))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,DA,BDC); Angle(BDA)&Angle(ADC)&Equal(MeasureOfAngle(BDA),MeasureOfAngle(ADC)); ["IsBisectorOfAngle(DA,BDC)"]
+2; bisector_of_angle_property_line_ratio(1,DA,BDC); IsBisectorOfAngle(DA,BDC)&Collinear(BAC); ["Equal(Mul(LengthOfLine(BA),LengthOfLine(DC)),Mul(LengthOfLine(AC),LengthOfLine(DB)))"]
+3; line_addition(1,BA,AC); Collinear(BAC); ["Equal(LengthOfLine(BC),Add(LengthOfLine(BA),LengthOfLine(AC)))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_bd-15
+-b+ll_ca
+ll_cb-28
+ll_cd-27
+ma_adb-ma_cda
+GT_GOAL_SYMBOL:
+b
+GT_ANSWER:
+18
+GT_THEOREM_SEQUENCE:
+1;line_addition(1,BA,AC);Collinear(BAC);["Equal(LengthOfLine(BC),Add(LengthOfLine(BA),LengthOfLine(AC)))"]
+2;bisector_of_angle_judgment_angle_equal(1,DA,CDB);Angle(CDA)&Angle(ADB)&Equal(MeasureOfAngle(CDA),MeasureOfAngle(ADB));["IsBisectorOfAngle(DA,CDB)"]
+3;bisector_of_angle_property_line_ratio(1,DA,CDB);IsBisectorOfAngle(DA,CDB)&Collinear(BAC);["Equal(Mul(LengthOfLine(BA),LengthOfLine(DC)),Mul(LengthOfLine(AC),LengthOfLine(DB)))"]
+

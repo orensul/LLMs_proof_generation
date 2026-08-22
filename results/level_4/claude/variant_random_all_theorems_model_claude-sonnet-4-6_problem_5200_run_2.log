@@ -1,0 +1,76 @@
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_chord_perpendicular_bisect_chord(1,O,ME,AP)
+You output the following premises: Cocircular(O,AP)&Collinear(AME)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AMP),90)
+But the correct premises: Cocircular(O,AP)&Collinear(AEP)&IsCentreOfCircle(M,O)&Equal(MeasureOfAngle(AEM),90)
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_chord_perpendicular_bisect_chord(1,O,ME,AP); Cocircular(O,AP)&Collinear(AME)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AMP),90); ["IsPerpendicularBisectorOfLine(ME,AP)"]
+2; circle_property_chord_perpendicular_bisect_chord(1,O,NF,PB); Cocircular(O,PB)&Collinear(PNF)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(PNO),90); ["IsPerpendicularBisectorOfLine(NF,PB)"]
+3; midsegment_of_triangle_judgment_midpoint(1,EF,APB); Polygon(APB)&Collinear(AEP)&Collinear(BFP)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(PE))&Equal(LengthOfLine(BF),LengthOfLine(PF)); ["IsMidsegmentOfTriangle(EF,APB)"]
+4; midsegment_of_triangle_property_length(1,EF,APB); IsMidsegmentOfTriangle(EF,APB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: midsegment_of_triangle_judgment_midpoint(1,EF,APB)
+You output the following premises: Polygon(APB)&Collinear(AEP)&Collinear(BFP)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(PE))&Equal(LengthOfLine(BF),LengthOfLine(PF))
+But the correct premises: Polygon(APB)&Collinear(AEP)&Collinear(AFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(PE))&Equal(LengthOfLine(AF),LengthOfLine(BF))
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_chord_perpendicular_bisect_chord(1,O,OE,AP); Cocircular(O,AP)&Collinear(AEP)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AEO),90); ["IsPerpendicularBisectorOfLine(OE,AP)"]
+2; circle_property_chord_perpendicular_bisect_chord(1,O,OF,PB); Cocircular(O,PB)&Collinear(PFB)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(PFO),90); ["IsPerpendicularBisectorOfLine(OF,PB)"]
+3; perpendicular_bisector_property_distance_equal(1,OE,AP); IsPerpendicularBisectorOfLine(OE,AP); ["Equal(LengthOfLine(OA),LengthOfLine(OP))"]
+4; perpendicular_bisector_property_distance_equal(1,OF,PB); IsPerpendicularBisectorOfLine(OF,PB); ["Equal(LengthOfLine(OP),LengthOfLine(OB))"]
+5; midsegment_of_triangle_judgment_midpoint(1,EF,APB); Polygon(APB)&Collinear(AEP)&Collinear(BFP)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(PE))&Equal(LengthOfLine(BF),LengthOfLine(PF)); ["IsMidsegmentOfTriangle(EF,APB)"]
+6; midsegment_of_triangle_property_length(1,EF,APB); IsMidsegmentOfTriangle(EF,APB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 2
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_chord_perpendicular_bisect_chord(1,O,OE,AP); Cocircular(O,AP)&Collinear(AEP)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AEO),90); ["IsPerpendicularBisectorOfLine(OE,AP)"]
+2; circle_property_chord_perpendicular_bisect_chord(1,O,OF,PB); Cocircular(O,PB)&Collinear(PFB)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(PFO),90); ["IsPerpendicularBisectorOfLine(OF,PB)"]
+3; perpendicular_bisector_property_distance_equal(1,OE,AP); IsPerpendicularBisectorOfLine(OE,AP); ["Equal(LengthOfLine(OA),LengthOfLine(OP))"]
+4; perpendicular_bisector_property_distance_equal(1,OF,PB); IsPerpendicularBisectorOfLine(OF,PB); ["Equal(LengthOfLine(OP),LengthOfLine(OB))"]
+5; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(PEA)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(PE),LengthOfLine(AE))&Equal(LengthOfLine(PF),LengthOfLine(BF)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+6; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 3
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_chord_perpendicular_bisect_chord(1,O,OE,AP); Cocircular(O,AP)&Collinear(AEP)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AEO),90); ["IsPerpendicularBisectorOfLine(OE,AP)"]
+2; circle_property_chord_perpendicular_bisect_chord(1,O,OF,PB); Cocircular(O,PB)&Collinear(PFB)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(PFO),90); ["IsPerpendicularBisectorOfLine(OF,PB)"]
+3; perpendicular_bisector_property_distance_equal(1,OE,AP); IsPerpendicularBisectorOfLine(OE,AP); ["Equal(LengthOfLine(OA),LengthOfLine(OP))"]
+4; perpendicular_bisector_property_distance_equal(1,OF,PB); IsPerpendicularBisectorOfLine(OF,PB); ["Equal(LengthOfLine(OP),LengthOfLine(OB))"]
+5; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(PEA)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(PE),LengthOfLine(AE))&Equal(LengthOfLine(PF),LengthOfLine(BF)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+6; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 4
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_chord_perpendicular_bisect_chord(1,O,OE,AP); Cocircular(O,AP)&Collinear(AEP)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AEO),90); ["IsPerpendicularBisectorOfLine(OE,AP)"]
+2; circle_property_chord_perpendicular_bisect_chord(1,O,OF,PB); Cocircular(O,PB)&Collinear(PFB)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(PFO),90); ["IsPerpendicularBisectorOfLine(OF,PB)"]
+3; perpendicular_bisector_property_distance_equal(1,OE,AP); IsPerpendicularBisectorOfLine(OE,AP); ["Equal(LengthOfLine(OA),LengthOfLine(OP))"]
+4; perpendicular_bisector_property_distance_equal(1,OF,PB); IsPerpendicularBisectorOfLine(OF,PB); ["Equal(LengthOfLine(OP),LengthOfLine(OB))"]
+5; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(PEA)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(PE),LengthOfLine(AE))&Equal(LengthOfLine(PF),LengthOfLine(BF)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+6; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 5
+Total time: 72.100s | per attempt: [30.4, 11.607, 13.901, 9.945, 6.246]
+Content written to results/level_4/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5200_run_2.txt

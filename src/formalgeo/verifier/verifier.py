@@ -49,9 +49,21 @@ def convert_theorem_seqs_format_string(input_str):
     return "\n".join(converted_list)
 
 
+def _normalize_theorem_sequence(text):
+    # When all steps are on one line, split at "] N;" boundaries into separate lines
+    import re as _re
+    text = _re.sub(r'\]\s+(\d+);', r']\n\1;', text)
+    return text
+
+
 def get_processed_model_resp(resp):
     """Process model response and return list of (theorem, premises, conclusions) triplets."""
-    generated_theorem_sequence = resp.split("THEOREM_SEQUENCE:\n")[1] if len(resp.split("THEOREM_SEQUENCE:\n")) > 1 else ""
+    import re as _re
+    # Use \s* (not literal \n) so we match both "THEOREM_SEQUENCE:\n" and "THEOREM_SEQUENCE: " (inline)
+    parts = _re.split(r"THEOREM_SEQUENCE:\s*", resp, maxsplit=1)
+    generated_theorem_sequence = parts[1] if len(parts) > 1 else ""
+    if generated_theorem_sequence:
+        generated_theorem_sequence = _normalize_theorem_sequence(generated_theorem_sequence)
     generated_theorem_sequence = convert_theorem_seqs_format_string(generated_theorem_sequence) if generated_theorem_sequence != "" else ""
     
     if generated_theorem_sequence == "":
@@ -104,7 +116,12 @@ class Verifier:
             return_str = ""
             if model_premises != premises:
                 return_str += f"You output the following premises: {model_premises}\nBut the correct premises: {premises}\n"
-            parsed_model_conclusions = ast.literal_eval(model_conclusions)
+            try:
+                parsed_model_conclusions = ast.literal_eval(model_conclusions)
+            except (SyntaxError, ValueError):
+                return (f"Theorem: {theorem}\nFailure: your conclusions list is not valid syntax: "
+                        f"{model_conclusions}\nPlease output the conclusions as a list of strings, "
+                        f"e.g. [\"Equal(MeasureOfAngle(ABC),90)\"].")
             for i in range(len(conclusions)):
                 conclusions[i] = replace_symbols(conclusions[i], letters)
                 if i >= len(parsed_model_conclusions):

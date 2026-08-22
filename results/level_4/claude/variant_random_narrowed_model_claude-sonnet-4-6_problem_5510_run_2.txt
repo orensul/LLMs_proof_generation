@@ -1,0 +1,354 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, the area of triangle ABC is 65, the area of triangle ABC is Add(AreaOfTriangle(DCA),AreaOfTriangle(DAB)), AB=13, AC=13, ∠CMD=90°, AN is perpendicular to DN. Find the sum of the length of line DN and the length of line DM.
+CONSTRUCTION_CDL:
+Shape(CM,MD,DC)
+Shape(DN,NB,BD)
+Shape(MA,AD,DM)
+Shape(DA,AN,ND)
+Collinear(CDB)
+Collinear(CMA)
+Collinear(BNA)
+TEXT_CDL:
+Equal(AreaOfTriangle(ABC),65)
+Equal(AreaOfTriangle(ABC),Add(AreaOfTriangle(DCA),AreaOfTriangle(DAB)))
+Equal(LengthOfLine(AB),13)
+Equal(LengthOfLine(AC),13)
+Equal(MeasureOfAngle(CMD),90)
+PerpendicularBetweenLine(AN,DN)
+GOAL_CDL:
+Value(Add(LengthOfLine(DN),LengthOfLine(DM)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(MD,DC,CM)
+Shape(DC,CM,MD)
+Shape(NB,BD,DN)
+Shape(BD,DN,NB)
+Shape(AD,DM,MA)
+Shape(DM,MA,AD)
+Shape(AN,ND,DA)
+Shape(ND,DA,AN)
+Shape(DC,CM,MA,AD)
+Shape(CM,MA,AD,DC)
+Shape(MA,AD,DC,CM)
+Shape(AD,DC,CM,MA)
+Shape(NB,BD,DA,AN)
+Shape(BD,DA,AN,NB)
+Shape(DA,AN,NB,BD)
+Shape(AN,NB,BD,DA)
+Shape(DM,MA,AN,ND)
+Shape(MA,AN,ND,DM)
+Shape(AN,ND,DM,MA)
+Shape(ND,DM,MA,AN)
+Shape(DC,CM,MA,AN,ND)
+Shape(CM,MA,AN,ND,DC)
+Shape(MA,AN,ND,DC,CM)
+Shape(AN,ND,DC,CM,MA)
+Shape(ND,DC,CM,MA,AN)
+Shape(NB,BD,DM,MA,AN)
+Shape(BD,DM,MA,AN,NB)
+Shape(DM,MA,AN,NB,BD)
+Shape(MA,AN,NB,BD,DM)
+Shape(AN,NB,BD,DM,MA)
+Shape(DC,CM,MA,AN,NB,BD)
+Shape(CM,MA,AN,NB,BD,DC)
+Shape(MA,AN,NB,BD,DC,CM)
+Shape(AN,NB,BD,DC,CM,MA)
+Shape(NB,BD,DC,CM,MA,AN)
+Shape(BD,DC,CM,MA,AN,NB)
+Collinear(BDC)
+Collinear(AMC)
+Collinear(ANB)
+Point(C)
+Point(B)
+Point(D)
+Point(A)
+Point(M)
+Point(N)
+Line(CB)
+Line(BC)
+Line(CD)
+Line(DC)
+Line(DB)
+Line(BD)
+Line(CA)
+Line(AC)
+Line(CM)
+Line(MC)
+Line(MA)
+Line(AM)
+Line(BA)
+Line(AB)
+Line(BN)
+Line(NB)
+Line(NA)
+Line(AN)
+Line(MD)
+Line(DM)
+Line(DN)
+Line(ND)
+Line(AD)
+Line(DA)
+Angle(CDB)
+Angle(BDC)
+Angle(CMA)
+Angle(AMC)
+Angle(BNA)
+Angle(ANB)
+Angle(CMD)
+Angle(MDC)
+Angle(DCM)
+Angle(DNB)
+Angle(NBD)
+Angle(BDN)
+Angle(MAD)
+Angle(ADM)
+Angle(DMA)
+Angle(DAN)
+Angle(AND)
+Angle(NDA)
+Angle(CAD)
+Angle(ADC)
+Angle(BDA)
+Angle(MAN)
+Angle(NDM)
+Angle(CAN)
+Angle(NDC)
+Angle(BDM)
+Angle(ABD)
+Angle(CDN)
+Angle(MDB)
+Angle(MDN)
+Angle(DCA)
+Angle(BCM)
+Angle(BCA)
+Angle(NBC)
+Angle(ABC)
+Angle(DAB)
+Angle(CAB)
+Angle(MAB)
+Angle(DMC)
+Angle(CDM)
+Angle(MCD)
+Angle(BND)
+Angle(DBN)
+Angle(NDB)
+Angle(DAM)
+Angle(MDA)
+Angle(AMD)
+Angle(NAD)
+Angle(DNA)
+Angle(ADN)
+Angle(DAC)
+Angle(CDA)
+Angle(ADB)
+Angle(NAM)
+Angle(NAC)
+Angle(DBA)
+Angle(ACD)
+Angle(MCB)
+Angle(ACB)
+Angle(CBN)
+Angle(CBA)
+Angle(BAD)
+Angle(BAC)
+Angle(BAM)
+Polygon(CMD)
+Polygon(MDC)
+Polygon(DCM)
+Polygon(DNB)
+Polygon(NBD)
+Polygon(BDN)
+Polygon(MAD)
+Polygon(ADM)
+Polygon(DMA)
+Polygon(DAN)
+Polygon(AND)
+Polygon(NDA)
+Polygon(DCA)
+Polygon(CAD)
+Polygon(ADC)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABD)
+Polygon(DMAN)
+Polygon(MAND)
+Polygon(ANDM)
+Polygon(NDMA)
+Polygon(DCAN)
+Polygon(CAND)
+Polygon(ANDC)
+Polygon(NDCA)
+Polygon(BDMA)
+Polygon(DMAB)
+Polygon(MABD)
+Polygon(ABDM)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(BCA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully work out the correct theorem conclusions.
+
+The theorem `triangle_area_formula_sine(ABC)` gives:
+`Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))`
+
+The pattern is: for triangle XYZ, it gives `LengthOfLine(XY)`, `LengthOfLine(XZ)`, `Sin(MeasureOfAngle(ZXY))` - the two sides from first vertex and angle at first vertex.
+
+So:
+- `triangle_area_formula_sine(ADC)` → `Mul(LengthOfLine(AD),LengthOfLine(AC),Sin(MeasureOfAngle(CAD)),1/2)` ✓ (confirmed by verifier)
+- `triangle_area_formula_sine(ABD)` → `Mul(LengthOfLine(AB),LengthOfLine(AD),Sin(MeasureOfAngle(DAB)),1/2)`
+- `triangle_area_formula_sine(AND)` → `Mul(LengthOfLine(AN),LengthOfLine(AD),Sin(MeasureOfAngle(DAN)),1/2)`
+- `triangle_area_formula_sine(CMD)` → `Mul(LengthOfLine(CM),LengthOfLine(CD),Sin(MeasureOfAngle(DCM)),1/2)`
+
+The strategy: Area(ADC) uses AC and AD with sin(∠CAD). Area(ABD) uses AB and AD with sin(∠DAB). Since ∠CAD = ∠DAB (same angle), and AC=AB=13, Area(ADC)/Area(ABD) = AC/AB = 1, but I need DN and DM.
+
+For AND: sin(∠DAN)=DN/AD (right angle at N), so Area(AND)=(1/2)·AN·AD·(DN/AD)=(1/2)·AN·DN
+For CMD: sin(∠DCM)=DM/CD... 
+
+Key: Area(ABD)=(1/2)·AB·AD·sin(∠DAB) and Area(AND)=(1/2)·AN·AD·sin(∠DAN). Since ∠DAB=∠DAN, ratio gives Area(ABD)/Area(AND)=AB/AN. Also Area(AND)=(1/2)·AN·DN (right angle). So Area(ABD)=(1/2)·AB·DN. Similarly Area(ADC)=(1/2)·AC·DM.
+
+EQUATIONS: area_abc-65, ll_ab-13, ll_ac-13, ma_cmd-90, ma_and-90
+
+GOAL_SYMBOL: Add(LengthOfLine(DN),LengthOfLine(DM))
+
+ANSWER: 10
+
+THEOREM_SEQUENCE:
+1; triangle_area_formula_sine(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))"]
+2; triangle_area_formula_sine(1,ADC); Polygon(ADC); ["Equal(AreaOfTriangle(ADC),Mul(LengthOfLine(AD),LengthOfLine(AC),Sin(MeasureOfAngle(CAD)),1/2))"]
+3; triangle_area_formula_sine(1,ABD); Polygon(ABD); ["Equal(AreaOfTriangle(ABD),Mul(LengthOfLine(AB),LengthOfLine(AD),Sin(MeasureOfAngle(DAB)),1/2))"]
+4; triangle_area_formula_sine(1,AND); Polygon(AND); ["Equal(AreaOfTriangle(AND),Mul(LengthOfLine(AN),LengthOfLine(AD),Sin(MeasureOfAngle(DAN)),1/2))"]
+5; triangle_area_formula_sine(1,CMD); Polygon(CMD); ["Equal(AreaOfTriangle(CMD),Mul(LengthOfLine(CM),LengthOfLine(CD),Sin(MeasureOfAngle(DCM)),1/2))"]
+6; triangle_area_formula_sine(1,ADM); Polygon(ADM); ["Equal(AreaOfTriangle(ADM),Mul(LengthOfLine(AD),LengthOfLine(AM),Sin(MeasureOfAngle(MAD)),1/2))"]
+7; triangle_area_formula_sine(1,BDN); Polygon(BDN); ["Equal(AreaOfTriangle(BDN),Mul(LengthOfLine(BD),LengthOfLine(BN),Sin(MeasureOfAngle(NBD)),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: triangle_area_formula_sine(1,DAB)
+You output the following conclusions: Equal(AreaOfTriangle(DAB),Mul(LengthOfLine(DA),LengthOfLine(AB),Sin(MeasureOfAngle(DAB)),1/2))
+But the correct conclusions: Equal(AreaOfTriangle(DAB),Mul(LengthOfLine(DA),LengthOfLine(DB),Sin(MeasureOfAngle(BDA)),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_sine(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(LengthOfLine(DA),LengthOfLine(AB),Sin(MeasureOfAngle(DAB)),1/2))"]
+2; triangle_area_formula_sine(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(LengthOfLine(DC),LengthOfLine(CA),Sin(MeasureOfAngle(DCA)),1/2))"]
+3; triangle_area_formula_sine(1,CMD); Polygon(CMD); ["Equal(AreaOfTriangle(CMD),Mul(LengthOfLine(CM),LengthOfLine(MD),Sin(MeasureOfAngle(CMD)),1/2))"]
+4; triangle_area_formula_sine(1,DAN); Polygon(DAN); ["Equal(AreaOfTriangle(DAN),Mul(LengthOfLine(DA),LengthOfLine(AN),Sin(MeasureOfAngle(DAN)),1/2))"]
+5; triangle_area_formula_sine(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))"]
+6; triangle_area_formula_sine(1,AND); Polygon(AND); ["Equal(AreaOfTriangle(AND),Mul(LengthOfLine(AN),LengthOfLine(ND),Sin(MeasureOfAngle(AND)),1/2))"]
+
+EQUATIONS: area_abc-65, ll_ab-13, ll_ac-13, ma_cmd-90, ma_and-90
+GOAL_SYMBOL: Add(LengthOfLine(DN),LengthOfLine(DM))
+#run: 2; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_sine(1,AND); Polygon(AND); ["Equal(AreaOfTriangle(AND),Mul(LengthOfLine(AN),LengthOfLine(AD),Sin(MeasureOfAngle(DAN)),1/2))"]
+2; triangle_area_formula_sine(1,CMD); Polygon(CMD); ["Equal(AreaOfTriangle(CMD),Mul(LengthOfLine(CM),LengthOfLine(CD),Sin(MeasureOfAngle(DCM)),1/2))"]
+3; triangle_area_formula_sine(1,ABD); Polygon(ABD); ["Equal(AreaOfTriangle(ABD),Mul(LengthOfLine(AB),LengthOfLine(AD),Sin(MeasureOfAngle(DAB)),1/2))"]
+4; triangle_area_formula_sine(1,CAD); Polygon(CAD); ["Equal(AreaOfTriangle(CAD),Mul(LengthOfLine(CA),LengthOfLine(CD),Sin(MeasureOfAngle(DCA)),1/2))"]
+5; triangle_area_formula_sine(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: triangle_area_formula_sine(1,CAD);Polygon(CAD);['Equal(AreaOfTriangle(CAD),Mul(LengthOfLine(CA),LengthOfLine(CD),Sin(MeasureOfAngle(DCA)),1/2))']
+Missing premise: Solver unsat when evaluating angle for triangle_area_formula_sine
+- Available premises:
+  Perpendicular Lines: AN ⊥ DN
+  Collinear Points: AMC, ANB, BDC
+  Polygons: ABC, ABD, ABDM, ADC, ADM, AND, ANDC, ANDM, BDMA, BDN, CAND, CMD, DCAN, DMAB, DMAN, MABD, MAND, NDCA, NDMA
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_sine(1,CMD); Polygon(CMD); ["Equal(AreaOfTriangle(CMD),Mul(LengthOfLine(CM),LengthOfLine(CD),Sin(MeasureOfAngle(DCM)),1/2))"]
+2; triangle_area_formula_sine(1,AND); Polygon(AND); ["Equal(AreaOfTriangle(AND),Mul(LengthOfLine(AN),LengthOfLine(AD),Sin(MeasureOfAngle(DAN)),1/2))"]
+3; triangle_area_formula_sine(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(LengthOfLine(DC),LengthOfLine(DA),Sin(MeasureOfAngle(ADC)),1/2))"]
+4; triangle_area_formula_sine(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(LengthOfLine(DA),LengthOfLine(DB),Sin(MeasureOfAngle(BDA)),1/2))"]
+5; triangle_area_formula_sine(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))"]
+6; triangle_area_formula_sine(1,CAD); Polygon(CAD); ["Equal(AreaOfTriangle(CAD),Mul(LengthOfLine(CA),LengthOfLine(CD),Sin(MeasureOfAngle(DCA)),1/2))"]
+7; triangle_area_formula_sine(1,ABD); Polygon(ABD); ["Equal(AreaOfTriangle(ABD),Mul(LengthOfLine(AB),LengthOfLine(AD),Sin(MeasureOfAngle(DAB)),1/2))"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: triangle_area_formula_sine(1,ADC)
+You output the following conclusions: Equal(AreaOfTriangle(ADC),Mul(LengthOfLine(AD),LengthOfLine(DC),Sin(MeasureOfAngle(CDA)),1/2))
+But the correct conclusions: Equal(AreaOfTriangle(ADC),Mul(LengthOfLine(AD),LengthOfLine(AC),Sin(MeasureOfAngle(CAD)),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_sine(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))"]
+2; triangle_area_formula_sine(1,ADC); Polygon(ADC); ["Equal(AreaOfTriangle(ADC),Mul(LengthOfLine(AD),LengthOfLine(DC),Sin(MeasureOfAngle(CDA)),1/2))"]
+3; triangle_area_formula_sine(1,ABD); Polygon(ABD); ["Equal(AreaOfTriangle(ABD),Mul(LengthOfLine(AB),LengthOfLine(AD),Sin(MeasureOfAngle(DAB)),1/2))"]
+4; triangle_area_formula_sine(1,ADM); Polygon(ADM); ["Equal(AreaOfTriangle(ADM),Mul(LengthOfLine(AD),LengthOfLine(DM),Sin(MeasureOfAngle(MDA)),1/2))"]
+5; triangle_area_formula_sine(1,AND); Polygon(AND); ["Equal(AreaOfTriangle(AND),Mul(LengthOfLine(AN),LengthOfLine(ND),Sin(MeasureOfAngle(DNA)),1/2))"]
+6; triangle_area_formula_sine(1,CMD); Polygon(CMD); ["Equal(AreaOfTriangle(CMD),Mul(LengthOfLine(CM),LengthOfLine(MD),Sin(MeasureOfAngle(DMC)),1/2))"]
+7; triangle_area_formula_sine(1,BDN); Polygon(BDN); ["Equal(AreaOfTriangle(BDN),Mul(LengthOfLine(BD),LengthOfLine(DN),Sin(MeasureOfAngle(NDB)),1/2))"]
+#run: 2; #retry: 5; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: triangle_area_formula_sine(1,ADC);Polygon(ADC);['Equal(AreaOfTriangle(ADC),Mul(LengthOfLine(AD),LengthOfLine(AC),Sin(MeasureOfAngle(CAD)),1/2))']
+Missing premise: Solver unsat when evaluating angle for triangle_area_formula_sine
+- Available premises:
+  Perpendicular Lines: AN ⊥ DN
+  Collinear Points: AMC, ANB, BDC
+  Polygons: ABC, ABD, ABDM, ADC, ADM, AND, ANDC, ANDM, BDMA, BDN, CAND, CMD, DCAN, DMAB, DMAN, MABD, MAND, NDCA, NDMA
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  None found
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_sine(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(LengthOfLine(AB),LengthOfLine(AC),Sin(MeasureOfAngle(CAB)),1/2))"]
+2; triangle_area_formula_sine(1,ADC); Polygon(ADC); ["Equal(AreaOfTriangle(ADC),Mul(LengthOfLine(AD),LengthOfLine(AC),Sin(MeasureOfAngle(CAD)),1/2))"]
+3; triangle_area_formula_sine(1,ABD); Polygon(ABD); ["Equal(AreaOfTriangle(ABD),Mul(LengthOfLine(AB),LengthOfLine(AD),Sin(MeasureOfAngle(DAB)),1/2))"]
+4; triangle_area_formula_sine(1,AND); Polygon(AND); ["Equal(AreaOfTriangle(AND),Mul(LengthOfLine(AN),LengthOfLine(AD),Sin(MeasureOfAngle(DAN)),1/2))"]
+5; triangle_area_formula_sine(1,CMD); Polygon(CMD); ["Equal(AreaOfTriangle(CMD),Mul(LengthOfLine(CM),LengthOfLine(CD),Sin(MeasureOfAngle(DCM)),1/2))"]
+6; triangle_area_formula_sine(1,ADM); Polygon(ADM); ["Equal(AreaOfTriangle(ADM),Mul(LengthOfLine(AD),LengthOfLine(AM),Sin(MeasureOfAngle(MAD)),1/2))"]
+7; triangle_area_formula_sine(1,BDN); Polygon(BDN); ["Equal(AreaOfTriangle(BDN),Mul(LengthOfLine(BD),LengthOfLine(BN),Sin(MeasureOfAngle(NBD)),1/2))"]
+#RETRIES:
+5
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+at_abc-65
+at_abc-at_dab-at_dca
+ll_ab-13
+ll_ac-13
+ma_cmd-90
+ma_and-90
+GT_GOAL_SYMBOL:
+ll_dm+ll_dn
+GT_ANSWER:
+10
+GT_THEOREM_SEQUENCE:
+1;altitude_of_triangle_judgment(1,DN,DAB);Polygon(DAB)&Line(DN)&Collinear(ANB)&Equal(MeasureOfAngle(AND),90);["IsAltitudeOfTriangle(DN,DAB)"]
+2;altitude_of_triangle_judgment(1,DM,DCA);Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(CMD),90);["IsAltitudeOfTriangle(DM,DCA)"]
+3;triangle_area_formula_common(1,DCA);Polygon(DCA);["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+4;triangle_area_formula_common(1,DAB);Polygon(DAB);["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+

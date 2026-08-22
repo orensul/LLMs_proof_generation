@@ -1,0 +1,150 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BA=h, CA=3, ∠BAC=45°, AC⊥BC. Find the value of h.
+CONSTRUCTION_CDL:
+Shape(CB,BA,AC)
+TEXT_CDL:
+Equal(LengthOfLine(BA),h)
+Equal(LengthOfLine(CA),3)
+Equal(MeasureOfAngle(BAC),45)
+PerpendicularBetweenLine(AC,BC)
+GOAL_CDL:
+Value(h)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,AC,CB)
+Shape(AC,CB,BA)
+Point(C)
+Point(B)
+Point(A)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Angle(CBA)
+Angle(BAC)
+Angle(ACB)
+Angle(ABC)
+Angle(CAB)
+Angle(BCA)
+Polygon(CBA)
+Polygon(BAC)
+Polygon(ACB)
+SYMBOLS_AND_VALUES:
+LengthOfLine(AB);ll_ab;15
+LengthOfLine(BA);ll_ab;15
+LengthOfLine(BC);ll_bc;None
+LengthOfLine(CB);ll_bc;None
+Free(h);h;None
+MeasureOfAngle(CAB);ma_cab;45
+MeasureOfAngle(BCA);ma_bca;90
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find h = BA, given CA = 3, ∠BAC = 45°, and AC ⊥ BC (meaning ∠ACB = 90°).
+
+Let me analyze the problem:
+- Triangle with vertices C, B, A
+- BA = h (what we want to find)
+- CA = 3
+- ∠BAC = 45°
+- AC ⊥ BC means ∠ACB = 90° (or ∠BCA = 90°)
+
+Looking at the SYMBOLS_AND_VALUES:
+- MeasureOfAngle(BCA) = 90 (right angle at C)
+- MeasureOfAngle(CAB) = 45
+
+So we have a right triangle with the right angle at C, ∠BAC = 45°, CA = 3, BA = h.
+
+Using sine theorem on triangle ACB (or BAC):
+- In triangle BAC: sin(∠BAC) = BC/BA, sin(∠BCA) = BA... 
+
+Wait, let me use the sine theorem properly. We want BA in terms of CA.
+
+In triangle ACB with ∠BCA = 90°:
+- sin(∠BAC) = BC/BA (opposite/hypotenuse)
+- cos(∠BAC) = CA/BA
+
+So BA = CA/cos(45°) = 3/(√2/2) = 3√2.
+
+Alternatively using sine theorem:
+BA/sin(∠BCA) = CA/sin(∠CBA)
+
+Or more directly: sin(∠BAC) = opposite/hypotenuse in right triangle... 
+
+Actually: In right triangle at C:
+- ∠BCA = 90°
+- ∠BAC = 45°, so ∠CBA = 45°
+- CA/BA = sin(∠CBA) = sin(45°)... 
+
+Wait: CA is adjacent to ∠BAC, BA is the hypotenuse.
+cos(∠BAC) = CA/BA → BA = CA/cos(45°) = 3/(√2/2) = 3√2.
+
+Using sine theorem: BA/sin(∠BCA) = CA/sin(∠ABC)
+We need to find ∠ABC first using angle sum.
+
+Looking at the analogous problems, particularly A5:
+- sine_theorem(1,BCA) was used with polygon BCA
+
+For Problem B, I'll use the polygon ACB (or BAC). 
+
+Let me use the approach from A4/A5:
+1. First use triangle_property_angle_sum to find the third angle
+2. Then use sine_theorem
+
+For polygon ACB: angles are ∠ACB, ∠CBA, ∠BAC
+∠BCA = 90°, ∠BAC = 45°, so ∠CBA = 45°
+
+Then sine theorem on triangle BAC:
+BA/sin(∠BCA) = CA/sin(∠CBA)
+
+So: BA × sin(∠CBA) = CA × sin(∠BCA) ... no.
+
+Sine theorem: BA/sin(∠BCA) = CA/sin(∠CBA)
+
+Using the format from the examples: sine_theorem(1,ACB) gives:
+Equal(Mul(LengthOfLine(AC), Sin(MeasureOfAngle(ACB))), Mul(LengthOfLine(AB), Sin(MeasureOfAngle(CBA))))
+
+That gives: CA × sin(90°) = BA × sin(45°)
+3 × 1 = h × (√2/2)
+h = 3√2 ✓
+
+EQUATIONS:
+-h+ll_ab
+ll_ca-3
+ma_bac-45
+ma_bca-90
+
+GOAL_SYMBOL:
+h
+
+ANSWER:
+3*sqrt(2)
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ACB); Polygon(ACB); ["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(CBA),MeasureOfAngle(BAC)),180)"]
+2; sine_theorem(1,ACB); Polygon(ACB); ["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+-h+ll_ba
+ll_ca-3
+ma_bac-45
+ma_acb-90
+GT_GOAL_SYMBOL:
+h
+GT_ANSWER:
+3*sqrt(2)
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,ACB);Polygon(ACB);["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(CBA),MeasureOfAngle(BAC)),180)"]
+2;sine_theorem(1,ACB);Polygon(ACB);["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+

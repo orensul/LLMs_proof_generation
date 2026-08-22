@@ -1,0 +1,36 @@
+Content written to results/level_1/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,JAE,EAL)
+You output the following premises: Collinear(LAE)&Angle(JAE)&Angle(EAL)
+But the correct premises: Collinear(JAL)&Angle(JAE)&Angle(EAL)
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(ABH)),180)"]
+2; adjacent_complementary_angle(1,JAE,EAL); Collinear(LAE)&Angle(JAE)&Angle(EAL); ["Equal(Add(MeasureOfAngle(JAE),MeasureOfAngle(EAL)),180)"]
+3; flat_angle(1,LAB); Collinear(LAB); ["Equal(MeasureOfAngle(LAB),180)"]
+4; angle_addition(1,LAJ,JAB); Angle(LAJ)&Angle(JAB)&Angle(LAB); ["Equal(MeasureOfAngle(LAB),Add(MeasureOfAngle(LAJ),MeasureOfAngle(JAB)))"]
+5; adjacent_complementary_angle(1,LAJ,JAE); Collinear(LAE)&Angle(LAJ)&Angle(JAE); ["Equal(Add(MeasureOfAngle(LAJ),MeasureOfAngle(JAE)),180)"]
+Retry attempt: 1
+Content written to results/level_1/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_2624_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,LAJ,JAE)
+You output the following premises: Collinear(JAL)&Angle(LAJ)&Angle(JAE)
+But the correct premises: Collinear(LAE)&Angle(LAJ)&Angle(JAE)
+
+Model Answer:
+RETRY_ANSWER:
+25
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_ipsilateral_internal_angle(1,AJ,BH); ParallelBetweenLine(AJ,BH)&Line(AB); ["Equal(Add(MeasureOfAngle(JAB),MeasureOfAngle(ABH)),180)"]
+2; adjacent_complementary_angle(1,JAE,EAL); Collinear(JAL)&Angle(JAE)&Angle(EAL); ["Equal(Add(MeasureOfAngle(JAE),MeasureOfAngle(EAL)),180)"]
+3; flat_angle(1,LAB); Collinear(LAB); ["Equal(MeasureOfAngle(LAB),180)"]
+4; angle_addition(1,LAJ,JAB); Angle(LAJ)&Angle(JAB)&Angle(LAB); ["Equal(MeasureOfAngle(LAB),Add(MeasureOfAngle(LAJ),MeasureOfAngle(JAB)))"]
+5; adjacent_complementary_angle(1,LAJ,JAE); Collinear(JAL)&Angle(LAJ)&Angle(JAE); ["Equal(Add(MeasureOfAngle(LAJ),MeasureOfAngle(JAE)),180)"]
+Retry attempt: 2
+Content written to results/level_1/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_2624_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 45.293s | per attempt: [23.242, 12.667, 9.383]
+Content written to results/level_1/claude/variant_analogy_based_all_theorems_model_claude-sonnet-4-6_problem_2624_run_0.txt

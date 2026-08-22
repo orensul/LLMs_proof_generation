@@ -1,0 +1,52 @@
+
+
+\subsection*{General Limitations.}
+\begin{itemize}
+\item \textbf{Generalization beyond geometry.}
+Our experiments focus on Euclidean geometry, and results may differ in other formal domains, which may involve different proof structures, theorem types, or symbolic representations.
+While our pipeline is designed to be adaptable to any domain that supports SMT-based verification, further evaluation is needed to confirm its effectiveness beyond geometry.
+\end{itemize}
+
+
+
+\subsection*{Analogy Retrieval Limitations.}
+
+\begin{itemize}
+
+    \item \textbf{Abstraction schema for analogy retrieval.} 
+    We use a simple abstraction method that replaces entity names and numbers with placeholders. 
+    While effective in many cases, this schema may miss deeper structural nuances or semantic relationships, leading to suboptimal or misleading analogies. 
+\end{itemize}
+
+    
+
+
+\subsection*{Verifier Limitations.}
+
+\begin{itemize}
+    \item \textbf{No support for inverse trigonometric.}
+    A key limitation of our verification system is that the Z3 theorem prover does not support inverse trigonometric functions. While we implemented workarounds for direct functions such as sine and cosine, the system cannot verify cases requiring inverse operations (e.g., computing $\theta$ from $\cos(\theta) = 0.5$). This limits our ability to validate proofs where angle measures must be derived from trigonometric values. Future work could address this by integrating custom decision procedures for inverse trigonometric reasoning.
+\end{itemize}
+
+\subsection*{LLM Limitations.}
+
+\begin{itemize}
+  \item \textbf{No access to diagrams.}
+  Our LLM uses only formal and textual descriptions, without visual inputs.
+  Although our dataset includes rich symbolic annotations, covering geometric entities, relationships, constructions, and extended conditions, some errors arise due to the system's lack of access to visual diagrams. For instance, when reasoning about arcs, the model may incorrectly infer that $\mathrm{BOD} + \mathrm{BOA} = \mathrm{AOD}$ instead of the correct relation $\mathrm{BOD} = \mathrm{BOA} + \mathrm{AOD}$. 
+  Such mistakes are less frequent in  reasoning about line, where properties like collinearity are explicitly annotated. In some cases, ambiguity in notation further complicates interpretation; for example, the angle name $\angle DOB$ could refer to the angle itself or its complement, depending on context.
+  
+  On the other hand, we note that a recent work \cite{zhang2024mathverse} has shown that multimodal LLMs often struggle with the visual aspects of math problems, often performing better without the images.
+
+
+    
+
+% However, recent research suggests that visual inputs may not substantially improve model performance in mathematical domains. The \textsc{MathVerse} benchmark~\cite{mathverse2024}—a comprehensive evaluation suite for multimodal large language models (MLLMs) on visual math problems—shows that many MLLMs actually perform better \emph{without} visual inputs. This result highlights current limitations in vision-language models’ ability to parse and reason over diagrams.
+
+% Given that our dataset includes expressive and structured formal annotations for each problem, we determined that the marginal contribution of visual information would be minimal. Consequently, we focused on building a strong text-only LLM capable of reasoning over these formal representations.
+
+    % \item \textbf{Closed LLM Dependency.} While properitary models deliver strong performance and is widely adopted, its architecture, training data, and training methodology are proprietary. It is also subject to deprecation or access restrictions, limiting transparency and long-term reliability.
+
+    \item \textbf{LLMs are sensitive to prompt phrasing.}
+    LLMs are sometimes sensitive to small changes to the prompts.
+\end{itemize}

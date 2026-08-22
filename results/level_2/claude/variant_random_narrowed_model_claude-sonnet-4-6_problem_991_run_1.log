@@ -1,0 +1,20 @@
+[Attempt 1] Anthropic API error 400: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcrRJ8JTQK7ijvgiYMwtB'}
+Retrying in 1 seconds...
+[Attempt 2] Anthropic API error 400: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcrRJECAY8MurTbEVvsHG'}
+Retrying in 2 seconds...
+[Attempt 3] Anthropic API error 400: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcrRJPk9RQVCk7WgwjaLe'}
+Retrying in 4 seconds...
+[Attempt 4] Anthropic API error 400: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcrRJiJbpB5bAuXPqRmb2'}
+Retrying in 8 seconds...
+[Attempt 5] Anthropic API error 400: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcrRKKnnyFJDU2v7JjZ6B'}
+Retrying in 16 seconds...
+Traceback (most recent call last):
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_claude_analogy_based_solver.py", line 539, in run
+    messages, problem2_resp, verifier_result, retries_messages = generate_and_verify(args,
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_claude_analogy_based_solver.py", line 345, in generate_and_verify
+    resp = claude_response(messages, args.model_name, args.api_key)
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_claude_analogy_based_solver.py", line 162, in claude_response
+    return call_claude(model=model_name, messages=messages, api_key=api_key)
+  File "/Users/orensultan/PycharmProjects/LLMs_proof_generation/src/formalgeo/LLM_claude_analogy_based_solver.py", line 157, in call_claude
+    raise RuntimeError(f"call_claude failed after {max_retries} retries.")
+RuntimeError: call_claude failed after 5 retries.

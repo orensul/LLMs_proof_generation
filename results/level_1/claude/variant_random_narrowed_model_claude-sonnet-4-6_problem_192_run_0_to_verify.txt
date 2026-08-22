@@ -1,0 +1,287 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠SRU=23°, the measure of arc BVT is 68. Find the measure of arc BSU.
+CONSTRUCTION_CDL:
+Shape(SR,RU,BSU)
+Shape(ST,BTS)
+Shape(BSU,UV,BVT,TS)
+Shape(BUV,VU)
+Collinear(RST)
+Collinear(RUV)
+Cocircular(B,SUVT)
+TEXT_CDL:
+Equal(MeasureOfAngle(SRU),23)
+Equal(MeasureOfArc(BVT),68)
+GOAL_CDL:
+Value(MeasureOfArc(BSU))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(RU,BSU,SR)
+Shape(BSU,SR,RU)
+Shape(BTS,ST)
+Shape(UV,BVT,TS,BSU)
+Shape(BVT,TS,BSU,UV)
+Shape(TS,BSU,UV,BVT)
+Shape(VU,BUV)
+Shape(SR,RU,UV,BVT,TS)
+Shape(RU,UV,BVT,TS,SR)
+Shape(UV,BVT,TS,SR,RU)
+Shape(BVT,TS,SR,RU,UV)
+Shape(TS,SR,RU,UV,BVT)
+Shape(BTS,BSU,UV,BVT)
+Shape(BSU,UV,BVT,BTS)
+Shape(UV,BVT,BTS,BSU)
+Shape(BVT,BTS,BSU,UV)
+Shape(BVT,TS,BSU,BUV)
+Shape(TS,BSU,BUV,BVT)
+Shape(BSU,BUV,BVT,TS)
+Shape(BUV,BVT,TS,BSU)
+Shape(SR,RU,UV,BVT,BTS)
+Shape(RU,UV,BVT,BTS,SR)
+Shape(UV,BVT,BTS,SR,RU)
+Shape(BVT,BTS,SR,RU,UV)
+Shape(BTS,SR,RU,UV,BVT)
+Shape(SR,RU,BUV,BVT,TS)
+Shape(RU,BUV,BVT,TS,SR)
+Shape(BUV,BVT,TS,SR,RU)
+Shape(BVT,TS,SR,RU,BUV)
+Shape(TS,SR,RU,BUV,BVT)
+Shape(BTS,BSU,BUV,BVT)
+Shape(BSU,BUV,BVT,BTS)
+Shape(BUV,BVT,BTS,BSU)
+Shape(BVT,BTS,BSU,BUV)
+Shape(SR,RU,BUV,BVT,BTS)
+Shape(RU,BUV,BVT,BTS,SR)
+Shape(BUV,BVT,BTS,SR,RU)
+Shape(BVT,BTS,SR,RU,BUV)
+Shape(BTS,SR,RU,BUV,BVT)
+Collinear(TSR)
+Collinear(VUR)
+Cocircular(B,S)
+Cocircular(B,U)
+Cocircular(B,V)
+Cocircular(B,T)
+Cocircular(B,SU)
+Cocircular(B,US)
+Cocircular(B,SV)
+Cocircular(B,VS)
+Cocircular(B,ST)
+Cocircular(B,TS)
+Cocircular(B,UV)
+Cocircular(B,VU)
+Cocircular(B,UT)
+Cocircular(B,TU)
+Cocircular(B,VT)
+Cocircular(B,TV)
+Cocircular(B,SUV)
+Cocircular(B,UVS)
+Cocircular(B,VSU)
+Cocircular(B,SUT)
+Cocircular(B,UTS)
+Cocircular(B,TSU)
+Cocircular(B,SVT)
+Cocircular(B,VTS)
+Cocircular(B,TSV)
+Cocircular(B,UVT)
+Cocircular(B,VTU)
+Cocircular(B,TUV)
+Cocircular(B,UVTS)
+Cocircular(B,VTSU)
+Cocircular(B,TSUV)
+Point(R)
+Point(T)
+Point(S)
+Point(V)
+Point(U)
+Line(RT)
+Line(TR)
+Line(RS)
+Line(SR)
+Line(ST)
+Line(TS)
+Line(RV)
+Line(VR)
+Line(RU)
+Line(UR)
+Line(UV)
+Line(VU)
+Arc(BSU)
+Arc(BUS)
+Arc(BSV)
+Arc(BVS)
+Arc(BST)
+Arc(BTS)
+Arc(BUV)
+Arc(BVU)
+Arc(BUT)
+Arc(BTU)
+Arc(BVT)
+Arc(BTV)
+Angle(RST)
+Angle(TSR)
+Angle(RUV)
+Angle(VUR)
+Angle(SRU)
+Angle(SRV)
+Angle(TRU)
+Angle(TRV)
+Angle(URS)
+Angle(VRS)
+Angle(URT)
+Angle(VRT)
+Circle(B)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me analyze carefully. Known collinear facts are RST and RUV. I need to use these exact collinear facts.
+
+For adjacent_complementary_angle, the premise needs `Collinear(AOC)` where A, O, C are collinear. 
+
+From Collinear(RST): I can use angles at S on line RST. The vertex S is between R and T.
+- `Collinear(RST)&Angle(RSU)&Angle(UST)` → angles RSU and UST at vertex S... but the format is AOB,BOC with Collinear(AOC).
+
+Wait - looking at the theorem format: `adjacent_complementary_angle(AOB,BOC)` premise: `Collinear(AOC)&Angle(AOB)&Angle(BOC)`.
+
+So AOC must be collinear. From RST collinear, if I use A=R, O=S, C=T: Collinear(RST), angles RSU and UST where B=U.
+
+So: `adjacent_complementary_angle(RSU,UST)` with premise `Collinear(RST)&Angle(RSU)&Angle(UST)`.
+
+From RUV collinear, A=R, O=U, C=V: angles RUS and SUV where B=S.
+`adjacent_complementary_angle(RUS,SUV)` with premise `Collinear(RUV)&Angle(RUS)&Angle(SUV)`.
+
+And ∠UTS from step 1 = (1/2)arc BSU, ∠TUV from step 2 = (1/2)arc BVT.
+
+I need to connect ∠UTS to ∠UST - these are different angles. ∠UTS is at vertex T, ∠UST is at vertex S.
+
+Let me use triangle RSU: angles are ∠URS=∠SRU=23°, ∠RSU, ∠RUS.
+∠RSU + ∠RUS = 180° - 23° = 157°.
+
+∠RSU = 180° - ∠UST (from adjacent angles on line RST at S).
+∠RUS = 180° - ∠SUV (from adjacent angles on line RUV at U).
+
+∠UST is inscribed angle subtending arc BVT (arc not containing S, going from T to U... wait).
+
+Actually ∠UTS subtends arc BSU (step 1). And in triangle STU, ∠TUS subtends arc BTS.
+
+Let me try using ∠SUV as inscribed angle subtending arc BST, and relate things via triangle.
+
+EQUATIONS:
+ma_sru - 23
+ma_bvt - 68
+ma_bsu - (68 - 2*23)
+
+GOAL_SYMBOL:
+MeasureOfArc(BSU)
+
+ANSWER:
+22
+
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; adjacent_complementary_angle(1,RSU,UST); Collinear(RST)&Angle(RSU)&Angle(UST); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(UST)),180)"]
+4; adjacent_complementary_angle(1,RUS,SUV); Collinear(RUV)&Angle(RUS)&Angle(SUV); ["Equal(Add(MeasureOfAngle(RUS),MeasureOfAngle(SUV)),180)"]
+5; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+6; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+7; vertical_angle(1,UTS,RSV); Collinear(RST)&Collinear(USV)&Angle(UTS)&Angle(RSV); ["Equal(MeasureOfAngle(UTS),MeasureOfAngle(RSV))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,BSU,BVT)
+You output the following premises: Arc(BSU)&Arc(BVT)&Arc(BST)
+But the correct premises: Arc(BSV)&Arc(BVT)&Arc(BST)
+You output the following conclusions: Equal(MeasureOfArc(BST),Add(MeasureOfArc(BSU),MeasureOfArc(BVT)))
+But the correct conclusions: Equal(MeasureOfArc(BST),Add(MeasureOfArc(BSV),MeasureOfArc(BVT)))
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_addition_measure(1,BSU,BVT); Arc(BSU)&Arc(BVT)&Arc(BST); ["Equal(MeasureOfArc(BST),Add(MeasureOfArc(BSU),MeasureOfArc(BVT)))"]
+2; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+3; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+4; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+5; flat_angle(1,RST); Collinear(RST); ["Equal(MeasureOfAngle(RST),180)"]
+6; flat_angle(1,RUV); Collinear(RUV); ["Equal(MeasureOfAngle(RUV),180)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,UTS,STR)
+You output the following premises: Collinear(RUV)&Angle(UTS)&Angle(STR)
+But the correct premises: Collinear(UTR)&Angle(UTS)&Angle(STR)
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; flat_angle(1,RST); Collinear(RST); ["Equal(MeasureOfAngle(RST),180)"]
+4; flat_angle(1,VUR); Collinear(VUR); ["Equal(MeasureOfAngle(VUR),180)"]
+5; adjacent_complementary_angle(1,UTS,STR); Collinear(RUV)&Angle(UTS)&Angle(STR); ["Equal(Add(MeasureOfAngle(UTS),MeasureOfAngle(STR)),180)"]
+6; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+7; adjacent_complementary_angle(1,SUT,TUV); Collinear(RUV)&Angle(SUT)&Angle(TUV); ["Equal(Add(MeasureOfAngle(SUT),MeasureOfAngle(TUV)),180)"]
+8; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,UTS,TSR)
+You output the following premises: Collinear(UTR)&Angle(UTS)&Angle(TSR)
+But the correct premises: Collinear(USR)&Angle(UST)&Angle(TSR)
+You output the following conclusions: Equal(Add(MeasureOfAngle(UTS),MeasureOfAngle(TSR)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(UST),MeasureOfAngle(TSR)),180)
+
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+3; adjacent_complementary_angle(1,UTS,TSR); Collinear(UTR)&Angle(UTS)&Angle(TSR); ["Equal(Add(MeasureOfAngle(UTS),MeasureOfAngle(TSR)),180)"]
+4; adjacent_complementary_angle(1,TUV,VUR); Collinear(TUR)&Angle(TUV)&Angle(VUR); ["Equal(Add(MeasureOfAngle(TUV),MeasureOfAngle(VUR)),180)"]
+5; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: adjacent_complementary_angle(1,UST,TSR);Collinear(USR)&Angle(UST)&Angle(TSR);['Equal(Add(MeasureOfAngle(UST),MeasureOfAngle(TSR)),180)']
+Missing premise: Points USR are not proven collinear
+Details: Known collinear facts: [['R', 'S', 'T'], ['R', 'U', 'V'], ['R', 'S', 'T'], ['R', 'U', 'V']]
+- Available premises:
+  Collinear Points: RST, RUV
+  Cocircular Points: S on circle B, ST on circle B, STU on circle B, STUV on circle B, STV on circle B, SU on circle B, SUV on circle B, SV on circle B, T on circle B, TU on circle B, TUV on circle B, TV on circle B, U on circle B, UV on circle B, V on circle B
+- Theorems related to the goal:
+  Step 1 - arc_property_circumference_angle_external(1, BSU, T): Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))
+- Solver constraints directly related to this goal:
+  arc(BSU) <= 360
+  arc(BSU) >= 0
+  ∠STU = arc(BSU)*1/2
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+22
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,U); Cocircular(B,VTU)&Angle(TUV); ["Equal(MeasureOfAngle(TUV),Mul(MeasureOfArc(BVT),1/2))"]
+3; adjacent_complementary_angle(1,UST,TSR); Collinear(USR)&Angle(UST)&Angle(TSR); ["Equal(Add(MeasureOfAngle(UST),MeasureOfAngle(TSR)),180)"]
+4; adjacent_complementary_angle(1,TUV,VUR); Collinear(TUR)&Angle(TUV)&Angle(VUR); ["Equal(Add(MeasureOfAngle(TUV),MeasureOfAngle(VUR)),180)"]
+5; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_sru-23
+mar_bvt-68
+GT_GOAL_SYMBOL:
+mar_bsu
+GT_ANSWER:
+22
+GT_THEOREM_SEQUENCE:
+1;circle_property_circular_power_segment_and_segment_angle(1,RST,RUV,B);Cocircular(B,SUVT)&Collinear(RST)&Collinear(RUV);["Equal(Sub(MeasureOfArc(BVT),MeasureOfArc(BSU)),Mul(MeasureOfAngle(SRU),2))"]
+

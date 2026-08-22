@@ -1,0 +1,82 @@
+
+\paragraph{Geometric reasoning module.}
+We represent each problem state using a structured system of Python classes that encodes geometric facts, such as point orderings, segment lengths, and angle relationships. To enhance robustness and flexibility, we apply normalization procedures that map geometric objects to canonical, direction-agnostic forms. For example, treating  $\angle$ ABC and  $\angle$ CBA as equivalent.
+
+
+
+\paragraph{Algebraic constraint solver.}
+We use the Z3 Theorem Prover, a state-of-the-art SMT solver, to represent and enforce algebraic constraints implied by geometric statements. When a proof step establishes a fact like collinearity of points A, B, C, and D, the system automatically generates angle equality constraints (e.g., $\angle XAB = \angle XAC = \angle XAD$ for any reference point X).
+
+\paragraph{Handling of Trigonometric Expressions.}
+Z3 does not natively support trigonometric functions. To work around this limitation, we:
+\begin{itemize}
+  \item Introduce symbolic variables for trigonometric expressions (e.g., \texttt{cos\_ABC}).
+  \item Add angles referenced by trigonometric terms to the system’s internal constraint graph.
+  \item Evaluate goals involving trigonometric expressions either by matching against known values or by reasoning symbolically if exact evaluation is not possible.
+\end{itemize}
+
+
+
+\paragraph{Verifier Examples}
+
+\begin{figure*}[!t]
+    \centering
+    \fbox{%
+    \begin{minipage}{0.99\textwidth}
+    \ttfamily
+
+    \textbf{Tier 1 (Syntax Violation)} \\
+    \hrule\vspace{0.5em}
+    Theorem: parallel\_property\_ipsilateral\_internal\_angle(1,GA,HD) \\
+    You output the following premises: ParallelBetweenLine(GA,HD)\&Line(AD) \\
+    But the correct premises: ParallelBetweenLine(GA,HD)\&Line(GH) \\
+
+    \textbf{Tier 2 (Premise Violation)} \\
+    \hrule\vspace{0.5em}
+    - Error: You tried to use theorem: right\_triangle\_judgment\_angle(1,BCD);\\
+    Polygon(BCD)\&Equal(MeasureOfAngle(BCD),90);['RightTriangle(BCD)'] \\ 
+    
+    Missing premise: Angle measure 90° for triangle BCD is not established in the premise.\\
+    Details: Premise provided: Polygon(BCD)\&Equal(MeasureOfAngle(BCD),90) \\
+    - Available premises: \\
+      Perpendicular Lines: AD, BD \\
+      Collinear Points: ADC \\
+      Polygons: ABC, ABD, ACB, ADB, BCD, BDC \\ 
+    - Theorems related to the goal: \\ Step 1 - right\_triangle\_judgment\_angle(1, BCD): RightTriangle(BCD) \\ 
+    - Solver constraints directly related to this goal: \\ |AB| = y \\ 
+    Please fix the proof. \\[2ex]
+
+    \textbf{Tier 3 (Goal Not Reached)} \\
+    \hrule\vspace{0.5em}
+    - Goal: measure of angle ADB \\
+    - Model answer: 55.0 \\
+    - Error: Your proof doesn't uniquely determine the value. You need to use additional theorems to constrain the value. \\
+    - Available premises: \\
+      Collinear Points: AOB, BCD \\
+      Cocircular Points: A on circle O, AB on circle O, ABC on circle O, AC on circle O, \\
+      B on circle O, BC on circle O, C on circle O \\
+      Circles: O center: O \\
+      Circle Diameters: AB diameter of O \\
+      Tangent Lines: DA tangent to O \\
+      Polygons: ABD, ADB, ADCO, BCO, BOC, COAD, DCOA, OADC \\
+    - Theorems related to the goal: None found that constrain this goal \\
+    - Solver constraints directly related to this goal: 
+$\angle ADB \leq 180$, \quad 
+$\angle ADB > 0$, \quad 
+$\angle ADC = \angle ADB$ \\
+
+
+    \end{minipage}
+    }
+    \caption{
+        Examples of verifier errors across three tiers. \textbf{Tier 1}: syntax violations in theorem calls. \textbf{Tier 2}: missing or undefined premises. \textbf{Tier 3}: under-constrained reasoning that fails to derive the goal.
+    }
+    \label{tab:tiered_verifier_errors}
+\end{figure*}
+
+
+Figure~\ref{tab:tiered_verifier_errors} presents a representative example of error outputted by the verifier, from each error tier.
+ 
+
+
+

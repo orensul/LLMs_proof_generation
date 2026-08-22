@@ -1,0 +1,75 @@
+Content written to results/level_3/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4254_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,APD,CPB)
+You output the following premises: Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB)
+But the correct premises: Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,BDC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,PCB); Polygon(PCB); ["Equal(Add(MeasureOfAngle(PBC),MeasureOfAngle(BCP),MeasureOfAngle(CPB)),180)"]
+Retry attempt: 1
+Content written to results/level_3/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4254_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODB,C)
+You output the following premises: Cocircular(O,BDC)&Angle(BCD)
+But the correct premises: Cocircular(O,DBC)&Angle(BCD)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,BDC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,PCB); Polygon(PCB); ["Equal(Add(MeasureOfAngle(PBC),MeasureOfAngle(BCP),MeasureOfAngle(CPB)),180)"]
+Retry attempt: 2
+Content written to results/level_3/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4254_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,APD,CPB)
+You output the following premises: Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB)
+But the correct premises: Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,PCB); Polygon(PCB); ["Equal(Add(MeasureOfAngle(PBC),MeasureOfAngle(BCP),MeasureOfAngle(CPB)),180)"]
+Retry attempt: 3
+Content written to results/level_3/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4254_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <triangle_property_angle_sum> para length error. Expected 3 but got (' ', 'A', 'P', 'D').
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1, APD); Polygon(APD); ["Equal(Add(MeasureOfAngle(APD),MeasureOfAngle(PDA),MeasureOfAngle(DAP)),180)"]
+2; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O, CAD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC),1/2))"]
+3; arc_property_circumference_angle_external(1, OAC, B); Cocircular(O, CAB)&Angle(CBA); ["Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))"]
+Retry attempt: 4
+Content written to results/level_3/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4254_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,APD,CPB)
+You output the following premises: Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB)
+But the correct premises: Collinear(APC)&Collinear(DPB)&Angle(APD)&Angle(CPB)
+
+Model Answer:
+RETRY_ANSWER:
+45
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,APD,CPB); Collinear(APB)&Collinear(CPD)&Angle(APD)&Angle(CPB); ["Equal(MeasureOfAngle(APD),MeasureOfAngle(CPB))"]
+2; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; triangle_property_angle_sum(1,PCB); Polygon(PCB); ["Equal(Add(MeasureOfAngle(PBC),MeasureOfAngle(BCP),MeasureOfAngle(CPB)),180)"]
+Retry attempt: 5
+Total time: 158.202s | per attempt: [29.965, 32.068, 39.424, 31.684, 25.062]
+Content written to results/level_3/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4254_run_0.txt

@@ -1,0 +1,494 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AD=5, BD=2, AD is the angle bisector of ∠CAB. Find the length of line DE.
+CONSTRUCTION_CDL:
+Shape(OAB,BA)
+Shape(AB,BE,EA)
+Shape(AE,EC,CA)
+Shape(OCA,AC)
+Shape(EB,BD,DE)
+Shape(OBD,DB)
+Shape(CE,ED,ODC)
+Collinear(BEC)
+Collinear(AED)
+Cocircular(O,ABDC)
+TEXT_CDL:
+Equal(LengthOfLine(AD),5)
+Equal(LengthOfLine(BD),2)
+IsBisectorOfAngle(AD,CAB)
+GOAL_CDL:
+Value(LengthOfLine(DE))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,OAB)
+Shape(BE,EA,AB)
+Shape(EA,AB,BE)
+Shape(EC,CA,AE)
+Shape(CA,AE,EC)
+Shape(AC,OCA)
+Shape(BD,DE,EB)
+Shape(DE,EB,BD)
+Shape(DB,OBD)
+Shape(ED,ODC,CE)
+Shape(ODC,CE,ED)
+Shape(OAB,BE,EA)
+Shape(BE,EA,OAB)
+Shape(EA,OAB,BE)
+Shape(AB,BE,EC,CA)
+Shape(BE,EC,CA,AB)
+Shape(EC,CA,AB,BE)
+Shape(CA,AB,BE,EC)
+Shape(EA,AB,BD,DE)
+Shape(AB,BD,DE,EA)
+Shape(BD,DE,EA,AB)
+Shape(DE,EA,AB,BD)
+Shape(AE,EC,OCA)
+Shape(EC,OCA,AE)
+Shape(OCA,AE,EC)
+Shape(CA,AE,ED,ODC)
+Shape(AE,ED,ODC,CA)
+Shape(ED,ODC,CA,AE)
+Shape(ODC,CA,AE,ED)
+Shape(DE,EB,OBD)
+Shape(EB,OBD,DE)
+Shape(OBD,DE,EB)
+Shape(EB,BD,ODC,CE)
+Shape(BD,ODC,CE,EB)
+Shape(ODC,CE,EB,BD)
+Shape(CE,EB,BD,ODC)
+Shape(OAB,BE,EC,CA)
+Shape(BE,EC,CA,OAB)
+Shape(EC,CA,OAB,BE)
+Shape(CA,OAB,BE,EC)
+Shape(OAB,BD,DE,EA)
+Shape(BD,DE,EA,OAB)
+Shape(DE,EA,OAB,BD)
+Shape(EA,OAB,BD,DE)
+Shape(AB,BE,EC,OCA)
+Shape(BE,EC,OCA,AB)
+Shape(EC,OCA,AB,BE)
+Shape(OCA,AB,BE,EC)
+Shape(AB,BE,ED,ODC,CA)
+Shape(BE,ED,ODC,CA,AB)
+Shape(ED,ODC,CA,AB,BE)
+Shape(ODC,CA,AB,BE,ED)
+Shape(CA,AB,BE,ED,ODC)
+Shape(EA,AB,OBD,DE)
+Shape(AB,OBD,DE,EA)
+Shape(OBD,DE,EA,AB)
+Shape(DE,EA,AB,OBD)
+Shape(EA,AB,BD,ODC,CE)
+Shape(AB,BD,ODC,CE,EA)
+Shape(BD,ODC,CE,EA,AB)
+Shape(ODC,CE,EA,AB,BD)
+Shape(CE,EA,AB,BD,ODC)
+Shape(EC,CA,AB,BD,DE)
+Shape(CA,AB,BD,DE,EC)
+Shape(AB,BD,DE,EC,CA)
+Shape(BD,DE,EC,CA,AB)
+Shape(DE,EC,CA,AB,BD)
+Shape(CA,AE,EB,BD,ODC)
+Shape(AE,EB,BD,ODC,CA)
+Shape(EB,BD,ODC,CA,AE)
+Shape(BD,ODC,CA,AE,EB)
+Shape(ODC,CA,AE,EB,BD)
+Shape(OCA,AE,ED,ODC)
+Shape(AE,ED,ODC,OCA)
+Shape(ED,ODC,OCA,AE)
+Shape(ODC,OCA,AE,ED)
+Shape(OBD,ODC,CE,EB)
+Shape(ODC,CE,EB,OBD)
+Shape(CE,EB,OBD,ODC)
+Shape(EB,OBD,ODC,CE)
+Shape(OAB,BE,EC,OCA)
+Shape(BE,EC,OCA,OAB)
+Shape(EC,OCA,OAB,BE)
+Shape(OCA,OAB,BE,EC)
+Shape(OAB,BE,ED,ODC,CA)
+Shape(BE,ED,ODC,CA,OAB)
+Shape(ED,ODC,CA,OAB,BE)
+Shape(ODC,CA,OAB,BE,ED)
+Shape(CA,OAB,BE,ED,ODC)
+Shape(OAB,OBD,DE,EA)
+Shape(OBD,DE,EA,OAB)
+Shape(DE,EA,OAB,OBD)
+Shape(EA,OAB,OBD,DE)
+..(DE,EC,CA,OAB,BD)
+..(EC,CA,OAB,BD,DE)
+..(CA,OAB,BD,DE,EC)
+..(AB,BD,ODC,CA)
+..(BD,ODC,CA,AB)
+..(ODC,CA,AB,BD)
+..(CA,AB,BD,ODC)
+..(AB,BE,ED,ODC,OCA)
+..(BE,ED,ODC,OCA,AB)
+..(ED,ODC,OCA,AB,BE)
+..(ODC,OCA,AB,BE,ED)
+..(OCA,AB,BE,ED,ODC)
+..(EA,AB,OBD,ODC,CE)
+..(AB,OBD,ODC,CE,EA)
+..(OBD,ODC,CE,EA,AB)
+..(ODC,CE,EA,AB,OBD)
+..(CE,EA,AB,OBD,ODC)
+..(EC,CA,AB,OBD,DE)
+..(CA,AB,OBD,DE,EC)
+..(AB,OBD,DE,EC,CA)
+..(OBD,DE,EC,CA,AB)
+..(DE,EC,CA,AB,OBD)
+..(CA,AE,EB,OBD,ODC)
+..(AE,EB,OBD,ODC,CA)
+..(EB,OBD,ODC,CA,AE)
+..(OBD,ODC,CA,AE,EB)
+..(ODC,CA,AE,EB,OBD)
+..(OCA,AB,BD,DE,EC)
+..(AB,BD,DE,EC,OCA)
+..(BD,DE,EC,OCA,AB)
+..(DE,EC,OCA,AB,BD)
+..(EC,OCA,AB,BD,DE)
+..(OCA,AE,EB,BD,ODC)
+..(AE,EB,BD,ODC,OCA)
+..(EB,BD,ODC,OCA,AE)
+..(BD,ODC,OCA,AE,EB)
+..(ODC,OCA,AE,EB,BD)
+..(OAB,BD,ODC,CA)
+..(BD,ODC,CA,OAB)
+..(ODC,CA,OAB,BD)
+..(CA,OAB,BD,ODC)
+..(OAB,BE,ED,ODC,OCA)
+..(BE,ED,ODC,OCA,OAB)
+..(ED,ODC,OCA,OAB,BE)
+..(ODC,OCA,OAB,BE,ED)
+..(OCA,OAB,BE,ED,ODC)
+..(OAB,OBD,ODC,CE,EA)
+..(OBD,ODC,CE,EA,OAB)
+..(ODC,CE,EA,OAB,OBD)
+..(CE,EA,OAB,OBD,ODC)
+..(EA,OAB,OBD,ODC,CE)
+..(OAB,OBD,DE,EC,CA)
+..(OBD,DE,EC,CA,OAB)
+..(DE,EC,CA,OAB,OBD)
+..(EC,CA,OAB,OBD,DE)
+..(CA,OAB,OBD,DE,EC)
+..(OAB,BD,DE,EC,OCA)
+..(BD,DE,EC,OCA,OAB)
+..(DE,EC,OCA,OAB,BD)
+..(EC,OCA,OAB,BD,DE)
+..(OCA,OAB,BD,DE,EC)
+..(AB,OBD,ODC,CA)
+..(OBD,ODC,CA,AB)
+..(ODC,CA,AB,OBD)
+..(CA,AB,OBD,ODC)
+..(AB,BD,ODC,OCA)
+..(BD,ODC,OCA,AB)
+..(ODC,OCA,AB,BD)
+..(OCA,AB,BD,ODC)
+..(OCA,AB,OBD,DE,EC)
+..(AB,OBD,DE,EC,OCA)
+..(OBD,DE,EC,OCA,AB)
+..(DE,EC,OCA,AB,OBD)
+..(EC,OCA,AB,OBD,DE)
+..(OCA,AE,EB,OBD,ODC)
+..(AE,EB,OBD,ODC,OCA)
+..(EB,OBD,ODC,OCA,AE)
+..(OBD,ODC,OCA,AE,EB)
+..(ODC,OCA,AE,EB,OBD)
+..(OAB,OBD,ODC,CA)
+..(OBD,ODC,CA,OAB)
+..(ODC,CA,OAB,OBD)
+..(CA,OAB,OBD,ODC)
+..(OAB,BD,ODC,OCA)
+..(BD,ODC,OCA,OAB)
+..(ODC,OCA,OAB,BD)
+..(OCA,OAB,BD,ODC)
+..(OAB,OBD,DE,EC,OCA)
+..(OBD,DE,EC,OCA,OAB)
+..(DE,EC,OCA,OAB,OBD)
+..(EC,OCA,OAB,OBD,DE)
+..(OCA,OAB,OBD,DE,EC)
+..(AB,OBD,ODC,OCA)
+..(OBD,ODC,OCA,AB)
+..(ODC,OCA,AB,OBD)
+..(OCA,AB,OBD,ODC)
+..(OAB,OBD,ODC,OCA)
+..(OBD,ODC,OCA,OAB)
+..(ODC,OCA,OAB,OBD)
+..(OCA,OAB,OBD,ODC)
+Collinear(CEB)
+Collinear(DEA)
+Cocircular(O,A)
+Cocircular(O,B)
+Cocircular(O,D)
+Cocircular(O,C)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,BD)
+Cocircular(O,DB)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,DC)
+Cocircular(O,CD)
+Cocircular(O,ABD)
+Cocircular(O,BDA)
+Cocircular(O,DAB)
+Cocircular(O,ABC)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Cocircular(O,ADC)
+Cocircular(O,DCA)
+Cocircular(O,CAD)
+Cocircular(O,BDC)
+Cocircular(O,DCB)
+Cocircular(O,CBD)
+Cocircular(O,BDCA)
+Cocircular(O,DCAB)
+Cocircular(O,CABD)
+Point(B)
+Point(C)
+Point(E)
+Point(A)
+Point(D)
+Line(BC)
+Line(CB)
+Line(BE)
+Line(EB)
+Line(EC)
+Line(CE)
+Line(AD)
+Line(DA)
+Line(AE)
+Line(EA)
+Line(ED)
+Line(DE)
+Line(BA)
+Line(AB)
+Line(CA)
+Line(AC)
+Line(BD)
+Line(DB)
+Arc(OAB)
+Arc(OBA)
+Arc(OAD)
+Arc(ODA)
+Arc(OAC)
+Arc(OCA)
+Arc(OBD)
+Arc(ODB)
+Arc(OBC)
+Arc(OCB)
+Arc(ODC)
+Arc(OCD)
+Angle(BEC)
+Angle(CEB)
+Angle(AED)
+Angle(DEA)
+Angle(ABE)
+Angle(BEA)
+Angle(EAB)
+Angle(AEC)
+Angle(ECA)
+Angle(CAE)
+Angle(EBD)
+Angle(BDE)
+Angle(DEB)
+Angle(CED)
+Angle(BCA)
+Angle(CAB)
+Angle(ABD)
+Angle(BED)
+Angle(CEA)
+Angle(DEC)
+Angle(AEB)
+Angle(ABC)
+Angle(DAB)
+Angle(CAD)
+Angle(CBD)
+Angle(BDA)
+Angle(EBA)
+Angle(BAE)
+Angle(ACE)
+Angle(EAC)
+Angle(DBE)
+Angle(EDB)
+Angle(ACB)
+Angle(BAC)
+Angle(DBA)
+Angle(CBA)
+Angle(BAD)
+Angle(DAC)
+Angle(DBC)
+Angle(ADB)
+Polygon(ABE)
+Polygon(BEA)
+Polygon(EAB)
+Polygon(AEC)
+Polygon(ECA)
+Polygon(CAE)
+Polygon(EBD)
+Polygon(BDE)
+Polygon(DEB)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABD)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ECABD)
+Polygon(CABDE)
+Polygon(ABDEC)
+Polygon(BDECA)
+Polygon(DECAB)
+Circle(O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+To solve Problem B, we need to find the length of line segment DE. We are given AD=5, BD=2, and AD is the angle bisector of ∠CAB. Points A, B, D, C are concyclic, and A, E, D are collinear, as are B, E, C.
+
+Here's the step-by-step reasoning:
+
+1.  **Angle Bisector Property and Inscribed Angles:**
+    Since AD is the angle bisector of ∠CAB, we have `Equal(MeasureOfAngle(CAD), MeasureOfAngle(DAB))`.
+    As A, B, D, C are concyclic, the inscribed angle `MeasureOfAngle(CAD)` subtends arc CD, and `MeasureOfAngle(DAB)` subtends arc DB.
+    Therefore, `Equal(MeasureOfArc(OCD), MeasureOfArc(ODB))`.
+
+2.  **Equal Arcs Subtend Equal Chords:**
+    Since the arcs CD and DB are equal, their corresponding chords must also be equal: `Equal(LengthOfLine(CD), LengthOfLine(DB))`.
+    Given `LengthOfLine(BD) = 2`, we deduce `LengthOfLine(CD) = 2`.
+
+3.  **Similar Triangles (ABE and DCE):**
+    Consider triangles ABE and DCE.
+    *   `Equal(MeasureOfAngle(AEB), MeasureOfAngle(DEC))` because they are vertical angles.
+    *   `Equal(MeasureOfAngle(DAB), MeasureOfAngle(DCB))` because they are inscribed angles subtending the same arc DB.
+    Since `MeasureOfAngle(BAE)` is `MeasureOfAngle(DAB)`, and `MeasureOfAngle(DCE)` is `MeasureOfAngle(DCB)`, we have `Equal(MeasureOfAngle(BAE), MeasureOfAngle(DCE))`.
+    Therefore, by Angle-Angle (AA) similarity, `SimilarBetweenTriangle(ABE, DCE)`.
+
+4.  **Ratios from Similar Triangles:**
+    From the similarity `SimilarBetweenTriangle(ABE, DCE)`, we have the following ratio of corresponding sides:
+    `LengthOfLine(AE) / LengthOfLine(DE) = LengthOfLine(BE) / LengthOfLine(CE) = LengthOfLine(AB) / LengthOfLine(DC)`.
+
+5.  **Power of a Point Theorem:**
+    Since chords AD and BC intersect at E inside the circle, by the power of a point theorem:
+    `Mul(LengthOfLine(AE), LengthOfLine(ED)) = Mul(LengthOfLine(BE), LengthOfLine(EC))`.
+
+6.  **Combining Ratios and Power of a Point:**
+    Let `LengthOfLine(DE) = x`.
+    Since A, E, D are collinear and `LengthOfLine(AD) = 5`, then `LengthOfLine(AE) = LengthOfLine(AD) - LengthOfLine(DE) = 5 - x`.
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'D', 'C', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, ODC, B); Cocircular(O,BCD)&Angle(CBD); ["Equal(MeasureOfAngle(CBD),Mul(MeasureOfArc(ODC),1/2))"]
+2; arc_property_circumference_angle_external(1, ODC, A); Cocircular(O,ACD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(ODC),1/2))"]
+3; arc_property_circumference_angle_external(1, ODB, C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; arc_property_circumference_angle_external(1, ODB, A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+5; isosceles_triangle_judgment_angle_equal(1, BDC); Polygon(BDC)&Equal(MeasureOfAngle(CBD),MeasureOfAngle(BCD)); ["IsoscelesTriangle(BDC)"]
+6; arc_property_circumference_angle_external(1, OAC, B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+7; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+8; similar_triangle_judgment_aa(1, ABE, ADC); Polygon(ABE)&Polygon(ADC)&Equal(MeasureOfAngle(BAE),MeasureOfAngle(DAC))&Equal(MeasureOfAngle(ABE),MeasureOfAngle(ADC)); ["SimilarBetweenTriangle(ABE,ADC)"]
+9; similar_triangle_property_line_ratio(1, ABE, ADC); SimilarBetweenTriangle(ABE,ADC); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(AD),RatioOfSimilarTriangle(ABE,ADC)))"]
+10; similar_triangle_property_line_ratio(1, ABE, ADC); SimilarBetweenTriangle(ABE,ADC); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(DC),RatioOfSimilarTriangle(ABE,ADC)))"]
+11; arc_property_circumference_angle_external(1, OAB, C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,O,CD,A)
+You output the following premises: Cocircular(O,ACD)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,AD,CAB); Angle(CAD)&Angle(DAB)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["IsBisectorOfAngle(AD,CAB)"]
+2; arc_property_circumference_angle_external(1,O,CD,A); Cocircular(O,ACD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+3; arc_property_circumference_angle_external(1,O,DB,A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+4; congruent_arc_judgment_measure_equal(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Cocircular(O,BD)&Equal(MeasureOfArc(OCD),MeasureOfArc(ODB)); ["CongruentBetweenArc(OCD,ODB)"]
+5; congruent_arc_property_chord_equal(1,OCD,ODB); CongruentBetweenArc(OCD,ODB)&Line(CD)&Line(DB); ["Equal(LengthOfLine(CD),LengthOfLine(DB))"]
+6; vertical_angle(1,AEB,DEC); Collinear(BEC)&Collinear(AED)&Angle(AEB)&Angle(DEC); ["Equal(MeasureOfAngle(AEB),MeasureOfAngle(DEC))"]
+7; arc_property_circumference_angle_external(1,O,DB,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+8; similar_triangle_judgment_aa(1,ABE,DCE); Polygon(ABE)&Polygon(DCE)&Equal(MeasureOfAngle(BAE),MeasureOfAngle(CDE))&Equal(MeasureOfAngle(AEB),MeasureOfAngle(DEC)); ["SimilarBetweenTriangle(ABE,DCE)"]
+9; similar_triangle_property_line_ratio(1,ABE,DCE); SimilarBetweenTriangle(ABE,DCE); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(ABE,DCE)))"]
+10; similar_triangle_property_line_ratio(1,ABE,DCE); SimilarBetweenTriangle(ABE,DCE); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(CE),RatioOfSimilarTriangle(ABE,DCE)))"]
+11; circle_property_circular_power_chord_and_chord(1,AD,BC,O); Cocircular(O
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,O,CD,A)
+You output the following premises: Cocircular(O,CDA)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,O,CD,A); Cocircular(O,CDA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,O,DB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; congruent_arc_judgment_measure_equal(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Cocircular(O,BD)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["CongruentBetweenArc(OCD,ODB)"]
+4; congruent_arc_property_chord_equal(1,OCD,ODB); CongruentBetweenArc(OCD,ODB)&Line(CD)&Line(DB); ["Equal(LengthOfLine(CD),LengthOfLine(DB))"]
+5; arc_property_circumference_angle_external(1,O,AD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+6; arc_property_circumference_angle_external(1,O,AD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+7; similar_triangle_judgment_aa(1,ABD,AEC); Polygon(ABD)&Polygon(AEC)&Equal(MeasureOfAngle(BAD),MeasureOfAngle(CAE))&Equal(MeasureOfAngle(ABD),MeasureOfAngle(AEC)); ["SimilarBetweenTriangle(ABD,AEC)"]
+8; similar_triangle_property_line_ratio(1,ABD,AEC); SimilarBetweenTriangle(ABD,AEC); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(AE),RatioOfSimilarTriangle(ABD,AEC)))"]
+9; similar_triangle_property_line_ratio(1,ABD,AEC); SimilarBetweenTriangle(ABD,AEC); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(ABD,AEC)))"]
+10; similar_triangle_property_line_ratio(1,ABD,AEC); SimilarBetweenTriangle(ABD,AEC); ["Equal(LengthOfLine(BD),Mul(LengthOfLine(EC),RatioOfSimilarTriangle(ABD,AEC)))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,O,CD,A)
+You output the following premises: Cocircular(O,CDA)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,O,CD,A); Cocircular(O,CDA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,O,DB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; bisector_of_angle_judgment_angle_equal(1,AD,CAB); Angle(CAD)&Angle(DAB)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["IsBisectorOfAngle(AD,CAB)"]
+4; congruent_arc_judgment_measure_equal(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Cocircular(O,BD)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["CongruentBetweenArc(OCD,ODB)"]
+5; congruent_arc_property_chord_equal(1,OCD,ODB); CongruentBetweenArc(OCD,ODB)&Line(CD)&Line(DB); ["Equal(LengthOfLine(CD),LengthOfLine(DB))"]
+6; arc_property_circumference_angle_external(1,O,AD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+7; arc_property_circumference_angle_external(1,O,AD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+8; similar_triangle_judgment_aa(1,ABE,ACD); Polygon(ABE)&Polygon(ACD)&Equal(MeasureOfAngle(BAE),MeasureOfAngle(CAD))&Equal(MeasureOfAngle(ABE),MeasureOfAngle(ACD)); ["SimilarBetweenTriangle(ABE,ACD)"]
+9; similar_triangle_property_line_ratio(1,ABE,ACD); SimilarBetweenTriangle(ABE,ACD); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AD),RatioOfSimilarTriangle(ABE,ACD)))"]
+10; similar_triangle_property_line_ratio(1,ABE,ACD); SimilarBetweenTriangle(ABE,ACD); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(ABE,ACD)))"]
+11; arc_property_circumference_angle_external(1,O,AB,C);
+#run: 0; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+#RETRIES:
+5
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ad-5
+ll_bd-2
+ma_cad-ma_dab
+GT_GOAL_SYMBOL:
+ll_de
+GT_ANSWER:
+4/5
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,ODC,B);Cocircular(O,DCB)&Angle(CBD);["Equal(MeasureOfAngle(CBD),Mul(MeasureOfArc(ODC),1/2))"]
+2;arc_property_circumference_angle_external(1,ODC,A);Cocircular(O,DCA)&Angle(CAD);["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(ODC),1/2))"]
+3;mirror_similar_triangle_judgment_aa(1,BDA,EBD);Polygon(BDA)&Polygon(EBD)&Equal(MeasureOfAngle(BDA),MeasureOfAngle(BDE))&Equal(MeasureOfAngle(DAB),MeasureOfAngle(EBD));["MirrorSimilarBetweenTriangle(BDA,EBD)"]
+4;mirror_similar_triangle_property_line_ratio(1,BDA,EBD);MirrorSimilarBetweenTriangle(BDA,EBD);["Equal(LengthOfLine(DA),Mul(LengthOfLine(BD),RatioOfMirrorSimilarTriangle(BDA,EBD)))"]
+5;mirror_similar_triangle_property_line_ratio(1,ABD,BDE);MirrorSimilarBetweenTriangle(ABD,BDE);["Equal(LengthOfLine(BD),Mul(LengthOfLine(DE),RatioOfMirrorSimilarTriangle(ABD,BDE)))"]
+

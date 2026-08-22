@@ -1,0 +1,87 @@
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,NR,LI,A)
+You output the following premises: ParallelBetweenLine(NR,LI)&Collinear(AZE)
+But the correct premises: ParallelBetweenLine(NR,LI)&Collinear(ANL)
+You output the following conclusions: Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIA))
+But the correct conclusions: Equal(MeasureOfAngle(ANR),MeasureOfAngle(NLI))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(1,NR,LI,A); ParallelBetweenLine(NR,LI)&Collinear(AZE); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIA))"]
+2; vertical_angle(1,AZI,EZD); Collinear(AZE)&Collinear(IZD)&Angle(AZI)&Angle(EZD); ["Equal(MeasureOfAngle(AZI),MeasureOfAngle(EZD))"]
+Retry attempt: 1
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,NR,LI)
+You output the following premises: ParallelBetweenLine(NR,LI)&Line(EZ)
+But the correct premises: ParallelBetweenLine(NR,LI)&Line(NI)
+You output the following conclusions: Equal(MeasureOfAngle(NEZ),MeasureOfAngle(LZE))
+But the correct conclusions: Equal(MeasureOfAngle(RNI),MeasureOfAngle(LIN))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(LZE))"]
+2; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEZ)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+3; adjacent_complementary_angle(1,LZE,EZD); Collinear(LZD)&Angle(LZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(LZE),MeasureOfAngle(EZD)),180)"]
+Retry attempt: 2
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,KA,JW)
+You output the following premises: ParallelBetweenLine(KA,JW)&Line(KJ)
+But the correct premises: ParallelBetweenLine(KA,JW)&Line(AJ)
+You output the following conclusions: Equal(MeasureOfAngle(AKJ),MeasureOfAngle(WJK))
+But the correct conclusions: Equal(MeasureOfAngle(JAK),MeasureOfAngle(AJW))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(NI); ["Equal(MeasureOfAngle(RNI),MeasureOfAngle(LIN))"]
+2; parallel_property_alternate_interior_angle(2,KA,JW); ParallelBetweenLine(KA,JW)&Line(KJ); ["Equal(MeasureOfAngle(AKJ),MeasureOfAngle(WJK))"]
+3; vertical_angle(1,AEN,ZED); Collinear(AEZ)&Collinear(NEH)&Angle(AEN)&Angle(ZED); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZED))"]
+4; vertical_angle(1,EZD,AZI); Collinear(AZE)&Collinear(IZD)&Angle(EZD)&Angle(AZI); ["Equal(MeasureOfAngle(EZD),MeasureOfAngle(AZI))"]
+Retry attempt: 3
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,KA,JW)
+You output the following premises: ParallelBetweenLine(KA,JW)&Line(ZD)
+But the correct premises: ParallelBetweenLine(KA,JW)&Line(KW)
+You output the following conclusions: Equal(MeasureOfAngle(AZD),MeasureOfAngle(JDZ))
+But the correct conclusions: Equal(MeasureOfAngle(AKW),MeasureOfAngle(JWK))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,KA,JW); ParallelBetweenLine(KA,JW)&Line(ZD); ["Equal(MeasureOfAngle(AZD),MeasureOfAngle(JDZ))"]
+2; adjacent_complementary_angle(1,AZD,EZD); Collinear(AZE)&Angle(AZD)&Angle(EZD); ["Equal(Add(MeasureOfAngle(AZD),MeasureOfAngle(EZD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(EN); ["Equal(Add(MeasureOfAngle(REN),MeasureOfAngle(LNE)),180)"]
+4; adjacent_complementary_angle(1,AEN,REN); Collinear(AEZ)&Angle(AEN)&Angle(REN); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(REN)),180)"]
+5; parallel_property_alternate_interior_angle(2,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(REZ),MeasureOfAngle(LZE))"]
+6; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEZ)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+7; adjacent_complementary_angle(1,LZE,EZD); Collinear(LZD)&Angle(LZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(LZE),MeasureOfAngle(EZD)),180)"]
+Retry attempt: 4
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2765_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,NR,LI)
+You output the following premises: ParallelBetweenLine(NR,LI)&Line(EZ)
+But the correct premises: ParallelBetweenLine(NR,LI)&Line(RL)
+You output the following conclusions: Equal(MeasureOfAngle(REZ),MeasureOfAngle(LZE))
+But the correct conclusions: Equal(MeasureOfAngle(LRN),MeasureOfAngle(RLI))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,AZI,EZD); Collinear(AZE)&Collinear(IZD)&Angle(AZI)&Angle(EZD); ["Equal(MeasureOfAngle(AZI),MeasureOfAngle(EZD))"]
+2; parallel_property_alternate_interior_angle(2,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(REZ),MeasureOfAngle(LZE))"]
+3; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEZ)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+4; adjacent_complementary_angle(1,LZE,EZD); Collinear(LZD)&Angle(LZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(LZE),MeasureOfAngle(EZD)),180)"]
+Retry attempt: 5
+Total time: 894.452s | per attempt: [16.997, 794.553, 23.963, 26.575, 32.357]
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_2765_run_0.txt

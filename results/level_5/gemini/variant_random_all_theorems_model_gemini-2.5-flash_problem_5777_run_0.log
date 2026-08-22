@@ -1,0 +1,98 @@
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5777_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'D', 'C', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, ODC, B); Cocircular(O,BCD)&Angle(CBD); ["Equal(MeasureOfAngle(CBD),Mul(MeasureOfArc(ODC),1/2))"]
+2; arc_property_circumference_angle_external(1, ODC, A); Cocircular(O,ACD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(ODC),1/2))"]
+3; arc_property_circumference_angle_external(1, ODB, C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+4; arc_property_circumference_angle_external(1, ODB, A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+5; isosceles_triangle_judgment_angle_equal(1, BDC); Polygon(BDC)&Equal(MeasureOfAngle(CBD),MeasureOfAngle(BCD)); ["IsoscelesTriangle(BDC)"]
+6; arc_property_circumference_angle_external(1, OAC, B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+7; arc_property_circumference_angle_external(1, OAC, D); Cocircular(O,ADC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Mul(MeasureOfArc(OAC),1/2))"]
+8; similar_triangle_judgment_aa(1, ABE, ADC); Polygon(ABE)&Polygon(ADC)&Equal(MeasureOfAngle(BAE),MeasureOfAngle(DAC))&Equal(MeasureOfAngle(ABE),MeasureOfAngle(ADC)); ["SimilarBetweenTriangle(ABE,ADC)"]
+9; similar_triangle_property_line_ratio(1, ABE, ADC); SimilarBetweenTriangle(ABE,ADC); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(AD),RatioOfSimilarTriangle(ABE,ADC)))"]
+10; similar_triangle_property_line_ratio(1, ABE, ADC); SimilarBetweenTriangle(ABE,ADC); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(DC),RatioOfSimilarTriangle(ABE,ADC)))"]
+11; arc_property_circumference_angle_external(1, OAB, C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/
+Retry attempt: 1
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5777_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,O,CD,A)
+You output the following premises: Cocircular(O,ACD)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,AD,CAB); Angle(CAD)&Angle(DAB)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["IsBisectorOfAngle(AD,CAB)"]
+2; arc_property_circumference_angle_external(1,O,CD,A); Cocircular(O,ACD)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+3; arc_property_circumference_angle_external(1,O,DB,A); Cocircular(O,ABD)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+4; congruent_arc_judgment_measure_equal(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Cocircular(O,BD)&Equal(MeasureOfArc(OCD),MeasureOfArc(ODB)); ["CongruentBetweenArc(OCD,ODB)"]
+5; congruent_arc_property_chord_equal(1,OCD,ODB); CongruentBetweenArc(OCD,ODB)&Line(CD)&Line(DB); ["Equal(LengthOfLine(CD),LengthOfLine(DB))"]
+6; vertical_angle(1,AEB,DEC); Collinear(BEC)&Collinear(AED)&Angle(AEB)&Angle(DEC); ["Equal(MeasureOfAngle(AEB),MeasureOfAngle(DEC))"]
+7; arc_property_circumference_angle_external(1,O,DB,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+8; similar_triangle_judgment_aa(1,ABE,DCE); Polygon(ABE)&Polygon(DCE)&Equal(MeasureOfAngle(BAE),MeasureOfAngle(CDE))&Equal(MeasureOfAngle(AEB),MeasureOfAngle(DEC)); ["SimilarBetweenTriangle(ABE,DCE)"]
+9; similar_triangle_property_line_ratio(1,ABE,DCE); SimilarBetweenTriangle(ABE,DCE); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(ABE,DCE)))"]
+10; similar_triangle_property_line_ratio(1,ABE,DCE); SimilarBetweenTriangle(ABE,DCE); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(CE),RatioOfSimilarTriangle(ABE,DCE)))"]
+11; circle_property_circular_power_chord_and_chord(1,AD,BC,O); Cocircular(O
+Retry attempt: 2
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5777_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,O,CD,A)
+You output the following premises: Cocircular(O,CDA)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,O,CD,A); Cocircular(O,CDA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,O,DB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; congruent_arc_judgment_measure_equal(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Cocircular(O,BD)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["CongruentBetweenArc(OCD,ODB)"]
+4; congruent_arc_property_chord_equal(1,OCD,ODB); CongruentBetweenArc(OCD,ODB)&Line(CD)&Line(DB); ["Equal(LengthOfLine(CD),LengthOfLine(DB))"]
+5; arc_property_circumference_angle_external(1,O,AD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+6; arc_property_circumference_angle_external(1,O,AD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+7; similar_triangle_judgment_aa(1,ABD,AEC); Polygon(ABD)&Polygon(AEC)&Equal(MeasureOfAngle(BAD),MeasureOfAngle(CAE))&Equal(MeasureOfAngle(ABD),MeasureOfAngle(AEC)); ["SimilarBetweenTriangle(ABD,AEC)"]
+8; similar_triangle_property_line_ratio(1,ABD,AEC); SimilarBetweenTriangle(ABD,AEC); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(AE),RatioOfSimilarTriangle(ABD,AEC)))"]
+9; similar_triangle_property_line_ratio(1,ABD,AEC); SimilarBetweenTriangle(ABD,AEC); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(ABD,AEC)))"]
+10; similar_triangle_property_line_ratio(1,ABD,AEC); SimilarBetweenTriangle(ABD,AEC); ["Equal(LengthOfLine(BD),Mul(LengthOfLine(EC),RatioOfSimilarTriangle(ABD,AEC)))"]
+Retry attempt: 3
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5777_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,O,CD,A)
+You output the following premises: Cocircular(O,CDA)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+0.8
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,O,CD,A); Cocircular(O,CDA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,O,DB,A); Cocircular(O,DBA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(ODB),1/2))"]
+3; bisector_of_angle_judgment_angle_equal(1,AD,CAB); Angle(CAD)&Angle(DAB)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["IsBisectorOfAngle(AD,CAB)"]
+4; congruent_arc_judgment_measure_equal(1,OCD,ODB); Arc(OCD)&Arc(ODB)&Cocircular(O,BD)&Equal(MeasureOfAngle(CAD),MeasureOfAngle(DAB)); ["CongruentBetweenArc(OCD,ODB)"]
+5; congruent_arc_property_chord_equal(1,OCD,ODB); CongruentBetweenArc(OCD,ODB)&Line(CD)&Line(DB); ["Equal(LengthOfLine(CD),LengthOfLine(DB))"]
+6; arc_property_circumference_angle_external(1,O,AD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+7; arc_property_circumference_angle_external(1,O,AD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+8; similar_triangle_judgment_aa(1,ABE,ACD); Polygon(ABE)&Polygon(ACD)&Equal(MeasureOfAngle(BAE),MeasureOfAngle(CAD))&Equal(MeasureOfAngle(ABE),MeasureOfAngle(ACD)); ["SimilarBetweenTriangle(ABE,ACD)"]
+9; similar_triangle_property_line_ratio(1,ABE,ACD); SimilarBetweenTriangle(ABE,ACD); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AD),RatioOfSimilarTriangle(ABE,ACD)))"]
+10; similar_triangle_property_line_ratio(1,ABE,ACD); SimilarBetweenTriangle(ABE,ACD); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(ABE,ACD)))"]
+11; arc_property_circumference_angle_external(1,O,AB,C);
+Retry attempt: 4
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5777_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: The THEOREM_SEQUENCE you provided is empty. Please generate a proof again, using the similar problems I provided (A1, A2, A3, A4, A5), along with the GDL_DICTIONARY of theorems.
+Model Answer:
+
+Retry attempt: 5
+Total time: 355.662s | per attempt: [70.519, 70.9, 68.912, 70.303, 75.026]
+Content written to results/level_5/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5777_run_0.txt

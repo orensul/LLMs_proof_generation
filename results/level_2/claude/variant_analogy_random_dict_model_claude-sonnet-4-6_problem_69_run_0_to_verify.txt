@@ -1,0 +1,142 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠DEF=25°, ∠GFD=65°, EG⊥DG. Find the measure of ∠FDG.
+CONSTRUCTION_CDL:
+Shape(DE,EG,GD)
+Shape(DG,GF,FD)
+Collinear(EGF)
+TEXT_CDL:
+Equal(MeasureOfAngle(DEF),25)
+Equal(MeasureOfAngle(GFD),65)
+PerpendicularBetweenLine(EG,DG)
+GOAL_CDL:
+Value(MeasureOfAngle(FDG))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(EG,GD,DE)
+Shape(GD,DE,EG)
+Shape(GF,FD,DG)
+Shape(FD,DG,GF)
+Shape(DE,EG,GF,FD)
+Shape(EG,GF,FD,DE)
+Shape(GF,FD,DE,EG)
+Shape(FD,DE,EG,GF)
+Collinear(FGE)
+Point(E)
+Point(F)
+Point(G)
+Point(D)
+Line(EF)
+Line(FE)
+Line(EG)
+Line(GE)
+Line(GF)
+Line(FG)
+Line(DE)
+Line(ED)
+Line(GD)
+Line(DG)
+Line(FD)
+Line(DF)
+Angle(EGF)
+Angle(FGE)
+Angle(DEG)
+Angle(EGD)
+Angle(GDE)
+Angle(DGF)
+Angle(GFD)
+Angle(FDG)
+Angle(EFD)
+Angle(FDE)
+Angle(DEF)
+Angle(GED)
+Angle(DGE)
+Angle(EDG)
+Angle(FGD)
+Angle(DFG)
+Angle(GDF)
+Angle(DFE)
+Angle(EDF)
+Angle(FED)
+Polygon(DEG)
+Polygon(EGD)
+Polygon(GDE)
+Polygon(DGF)
+Polygon(GFD)
+Polygon(FDG)
+Polygon(DEF)
+Polygon(EFD)
+Polygon(FDE)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(DEG);ma_def;25
+MeasureOfAngle(DEF);ma_def;25
+MeasureOfAngle(EFD);ma_efd;65
+MeasureOfAngle(GFD);ma_efd;65
+MeasureOfAngle(EGD);ma_egd;90
+MeasureOfAngle(GDE);ma_gde;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the measure of ∠FDG.
+
+Let me analyze the problem:
+- ∠DEF = 25° (same as ∠DEG since G is on EF)
+- ∠GFD = 65°
+- EG⊥DG, so ∠EGD = 90°
+- Collinear(EGF), so G is between E and F
+
+From the construction, we have triangle DEG and triangle DGF.
+
+**Finding ∠GDE first:**
+In triangle DEG:
+- ∠DEG = 25°
+- ∠EGD = 90°
+- ∠GDE = 180° - 25° - 90° = 65°
+
+**Finding ∠FDG:**
+In triangle DGF:
+- ∠GFD = 65°
+- ∠DGF = 90° (since EG⊥DG and G is on line EGF, so ∠DGF = 180° - 90° = 90°)
+- ∠FDG = 180° - 65° - 90° = 25°
+
+Let me verify: Since Collinear(EGF), ∠EGD = 90° means ∠DGF = 90° as well (supplementary on a straight line, but actually ∠EGD + ∠DGF = 180° since E, G, F are collinear, so ∠DGF = 90°).
+
+So ∠FDG = 25°.
+
+EQUATIONS:
+ma_def-25
+ma_efd-65
+ma_egd-90
+
+GOAL_SYMBOL:
+ma_fdg
+
+ANSWER:
+25
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,DEG); Polygon(DEG); ["Equal(Add(MeasureOfAngle(DEG),MeasureOfAngle(EGD),MeasureOfAngle(GDE)),180)"]
+2; flat_angle(1,EGF); Collinear(EGF); ["Equal(MeasureOfAngle(EGF),180)"]
+3; angle_addition(1,EGD,DGF); Angle(EGD)&Angle(DGF)&Angle(EGF); ["Equal(MeasureOfAngle(EGF),Add(MeasureOfAngle(EGD),MeasureOfAngle(DGF)))"]
+4; triangle_property_angle_sum(1,DGF); Polygon(DGF); ["Equal(Add(MeasureOfAngle(DGF),MeasureOfAngle(GFD),MeasureOfAngle(FDG)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_def-25
+ma_gfd-65
+ma_egd-90
+GT_GOAL_SYMBOL:
+ma_fdg
+GT_ANSWER:
+25
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,EGD,DGF);Collinear(EGF)&Angle(EGD)&Angle(DGF);["Equal(Add(MeasureOfAngle(EGD),MeasureOfAngle(DGF)),180)"]
+2;triangle_property_angle_sum(1,DGF);Polygon(DGF);["Equal(Add(MeasureOfAngle(DGF),MeasureOfAngle(GFD),MeasureOfAngle(FDG)),180)"]
+

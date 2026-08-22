@@ -1,0 +1,82 @@
+
+
+%Our hypothesis is that the model often has the capacity to produce a correct proof, but may need feedback to refine its solution, much like 
+
+We next endow the LLM with an external verifier that can guide it through a feedback loop. 
+This is inspired by similar efforts showing that code-writing LLMs can improve with iterative corrections 
+\cite{peng2025perfcodegen, palavalli2024using}.
+After each attempt to produce a proof, the verifier provides natural-language feedback, specifying the first error found in the proof. The LLM incorporates it into its context for the next iteration. The loop continues until the proof is verified or the maximum number of retries is reached (see Section~\ref{subsec:setup}).
+
+% Since LLMs may still get stuck or converge to unhelpful directions despite feedback, we allow the model to start over from scratch up to three times per problem \dnote{again. why here? it's a parameter of our method. I'm not even sure this should be here at all -- is it a part of the method, or just an experimental setup?}. Each restart is referred to as a run, and uses the same temperature setting (1.0) to encourage diversity in reasoning paths.
+% \dnote{either way, this paragraph needs polishing}
+
+% \dnote{we really need xhdrs in this section, you're jumping between topics}
+
+The verifier is a symbolic reasoning system capable of performing both formal logic checks and algebraic reasoning. %It systematically examines each step in the proposed proof, rigorously checking the validity of every deductive inference. For each theorem application, the verifier ensures that its syntactic form is correct and that all required premises are established by earlier proof steps or initial conditions. 
+Internally, it encodes proof steps and geometric constraints as logical formulas and algebraic expressions, and evaluates them using satisfiability modulo theories (SMT). %This enables the verifier to detect structural errors, enforce logical and mathematical consistency. 
+%, and assess whether the final numerical answer is a valid consequence of the proof.
+
+
+Importantly, the verifier does not know the solution. Instead, it assesses whether the numerical answer is  entailed by the constraints imposed by the proof. If the proof is valid and the answer can indeed be inferred from it, the proof is accepted. %Otherwise, the verifier generates feedback identifying faulty steps and describing the issue, which is added to the model’s context for the next iteration.
+
+
+% \dnote{compactenum, compactitem, paralist}
+\noindent\textbf{Error tiers.}
+To analyze where the LLM struggles, we define three verifier-identified error tiers:
+
+\begin{compactenum}
+    \item \textbf{Theorem call syntax violation}: Syntax errors. Common issues include undefined theorems  or  incorrect argument signatures. 
+    %(e.g.,   providing a wrong number of arguments, missing theorem variation identifier), or failing to properly substitute variables within theorems. 
+    % in the theorem call, premises, or conclusion. Feedback is in respect to the specific issue.
+
+    \item \textbf{Premise violation}: Theorem calls that rely on premises that have not been derived from the problem description or preceding proof steps. %While the structure of the call is correct, the application is invalid because the necessary assumptions are not part of the current proof state.
+    Feedback identifies the missing premise and lists all premises derived so far.
+
+    \item \textbf{Goal not reached}: The proof contains no errors but does not reach the goal.  
+    Feedback indicates that either (1) the proof is underconstrained and multiple solutions exist, or (2) that the (unique) solution derived by the verifier differs from the LLM's answer.
+%(1) the minimal set of constraints causing a contradiction \dnote{wait, there can't be a contradiction, we said the proof is correct. are you talking about the LLM's answer?},   
+\end{compactenum}
+\noindent See Appendix~\ref{appendix:verifier_details} for examples of error messages from the different tiers. 
+
+\noindent\textbf{Implementation details.}
+To identify tier-1 errors, we extended the  implementation of \citet{zhang2023formalgeo}. 
+To identify tier-2 and tier-3 errors we use the Z3 Theorem Prover~\cite{de2008z3}, a state-of-the-art SMT solver, that encodes algebraic constraints derived from geometric properties and verifies their logical consistency.
+
+We also augment Z3 with symbolic workarounds for trigonometric functions it does not natively support.
+%some of its limitations. For example, we implement normalization routines for geometric objects, and 
+See Appendix~\ref{appendix:verifier_details} for more details.
+
+
+
+% Our verification system consists of two main components. First, we developed a geometric reasoning module that maintains the evolving problem state, %, represented as a structured set of attributes. 
+% tracking geometric relationships. 
+% \dnote{isn't it partially built on top of somebody else's code? did we abandon theirs completely?} 
+%such as collinearity, congruence, and angle equalities. 
+% \dnote{not entirely clear why z3 on its own is not enough. elaborate. might be a good idea to start with z3 and then say what's missing}
+
+% We adapt Z3 to handle some of its limitations.
+%To handle notational variation and unsupported expressions, w
+% We implement normalization routines for geometric objects 
+%(e.g., treating $\angle \mathrm{ABC}$ and $\angle \mathrm{CBA}$ as equivalent), 
+% and develop symbolic workarounds for trigonometric functions, which Z3 does not natively support. Further details are provided in Appendix~\ref{appendix:verifier_details}. 
+%Nevertheless, our verifier retains certain limitations, as discussed in Section~\ref{sec:limitations}.
+%\dnote{need to explain why we can't directly add the adaptation to z3 as constraints}
+% \dnote{why limitations here?}
+
+% For example, when the system identifies that points $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$, and $\mathrm{D}$ are collinear (in order), it automatically generates constraints enforcing equal angles $\angle \mathrm{XAB} = \angle \mathrm{XAC} = \angle \mathrm{XAD}$ for any reference point $\mathrm{X}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

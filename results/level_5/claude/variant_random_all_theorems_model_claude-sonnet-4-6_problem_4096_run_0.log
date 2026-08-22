@@ -1,0 +1,20 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4096_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error in TIER1_THEOREM_CALL_SYNTAX_VIOLATION: Theorem 'similar_triangle_property_ratio' is not recognized or its premise validation is not supported by the current verifier version.
+Model Answer:
+RETRY_ANSWER:
+8
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))"]
+2; similar_triangle_property_line_ratio(1,CDE,HMN); SimilarBetweenTriangle(CDE,HMN); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(MN),RatioOfSimilarTriangle(CDE,HMN)))"]
+3; similar_triangle_property_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["SimilarBetweenTriangle(CDE,HMN)","Equal(Mul(RatioOfSimilarTriangle(HMN,CDE),RatioOfSimilarTriangle(CDE,HMN)),1)"]
+4; line_addition(1,BD,DE); Collinear(BDE); ["Equal(LengthOfLine(BE),Add(LengthOfLine(BD),LengthOfLine(DE)))"]
+5; similar_triangle_property_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["SimilarBetweenTriangle(ABE,HMN)","Equal(Mul(RatioOfSimilarTriangle(HMN,ABE),RatioOfSimilarTriangle(ABE,HMN)),1)"]
+6; similar_triangle_property_line_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(BE),RatioOfSimilarTriangle(HMN,ABE)))"]
+7; similar_triangle_property_line_ratio(1,ABE,HMN); SimilarBetweenTriangle(ABE,HMN); ["Equal(LengthOfLine(BE),Mul(LengthOfLine(MN),RatioOfSimilarTriangle(ABE,HMN)))"]
+8; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))"]
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4096_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 30.766s | per attempt: [15.784, 14.981]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_4096_run_0.txt

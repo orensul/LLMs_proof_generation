@@ -1,0 +1,45 @@
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5080_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,EF,GH,O)
+You output the following premises: ParallelBetweenLine(EF,GH)&Collinear(OFH)
+But the correct premises: ParallelBetweenLine(EF,GH)&Collinear(OEG)
+You output the following conclusions: Equal(MeasureOfAngle(OFE),MeasureOfAngle(FHG))
+But the correct conclusions: Equal(MeasureOfAngle(OEF),MeasureOfAngle(EGH))
+
+Model Answer:
+RETRY_ANSWER:
+39
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,OE,EG); Collinear(OEG); ["Equal(LengthOfLine(OG),Add(LengthOfLine(OE),LengthOfLine(EG)))"]
+2; line_addition(1,OF,FH); Collinear(OFH); ["Equal(LengthOfLine(OH),Add(LengthOfLine(OF),LengthOfLine(FH)))"]
+3; parallel_property_corresponding_angle(1,EF,GH,O); ParallelBetweenLine(EF,GH)&Collinear(OEG); ["Equal(MeasureOfAngle(OEF),MeasureOfAngle(EGH))"]
+4; parallel_property_corresponding_angle(1,EF,GH,O); ParallelBetweenLine(EF,GH)&Collinear(OFH); ["Equal(MeasureOfAngle(OFE),MeasureOfAngle(FHG))"]
+5; similar_triangle_judgment_aa(1,OEF,OGH); Polygon(OEF)&Polygon(OGH)&Equal(MeasureOfAngle(OEF),MeasureOfAngle(OGH))&Equal(MeasureOfAngle(EFO),MeasureOfAngle(GHO)); ["SimilarBetweenTriangle(OEF,OGH)"]
+6; similar_triangle_property_line_ratio(1,OEF,OGH); SimilarBetweenTriangle(OEF,OGH); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(GH),RatioOfSimilarTriangle(OEF,OGH)))"]
+7; similar_triangle_property_line_ratio(1,OFE,OHG); SimilarBetweenTriangle(OFE,OHG); ["Equal(LengthOfLine(FE),Mul(LengthOfLine(HG),RatioOfSimilarTriangle(OFE,OHG)))"]
+8; similar_triangle_property_line_ratio(1,EOF,GOH); SimilarBetweenTriangle(EOF,GOH); ["Equal(LengthOfLine(OF),Mul(LengthOfLine(OH),RatioOfSimilarTriangle(EOF,GOH)))"]
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5080_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(2,HG,FE,O)
+You output the following premises: ParallelBetweenLine(HG,FE)&Collinear(OFH)
+But the correct premises: ParallelBetweenLine(HG,FE)&Collinear(HFO)
+You output the following conclusions: Equal(MeasureOfAngle(GFO),MeasureOfAngle(EHO))
+But the correct conclusions: Equal(MeasureOfAngle(GHF),MeasureOfAngle(EFO))
+
+Model Answer:
+RETRY_ANSWER:
+39
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,OE,EG); Collinear(OEG); ["Equal(LengthOfLine(OG),Add(LengthOfLine(OE),LengthOfLine(EG)))"]
+2; line_addition(1,OF,FH); Collinear(OFH); ["Equal(LengthOfLine(OH),Add(LengthOfLine(OF),LengthOfLine(FH)))"]
+3; parallel_property_corresponding_angle(1,EF,GH,O); ParallelBetweenLine(EF,GH)&Collinear(OEG); ["Equal(MeasureOfAngle(OEF),MeasureOfAngle(EGH))"]
+4; parallel_property_corresponding_angle(2,HG,FE,O); ParallelBetweenLine(HG,FE)&Collinear(OFH); ["Equal(MeasureOfAngle(GFO),MeasureOfAngle(EHO))"]
+5; similar_triangle_judgment_aa(1,OEF,OGH); Polygon(OEF)&Polygon(OGH)&Equal(MeasureOfAngle(OEF),MeasureOfAngle(OGH))&Equal(MeasureOfAngle(EFO),MeasureOfAngle(GHO)); ["SimilarBetweenTriangle(OEF,OGH)"]
+6; similar_triangle_property_line_ratio(1,OEF,OGH); SimilarBetweenTriangle(OEF,OGH); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(GH),RatioOfSimilarTriangle(OEF,OGH)))"]
+7; similar_triangle_property_line_ratio(1,EOF,GOH); SimilarBetweenTriangle(EOF,GOH); ["Equal(LengthOfLine(OF),Mul(LengthOfLine(OH),RatioOfSimilarTriangle(EOF,GOH)))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5080_run_1_to_verify.txt
+Theorem sequence verified correctly
+Total time: 39.430s | per attempt: [14.661, 13.077, 11.691]
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5080_run_1.txt

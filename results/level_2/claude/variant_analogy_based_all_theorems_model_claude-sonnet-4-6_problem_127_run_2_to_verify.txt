@@ -1,0 +1,333 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ADK=96°, ∠HGJ=42°, GA∥HD. Find the measure of ∠GHD.
+CONSTRUCTION_CDL:
+Shape(KD,DL)
+Shape(LD,DH)
+Shape(DH,HI)
+Shape(IH,HC)
+Shape(CH,HG)
+Shape(HG,GJ)
+Shape(JG,GF)
+Shape(FG,GA)
+Shape(GA,AM)
+Shape(MA,AF)
+Shape(FA,AD)
+Shape(AD,DK)
+Shape(DA,AG,GH,HD)
+Collinear(KDHC)
+Collinear(EAGJ)
+Collinear(LDAM)
+Collinear(IHGF)
+TEXT_CDL:
+Equal(MeasureOfAngle(ADK),96)
+Equal(MeasureOfAngle(HGJ),42)
+ParallelBetweenLine(GA,HD)
+GOAL_CDL:
+Value(MeasureOfAngle(GHD))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AG,GH,HD,DA)
+Shape(GH,HD,DA,AG)
+Shape(HD,DA,AG,GH)
+Collinear(CHDK)
+Collinear(KDH)
+Collinear(HDK)
+Collinear(KDC)
+Collinear(CDK)
+Collinear(KHC)
+Collinear(CHK)
+Collinear(DHC)
+Collinear(CHD)
+Collinear(JGAE)
+Collinear(EAG)
+Collinear(GAE)
+Collinear(EAJ)
+Collinear(JAE)
+Collinear(EGJ)
+Collinear(JGE)
+Collinear(AGJ)
+Collinear(JGA)
+Collinear(MADL)
+Collinear(LDA)
+Collinear(ADL)
+Collinear(LDM)
+Collinear(MDL)
+Collinear(LAM)
+Collinear(MAL)
+Collinear(DAM)
+Collinear(MAD)
+Collinear(FGHI)
+Collinear(IHG)
+Collinear(GHI)
+Collinear(IHF)
+Collinear(FHI)
+Collinear(IGF)
+Collinear(FGI)
+Collinear(HGF)
+Collinear(FGH)
+Point(K)
+Point(C)
+Point(D)
+Point(H)
+Point(E)
+Point(J)
+Point(A)
+Point(G)
+Point(L)
+Point(M)
+Point(I)
+Point(F)
+Line(KC)
+Line(CK)
+Line(KD)
+Line(DK)
+Line(DH)
+Line(HD)
+Line(DC)
+Line(CD)
+Line(KH)
+Line(HK)
+Line(HC)
+Line(CH)
+Line(EJ)
+Line(JE)
+Line(EA)
+Line(AE)
+Line(AG)
+Line(GA)
+Line(AJ)
+Line(JA)
+Line(EG)
+Line(GE)
+Line(GJ)
+Line(JG)
+Line(LM)
+Line(ML)
+Line(LD)
+Line(DL)
+Line(DA)
+Line(AD)
+Line(DM)
+Line(MD)
+Line(LA)
+Line(AL)
+Line(AM)
+Line(MA)
+Line(IF)
+Line(FI)
+Line(IH)
+Line(HI)
+Line(HG)
+Line(GH)
+Line(HF)
+Line(FH)
+Line(IG)
+Line(GI)
+Line(GF)
+Line(FG)
+Line(AF)
+Line(FA)
+Angle(KDH)
+Angle(HDK)
+Angle(KDC)
+Angle(CDK)
+Angle(KHC)
+Angle(CHK)
+Angle(DHC)
+Angle(CHD)
+Angle(EAG)
+Angle(GAE)
+Angle(EAJ)
+Angle(JAE)
+Angle(EGJ)
+Angle(JGE)
+Angle(AGJ)
+Angle(JGA)
+Angle(LDA)
+Angle(ADL)
+Angle(LDM)
+Angle(MDL)
+Angle(LAM)
+Angle(MAL)
+Angle(DAM)
+Angle(MAD)
+Angle(IHG)
+Angle(GHI)
+Angle(IHF)
+Angle(FHI)
+Angle(IGF)
+Angle(FGI)
+Angle(HGF)
+Angle(FGH)
+Angle(DAG)
+Angle(AGH)
+Angle(GHD)
+Angle(HDA)
+Angle(KDA)
+Angle(HDL)
+Angle(CDL)
+Angle(KHG)
+Angle(DHG)
+Angle(CHI)
+Angle(EAM)
+Angle(EGF)
+Angle(AGF)
+Angle(JGH)
+Angle(LDK)
+Angle(ADH)
+Angle(MDH)
+Angle(LAF)
+Angle(DAF)
+Angle(MAG)
+Angle(IHD)
+Angle(GHC)
+Angle(FHC)
+Angle(IGA)
+Angle(HGA)
+Angle(FGJ)
+Angle(KDM)
+Angle(DHF)
+Angle(IHK)
+Angle(HGE)
+Angle(JGI)
+Angle(GAL)
+Angle(GAD)
+Angle(FAM)
+Angle(ADC)
+Angle(DAE)
+Angle(HDM)
+Angle(CDA)
+Angle(CDM)
+Angle(KHI)
+Angle(CHF)
+Angle(EAL)
+Angle(EAD)
+Angle(JAM)
+Angle(EGH)
+Angle(EGI)
+Angle(AGI)
+Angle(LDC)
+Angle(MDK)
+Angle(LAG)
+Angle(MAE)
+Angle(GHK)
+Angle(FHD)
+Angle(FHK)
+Angle(IGJ)
+Angle(FGE)
+Angle(FAE)
+Angle(KHF)
+Angle(JAL)
+Angle(JAD)
+Angle(MDC)
+Angle(LAE)
+Angle(IGE)
+Angle(FAL)
+Angle(LAJ)
+Angle(DAJ)
+Angle(MAJ)
+Angle(EAF)
+Polygon(DAGH)
+Polygon(AGHD)
+Polygon(GHDA)
+Polygon(HDAG)
+ParallelBetweenLine(DH,AG)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(GKM);ma_gkm;62
+MeasureOfAngle(HBF);ma_hbf;38
+MeasureOfAngle(NCJ);ma_ncj;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the measure of ∠GHD given that ∠ADK=96°, ∠HGJ=42°, and GA∥HD.
+
+Let me analyze the problem:
+- We have GA∥HD
+- ∠ADK = 96°
+- ∠HGJ = 42°
+- We need to find ∠GHD
+
+Looking at the construction:
+- Collinear(KDHC): K, D, H, C are collinear
+- Collinear(JGAE): J, G, A, E are collinear (so J, G, A, E are on the same line)
+- Collinear(LDAM): L, D, A, M are collinear
+- Collinear(IHGF): I, H, G, F are collinear
+
+Since GA∥HD, and we need ∠GHD.
+
+Let me think about the angles:
+- ∠ADK = 96°, where K-D-H-C are collinear, so ∠ADK is the angle at D
+- Since L-D-A-M are collinear, ∠ADK and ∠ADH are supplementary angles... wait, K is on the line KDH, and A is on line LDAM.
+
+∠ADK is the angle between DA and DK. Since K-D-H are collinear (Collinear(KDH)), ∠ADK + ∠ADH = 180° (since K, D, H are collinear).
+So ∠ADH = 180° - 96° = 84°.
+
+Now, GA∥HD. The transversal is DA (line LDAM).
+∠ADH = 84° (angle at D between DA and DH)
+∠DAG = ? (angle at A between AD and AG)
+
+Since GA∥HD, alternate interior angles: ∠DAG = ∠ADH = 84°... wait, let me check with corresponding angles.
+
+Actually, ∠HGJ = 42°. G is on line JGAE and also on line IHGF.
+∠HGJ is the angle at G between GH and GJ. Since J-G-A-E are collinear, GJ is along this line.
+
+For GA∥HD with transversal GH:
+- ∠AGH is the angle at G (alternate interior angle with ∠GHD)
+- ∠AGH + ∠HGJ = 180° (since J-G-A are collinear, so ∠JGA = 180°)
+
+Wait, ∠HGJ = 42°, and since J, G, A are collinear, ∠HGA = 180° - 42° = 138°... No.
+
+∠HGJ and ∠HGA are supplementary since J-G-A are collinear.
+∠HGA = 180° - 42° = 138°.
+
+Since GA∥HD, alternate interior angles with transversal GH:
+∠GHD = ∠HGA = 138°? No, that's co-interior.
+
+With GA∥HD and transversal GH:
+- ∠AGH + ∠GHD = 180° (co-interior/same-side interior angles)
+- ∠AGH = 180° - 42° = 138°
+- ∠GHD = 180° - 138° = 42°
+
+So ∠GHD = 42°. This matches the pattern from A5 where the answer used vertical angles or corresponding angles.
+
+Looking at A5's approach: parallel_property_corresponding_angle then vertical_angle.
+
+For Problem B:
+- Use parallel_property_corresponding_angle with GA∥HD and collinear JGAE to get ∠AGH = ∠HGJ... no.
+- Use the collinear(JGAE): J,G,A,E collinear. So ∠HGJ and ∠HGA are supplementary.
+- Since GA∥HD, corresponding angle: with collinear(JGA), ∠JGH corresponds to something.
+
+Using A5's pattern: corresponding angle gives ∠AGH relates to ∠GHD via parallel lines, then vertical angle.
+
+Let me use: parallel_property_corresponding_angle(2,GA,HD,J): ParallelBetweenLine(GA,HD)&Collinear(GAJ) → Equal(MeasureOfAngle(AGH), MeasureOfAngle(DHJ))... 
+
+Actually, vertical angle: ∠HGJ = ∠(vertical). Then corresponding angle with parallel lines gives ∠GHD = ∠HGJ = 42°.
+
+EQUATIONS: ma_adk-96 ma_hgj-42
+GOAL_SYMBOL: ma_ghd
+ANSWER: 42
+
+THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(2,HD,GA,J); ParallelBetweenLine(HD,GA)&Collinear(HGJ); ["Equal(MeasureOfAngle(DHG),MeasureOfAngle(AGJ))"]
+2; vertical_angle(1,GHD,AGJ); Collinear(KDH)&Collinear(JGA)&Angle(GHD)&Angle(AGJ); ["Equal(MeasureOfAngle(GHD),MeasureOfAngle(AGJ))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ma_adk-96
+ma_hgj-42
+GT_GOAL_SYMBOL:
+ma_ghd
+GT_ANSWER:
+42
+GT_THEOREM_SEQUENCE:
+1;parallel_property_collinear_extend(1,GA,HD,J);ParallelBetweenLine(GA,HD)&Collinear(JGA);["ParallelBetweenLine(JG,HD)", "ParallelBetweenLine(JA,HD)"]
+2;parallel_property_alternate_interior_angle(2,DH,GJ);ParallelBetweenLine(DH,GJ)&Line(HG);["Equal(MeasureOfAngle(GHD),MeasureOfAngle(HGJ))"]
+

@@ -1,0 +1,27 @@
+
+
+
+\noindent\textbf{Neural Models for Proof Generation.}
+Prior work has used LLMs to generate logical and mathematical proofs \cite{tafjord2020proofwriter, kazemi2022lambada, yue2023mammoth}. More recent systems achieve strong formal-proving results through specialized training or large-scale proof search, including DeepSeek-Prover-V2, AlphaProof, AlphaGeometry 2, AlphaProof Nexus, and Aristotle \cite{ren2025deepseek, hubert2026olympiad, chervonyi2025gold, tsoukalas2026advancing, achim2025aristotle}. In contrast, our method requires no additional training and guides off-the-shelf LLMs at inference time using analogous proofs and symbolic verification.
+
+
+Most closely related is Rango \cite{thompson2024rango}, which adaptively retrieves proofs and lemmas from the evolving Coq proof state for next-tactic prediction. In contrast, we learn to retrieve structurally analogous problems from problem statements alone, once before generation, and use their complete proofs to guide whole-proof generation and select a compact set of relevant theorems, reducing context and search space.
+
+% works that combines LLMs + symbolic algorithm in the domain of math problems.
+\noindent\textbf{Neuro-symbolic Methods.} Neuro-symbolic approaches combine LLMs with symbolic tools. This strategy has been shown to be effective for some structured tasks \cite{szeider2024mcp,regin2024combining,mittal2024puzzlebench,wu2024can}.
+Auto-formalization methods \cite{song2024towards, alhessi2025lemmanaid} such as LINC \cite{olausson2023linc} translate natural language into first-order logic using an LLM, followed by a symbolic theorem prover. These works focus on logical reasoning and are not well suited for mathematical or algebraic aspects of proofs.
+One work in the domain of geometry is AlphaGeometry~\cite{trinh2024solving}, which combines symbolic deduction with a language model trained on 100M synthetic geometry examples to generate machine-verifiable proofs. In contrast, our method does not require training.
+
+% \dnote{get a rounded box around this paragraph, ok?}
+
+
+
+
+ 
+% works that combines LLMs, analogical reasoning in the domain of math problems.
+\noindent\textbf{Analogical Reasoning.}   
+LLMs have been studied for analogical reasoning in diverse domains, including word analogies, narratives and processes, and visual scenarios.
+see \citet{sultan2024parallelparc} for a survey. \citet{jobanputra2024teamsaarlst} show that retrieving structural analogies improves LLM-based data-to-text generation. In mathematics, \citet{yasunaga2023large} propose \emph{analogical prompting}, where the model generates its own analogous problems and solutions. In contrast, we retrieve structurally similar problems with verified proofs, avoiding potentially incorrect model-generated solutions.
+
+
+\citet{zhou2025self} fine-tune models to transfer solutions between structurally similar problems, whereas our method requires no training and operates entirely at inference time. \citet{lee2025automatic} generate unlabeled numerical variants of math word problems as in-context examples, whereas we focus on formal proof generation, where such numerical variations offer little benefit.

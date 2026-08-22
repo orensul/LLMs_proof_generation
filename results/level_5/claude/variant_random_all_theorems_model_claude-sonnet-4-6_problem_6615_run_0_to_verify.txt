@@ -1,0 +1,148 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, OM=8, ON=6, ∠MON=90°. Find the radius of circle E.
+CONSTRUCTION_CDL:
+Shape(OM,EMO)
+Shape(NO,EON)
+Shape(MN,ONM)
+Shape(ON,NM,MO)
+Cocircular(E,ONM)
+TEXT_CDL:
+Equal(LengthOfLine(OM),8)
+Equal(LengthOfLine(ON),6)
+Equal(MeasureOfAngle(MON),90)
+GOAL_CDL:
+Value(RadiusOfCircle(E))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(EMO,OM)
+Shape(EON,NO)
+Shape(ONM,MN)
+Shape(NM,MO,ON)
+Shape(MO,ON,NM)
+Shape(EMO,ON,NM)
+Shape(ON,NM,EMO)
+Shape(NM,EMO,ON)
+Shape(EON,NM,MO)
+Shape(NM,MO,EON)
+Shape(MO,EON,NM)
+Shape(ONM,MO,ON)
+Shape(MO,ON,ONM)
+Shape(ON,ONM,MO)
+Shape(EMO,EON,NM)
+Shape(EON,NM,EMO)
+Shape(NM,EMO,EON)
+Shape(EMO,ON,ONM)
+Shape(ON,ONM,EMO)
+Shape(ONM,EMO,ON)
+Shape(EON,ONM,MO)
+Shape(ONM,MO,EON)
+Shape(MO,EON,ONM)
+Shape(EMO,EON,ONM)
+Shape(EON,ONM,EMO)
+Shape(ONM,EMO,EON)
+Cocircular(E,O)
+Cocircular(E,N)
+Cocircular(E,M)
+Cocircular(E,ON)
+Cocircular(E,NO)
+Cocircular(E,OM)
+Cocircular(E,MO)
+Cocircular(E,NM)
+Cocircular(E,MN)
+Cocircular(E,NMO)
+Cocircular(E,MON)
+Point(O)
+Point(M)
+Point(N)
+Line(OM)
+Line(MO)
+Line(NO)
+Line(ON)
+Line(MN)
+Line(NM)
+Arc(EON)
+Arc(ENO)
+Arc(EOM)
+Arc(EMO)
+Arc(ENM)
+Arc(EMN)
+Angle(ONM)
+Angle(NMO)
+Angle(MON)
+Angle(MNO)
+Angle(OMN)
+Angle(NOM)
+Polygon(ONM)
+Polygon(NMO)
+Polygon(MON)
+Circle(E)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, the conclusion should be `IsDiameterOfCircle(NM,E)` not `IsDiameterOfCircle(MN,E)`. Let me check the theorem format:
+
+`diameter_of_circle_judgment_right_angle(BCA,O)`: premise `Cocircular(O,BCA)&Equal(MeasureOfAngle(BCA),90)`, conclusion `IsDiameterOfCircle(AB,O)`
+
+So with `BCA` → the angle is at C (middle letter), and the diameter is `AB` (first and last letters). For `MON` → angle at O (middle), diameter should be `MN` but the verifier says `NM`. 
+
+Looking at the pattern: `BCA` gives diameter `AB` - that's reversing B and A (first becomes second, last becomes first). So for `MON`: M is first, N is last → diameter is `NM`.
+
+EQUATIONS:
+ll_om-8
+ll_on-6
+ma_mon-90
+GOAL_SYMBOL:
+RadiusOfCircle(E)
+ANSWER:
+5
+THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,MON); Polygon(MON)&Equal(MeasureOfAngle(MON),90); ["RightTriangle(MON)"]
+2; right_triangle_property_pythagorean(1,MON); RightTriangle(MON); ["Equal(Add(Pow(LengthOfLine(MO),2),Pow(LengthOfLine(ON),2)),Pow(LengthOfLine(MN),2))"]
+3; diameter_of_circle_judgment_right_angle(1,MON,E); Cocircular(E,MON)&Equal(MeasureOfAngle(MON),90); ["IsDiameterOfCircle(NM,E)"]
+4; diameter_of_circle_property_length_equal(1,NM,E); IsDiameterOfCircle(NM,E); ["Equal(LengthOfLine(NM),DiameterOfCircle(E))"]
+5; circle_property_length_of_radius_and_diameter(1,E); Circle(E); ["Equal(DiameterOfCircle(E),Mul(RadiusOfCircle(E),2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: diameter_of_circle_judgment_right_angle(1,MON,E)
+You output the following conclusions: IsDiameterOfCircle(MN,E)
+But the correct conclusions: IsDiameterOfCircle(NM,E)
+
+Model Answer:
+RETRY_ANSWER:
+5
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,MON); Polygon(MON)&Equal(MeasureOfAngle(MON),90); ["RightTriangle(MON)"]
+2; right_triangle_property_pythagorean(1,MON); RightTriangle(MON); ["Equal(Add(Pow(LengthOfLine(MO),2),Pow(LengthOfLine(ON),2)),Pow(LengthOfLine(MN),2))"]
+3; diameter_of_circle_judgment_right_angle(1,MON,E); Cocircular(E,MON)&Equal(MeasureOfAngle(MON),90); ["IsDiameterOfCircle(MN,E)"]
+4; diameter_of_circle_property_length_equal(1,MN,E); IsDiameterOfCircle(MN,E); ["Equal(LengthOfLine(MN),DiameterOfCircle(E))"]
+5; circle_property_length_of_radius_and_diameter(1,E); Circle(E); ["Equal(DiameterOfCircle(E),Mul(RadiusOfCircle(E),2))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_om-8
+ll_on-6
+ma_mon-90
+GT_GOAL_SYMBOL:
+rc_e
+GT_ANSWER:
+5
+GT_THEOREM_SEQUENCE:
+1;right_triangle_judgment_angle(1,MON);Polygon(MON)&Equal(MeasureOfAngle(MON),90);["RightTriangle(MON)"]
+2;right_triangle_property_pythagorean(1,MON);RightTriangle(MON);["Equal(Add(Pow(LengthOfLine(MO),2),Pow(LengthOfLine(ON),2)),Pow(LengthOfLine(MN),2))"]
+3;diameter_of_circle_judgment_right_angle(1,MON,E);Cocircular(E,MON)&Equal(MeasureOfAngle(MON),90);["IsDiameterOfCircle(NM,E)"]
+4;diameter_of_circle_property_length_equal(1,NM,E);IsDiameterOfCircle(NM,E);["Equal(LengthOfLine(NM),DiameterOfCircle(E))"]
+5;circle_property_length_of_radius_and_diameter(1,E);Circle(E);["Equal(DiameterOfCircle(E),Mul(RadiusOfCircle(E),2))"]
+

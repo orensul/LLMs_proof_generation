@@ -1,0 +1,265 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ACD=42°, O is the center of ⊙O, AB is the diameter of circle O. Find the measure of ∠DAB.
+CONSTRUCTION_CDL:
+Shape(OBD,DB)
+Shape(ODA,AD)
+Shape(OAC,CA)
+Shape(OAC,OCB,BO,OA)
+Shape(BD,DA,AO,OB)
+Shape(DA,AC,CD)
+Collinear(AOB)
+Cocircular(O,ACBD)
+TEXT_CDL:
+Equal(MeasureOfAngle(ACD),42)
+IsCentreOfCircle(O,O)
+IsDiameterOfCircle(AB,O)
+GOAL_CDL:
+Value(MeasureOfAngle(DAB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DB,OBD)
+Shape(AD,ODA)
+Shape(CA,OAC)
+Shape(OCB,BO,OA,OAC)
+Shape(BO,OA,OAC,OCB)
+Shape(OA,OAC,OCB,BO)
+Shape(DA,AO,OB,BD)
+Shape(AO,OB,BD,DA)
+Shape(OB,BD,DA,AO)
+Shape(AC,CD,DA)
+Shape(CD,DA,AC)
+Shape(OBD,DA,AO,OB)
+Shape(DA,AO,OB,OBD)
+Shape(AO,OB,OBD,DA)
+Shape(OB,OBD,DA,AO)
+Shape(ODA,AO,OB,BD)
+Shape(AO,OB,BD,ODA)
+Shape(OB,BD,ODA,AO)
+Shape(BD,ODA,AO,OB)
+Shape(ODA,AC,CD)
+Shape(AC,CD,ODA)
+Shape(CD,ODA,AC)
+Shape(OAC,CD,DA)
+Shape(CD,DA,OAC)
+Shape(DA,OAC,CD)
+Shape(CA,OCB,BO,OA)
+Shape(OCB,BO,OA,CA)
+Shape(BO,OA,CA,OCB)
+Shape(OA,CA,OCB,BO)
+Shape(OAC,OCB,BD,DA)
+Shape(OCB,BD,DA,OAC)
+Shape(BD,DA,OAC,OCB)
+Shape(DA,OAC,OCB,BD)
+Shape(OBD,ODA,AO,OB)
+Shape(ODA,AO,OB,OBD)
+Shape(AO,OB,OBD,ODA)
+Shape(OB,OBD,ODA,AO)
+Shape(OBD,DA,OAC,OCB)
+Shape(DA,OAC,OCB,OBD)
+Shape(OAC,OCB,OBD,DA)
+Shape(OCB,OBD,DA,OAC)
+Shape(ODA,OAC,CD)
+Shape(OAC,CD,ODA)
+Shape(CD,ODA,OAC)
+Shape(ODA,OAC,OCB,BD)
+Shape(OAC,OCB,BD,ODA)
+Shape(OCB,BD,ODA,OAC)
+Shape(BD,ODA,OAC,OCB)
+Shape(CA,OCB,BD,DA)
+Shape(OCB,BD,DA,CA)
+Shape(BD,DA,CA,OCB)
+Shape(DA,CA,OCB,BD)
+Shape(OCB,BO,OA,CD,DA)
+Shape(BO,OA,CD,DA,OCB)
+Shape(OA,CD,DA,OCB,BO)
+Shape(CD,DA,OCB,BO,OA)
+Shape(DA,OCB,BO,OA,CD)
+Shape(OBD,ODA,OAC,OCB)
+Shape(ODA,OAC,OCB,OBD)
+Shape(OAC,OCB,OBD,ODA)
+Shape(OCB,OBD,ODA,OAC)
+Shape(OBD,DA,CA,OCB)
+Shape(DA,CA,OCB,OBD)
+Shape(CA,OCB,OBD,DA)
+Shape(OCB,OBD,DA,CA)
+Shape(ODA,CA,OCB,BD)
+Shape(CA,OCB,BD,ODA)
+Shape(OCB,BD,ODA,CA)
+Shape(BD,ODA,CA,OCB)
+Shape(ODA,OCB,BO,OA,CD)
+Shape(OCB,BO,OA,CD,ODA)
+Shape(BO,OA,CD,ODA,OCB)
+Shape(OA,CD,ODA,OCB,BO)
+Shape(CD,ODA,OCB,BO,OA)
+Shape(OBD,ODA,CA,OCB)
+Shape(ODA,CA,OCB,OBD)
+Shape(CA,OCB,OBD,ODA)
+Shape(OCB,OBD,ODA,CA)
+Collinear(BOA)
+Cocircular(O,A)
+Cocircular(O,C)
+Cocircular(O,B)
+Cocircular(O,D)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,CB)
+Cocircular(O,BC)
+Cocircular(O,CD)
+Cocircular(O,DC)
+Cocircular(O,BD)
+Cocircular(O,DB)
+Cocircular(O,ACB)
+Cocircular(O,CBA)
+Cocircular(O,BAC)
+Cocircular(O,ACD)
+Cocircular(O,CDA)
+Cocircular(O,DAC)
+Cocircular(O,ABD)
+Cocircular(O,BDA)
+Cocircular(O,DAB)
+Cocircular(O,CBD)
+Cocircular(O,BDC)
+Cocircular(O,DCB)
+Cocircular(O,CBDA)
+Cocircular(O,BDAC)
+Cocircular(O,DACB)
+Point(A)
+Point(B)
+Point(O)
+Point(D)
+Point(C)
+Line(AB)
+Line(BA)
+Line(AO)
+Line(OA)
+Line(OB)
+Line(BO)
+Line(DB)
+Line(BD)
+Line(AD)
+Line(DA)
+Line(CA)
+Line(AC)
+Line(CD)
+Line(DC)
+Arc(OAC)
+Arc(OCA)
+Arc(OAB)
+Arc(OBA)
+Arc(OAD)
+Arc(ODA)
+Arc(OCB)
+Arc(OBC)
+Arc(OCD)
+Arc(ODC)
+Arc(OBD)
+Arc(ODB)
+Angle(AOB)
+Angle(BOA)
+Angle(BDA)
+Angle(DAO)
+Angle(ABD)
+Angle(DAC)
+Angle(ACD)
+Angle(CDA)
+Angle(BAD)
+Angle(BAC)
+Angle(DAB)
+Angle(OBD)
+Angle(OAD)
+Angle(OAC)
+Angle(ADB)
+Angle(DBA)
+Angle(CAD)
+Angle(DCA)
+Angle(ADC)
+Angle(CAB)
+Angle(DBO)
+Angle(CAO)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABD)
+Polygon(DAC)
+Polygon(ACD)
+Polygon(CDA)
+Circle(O)
+IsDiameterOfCircle(BA,O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, I need to fix the premises and conclusions for the arc_property_circumference_angle_external theorem. The theorem requires `Cocircular(O,ADC)&Angle(DCA)` and concludes `Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))`.
+
+EQUATIONS:
+ma_acd - 42
+
+GOAL_SYMBOL:
+ma_dab
+
+ANSWER:
+48
+
+THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ADC)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+4; triangle_property_angle_sum(1,DAB); Polygon(DAB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: diameter_of_circle_property_right_angle(1,ADB,O)
+You output the following premises: IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB)
+But the correct premises: IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB)
+
+Model Answer:
+RETRY_ANSWER:
+48
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(AB,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+4; triangle_property_angle_sum(1,DAB); Polygon(DAB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAD,C)
+You output the following premises: Cocircular(O,ACD)&Angle(ACD)
+But the correct premises: Cocircular(O,ADC)&Angle(DCA)
+You output the following conclusions: Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(OAD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+48
+RETRY_THEOREM_SEQUENCE:
+1; diameter_of_circle_property_right_angle(1,ADB,O); IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB); ["PerpendicularBetweenLine(AD,BD)"]
+2; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ACD)&Angle(ACD); ["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(OAD),1/2))"]
+4; triangle_property_angle_sum(1,DAB); Polygon(DAB); ["Equal(Add(MeasureOfAngle(DAB),MeasureOfAngle(ABD),MeasureOfAngle(BDA)),180)"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_acd-42
+GT_GOAL_SYMBOL:
+ma_dab
+GT_ANSWER:
+48
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,BDA);Polygon(BDA);["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(DAB),MeasureOfAngle(ABD)),180)"]
+2;diameter_of_circle_property_right_angle(1,BDA,O);IsDiameterOfCircle(AB,O)&Cocircular(O,BDA)&Angle(BDA);["PerpendicularBetweenLine(BD,AD)"]
+3;arc_property_circumference_angle_external(1,ODA,C);Cocircular(O,DAC)&Angle(ACD);["Equal(MeasureOfAngle(ACD),Mul(MeasureOfArc(ODA),1/2))"]
+4;arc_property_circumference_angle_external(1,ODA,B);Cocircular(O,DAB)&Angle(ABD);["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+

@@ -1,0 +1,75 @@
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,BSU,T)
+You output the following premises: Cocircular(B,SUT)&Angle(TSU)
+But the correct premises: Cocircular(B,SUT)&Angle(UTS)
+You output the following conclusions: Equal(MeasureOfAngle(TSU),Mul(MeasureOfArc(BSU),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(TSU); ["Equal(MeasureOfAngle(TSU),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(SVT); ["Equal(MeasureOfAngle(SVT),Mul(MeasureOfArc(BVT),1/2))"]
+3; triangle_property_angle_sum(1,RSU); Polygon(RSU); ["Equal(Add(MeasureOfAngle(RSU),MeasureOfAngle(SUR),MeasureOfAngle(URS)),180)"]
+4; flat_angle(1,RST); Collinear(RST); ["Equal(MeasureOfAngle(RST),180)"]
+5; flat_angle(1,RUV); Collinear(RUV); ["Equal(MeasureOfAngle(RUV),180)"]
+
+EQUATIONS: ma_sru-23 ma_bvt-68
+GOAL_SYMBOL: MeasureOfArc(BSU)
+Retry attempt: 1
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; triangle_property_angle_sum(1,SRU); Polygon(SRU); ["Equal(Add(MeasureOfAngle(SRU),MeasureOfAngle(RUS),MeasureOfAngle(USR)),180)"]
+4; flat_angle(1,TSR); Collinear(TSR); ["Equal(MeasureOfAngle(TSR),180)"]
+5; flat_angle(1,VUR); Collinear(VUR); ["Equal(MeasureOfAngle(VUR),180)"]
+Retry attempt: 2
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; triangle_property_angle_sum(1,SRU); Polygon(SRU); ["Equal(Add(MeasureOfAngle(SRU),MeasureOfAngle(RUS),MeasureOfAngle(USR)),180)"]
+4; flat_angle(1,TSR); Collinear(TSR); ["Equal(MeasureOfAngle(TSR),180)"]
+5; flat_angle(1,VUR); Collinear(VUR); ["Equal(MeasureOfAngle(VUR),180)"]
+Retry attempt: 3
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; triangle_property_angle_sum(1,SRU); Polygon(SRU); ["Equal(Add(MeasureOfAngle(SRU),MeasureOfAngle(RUS),MeasureOfAngle(USR)),180)"]
+4; flat_angle(1,TSR); Collinear(TSR); ["Equal(MeasureOfAngle(TSR),180)"]
+5; flat_angle(1,VUR); Collinear(VUR); ["Equal(MeasureOfAngle(VUR),180)"]
+Retry attempt: 4
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BSU,T); Cocircular(B,SUT)&Angle(UTS); ["Equal(MeasureOfAngle(UTS),Mul(MeasureOfArc(BSU),1/2))"]
+2; arc_property_circumference_angle_external(1,BVT,S); Cocircular(B,VTS)&Angle(TSV); ["Equal(MeasureOfAngle(TSV),Mul(MeasureOfArc(BVT),1/2))"]
+3; triangle_property_angle_sum(1,SRU); Polygon(SRU); ["Equal(Add(MeasureOfAngle(SRU),MeasureOfAngle(RUS),MeasureOfAngle(USR)),180)"]
+4; flat_angle(1,TSR); Collinear(TSR); ["Equal(MeasureOfAngle(TSR),180)"]
+5; flat_angle(1,VUR); Collinear(VUR); ["Equal(MeasureOfAngle(VUR),180)"]
+Retry attempt: 5
+Total time: 54.683s | per attempt: [25.49, 11.574, 3.965, 9.141, 4.513]
+Content written to results/level_1/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_192_run_1.txt

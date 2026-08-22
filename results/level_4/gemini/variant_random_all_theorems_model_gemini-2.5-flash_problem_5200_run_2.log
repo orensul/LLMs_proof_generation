@@ -1,0 +1,107 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: midsegment_of_triangle_judgment_midpoint(1,EF,APB)
+You output the following premises: Polygon(APB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&IsMidpointOfLine(E,AP)&IsMidpointOfLine(F,PB)
+But the correct premises: Polygon(APB)&Collinear(AEP)&Collinear(AFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(PE))&Equal(LengthOfLine(AF),LengthOfLine(BF))
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_chord_perpendicular_bisect_chord(1,O,OE,AP); Cocircular(O,AP)&Collinear(AEP)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(AEO),90); ["IsPerpendicularBisectorOfLine(OE,AP)"]
+2; midpoint_of_line_judgment(1,E,AP); Collinear(AEP)&Equal(LengthOfLine(AE),LengthOfLine(EP)); ["IsMidpointOfLine(E,AP)"]
+3; circle_property_chord_perpendicular_bisect_chord(1,O,OF,PB); Cocircular(O,PB)&Collinear(PFB)&IsCentreOfCircle(O,O)&Equal(MeasureOfAngle(PFO),90); ["IsPerpendicularBisectorOfLine(OF,PB)"]
+4; midpoint_of_line_judgment(1,F,PB); Collinear(PFB)&Equal(LengthOfLine(PF),LengthOfLine(FB)); ["IsMidpointOfLine(F,PB)"]
+5; midsegment_of_triangle_judgment_midpoint(1,EF,APB); Polygon(APB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&IsMidpointOfLine(E,AP)&IsMidpointOfLine(F,PB); ["IsMidsegmentOfTriangle(EF,APB)"]
+6; midsegment_of_triangle_property_length(1,EF,APB); IsMidsegmentOfTriangle(EF,APB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,AOP)
+You output the following premises: Polygon(AOP)&Equal(LengthOfLine(OA),LengthOfLine(OP))
+But the correct premises: Polygon(AOP)&Equal(LengthOfLine(AO),LengthOfLine(AP))
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+2; radius_of_circle_property_length_equal(1,OP,O); Cocircular(O,P)&Line(OP)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OP),RadiusOfCircle(O))"]
+3; isosceles_triangle_judgment_line_equal(1,AOP); Polygon(AOP)&Equal(LengthOfLine(OA),LengthOfLine(OP)); ["IsoscelesTriangle(AOP)"]
+4; altitude_of_triangle_judgment(1,OE,AOP); Polygon(AOP)&Line(OE)&Collinear(AEP)&Equal(MeasureOfAngle(AEO),90); ["IsAltitudeOfTriangle(OE,AOP)"]
+5; isosceles_triangle_property_line_coincidence(1,AOP,E); IsoscelesTriangle(AOP)&IsAltitudeOfTriangle(OE,AOP); ["IsMedianOfTriangle(OE,AOP)", "IsBisectorOfAngle(OE,AOP)"]
+6; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+7; isosceles_triangle_judgment_line_equal(1,POB); Polygon(POB)&Equal(LengthOfLine(OP),LengthOfLine(OB)); ["IsoscelesTriangle(POB)"]
+8; altitude_of_triangle_judgment(1,OF,POB); Polygon(POB)&Line(OF)&Collinear(PFB)&Equal(MeasureOfAngle(PFO),90); ["IsAltitudeOfTriangle(OF,POB)"]
+9; isosceles_triangle_property_line_coincidence(1,POB,F); IsoscelesTriangle(POB)&IsAltitudeOfTriangle(OF,POB); ["IsMedianOfTriangle(OF,POB)", "IsBisectorOfAngle(OF,POB)"]
+10; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(EP))&Equal(LengthOfLine(PF),LengthOfLine(FB)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+11; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_line_coincidence(1,OAP,E)
+You output the following conclusions: IsBisectorOfAngle(OE,OAP)
+But the correct conclusions: IsBisectorOfAngle(OE,POA)
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+2; radius_of_circle_property_length_equal(1,OP,O); Cocircular(O,P)&Line(OP)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OP),RadiusOfCircle(O))"]
+3; isosceles_triangle_judgment_line_equal(1,OAP); Polygon(OAP)&Equal(LengthOfLine(OA),LengthOfLine(OP)); ["IsoscelesTriangle(OAP)"]
+4; altitude_of_triangle_judgment(1,OE,OAP); Polygon(OAP)&Line(OE)&Collinear(AEP)&Equal(MeasureOfAngle(AEO),90); ["IsAltitudeOfTriangle(OE,OAP)"]
+5; isosceles_triangle_property_line_coincidence(1,OAP,E); IsoscelesTriangle(OAP)&IsAltitudeOfTriangle(OE,OAP); ["IsMedianOfTriangle(OE,OAP)", "IsBisectorOfAngle(OE,OAP)"]
+6; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+7; isosceles_triangle_judgment_line_equal(1,OPB); Polygon(OPB)&Equal(LengthOfLine(OP),LengthOfLine(OB)); ["IsoscelesTriangle(OPB)"]
+8; altitude_of_triangle_judgment(1,OF,OPB); Polygon(OPB)&Line(OF)&Collinear(PFB)&Equal(MeasureOfAngle(PFO),90); ["IsAltitudeOfTriangle(OF,OPB)"]
+9; isosceles_triangle_property_line_coincidence(1,OPB,F); IsoscelesTriangle(OPB)&IsAltitudeOfTriangle(OF,OPB); ["IsMedianOfTriangle(OF,OPB)", "IsBisectorOfAngle(OF,OPB)"]
+10; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(EP))&Equal(LengthOfLine(PF),LengthOfLine(FB)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+11; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_line_coincidence(1,OPB,F)
+You output the following conclusions: IsBisectorOfAngle(OF,POB)
+But the correct conclusions: IsBisectorOfAngle(OF,BOP)
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+2; radius_of_circle_property_length_equal(1,OP,O); Cocircular(O,P)&Line(OP)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OP),RadiusOfCircle(O))"]
+3; isosceles_triangle_judgment_line_equal(1,OAP); Polygon(OAP)&Equal(LengthOfLine(OA),LengthOfLine(OP)); ["IsoscelesTriangle(OAP)"]
+4; altitude_of_triangle_judgment(1,OE,OAP); Polygon(OAP)&Line(OE)&Collinear(AEP)&Equal(MeasureOfAngle(AEO),90); ["IsAltitudeOfTriangle(OE,OAP)"]
+5; isosceles_triangle_property_line_coincidence(1,OAP,E); IsoscelesTriangle(OAP)&IsAltitudeOfTriangle(OE,OAP); ["IsMedianOfTriangle(OE,OAP)", "IsBisectorOfAngle(OE,POA)"]
+6; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+7; isosceles_triangle_judgment_line_equal(1,OPB); Polygon(OPB)&Equal(LengthOfLine(OP),LengthOfLine(OB)); ["IsoscelesTriangle(OPB)"]
+8; altitude_of_triangle_judgment(1,OF,OPB); Polygon(OPB)&Line(OF)&Collinear(PFB)&Equal(MeasureOfAngle(PFO),90); ["IsAltitudeOfTriangle(OF,OPB)"]
+9; isosceles_triangle_property_line_coincidence(1,OPB,F); IsoscelesTriangle(OPB)&IsAltitudeOfTriangle(OF,OPB); ["IsMedianOfTriangle(OF,OPB)", "IsBisectorOfAngle(OF,POB)"]
+10; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(EP))&Equal(LengthOfLine(PF),LengthOfLine(FB)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+11; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5200_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: midsegment_of_triangle_judgment_midpoint(1,EF,PAB)
+You output the following premises: Polygon(PAB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(EP))&Equal(LengthOfLine(PF),LengthOfLine(FB))
+But the correct premises: Polygon(PAB)&Collinear(PEA)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(PE),LengthOfLine(AE))&Equal(LengthOfLine(PF),LengthOfLine(BF))
+
+Model Answer:
+RETRY_ANSWER:
+4
+RETRY_THEOREM_SEQUENCE:
+1; radius_of_circle_property_length_equal(1,OA,O); Cocircular(O,A)&Line(OA)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OA),RadiusOfCircle(O))"]
+2; radius_of_circle_property_length_equal(1,OP,O); Cocircular(O,P)&Line(OP)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OP),RadiusOfCircle(O))"]
+3; isosceles_triangle_judgment_line_equal(1,OAP); Polygon(OAP)&Equal(LengthOfLine(OA),LengthOfLine(OP)); ["IsoscelesTriangle(OAP)"]
+4; altitude_of_triangle_judgment(1,OE,OAP); Polygon(OAP)&Line(OE)&Collinear(AEP)&Equal(MeasureOfAngle(AEO),90); ["IsAltitudeOfTriangle(OE,OAP)"]
+5; isosceles_triangle_property_line_coincidence(1,OAP,E); IsoscelesTriangle(OAP)&IsAltitudeOfTriangle(OE,OAP); ["IsMedianOfTriangle(OE,OAP)", "IsBisectorOfAngle(OE,POA)"]
+6; radius_of_circle_property_length_equal(1,OB,O); Cocircular(O,B)&Line(OB)&IsCentreOfCircle(O,O); ["Equal(LengthOfLine(OB),RadiusOfCircle(O))"]
+7; isosceles_triangle_judgment_line_equal(1,OPB); Polygon(OPB)&Equal(LengthOfLine(OP),LengthOfLine(OB)); ["IsoscelesTriangle(OPB)"]
+8; altitude_of_triangle_judgment(1,OF,OPB); Polygon(OPB)&Line(OF)&Collinear(PFB)&Equal(MeasureOfAngle(PFO),90); ["IsAltitudeOfTriangle(OF,OPB)"]
+9; isosceles_triangle_property_line_coincidence(1,OPB,F); IsoscelesTriangle(OPB)&IsAltitudeOfTriangle(OF,OPB); ["IsMedianOfTriangle(OF,OPB)", "IsBisectorOfAngle(OF,BOP)"]
+10; midsegment_of_triangle_judgment_midpoint(1,EF,PAB); Polygon(PAB)&Collinear(AEP)&Collinear(PFB)&Line(EF)&Equal(LengthOfLine(AE),LengthOfLine(EP))&Equal(LengthOfLine(PF),LengthOfLine(FB)); ["IsMidsegmentOfTriangle(EF,PAB)"]
+11; midsegment_of_triangle_property_length(1,EF,PAB); IsMidsegmentOfTriangle(EF,PAB); ["Equal(LengthOfLine(EF),Mul(LengthOfLine(AB),1/2))"]
+Retry attempt: 5
+Total time: 223.982s | per attempt: [76.345, 67.003, 23.596, 25.006, 32.029]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_5200_run_2.txt

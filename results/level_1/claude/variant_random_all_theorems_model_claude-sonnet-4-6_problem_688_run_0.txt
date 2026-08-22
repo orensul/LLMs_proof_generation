@@ -1,0 +1,115 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=12, AC=h, ∠ABC=30°, BC⊥AC. Find the value of h.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),12)
+Equal(LengthOfLine(AC),h)
+Equal(MeasureOfAngle(ABC),30)
+PerpendicularBetweenLine(BC,AC)
+GOAL_CDL:
+Value(h)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Point(A)
+Point(B)
+Point(C)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Line(CA)
+Line(AC)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the GDL, I need to find the correct theorem to solve this problem.
+
+The problem: AB=12, AC=h, ∠ABC=30°, BC⊥AC (so ∠BCA=90°).
+
+In right triangle ABC with ∠BCA=90°, using sine theorem:
+sin(∠ABC) = AC/AB → AC = AB × sin(30°) = 12 × 0.5 = 6
+
+Looking at the GDL sine_theorem:
+```
+"sine_theorem(ABC)": {
+    "1": {
+        "premise": "Polygon(ABC)",
+        "conclusion": ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+    }
+}
+```
+
+The theorem name format in examples is like `sine_theorem(1,ABC)` but the GDL shows `sine_theorem(ABC)`. Looking at example A5:
+`1; diameter_of_circle_property_right_angle(1,BCA,O); ...`
+
+The format is: `theorem_name(variation_number, arguments)`. So `sine_theorem(1,ABC)` should be correct.
+
+Wait, the error says the theorem is not defined. Let me re-examine - the GDL key is `"sine_theorem(ABC)"` meaning the theorem name WITH arguments in the key. But in examples, they call it as `sine_theorem(1,ABC)` where 1 is the variation.
+
+The issue might be something else. Let me look at the example format more carefully:
+- `parallel_property_ipsilateral_internal_angle(1,WX,ZY)` - the GDL key is `parallel_property_ipsilateral_internal_angle(AB,CD)`
+
+So the pattern is: `theorem_name(variation, arg1, arg2, ...)` in the sequence, matching `theorem_name(arg1, arg2, ...)` in GDL.
+
+My call `sine_theorem(1,ABC)` should match `sine_theorem(ABC)` - this seems correct. Let me try again with the exact format.
+
+EQUATIONS:
+ll_ab - 12
+ll_ac - h
+ma_abc - 30
+
+GOAL_SYMBOL:
+h
+
+ANSWER:
+6
+
+THEOREM_SEQUENCE:
+1; sine_theorem(1,ABC); Polygon(ABC); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; sine_theorem(1,ABC); Polygon(ABC); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-12
+-h+ll_ac
+ma_abc-30
+ma_bca-90
+GT_GOAL_SYMBOL:
+h
+GT_ANSWER:
+6
+GT_THEOREM_SEQUENCE:
+1;sine_theorem(1,ABC);Polygon(ABC);["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+

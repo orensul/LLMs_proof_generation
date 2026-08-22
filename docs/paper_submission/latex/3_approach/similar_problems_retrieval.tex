@@ -1,0 +1,59 @@
+
+
+
+%In the previous section, we transformed problems from the FormalGeo-7K dataset into abstract representations. Here, we describe our approach for retrieving analogous problems from the dataset given a new target problem. 
+
+% יש לי 3 ציונים לזוג בעיות. אין לי ציון אחד של מה הדמיון בין הבעיות. יש לי מודל מנבא דמיון בין ההוכחות.
+% בהנתן בעיה, איך אני מאחזר כמה שיותר בעיות אנלוגיות? יש לי 3 ציונים לכל זוג. 
+
+% באבלואציה אני מראה שאם נקח ניבוי של דמיון הוכחות הכי גבוה, בפועל אלו הוכחות מאוד דומות, כלומר המודל טוב נשתמש במודל כדי לנבא על כל הזוגות של הבעיה הזאת מול האחרות, ובזמן ההסקה נקח את הטופ  
+Our goal in this section is to retrieve problems whose (known) proof is similar to the (unknown) target proof. We conjecture that providing the model with these proof examples in context will improve its ability to generate a correct proof.
+
+%By abstracting away surface-level details, we can identify problems whose (known) proofs can serve as effective guidance for generating a proof for the target problem.
+Our underlying working hypothesis is that \emph{similar problems often yield similar proofs}.
+%
+%, and that by retrieving such analogous problems, we 
+%
+%to the target problem rather than generating a proof entirely from scratch.  We next test this hypothesis.
+More concretely, we posit we can identify problems with potentially useful proofs by finding analogous problems (i.e., problems which are structurally similar to the target problem). To do this, we train a regressor to predict proof similarity between two problems, based on their structural similarity.
+
+
+%problems, we compute the Jaccard similarity between the abstracted target problem and each abstracted problem in the dataset, using their construction, condition, and goal components. 
+
+
+%\noindent\textbf{RQ: Do similar problems have similar proofs?}
+%We aim to investigate whether the similarity between problems can serve as a predictor for the similarity in their proofs. Accordingly, we frame this task as a classification problem, train a classifier, and evaluate its performance.
+
+\noindent\textbf{Dataset and Training.}  
+For each pair of abstracted problems, we compute the Jaccard similarity over the multi-sets of \emph{construction} and \emph{condition}  representations. We define \emph{goal} similarity as 1 if the goals match exactly and 0 otherwise. These three features form the input to our model. Abstract proof similarity, computed again via Jaccard similarity, serves as the label.
+
+
+
+The dataset contains $\sim24.4$M  problem pairs (all combinations of 6,981 problems). Proof similarity scores are binned into five intervals of width 0.2. %(sizes: 19.5M, 1.67M, 467K, 149K, 131K).
+As the distribution is highly imbalanced, with 88\% of pairs in the first bin (0-0.2), we down-sample all bins to the size of the smallest (131K, 0.8-1), yielding a balanced dataset of 655K pairs. We split the data into 90\% training and 10\% evaluation.
+
+%\noindent\textbf{Training.}
+We train a simple three-layer neural network %on the balanced dataset. 
+% The model receives as input two Jaccard similarity scores, representing the similarity of the problems’ construction and text CDLs, and a binary indicator of whether their goal CDLs match. \dnote{but you said all of this already. what's going on?} It outputs a score between 0 and 1, representing the Jaccard similarity between their proofs. 
+%Training is performed 
+using mean squared error (MSE) loss and the Adam optimizer, with a learning rate of 0.001, batch size of 32, and 10 epochs. See Appendix~\ref{appendix:analogous_problems_retrieval} for details.
+
+
+
+
+\noindent\textbf{Evaluation.}
+Note that for our use case, we are only interested in whether we can predict very high proof similarity. %This reflects the real use case of retrieving analogous problems for a new target. 
+We select all pairs with predicted similarity above 0.95 and measure the fraction whose ground-truth proof similarity is in the top two bins. While only 1.28\% of  pairs exceed this threshold, %(0.68\% + 0.6\%), 
+71\% of our predictions do.
+
+We are encouraged by the results, which confirm that our regressor can identify proofs similar to the (unknown) target proof, based on the target problem's description alone.
+
+
+%posit that proofs of similar problems are often similar themselves, and thus can be useful for guiding the model. 
+%confirming the model’s strong ability to retrieve problem pairs with similar proofs.
+
+
+
+
+
+

@@ -1,0 +1,373 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠AEN=64°, IL∥RN, WJ is parallel to AK. Find the measure of ∠EZD.
+CONSTRUCTION_CDL:
+Shape(AE,EN)
+Shape(EZ,ZD)
+Collinear(IDZQL)
+Collinear(RHEN)
+Collinear(WDHJ)
+Collinear(AZEK)
+TEXT_CDL:
+Equal(MeasureOfAngle(AEN),64)
+ParallelBetweenLine(IL,RN)
+ParallelBetweenLine(WJ,AK)
+GOAL_CDL:
+Value(MeasureOfAngle(EZD))
+CONSTRUCTION_CDL_EXTENDED:
+Collinear(LQZDI)
+Collinear(IDZ)
+Collinear(ZDI)
+Collinear(IDQ)
+Collinear(QDI)
+Collinear(IDL)
+Collinear(LDI)
+Collinear(IZQ)
+Collinear(QZI)
+Collinear(IZL)
+Collinear(LZI)
+Collinear(IQL)
+Collinear(LQI)
+Collinear(DZQ)
+Collinear(QZD)
+Collinear(DZL)
+Collinear(LZD)
+Collinear(DQL)
+Collinear(LQD)
+Collinear(ZQL)
+Collinear(LQZ)
+Collinear(NEHR)
+Collinear(RHE)
+Collinear(EHR)
+Collinear(RHN)
+Collinear(NHR)
+Collinear(REN)
+Collinear(NER)
+Collinear(HEN)
+Collinear(NEH)
+Collinear(JHDW)
+Collinear(WDH)
+Collinear(HDW)
+Collinear(WDJ)
+Collinear(JDW)
+Collinear(WHJ)
+Collinear(JHW)
+Collinear(DHJ)
+Collinear(JHD)
+Collinear(KEZA)
+Collinear(AZE)
+Collinear(EZA)
+Collinear(AZK)
+Collinear(KZA)
+Collinear(AEK)
+Collinear(KEA)
+Collinear(ZEK)
+Collinear(KEZ)
+Point(I)
+Point(L)
+Point(D)
+Point(Z)
+Point(Q)
+Point(R)
+Point(N)
+Point(H)
+Point(E)
+Point(W)
+Point(J)
+Point(A)
+Point(K)
+Line(IL)
+Line(LI)
+Line(ID)
+Line(DI)
+Line(DZ)
+Line(ZD)
+Line(DQ)
+Line(QD)
+Line(DL)
+Line(LD)
+Line(IZ)
+Line(ZI)
+Line(ZQ)
+Line(QZ)
+Line(ZL)
+Line(LZ)
+Line(IQ)
+Line(QI)
+Line(QL)
+Line(LQ)
+Line(RN)
+Line(NR)
+Line(RH)
+Line(HR)
+Line(HE)
+Line(EH)
+Line(HN)
+Line(NH)
+Line(RE)
+Line(ER)
+Line(EN)
+Line(NE)
+Line(WJ)
+Line(JW)
+Line(WD)
+Line(DW)
+Line(DH)
+Line(HD)
+Line(DJ)
+Line(JD)
+Line(WH)
+Line(HW)
+Line(HJ)
+Line(JH)
+Line(AK)
+Line(KA)
+Line(AZ)
+Line(ZA)
+Line(ZE)
+Line(EZ)
+Line(ZK)
+Line(KZ)
+Line(AE)
+Line(EA)
+Line(EK)
+Line(KE)
+Angle(IDZ)
+Angle(ZDI)
+Angle(IDQ)
+Angle(QDI)
+Angle(IDL)
+Angle(LDI)
+Angle(IZQ)
+Angle(QZI)
+Angle(IZL)
+Angle(LZI)
+Angle(IQL)
+Angle(LQI)
+Angle(DZQ)
+Angle(QZD)
+Angle(DZL)
+Angle(LZD)
+Angle(DQL)
+Angle(LQD)
+Angle(ZQL)
+Angle(LQZ)
+Angle(RHE)
+Angle(EHR)
+Angle(RHN)
+Angle(NHR)
+Angle(REN)
+Angle(NER)
+Angle(HEN)
+Angle(NEH)
+Angle(WDH)
+Angle(HDW)
+Angle(WDJ)
+Angle(JDW)
+Angle(WHJ)
+Angle(JHW)
+Angle(DHJ)
+Angle(JHD)
+Angle(AZE)
+Angle(EZA)
+Angle(AZK)
+Angle(KZA)
+Angle(AEK)
+Angle(KEA)
+Angle(ZEK)
+Angle(KEZ)
+Angle(AZD)
+Angle(KEN)
+Angle(AER)
+Angle(AEH)
+Angle(EZQ)
+Angle(EZL)
+Angle(AZQ)
+Angle(AZL)
+Angle(KZD)
+Angle(KER)
+Angle(KEH)
+Angle(ZEN)
+Angle(KZQ)
+Angle(KZL)
+Angle(ZER)
+Angle(ZEH)
+Angle(EZI)
+Angle(KZI)
+Angle(AZI)
+Angle(NEA)
+Angle(DZE)
+Angle(DZA)
+Angle(NEK)
+Angle(REA)
+Angle(HEA)
+Angle(QZE)
+Angle(LZE)
+Angle(QZA)
+Angle(LZA)
+Angle(DZK)
+Angle(REK)
+Angle(HEK)
+Angle(NEZ)
+Angle(QZK)
+Angle(LZK)
+Angle(REZ)
+Angle(HEZ)
+Angle(IZE)
+Angle(IZK)
+Angle(IZA)
+ParallelBetweenLine(NR,LI)
+ParallelBetweenLine(KA,JW)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully re-read the GDL theorem formats.
+
+`parallel_property_alternate_interior_angle`:
+- Variation 1: `ParallelBetweenLine(AB,CD)&Line(AD)` → `Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))`
+- Variation 2: `ParallelBetweenLine(AB,CD)&Line(BC)` → `Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))`
+
+The verifier shows for `ParallelBetweenLine(KA,JW)` variation 1 needs `Line(KW)` → conclusion `Equal(MeasureOfAngle(AKW),MeasureOfAngle(JWK))`. So AB=KA means A=K,B=A; CD=JW means C=J,D=W. Line(AD)=Line(KW). ✓
+
+For variation 2: `ParallelBetweenLine(KA,JW)&Line(AJ)` → `Equal(MeasureOfAngle(JAK),MeasureOfAngle(AJW))`. B=A,C=J → Line(BC)=Line(AJ). ✓
+
+Now I need to relate ∠AEN=64° to ∠EZD.
+
+The key insight: WJ∥AK. Line IDZQL intersects WJ at D and AK at Z. Line RHEN intersects WJ at H and AK at E.
+
+For `ParallelBetweenLine(KA,JW)`: variation 2 with Line(AJ)... but I need Line(ZD) or Line(EH).
+
+Actually the theorem uses the **named endpoints** of the parallel lines, not arbitrary points on them. So for KA∥JW, the transversal must connect K or A to J or W.
+
+But Z is on KA and D is on JW - these are interior points, not the named endpoints.
+
+Let me use `parallel_property_corresponding_angle` instead.
+
+For `parallel_property_corresponding_angle(2,AB,CD,E)`: premise `ParallelBetweenLine(AB,CD)&Collinear(ACE)` → conclusion `Equal(MeasureOfAngle(BAC),MeasureOfAngle(DCE))`.
+
+For NR∥LI (ParallelBetweenLine(NR,LI)), need Collinear(NLE) or similar. N is on RHEN, L is on IDZQL - no direct collinearity given.
+
+For KA∥JW (ParallelBetweenLine(KA,JW)), need Collinear(KJE). K is on AZEK, J is on WDHJ - no direct collinearity.
+
+Since the direct parallel theorems can't connect interior points easily, let me use the `flat_angle` and `vertical_angle` approach.
+
+∠EZD: Z is intersection of lines AZEK and IDZQL. E is on line AZEK toward E direction. D is on IDZQL toward D direction.
+
+Since AZEK: A-Z-E-K collinear, and IDZQL: I-D-Z-Q-L collinear, at point Z we have vertical angles: ∠AZI = ∠EZD (vertical), and ∠AZD = ∠EZI (vertical).
+
+∠AEN = 64°. Since WJ∥AK and IL∥RN, the angle ∠AEN at E (intersection of AK and RN) should equal ∠AZD at Z (intersection of AK and IL) as corresponding angles... but we can't apply the theorem directly with interior points.
+
+Using `flat_angle` and angle relationships: ∠AEN + ∠NEK... wait ∠AEK = 180° (flat). ∠AEN = 64°, so ∠NEK = 116°. Also ∠ZEN = ∠AEN... no.
+
+The vertical angle at E between lines AZEK and RHEN: ∠AEN and ∠KEH (... wait those aren't vertical). Actually ∠AEH and ∠KEN are vertical (lines AZEK and RHEN cross at E). ∠AEN and ∠KEH are vertical.
+
+∠AEN = 64°, so ∠ZEN = 180° - 64° = 116° (since A,Z,E,K collinear, ∠ZEN + ∠AEN = 180°... wait Z is on the other side of E from K? No: A-Z-E-K means Z is between A and E, so from E, ray EA goes through Z then A. So ray EZ = ray EA direction. Thus ∠ZEN = ∠AEN = 64°.
+
+Then ∠EZD = ∠AEN = 64° by vertical angles (since ray ZE = ray ZA opposite... wait A-Z-E means from Z, ray ZE goes toward E and ray ZA goes toward A, opposite directions).
+
+∠EZD: at Z, between ray ZE (toward E,K) and ray ZD (toward D, since I-D-Z means D is on I side of Z).
+∠AZI: at Z, between ray ZA (toward A, opposite to ZE) and ray ZI (toward I, opposite to ZD). These ARE vertical angles with ∠EZD.
+
+So ∠EZD = ∠AZI. And ∠AZD + ∠EZD = 180°.
+
+EQUATIONS:
+ma_aen - 64
+
+GOAL_SYMBOL:
+ma_ezd
+
+ANSWER:
+64
+
+THEOREM_SEQUENCE:
+1; vertical_angle(1,AZI,EZD); Collinear(AZE)&Collinear(IZD)&Angle(AZI)&Angle(EZD); ["Equal(MeasureOfAngle(AZI),MeasureOfAngle(EZD))"]
+2; parallel_property_alternate_interior_angle(2,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(REZ),MeasureOfAngle(LZE))"]
+3; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEZ)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+4; adjacent_complementary_angle(1,LZE,EZD); Collinear(LZD)&Angle(LZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(LZE),MeasureOfAngle(EZD)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,NR,LI,A)
+You output the following premises: ParallelBetweenLine(NR,LI)&Collinear(AZE)
+But the correct premises: ParallelBetweenLine(NR,LI)&Collinear(ANL)
+You output the following conclusions: Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIA))
+But the correct conclusions: Equal(MeasureOfAngle(ANR),MeasureOfAngle(NLI))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(1,NR,LI,A); ParallelBetweenLine(NR,LI)&Collinear(AZE); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZIA))"]
+2; vertical_angle(1,AZI,EZD); Collinear(AZE)&Collinear(IZD)&Angle(AZI)&Angle(EZD); ["Equal(MeasureOfAngle(AZI),MeasureOfAngle(EZD))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,NR,LI)
+You output the following premises: ParallelBetweenLine(NR,LI)&Line(EZ)
+But the correct premises: ParallelBetweenLine(NR,LI)&Line(NI)
+You output the following conclusions: Equal(MeasureOfAngle(NEZ),MeasureOfAngle(LZE))
+But the correct conclusions: Equal(MeasureOfAngle(RNI),MeasureOfAngle(LIN))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(LZE))"]
+2; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEZ)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+3; adjacent_complementary_angle(1,LZE,EZD); Collinear(LZD)&Angle(LZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(LZE),MeasureOfAngle(EZD)),180)"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,KA,JW)
+You output the following premises: ParallelBetweenLine(KA,JW)&Line(KJ)
+But the correct premises: ParallelBetweenLine(KA,JW)&Line(AJ)
+You output the following conclusions: Equal(MeasureOfAngle(AKJ),MeasureOfAngle(WJK))
+But the correct conclusions: Equal(MeasureOfAngle(JAK),MeasureOfAngle(AJW))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(NI); ["Equal(MeasureOfAngle(RNI),MeasureOfAngle(LIN))"]
+2; parallel_property_alternate_interior_angle(2,KA,JW); ParallelBetweenLine(KA,JW)&Line(KJ); ["Equal(MeasureOfAngle(AKJ),MeasureOfAngle(WJK))"]
+3; vertical_angle(1,AEN,ZED); Collinear(AEZ)&Collinear(NEH)&Angle(AEN)&Angle(ZED); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZED))"]
+4; vertical_angle(1,EZD,AZI); Collinear(AZE)&Collinear(IZD)&Angle(EZD)&Angle(AZI); ["Equal(MeasureOfAngle(EZD),MeasureOfAngle(AZI))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,KA,JW)
+You output the following premises: ParallelBetweenLine(KA,JW)&Line(ZD)
+But the correct premises: ParallelBetweenLine(KA,JW)&Line(KW)
+You output the following conclusions: Equal(MeasureOfAngle(AZD),MeasureOfAngle(JDZ))
+But the correct conclusions: Equal(MeasureOfAngle(AKW),MeasureOfAngle(JWK))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,KA,JW); ParallelBetweenLine(KA,JW)&Line(ZD); ["Equal(MeasureOfAngle(AZD),MeasureOfAngle(JDZ))"]
+2; adjacent_complementary_angle(1,AZD,EZD); Collinear(AZE)&Angle(AZD)&Angle(EZD); ["Equal(Add(MeasureOfAngle(AZD),MeasureOfAngle(EZD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,NR,LI); ParallelBetweenLine(NR,LI)&Line(EN); ["Equal(Add(MeasureOfAngle(REN),MeasureOfAngle(LNE)),180)"]
+4; adjacent_complementary_angle(1,AEN,REN); Collinear(AEZ)&Angle(AEN)&Angle(REN); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(REN)),180)"]
+5; parallel_property_alternate_interior_angle(2,NR,LI); ParallelBetweenLine(NR,LI)&Line(EZ); ["Equal(MeasureOfAngle(REZ),MeasureOfAngle(LZE))"]
+6; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEZ)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+7; adjacent_complementary_angle(1,LZE,EZD); Collinear(LZD)&Angle(LZE)&Angle(EZD); ["Equal(Add(MeasureOfAngle(LZE),MeasureOfAngle(EZD)),180)"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_aen-64
+GT_GOAL_SYMBOL:
+ma_ezd
+GT_ANSWER:
+64
+GT_THEOREM_SEQUENCE:
+1;parallel_property_collinear_extend(3,IL,RN,Z);ParallelBetweenLine(IL,RN)&Collinear(IZL);["ParallelBetweenLine(IZ,RN)", "ParallelBetweenLine(ZL,RN)"]
+2;parallel_property_collinear_extend(3,NR,ZI,E);ParallelBetweenLine(NR,ZI)&Collinear(NER);["ParallelBetweenLine(NE,ZI)", "ParallelBetweenLine(ER,ZI)"]
+3;parallel_property_alternate_interior_angle(2,NE,ZI);ParallelBetweenLine(NE,ZI)&Line(EZ);["Equal(MeasureOfAngle(ZEN),MeasureOfAngle(EZI))"]
+

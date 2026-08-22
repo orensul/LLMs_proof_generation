@@ -1,0 +1,191 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, PQ=6-x, QR=6+x, SQ=3+x, TQ=3, RS is parallel to TP, SR∥PT. Find the length of line PQ.
+CONSTRUCTION_CDL:
+Shape(QP,PT,TQ)
+Shape(SQ,QR,RS)
+Collinear(PQR)
+Collinear(TQS)
+TEXT_CDL:
+Equal(LengthOfLine(PQ),6-x)
+Equal(LengthOfLine(QR),6+x)
+Equal(LengthOfLine(SQ),3+x)
+Equal(LengthOfLine(TQ),3)
+ParallelBetweenLine(RS,TP)
+ParallelBetweenLine(SR,PT)
+GOAL_CDL:
+Value(LengthOfLine(PQ))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(PT,TQ,QP)
+Shape(TQ,QP,PT)
+Shape(QR,RS,SQ)
+Shape(RS,SQ,QR)
+Collinear(RQP)
+Collinear(SQT)
+Point(P)
+Point(R)
+Point(Q)
+Point(T)
+Point(S)
+Line(PR)
+Line(RP)
+Line(PQ)
+Line(QP)
+Line(QR)
+Line(RQ)
+Line(TS)
+Line(ST)
+Line(TQ)
+Line(QT)
+Line(QS)
+Line(SQ)
+Line(PT)
+Line(TP)
+Line(RS)
+Line(SR)
+Angle(PQR)
+Angle(RQP)
+Angle(TQS)
+Angle(SQT)
+Angle(QPT)
+Angle(PTQ)
+Angle(TQP)
+Angle(SQR)
+Angle(QRS)
+Angle(RSQ)
+Angle(TQR)
+Angle(SQP)
+Angle(RPT)
+Angle(PTS)
+Angle(PRS)
+Angle(RST)
+Angle(TPQ)
+Angle(QTP)
+Angle(PQT)
+Angle(RQS)
+Angle(SRQ)
+Angle(QSR)
+Angle(RQT)
+Angle(PQS)
+Angle(TPR)
+Angle(STP)
+Angle(SRP)
+Angle(TSR)
+Polygon(QPT)
+Polygon(PTQ)
+Polygon(TQP)
+Polygon(SQR)
+Polygon(QRS)
+Polygon(RSQ)
+ParallelBetweenLine(PT,SR)
+ParallelBetweenLine(TP,RS)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_pq-6+x
+ll_qr-6+x
+ll_sq-3+x
+ll_tq-3
+GOAL_SYMBOL:
+ll_pq
+ANSWER:
+6
+THEOREM_SEQUENCE:
+1; vertical_angle(1,RQS,PQT); Collinear(RQP)&Collinear(SQT)&Angle(RQS)&Angle(PQT); ["Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))"]
+2; parallel_property_alternate_interior_angle(1,RS,TP); ParallelBetweenLine(RS,TP)&Line(RP); ["Equal(MeasureOfAngle(SRP),MeasureOfAngle(TPR))"]
+3; parallel_property_alternate_interior_angle(2,RS,TP); ParallelBetweenLine(RS,TP)&Line(ST); ["Equal(MeasureOfAngle(RST),MeasureOfAngle(PTS))"]
+4; similar_triangle_judgment_aa(1,QRS,QPT); Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT))&Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ)); ["SimilarBetweenTriangle(QRS,QPT)"]
+5; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(QR),Mul(LengthOfLine(QP),RatioOfSimilarTriangle(QRS,QPT)))"]
+6; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(SQ),Mul(LengthOfLine(TQ),RatioOfSimilarTriangle(QRS,QPT)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,RQS,PQT)
+You output the following premises: Collinear(TQS)&Collinear(PQR)&Angle(RQS)&Angle(PQT)
+But the correct premises: Collinear(RQP)&Collinear(SQT)&Angle(RQS)&Angle(PQT)
+
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,RQS,PQT); Collinear(TQS)&Collinear(PQR)&Angle(RQS)&Angle(PQT); ["Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))"]
+2; parallel_property_alternate_interior_angle(1,RS,TP); ParallelBetweenLine(RS,TP)&Line(TS); ["Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ))"]
+3; similar_triangle_judgment_aa(1,QRS,QPT); Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))&Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ)); ["SimilarBetweenTriangle(QRS,QPT)"]
+4; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(QR),Mul(LengthOfLine(QP),RatioOfSimilarTriangle(QRS,QPT)))"]
+5; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(SQ),Mul(LengthOfLine(TQ),RatioOfSimilarTriangle(QRS,QPT)))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,RS,TP)
+You output the following premises: ParallelBetweenLine(RS,TP)&Line(TS)
+But the correct premises: ParallelBetweenLine(RS,TP)&Line(RP)
+You output the following conclusions: Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ))
+But the correct conclusions: Equal(MeasureOfAngle(SRP),MeasureOfAngle(TPR))
+
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,RQS,PQT); Collinear(RQP)&Collinear(SQT)&Angle(RQS)&Angle(PQT); ["Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))"]
+2; parallel_property_alternate_interior_angle(1,RS,TP); ParallelBetweenLine(RS,TP)&Line(TS); ["Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ))"]
+3; similar_triangle_judgment_aa(1,QRS,QPT); Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))&Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ)); ["SimilarBetweenTriangle(QRS,QPT)"]
+4; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(QR),Mul(LengthOfLine(QP),RatioOfSimilarTriangle(QRS,QPT)))"]
+5; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(SQ),Mul(LengthOfLine(TQ),RatioOfSimilarTriangle(QRS,QPT)))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: similar_triangle_judgment_aa(1,QRS,QPT)
+You output the following premises: Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))&Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT))
+But the correct premises: Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT))&Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ))
+
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,RQS,PQT); Collinear(RQP)&Collinear(SQT)&Angle(RQS)&Angle(PQT); ["Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))"]
+2; parallel_property_alternate_interior_angle(1,RS,TP); ParallelBetweenLine(RS,TP)&Line(RP); ["Equal(MeasureOfAngle(SRP),MeasureOfAngle(TPR))"]
+3; similar_triangle_judgment_aa(1,QRS,QPT); Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))&Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT)); ["SimilarBetweenTriangle(QRS,QPT)"]
+4; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(QR),Mul(LengthOfLine(QP),RatioOfSimilarTriangle(QRS,QPT)))"]
+5; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(SQ),Mul(LengthOfLine(TQ),RatioOfSimilarTriangle(QRS,QPT)))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,RS,TP)
+You output the following conclusions: Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT))
+But the correct conclusions: Equal(MeasureOfAngle(SRP),MeasureOfAngle(TPR))
+
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; vertical_angle(1,RQS,PQT); Collinear(RQP)&Collinear(SQT)&Angle(RQS)&Angle(PQT); ["Equal(MeasureOfAngle(RQS),MeasureOfAngle(PQT))"]
+2; parallel_property_alternate_interior_angle(1,RS,TP); ParallelBetweenLine(RS,TP)&Line(RP); ["Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT))"]
+3; parallel_property_alternate_interior_angle(2,RS,TP); ParallelBetweenLine(RS,TP)&Line(ST); ["Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ))"]
+4; similar_triangle_judgment_aa(1,QRS,QPT); Polygon(QRS)&Polygon(QPT)&Equal(MeasureOfAngle(QRS),MeasureOfAngle(QPT))&Equal(MeasureOfAngle(RSQ),MeasureOfAngle(PTQ)); ["SimilarBetweenTriangle(QRS,QPT)"]
+5; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(QR),Mul(LengthOfLine(QP),RatioOfSimilarTriangle(QRS,QPT)))"]
+6; similar_triangle_property_line_ratio(1,QRS,QPT); SimilarBetweenTriangle(QRS,QPT); ["Equal(LengthOfLine(SQ),Mul(LengthOfLine(TQ),RatioOfSimilarTriangle(QRS,QPT)))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_pq+x-6
+ll_qr-x-6
+ll_sq-x-3
+ll_tq-3
+GT_GOAL_SYMBOL:
+ll_pq
+GT_ANSWER:
+6
+GT_THEOREM_SEQUENCE:
+1;parallel_property_alternate_interior_angle(1,SR,PT);ParallelBetweenLine(SR,PT)&Line(ST);["Equal(MeasureOfAngle(RST),MeasureOfAngle(PTS))"]
+2;parallel_property_alternate_interior_angle(2,SR,PT);ParallelBetweenLine(SR,PT)&Line(RP);["Equal(MeasureOfAngle(PRS),MeasureOfAngle(RPT))"]
+3;similar_triangle_judgment_aa(1,QPT,QRS);Polygon(QPT)&Polygon(QRS)&Equal(MeasureOfAngle(QPT),MeasureOfAngle(QRS))&Equal(MeasureOfAngle(PTQ),MeasureOfAngle(RSQ));["SimilarBetweenTriangle(QPT,QRS)"]
+4;similar_triangle_property_line_ratio(1,PTQ,RSQ);SimilarBetweenTriangle(PTQ,RSQ);["Equal(LengthOfLine(TQ),Mul(LengthOfLine(SQ),RatioOfSimilarTriangle(PTQ,RSQ)))"]
+5;similar_triangle_property_line_ratio(1,TQP,SQR);SimilarBetweenTriangle(TQP,SQR);["Equal(LengthOfLine(QP),Mul(LengthOfLine(QR),RatioOfSimilarTriangle(TQP,SQR)))"]
+

@@ -1,0 +1,65 @@
+Content written to results/level_2/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_internal> para length error. Expected 4 but got (' ', 'O', 'A', 'C', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_internal(1, OAC, B); Cocircular(O,BAC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Sub(180,Mul(MeasureOfArc(OAC),1/2)))"]
+2; arc_property_circumference_angle_internal(1, OCA, D); Cocircular(O,DAC)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Sub(180,Mul(MeasureOfArc(OCA),1/2)))"]
+Retry attempt: 1
+Content written to results/level_2/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_addition_measure> para length error. Expected 6 but got (' ', 'O', 'A', 'B', ' ', 'O', 'B', 'C').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_addition_measure(1, OAB, OBC); Arc(OAB)&Arc(OBC)&Arc(OAC_arc_ABC); ["Equal(MeasureOfArc(OAC_arc_ABC),Add(MeasureOfArc(OAB),MeasureOfArc(OBC)))"]
+2; arc_property_circumference_angle_external(1, OAC_arc_ABC, D); Cocircular(O,ABCD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC_arc_ABC),1/2))"]
+3; arc_addition_measure(1, ODA, ODC); Arc(ODA)&Arc(ODC)&Arc(OAC_arc_ADC); ["Equal(MeasureOfArc(OAC_arc_ADC),Add(MeasureOfArc(ODA),MeasureOfArc(ODC)))"]
+4; arc_property_circumference_angle_external(1, OAC_arc_ADC, B); Cocircular(O,ABCD)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC_arc_ADC),1/2))"]
+Retry attempt: 2
+Content written to results/level_2/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got (' ', 'O', 'D', 'A', ' ', 'B').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1, ODA, B); Cocircular(O,ABD)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+2; arc_property_circumference_angle_external(1, ODC, B); Cocircular(O,BCD)&Angle(CBD); ["Equal(MeasureOfAngle(CBD),Mul(MeasureOfArc(ODC),1/2))"]
+3; angle_addition(1,ABD,CBD); Angle(ABD)&Angle(CBD)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Add(MeasureOfAngle(ABD),MeasureOfAngle(CBD)))"]
+4; arc_property_circumference_angle_external(1, OAB, D); Cocircular(O,DAB)&Angle(ADB); ["Equal(MeasureOfAngle(ADB),Mul(MeasureOfArc(OAB),1/2))"]
+5; arc_property_circumference_angle_external(1, OBC, D); Cocircular(O,BCD)&Angle(BDC); ["Equal(MeasureOfAngle(BDC),Mul(MeasureOfArc(OBC),1/2))"]
+6; angle_addition(1,ADB,BDC); Angle(ADB)&Angle(BDC)&Angle(ADC); ["Equal(MeasureOfAngle(ADC),Add(MeasureOfAngle(ADB),MeasureOfAngle(BDC)))"]
+Retry attempt: 3
+Content written to results/level_2/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_center_angle> para length error. Expected 4 but got (' ', 'O', 'A', 'C', ' ', 'O').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_center_angle(1, OAC, O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+2; arc_property_circumference_angle_external(1, OAC, B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+3; adjacent_complementary_angle(1, AOC, COA); Collinear(AOC)&Angle(AOC)&Angle(COA); ["Equal(Add(MeasureOfAngle(AOC),MeasureOfAngle(COA)),360)"]
+4; arc_property_center_angle(1, OAC_reflex, O); Arc(OAC_reflex)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC_reflex),MeasureOfAngle(COA))"]
+5; arc_property_circumference_angle_external(1, OAC_reflex, D); Cocircular(O,ADC)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC_reflex),1/2))"]
+Retry attempt: 4
+Content written to results/level_2/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4473_run_1_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_addition_measure> para length error. Expected 6 but got (' ', 'O', 'A', 'B', ' ', 'O', 'B', 'C').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_addition_measure(1, OAB, OBC); Arc(OAB)&Arc(OBC)&Arc(OAC_arc_ABC); ["Equal(MeasureOfArc(OAC_arc_ABC),Add(MeasureOfArc(OAB),MeasureOfArc(OBC)))"]
+2; arc_addition_measure(1, ODA, ODC); Arc(ODA)&Arc(ODC)&Arc(OAC_arc_ADC); ["Equal(MeasureOfArc(OAC_arc_ADC),Add(MeasureOfArc(ODA),MeasureOfArc(ODC)))"]
+3; arc_property_circumference_angle_external(1, OAC_arc_ADC, B); Cocircular(O,ABCD)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC_arc_ADC),1/2))"]
+4; arc_property_circumference_angle_external(1, OAC_arc_ABC, D); Cocircular(O,ABCD)&Angle(CDA); ["Equal(MeasureOfAngle(CDA),Mul(MeasureOfArc(OAC_arc_ABC),1/2))"]
+Retry attempt: 5
+Total time: 369.236s | per attempt: [74.011, 72.55, 75.665, 73.803, 73.207]
+Content written to results/level_2/gemini/variant_random_narrowed_model_gemini-2.5-flash_problem_4473_run_1.txt

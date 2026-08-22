@@ -1,0 +1,81 @@
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+/Users/orensultan/miniforge3/envs/FormalGeo_env/lib/python3.10/site-packages/formalgeo/problem/problem.py:467: UserWarning: EE check not passed: [IsCentreOfCircle, ('O', 'O'), (-1,), ('prerequisite', None, None)]
+  warnings.warn(w_msg)
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('O', 'B', 'C', 'D', 'A').
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,BCD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+2; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,DAB)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+3; arc_property_circumference_angle_external(1,OBCD,A); Cocircular(O,BCA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBC),1/2))"]
+4; quadrilateral_property_angle_sum(1,ABCD); Polygon(ABCD); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD),MeasureOfAngle(CDA),MeasureOfAngle(DAB)),360)"]
+5; arc_property_circumference_angle_external(1,OAD,C); Cocircular(O,ADC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OAD),1/2))"]
+6; adjacent_complementary_angle(1,DCB,DCE); Collinear(BCE)&Angle(DCB)&Angle(DCE); ["Equal(Add(MeasureOfAngle(DCB),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 1
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAD,B)
+You output the following premises: Cocircular(O,ADB)&Angle(DAB)
+But the correct premises: Cocircular(O,ADB)&Angle(DBA)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OAD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(DAC); ["Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OAD),1/2))"]
+3; arc_property_circumference_angle_external(1,OAB,C); Cocircular(O,ABC)&Angle(BCA); ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+4; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,BCD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+5; arc_property_circumference_angle_external(1,OCD,B); Cocircular(O,CDB)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(OCD),1/2))"]
+6; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,DAB)&Angle(ABD); ["Equal(MeasureOfAngle(ABD),Mul(MeasureOfArc(ODA),1/2))"]
+7; adjacent_complementary_angle(1,DCB,DCE); Collinear(BCE)&Angle(DCB)&Angle(DCE); ["Equal(Add(MeasureOfAngle(DCB),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 2
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DCB,DCE)
+You output the following premises: Collinear(BCE)&Angle(DCB)&Angle(DCE)
+But the correct premises: Collinear(DCE)&Angle(DCD)&Angle(DCE)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DCB),MeasureOfAngle(DCE)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(DCD),MeasureOfAngle(DCE)),180)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; adjacent_complementary_angle(1,DCB,DCE); Collinear(BCE)&Angle(DCB)&Angle(DCE); ["Equal(Add(MeasureOfAngle(DCB),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 3
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; adjacent_complementary_angle(1,BCD,DCE); Collinear(BCE)&Angle(BCD)&Angle(DCE); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(DCE)),180)"]
+Retry attempt: 4
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_4476_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DCE,DCB)
+You output the following premises: Collinear(ECB)&Angle(DCE)&Angle(DCB)
+But the correct premises: Collinear(DCB)&Angle(DCD)&Angle(DCB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DCE),MeasureOfAngle(DCB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(DCD),MeasureOfAngle(DCB)),180)
+
+Model Answer:
+RETRY_ANSWER:
+100
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,A); Cocircular(O,DBA)&Angle(BAD); ["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3; adjacent_complementary_angle(1,DCE,DCB); Collinear(ECB)&Angle(DCE)&Angle(DCB); ["Equal(Add(MeasureOfAngle(DCE),MeasureOfAngle(DCB)),180)"]
+Retry attempt: 5
+Total time: 60.642s | per attempt: [17.747, 12.647, 12.227, 9.951, 8.07]
+Content written to results/level_3/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_4476_run_0.txt

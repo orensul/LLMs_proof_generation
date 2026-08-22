@@ -1,0 +1,104 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5642_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+2; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+3; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+4; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+
+EQUATIONS: ll_am*ll_an - ll_am - ll_an
+GOAL_SYMBOL: Add(Div(1,LengthOfLine(AM)),Div(1,LengthOfLine(AN)))
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5642_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,AD,BC)
+You output the following premises: ParallelBetweenLine(AD,BC)&Line(AB)
+But the correct premises: ParallelBetweenLine(AD,BC)&Line(AC)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),MeasureOfAngle(ABC))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),MeasureOfAngle(BCA))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AD,BC); ParallelBetweenLine(AD,BC)&Line(AB); ["Equal(MeasureOfAngle(DAB),MeasureOfAngle(ABC))"]
+2; vertical_angle(1,MBC,NBA); Collinear(ABM)&Collinear(NBA)&Angle(MBC)&Angle(NBA); ["Equal(MeasureOfAngle(MBC),MeasureOfAngle(NBA))"]
+3; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+4; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+5; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+6; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+7; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+8; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+9; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5642_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,CB,DA,M)
+You output the following premises: ParallelBetweenLine(CB,DA)&Collinear(MBA)
+But the correct premises: ParallelBetweenLine(CB,DA)&Collinear(MCD)
+You output the following conclusions: Equal(MeasureOfAngle(MBC),MeasureOfAngle(BAD))
+But the correct conclusions: Equal(MeasureOfAngle(MCB),MeasureOfAngle(CDA))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(1,CB,DA,M); ParallelBetweenLine(CB,DA)&Collinear(MBA); ["Equal(MeasureOfAngle(MBC),MeasureOfAngle(BAD))"]
+2; parallel_property_corresponding_angle(2,CB,DA,M); ParallelBetweenLine(CB,DA)&Collinear(DAM); ["Equal(MeasureOfAngle(BCM),MeasureOfAngle(DAM))"]
+3; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+4; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+5; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+6; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+7; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+8; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+9; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+Retry attempt: 3
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5642_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AD,BC)
+You output the following premises: ParallelBetweenLine(AD,BC)&Line(NM)
+But the correct premises: ParallelBetweenLine(AD,BC)&Line(DB)
+You output the following conclusions: Equal(MeasureOfAngle(DNA),MeasureOfAngle(NCM))
+But the correct conclusions: Equal(MeasureOfAngle(BDA),MeasureOfAngle(DBC))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,AD,BC); ParallelBetweenLine(AD,BC)&Line(NM); ["Equal(MeasureOfAngle(DNA),MeasureOfAngle(NCM))"]
+2; vertical_angle(1,ANM,DNM); Collinear(ADN)&Collinear(ANM)&Angle(ANM)&Angle(DNM); ["Equal(MeasureOfAngle(ANM),MeasureOfAngle(DNM))"]
+3; vertical_angle(1,MBC,NBС); Collinear(ABM)&Collinear(NBC)&Angle(MBC)&Angle(NBC); ["Equal(MeasureOfAngle(MBC),MeasureOfAngle(NBC))"]
+4; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+5; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+6; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+7; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+8; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+9; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+10; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+Retry attempt: 4
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5642_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,CB,DA)
+You output the following conclusions: Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAD))
+But the correct conclusions: Equal(MeasureOfAngle(BCA),MeasureOfAngle(DAC))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,CB,DA); ParallelBetweenLine(CB,DA)&Line(CA); ["Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAD))"]
+2; parallel_property_alternate_interior_angle(2,CB,DA); ParallelBetweenLine(CB,DA)&Line(BD); ["Equal(MeasureOfAngle(DBC),MeasureOfAngle(BDA))"]
+3; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+4; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+5; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+6; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+7; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+8; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+9; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+Retry attempt: 5
+Total time: 90.067s | per attempt: [28.645, 13.05, 12.869, 19.983, 15.518]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5642_run_0.txt

@@ -1,0 +1,208 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=x, BC=5, DE=x-4, FE=3, ∠ABC=∠FED, ∠CAB=∠EDF. Find the length of line DE.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+Shape(DF,FE,ED)
+TEXT_CDL:
+Equal(LengthOfLine(AB),x)
+Equal(LengthOfLine(BC),5)
+Equal(LengthOfLine(DE),x-4)
+Equal(LengthOfLine(FE),3)
+Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED))
+Equal(MeasureOfAngle(CAB),MeasureOfAngle(EDF))
+GOAL_CDL:
+Value(LengthOfLine(DE))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Shape(FE,ED,DF)
+Shape(ED,DF,FE)
+Point(A)
+Point(B)
+Point(C)
+Point(D)
+Point(F)
+Point(E)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Line(CA)
+Line(AC)
+Line(DF)
+Line(FD)
+Line(FE)
+Line(EF)
+Line(ED)
+Line(DE)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(DFE)
+Angle(FED)
+Angle(EDF)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Angle(EFD)
+Angle(DEF)
+Angle(FDE)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(DFE)
+Polygon(FED)
+Polygon(EDF)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The verifier tells me the correct conclusion for `mirror_similar_triangle_property_line_ratio(1,CAB,FED)` is `Equal(LengthOfLine(AB),Mul(LengthOfLine(ED),RatioOfMirrorSimilarTriangle(CAB,FED)))`.
+
+This means AB = ED * ratio, and from step 4, ED = AB * (1/ratio). Together these give AB/ED = ED... wait, let me think about what equations we need.
+
+We need: AB/DE = BC/FE (from similar triangles)
+x/(x-4) = 5/3 → x = 10 → DE = 6
+
+The property gives:
+- Step 2: AB = ED * ratio(CAB,FED) → x = (x-4) * r
+- Step 4: ED = AB * ratio(FED,CAB) → (x-4) = x * (1/r)
+
+We also need BC related to FE. Let me check `mirror_similar_triangle_property_line_ratio(1,BCA,EDF)` which would give BC = EF * ratio... but we need to establish MirrorSimilar(BCA,EDF) first.
+
+Actually, steps 2 and 3 and 4 together give: AB = ED * r and ED = AB * (1/r), plus r * (1/r) = 1. This is circular. We need another ratio equation involving BC and FE.
+
+EQUATIONS: ll_ab-x, ll_bc-5, ll_de-(x-4), ll_fe-3
+GOAL_SYMBOL: ll_de
+ANSWER: 6
+
+THEOREM_SEQUENCE:
+1; mirror_similar_triangle_judgment_aa(1,CAB,FED); Polygon(CAB)&Polygon(FED)&Equal(MeasureOfAngle(CAB),MeasureOfAngle(EDF))&Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED)); ["MirrorSimilarBetweenTriangle(CAB,FED)"]
+2; mirror_similar_triangle_property_line_ratio(1,CAB,FED); MirrorSimilarBetweenTriangle(CAB,FED); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(ED),RatioOfMirrorSimilarTriangle(CAB,FED)))"]
+3; mirror_similar_triangle_property_ratio(1,CAB,FED); MirrorSimilarBetweenTriangle(CAB,FED); ["MirrorSimilarBetweenTriangle(FED,CAB)", "Equal(Mul(RatioOfMirrorSimilarTriangle(CAB,FED),RatioOfMirrorSimilarTriangle(FED,CAB)),1)"]
+4; mirror_similar_triangle_property_line_ratio(1,FED,CAB); MirrorSimilarBetweenTriangle(FED,CAB); ["Equal(LengthOfLine(ED),Mul(LengthOfLine(AB),RatioOfMirrorSimilarTriangle(FED,CAB)))"]
+5; mirror_similar_triangle_property_line_ratio(1,BCA,EDF); MirrorSimilarBetweenTriangle(BCA,EDF); ["Equal(LengthOfLine(CA),Mul(LengthOfLine(DF),RatioOfMirrorSimilarTriangle(BCA,EDF)))"]
+6; mirror_similar_triangle_property_line_ratio(1,ABC,DFE); MirrorSimilarBetweenTriangle(ABC,DFE); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(FE),RatioOfMirrorSimilarTriangle(ABC,DFE)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: similar_triangle_judgment_aa(1,ABC,DEF);Polygon(ABC)&Polygon(DEF)&Equal(MeasureOfAngle(ABC),MeasureOfAngle(DEF))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(EFD));['SimilarBetweenTriangle(ABC,DEF)']
+Missing premise: Polygon for triangle DEF is missing from the input data.
+Details: The construction data did not define this polygon.
+- Available premises:
+  Polygons: ABC, DFE
+- Theorems related to the goal:
+  Step 1 - similar_triangle_judgment_aa(1, ABC, DEF): SimilarBetweenTriangle(ABC,DEF)
+- Solver constraints directly related to this goal:
+  |DE| = x - 4
+  |DE| > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_judgment_aa(1,ABC,DEF); Polygon(ABC)&Polygon(DEF)&Equal(MeasureOfAngle(ABC),MeasureOfAngle(DEF))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(EFD)); ["SimilarBetweenTriangle(ABC,DEF)"]
+2; similar_triangle_property_line_ratio(1,ABC,DEF); SimilarBetweenTriangle(ABC,DEF); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(EF),RatioOfSimilarTriangle(ABC,DEF)))"]
+3; similar_triangle_property_line_ratio(1,CAB,FDE); SimilarBetweenTriangle(CAB,FDE); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(CAB,FDE)))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: similar_triangle_judgment_aa(1,ABC,FED);Polygon(ABC)&Polygon(FED)&Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(EDF));['SimilarBetweenTriangle(ABC,FED)']
+Missing premise: Premise angle equality BCA = EDF does not hold.
+Details: The constraints do not force these two angles to be equal.
+- Available premises:
+  Polygons: ABC, DFE
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  |DE| = x - 4
+  |DE| > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_judgment_aa(1,ABC,FED); Polygon(ABC)&Polygon(FED)&Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(EDF)); ["SimilarBetweenTriangle(ABC,FED)"]
+2; similar_triangle_property_line_ratio(1,ABC,FED); SimilarBetweenTriangle(ABC,FED); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(ED),RatioOfSimilarTriangle(ABC,FED)))"]
+3; similar_triangle_property_line_ratio(1,CAB,DFE); SimilarBetweenTriangle(CAB,DFE); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(FE),RatioOfSimilarTriangle(CAB,DFE)))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: similar_triangle_judgment_aa(1,ABC,EDF);Polygon(ABC)&Polygon(EDF)&Equal(MeasureOfAngle(ABC),MeasureOfAngle(EDF))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(DFE));['SimilarBetweenTriangle(ABC,EDF)']
+Missing premise: Premise angle equality ABC = EDF does not hold.
+Details: The constraints do not force these two angles to be equal.
+- Available premises:
+  Polygons: ABC, DFE
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  |DE| = x - 4
+  |DE| > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_judgment_aa(1,ABC,EDF); Polygon(ABC)&Polygon(EDF)&Equal(MeasureOfAngle(ABC),MeasureOfAngle(EDF))&Equal(MeasureOfAngle(BCA),MeasureOfAngle(DFE)); ["SimilarBetweenTriangle(ABC,EDF)"]
+2; similar_triangle_property_line_ratio(1,ABC,EDF); SimilarBetweenTriangle(ABC,EDF); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(DF),RatioOfSimilarTriangle(ABC,EDF)))"]
+3; similar_triangle_property_line_ratio(1,CAB,FDE); SimilarBetweenTriangle(CAB,FDE); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(CAB,FDE)))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: mirror_similar_triangle_property_line_ratio(1,CAB,FED)
+You output the following conclusions: Equal(LengthOfLine(AB),Mul(LengthOfLine(EF),RatioOfMirrorSimilarTriangle(CAB,FED)))
+But the correct conclusions: Equal(LengthOfLine(AB),Mul(LengthOfLine(ED),RatioOfMirrorSimilarTriangle(CAB,FED)))
+
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; mirror_similar_triangle_judgment_aa(1,CAB,FED); Polygon(CAB)&Polygon(FED)&Equal(MeasureOfAngle(CAB),MeasureOfAngle(EDF))&Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED)); ["MirrorSimilarBetweenTriangle(CAB,FED)"]
+2; mirror_similar_triangle_property_line_ratio(1,CAB,FED); MirrorSimilarBetweenTriangle(CAB,FED); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(EF),RatioOfMirrorSimilarTriangle(CAB,FED)))"]
+3; mirror_similar_triangle_property_ratio(1,CAB,FED); MirrorSimilarBetweenTriangle(CAB,FED); ["MirrorSimilarBetweenTriangle(FED,CAB)", "Equal(Mul(RatioOfMirrorSimilarTriangle(CAB,FED),RatioOfMirrorSimilarTriangle(FED,CAB)),1)"]
+4; mirror_similar_triangle_property_line_ratio(1,FED,CAB); MirrorSimilarBetweenTriangle(FED,CAB); ["Equal(LengthOfLine(ED),Mul(LengthOfLine(AB),RatioOfMirrorSimilarTriangle(FED,CAB)))"]
+#run: 0; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error in TIER1_THEOREM_CALL_SYNTAX_VIOLATION: Theorem 'mirror_similar_triangle_property_ratio' is not recognized or its premise validation is not supported by the current verifier version.
+Model Answer:
+RETRY_ANSWER:
+6
+RETRY_THEOREM_SEQUENCE:
+1; mirror_similar_triangle_judgment_aa(1,CAB,FED); Polygon(CAB)&Polygon(FED)&Equal(MeasureOfAngle(CAB),MeasureOfAngle(EDF))&Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED)); ["MirrorSimilarBetweenTriangle(CAB,FED)"]
+2; mirror_similar_triangle_property_line_ratio(1,CAB,FED); MirrorSimilarBetweenTriangle(CAB,FED); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(ED),RatioOfMirrorSimilarTriangle(CAB,FED)))"]
+3; mirror_similar_triangle_property_ratio(1,CAB,FED); MirrorSimilarBetweenTriangle(CAB,FED); ["MirrorSimilarBetweenTriangle(FED,CAB)", "Equal(Mul(RatioOfMirrorSimilarTriangle(CAB,FED),RatioOfMirrorSimilarTriangle(FED,CAB)),1)"]
+4; mirror_similar_triangle_property_line_ratio(1,FED,CAB); MirrorSimilarBetweenTriangle(FED,CAB); ["Equal(LengthOfLine(ED),Mul(LengthOfLine(AB),RatioOfMirrorSimilarTriangle(FED,CAB)))"]
+5; mirror_similar_triangle_property_line_ratio(1,BCA,EDF); MirrorSimilarBetweenTriangle(BCA,EDF); ["Equal(LengthOfLine(CA),Mul(LengthOfLine(DF),RatioOfMirrorSimilarTriangle(BCA,EDF)))"]
+6; mirror_similar_triangle_property_line_ratio(1,ABC,DFE); MirrorSimilarBetweenTriangle(ABC,DFE); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(FE),RatioOfMirrorSimilarTriangle(ABC,DFE)))"]
+#RETRIES:
+5
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-x
+ll_bc-5
+ll_de-x+4
+ll_fe-3
+ma_abc-ma_fed
+ma_cab-ma_edf
+GT_GOAL_SYMBOL:
+ll_de
+GT_ANSWER:
+6
+GT_THEOREM_SEQUENCE:
+1;mirror_similar_triangle_judgment_aa(1,CAB,FED);Polygon(CAB)&Polygon(FED)&Equal(MeasureOfAngle(CAB),MeasureOfAngle(EDF))&Equal(MeasureOfAngle(ABC),MeasureOfAngle(FED));["MirrorSimilarBetweenTriangle(CAB,FED)"]
+2;mirror_similar_triangle_property_line_ratio(1,CAB,FED);MirrorSimilarBetweenTriangle(CAB,FED);["Equal(LengthOfLine(AB),Mul(LengthOfLine(ED),RatioOfMirrorSimilarTriangle(CAB,FED)))"]
+3;mirror_similar_triangle_property_line_ratio(1,ABC,DFE);MirrorSimilarBetweenTriangle(ABC,DFE);["Equal(LengthOfLine(BC),Mul(LengthOfLine(FE),RatioOfMirrorSimilarTriangle(ABC,DFE)))"]
+

@@ -1,0 +1,330 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AC=2*x+9, BD=4*x-5, ∠CAE=42°, ∠DCE=4*y°, ∠EAB=23°, ∠EBD=83°, AC and BD are opposite sides of the parallelogram ABDC. Find the value of y.
+CONSTRUCTION_CDL:
+Shape(CE,ED,DC)
+Shape(AE,EC,CA)
+Shape(EA,AB,BE)
+Shape(EB,BD,DE)
+Collinear(CEB)
+Collinear(AED)
+TEXT_CDL:
+Equal(LengthOfLine(AC),2*x+9)
+Equal(LengthOfLine(BD),4*x-5)
+Equal(MeasureOfAngle(CAE),42)
+Equal(MeasureOfAngle(DCE),4*y)
+Equal(MeasureOfAngle(EAB),23)
+Equal(MeasureOfAngle(EBD),83)
+Parallelogram(ABDC)
+GOAL_CDL:
+Value(y)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(ED,DC,CE)
+Shape(DC,CE,ED)
+Shape(EC,CA,AE)
+Shape(CA,AE,EC)
+Shape(AB,BE,EA)
+Shape(BE,EA,AB)
+Shape(BD,DE,EB)
+Shape(DE,EB,BD)
+Shape(DC,CE,EB,BD)
+Shape(CE,EB,BD,DC)
+Shape(EB,BD,DC,CE)
+Shape(BD,DC,CE,EB)
+Shape(ED,DC,CA,AE)
+Shape(DC,CA,AE,ED)
+Shape(CA,AE,ED,DC)
+Shape(AE,ED,DC,CA)
+Shape(EC,CA,AB,BE)
+Shape(CA,AB,BE,EC)
+Shape(AB,BE,EC,CA)
+Shape(BE,EC,CA,AB)
+Shape(EA,AB,BD,DE)
+Shape(AB,BD,DE,EA)
+Shape(BD,DE,EA,AB)
+Shape(DE,EA,AB,BD)
+Shape(DC,CE,EA,AB,BD)
+Shape(CE,EA,AB,BD,DC)
+Shape(EA,AB,BD,DC,CE)
+Shape(AB,BD,DC,CE,EA)
+Shape(BD,DC,CE,EA,AB)
+Shape(ED,DC,CA,AB,BE)
+Shape(DC,CA,AB,BE,ED)
+Shape(CA,AB,BE,ED,DC)
+Shape(AB,BE,ED,DC,CA)
+Shape(BE,ED,DC,CA,AB)
+Shape(EC,CA,AB,BD,DE)
+Shape(CA,AB,BD,DE,EC)
+Shape(AB,BD,DE,EC,CA)
+Shape(BD,DE,EC,CA,AB)
+Shape(DE,EC,CA,AB,BD)
+Shape(CA,AE,EB,BD,DC)
+Shape(AE,EB,BD,DC,CA)
+Shape(EB,BD,DC,CA,AE)
+Shape(BD,DC,CA,AE,EB)
+Shape(DC,CA,AE,EB,BD)
+Shape(DC,CA,AB,BD)
+Shape(CA,AB,BD,DC)
+Shape(AB,BD,DC,CA)
+Shape(BD,DC,CA,AB)
+Collinear(BEC)
+Collinear(DEA)
+Point(C)
+Point(B)
+Point(E)
+Point(A)
+Point(D)
+Line(CB)
+Line(BC)
+Line(CE)
+Line(EC)
+Line(EB)
+Line(BE)
+Line(AD)
+Line(DA)
+Line(AE)
+Line(EA)
+Line(ED)
+Line(DE)
+Line(DC)
+Line(CD)
+Line(CA)
+Line(AC)
+Line(AB)
+Line(BA)
+Line(BD)
+Line(DB)
+Angle(CEB)
+Angle(BEC)
+Angle(AED)
+Angle(DEA)
+Angle(CED)
+Angle(EDC)
+Angle(DCE)
+Angle(AEC)
+Angle(ECA)
+Angle(CAE)
+Angle(EAB)
+Angle(ABE)
+Angle(BEA)
+Angle(EBD)
+Angle(BDE)
+Angle(DEB)
+Angle(CBD)
+Angle(BDC)
+Angle(DCA)
+Angle(CAB)
+Angle(ABD)
+Angle(CEA)
+Angle(BED)
+Angle(DEC)
+Angle(AEB)
+Angle(ADC)
+Angle(DCB)
+Angle(BCA)
+Angle(CAD)
+Angle(DAB)
+Angle(ABC)
+Angle(BDA)
+Angle(CDE)
+Angle(ECD)
+Angle(ACE)
+Angle(EAC)
+Angle(BAE)
+Angle(EBA)
+Angle(DBE)
+Angle(EDB)
+Angle(DBC)
+Angle(CDB)
+Angle(ACD)
+Angle(BAC)
+Angle(DBA)
+Angle(CDA)
+Angle(BCD)
+Angle(ACB)
+Angle(DAC)
+Angle(BAD)
+Angle(CBA)
+Angle(ADB)
+Polygon(CED)
+Polygon(EDC)
+Polygon(DCE)
+Polygon(AEC)
+Polygon(ECA)
+Polygon(CAE)
+Polygon(EAB)
+Polygon(ABE)
+Polygon(BEA)
+Polygon(EBD)
+Polygon(BDE)
+Polygon(DEB)
+Polygon(DCB)
+Polygon(CBD)
+Polygon(BDC)
+Polygon(DCA)
+Polygon(CAD)
+Polygon(ADC)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(ABD)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(DCEAB)
+Polygon(CEABD)
+Polygon(EABDC)
+Polygon(ABDCE)
+Polygon(BDCEA)
+Polygon(EDCAB)
+Polygon(DCABE)
+Polygon(CABED)
+Polygon(ABEDC)
+Polygon(BEDCA)
+Polygon(ECABD)
+Polygon(CABDE)
+Polygon(ABDEC)
+Polygon(BDECA)
+Polygon(DECAB)
+Polygon(CAEBD)
+Polygon(AEBDC)
+Polygon(EBDCA)
+Polygon(BDCAE)
+Polygon(DCAEB)
+Polygon(DCAB)
+Polygon(CABD)
+Polygon(ABDC)
+Polygon(BDCA)
+Parallelogram(BDCA)
+Parallelogram(DCAB)
+Parallelogram(CABD)
+ParallelBetweenLine(AC,BD)
+ParallelBetweenLine(DB,CA)
+ParallelBetweenLine(BA,DC)
+ParallelBetweenLine(CD,AB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_ac-(2*x+9)
+ll_bd-(4*x-5)
+ma_cae-42
+ma_dce-4*y
+ma_eab-23
+ma_ebd-83
+ll_ac-ll_bd
+2*x+9-(4*x-5)
+x-7
+ma_cab-(ma_cae+ma_eab)
+ma_cab-(42+23)
+ma_cab-65
+ma_bca-ma_ebd
+ma_bca-83
+ma_abc+ma_bca+ma_cab-180
+ma_abc+83+65-180
+ma_abc-32
+ma_cba-ma_bcd
+ma_cba-32
+ma_bcd-ma_dce
+ma_dce-32
+4*y-32
+y-8
+GOAL_SYMBOL:
+y
+ANSWER:
+8
+THEOREM_SEQUENCE:
+1; angle_addition(1,CAE,EAB); Angle(CAE)&Angle(EAB)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAB)))"]
+2; parallel_property_alternate_interior_angle(2,AC,BD); ParallelBetweenLine(AC,BD)&Line(CB); ["Equal(MeasureOfAngle(BCA),MeasureOfAngle(CBD))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,CA,DB)
+You output the following premises: ParallelBetweenLine(CA,DB)&Line(AD)
+But the correct premises: ParallelBetweenLine(CA,DB)&Line(CB)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),MeasureOfAngle(BDA))
+But the correct conclusions: Equal(MeasureOfAngle(ACB),MeasureOfAngle(DBC))
+
+Model Answer:
+RETRY_ANSWER:
+8
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,CA,DB); ParallelBetweenLine(CA,DB)&Line(AD); ["Equal(MeasureOfAngle(CAD),MeasureOfAngle(BDA))"]
+2; triangle_property_angle_sum(1,EBD); Polygon(EBD); ["Equal(Add(MeasureOfAngle(EBD),MeasureOfAngle(BDE),MeasureOfAngle(DEB)),180)"]
+3; adjacent_complementary_angle(1,AEB,BED); Collinear(AED)&Angle(AEB)&Angle(BED); ["Equal(Add(MeasureOfAngle(AEB),MeasureOfAngle(BED)),180)"]
+4; triangle_property_angle_sum(1,AEB); Polygon(AEB); ["Equal(Add(MeasureOfAngle(EAB),MeasureOfAngle(ABE),MeasureOfAngle(BEA)),180)"]
+5; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,AEC,BED)
+You output the following premises: Collinear(AED)&Collinear(CEB)&Angle(AEC)&Angle(BED)
+But the correct premises: Collinear(AEB)&Collinear(CED)&Angle(AEC)&Angle(BED)
+
+Model Answer:
+RETRY_ANSWER:
+8
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AC,BD); ParallelBetweenLine(AC,BD)&Line(AD); ["Equal(MeasureOfAngle(CAD),MeasureOfAngle(BDA))"]
+2; triangle_property_angle_sum(1,EBD); Polygon(EBD); ["Equal(Add(MeasureOfAngle(EBD),MeasureOfAngle(BDE),MeasureOfAngle(DEB)),180)"]
+3; vertical_angle(1,AEC,BED); Collinear(AED)&Collinear(CEB)&Angle(AEC)&Angle(BED); ["Equal(MeasureOfAngle(AEC),MeasureOfAngle(BED))"]
+4; adjacent_complementary_angle(1,AEB,AEC); Collinear(CEB)&Angle(AEB)&Angle(AEC); ["Equal(Add(MeasureOfAngle(AEB),MeasureOfAngle(AEC)),180)"]
+5; triangle_property_angle_sum(1,ABE); Polygon(ABE); ["Equal(Add(MeasureOfAngle(EAB),MeasureOfAngle(ABE),MeasureOfAngle(BEA)),180)"]
+6; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,AEC,BED)
+You output the following premises: Collinear(AED)&Collinear(CEB)&Angle(AEC)&Angle(BED)
+But the correct premises: Collinear(AEB)&Collinear(CED)&Angle(AEC)&Angle(BED)
+
+Model Answer:
+RETRY_ANSWER:
+25.5
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AC,BD); ParallelBetweenLine(AC,BD)&Line(AD); ["Equal(MeasureOfAngle(CAD),MeasureOfAngle(BDA))"]
+2; triangle_property_angle_sum(1,EBD); Polygon(EBD); ["Equal(Add(MeasureOfAngle(EBD),MeasureOfAngle(BDE),MeasureOfAngle(DEB)),180)"]
+3; vertical_angle(1,AEC,BED); Collinear(AED)&Collinear(CEB)&Angle(AEC)&Angle(BED); ["Equal(MeasureOfAngle(AEC),MeasureOfAngle(BED))"]
+4; parallel_property_alternate_interior_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(AD); ["Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))"]
+5; triangle_property_angle_sum(1,DCE); Polygon(DCE); ["Equal(Add(MeasureOfAngle(DCE),MeasureOfAngle(CED),MeasureOfAngle(EDC)),180)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AC,BD)
+You output the following conclusions: Equal(MeasureOfAngle(ACB),MeasureOfAngle(DBC))
+But the correct conclusions: Equal(MeasureOfAngle(BCA),MeasureOfAngle(CBD))
+
+Model Answer:
+RETRY_ANSWER:
+8
+RETRY_THEOREM_SEQUENCE:
+1; angle_addition(1,CAE,EAB); Angle(CAE)&Angle(EAB)&Angle(CAB); ["Equal(MeasureOfAngle(CAB),Add(MeasureOfAngle(CAE),MeasureOfAngle(EAB)))"]
+2; parallel_property_alternate_interior_angle(2,AC,BD); ParallelBetweenLine(AC,BD)&Line(CB); ["Equal(MeasureOfAngle(ACB),MeasureOfAngle(DBC))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+4; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ac-2*x-9
+ll_bd-4*x+5
+ma_cae-42
+ma_dce-4*y
+ma_eab-23
+ma_ebd-83
+GT_GOAL_SYMBOL:
+y
+GT_ANSWER:
+8
+GT_THEOREM_SEQUENCE:
+1;parallel_property_alternate_interior_angle(1,AC,BD);ParallelBetweenLine(AC,BD)&Line(AD);["Equal(MeasureOfAngle(CAD),MeasureOfAngle(BDA))"]
+2;parallel_property_alternate_interior_angle(1,BA,DC);ParallelBetweenLine(BA,DC)&Line(BC);["Equal(MeasureOfAngle(ABC),MeasureOfAngle(DCB))"]
+3;angle_addition(1,ABE,EBD);Angle(ABE)&Angle(EBD)&Angle(ABD);["Equal(MeasureOfAngle(ABD),Add(MeasureOfAngle(ABE),MeasureOfAngle(EBD)))"]
+4;triangle_property_angle_sum(1,ABD);Polygon(ABD);["Equal(Add(MeasureOfAngle(ABD),MeasureOfAngle(BDA),MeasureOfAngle(DAB)),180)"]
+

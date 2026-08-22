@@ -1,0 +1,116 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AC=BA, ∠ABC=3*x+8°, ∠CAB=2*x+20°. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(CA,AB,BC)
+TEXT_CDL:
+Equal(LengthOfLine(AC),LengthOfLine(BA))
+Equal(MeasureOfAngle(ABC),3*x+8)
+Equal(MeasureOfAngle(CAB),2*x+20)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AB,BC,CA)
+Shape(BC,CA,AB)
+Point(C)
+Point(A)
+Point(B)
+Line(CA)
+Line(AC)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Angle(CAB)
+Angle(ABC)
+Angle(BCA)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(BCA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the value of x given that AC=BA, ∠ABC=3x+8°, and ∠CAB=2x+20°.
+
+Since AC=BA (two sides are equal), triangle ABC is isosceles with AC=BA. This means the angles opposite to these equal sides are equal. The angle opposite to AC is ∠ABC, and the angle opposite to BA is ∠BCA.
+
+Wait, let me reconsider. In triangle ABC:
+- Side AC is opposite to angle ABC
+- Side BA is opposite to angle BCA
+
+Since AC = BA, the angles opposite to them are equal: ∠ABC = ∠BCA.
+
+So ∠ABC = ∠BCA = 3x+8.
+
+Using the triangle angle sum: ∠ABC + ∠BCA + ∠CAB = 180
+(3x+8) + (3x+8) + (2x+20) = 180
+8x + 36 = 180
+8x = 144
+x = 18
+
+Let me verify the theorem sequence:
+
+1. Since AC = BA, triangle ABC is isosceles → use `isosceles_triangle_judgment_line_equal`
+2. From isosceles triangle, ∠ABC = ∠BCA → use `isosceles_triangle_property_angle_equal`
+3. Triangle angle sum → use `triangle_property_angle_sum`
+
+For `isosceles_triangle_judgment_line_equal(ABC)`: premise is `Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC))` - this gives IsoscelesTriangle(ABC) where AB=AC.
+
+But we have AC=BA. So I need IsoscelesTriangle where the two equal sides meet at A. Using `isosceles_triangle_judgment_line_equal(CAB)`: premise `Polygon(CAB)&Equal(LengthOfLine(CA),LengthOfLine(CB))` - that's not right.
+
+Let me check: `isosceles_triangle_judgment_line_equal(ABC)` requires `Equal(LengthOfLine(AB),LengthOfLine(AC))`, concludes `IsoscelesTriangle(ABC)`.
+Then `isosceles_triangle_property_angle_equal(ABC)` gives `Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))`.
+
+We need AC=BA, i.e., LengthOfLine(AC)=LengthOfLine(BA). Using triangle BCA: `isosceles_triangle_judgment_line_equal(BCA)` requires `Equal(LengthOfLine(BC),LengthOfLine(BA))` - not matching.
+
+Try `isosceles_triangle_judgment_line_equal(ABC)` with `Equal(LengthOfLine(AB),LengthOfLine(AC))`: we have AC=BA=AB, so yes this works since AC=BA means LengthOfLine(AC)=LengthOfLine(BA)=LengthOfLine(AB).
+
+So IsoscelesTriangle(ABC) with AB=AC, then property gives ∠ABC=∠BCA.
+
+EQUATIONS:
+ma_abc - (3*x+8)
+ma_cab - (2*x+20)
+ll_ac - ll_ba
+
+GOAL_SYMBOL:
+x
+
+ANSWER:
+18
+
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,ABC); Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC)); ["IsoscelesTriangle(ABC)"]
+2; isosceles_triangle_property_angle_equal(1,ABC); IsoscelesTriangle(ABC); ["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ac-ll_ba
+ma_abc-3*x-8
+ma_cab-2*x-20
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+18
+GT_THEOREM_SEQUENCE:
+1;isosceles_triangle_judgment_line_equal(1,ABC);Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC));["IsoscelesTriangle(ABC)"]
+2;isosceles_triangle_property_angle_equal(1,ABC);IsoscelesTriangle(ABC);["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))"]
+3;triangle_property_angle_sum(1,ABC);Polygon(ABC);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+

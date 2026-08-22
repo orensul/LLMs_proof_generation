@@ -1,0 +1,298 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=1, ABCD is a rhombus. Find the value of 1/AM+1/AN.
+CONSTRUCTION_CDL:
+Shape(ND,DC,CN)
+Shape(DA,AB,BC,CD)
+Shape(CB,BM,MC)
+Collinear(ADN)
+Collinear(MCN)
+Collinear(ABM)
+TEXT_CDL:
+Equal(LengthOfLine(AB),1)
+Rhombus(ABCD)
+GOAL_CDL:
+Value(Add(Div(1,LengthOfLine(AM)),Div(1,LengthOfLine(AN))))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(DC,CN,ND)
+Shape(CN,ND,DC)
+Shape(AB,BC,CD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(BM,MC,CB)
+Shape(MC,CB,BM)
+Shape(CN,ND,DA,AB,BC)
+Shape(ND,DA,AB,BC,CN)
+Shape(DA,AB,BC,CN,ND)
+Shape(AB,BC,CN,ND,DA)
+Shape(BC,CN,ND,DA,AB)
+Shape(CD,DA,AB,BM,MC)
+Shape(DA,AB,BM,MC,CD)
+Shape(AB,BM,MC,CD,DA)
+Shape(BM,MC,CD,DA,AB)
+Shape(MC,CD,DA,AB,BM)
+Shape(CN,ND,DA,AB,BM,MC)
+Shape(ND,DA,AB,BM,MC,CN)
+Shape(DA,AB,BM,MC,CN,ND)
+Shape(AB,BM,MC,CN,ND,DA)
+Shape(BM,MC,CN,ND,DA,AB)
+Shape(MC,CN,ND,DA,AB,BM)
+Collinear(NDA)
+Collinear(NCM)
+Collinear(MBA)
+Point(A)
+Point(N)
+Point(D)
+Point(M)
+Point(C)
+Point(B)
+Line(AN)
+Line(NA)
+Line(AD)
+Line(DA)
+Line(DN)
+Line(ND)
+Line(MN)
+Line(NM)
+Line(MC)
+Line(CM)
+Line(CN)
+Line(NC)
+Line(AM)
+Line(MA)
+Line(AB)
+Line(BA)
+Line(BM)
+Line(MB)
+Line(DC)
+Line(CD)
+Line(BC)
+Line(CB)
+Angle(ADN)
+Angle(NDA)
+Angle(MCN)
+Angle(NCM)
+Angle(ABM)
+Angle(MBA)
+Angle(NDC)
+Angle(DCN)
+Angle(CND)
+Angle(DAB)
+Angle(ABC)
+Angle(BCD)
+Angle(CDA)
+Angle(CBM)
+Angle(BMC)
+Angle(MCB)
+Angle(NAB)
+Angle(BCN)
+Angle(AMC)
+Angle(MCD)
+Angle(ADC)
+Angle(NCB)
+Angle(DCM)
+Angle(CBA)
+Angle(DCB)
+Angle(MNA)
+Angle(MND)
+Angle(CNA)
+Angle(DAM)
+Angle(NAM)
+Angle(AMN)
+Angle(BMN)
+Angle(CDN)
+Angle(NCD)
+Angle(DNC)
+Angle(BAD)
+Angle(MBC)
+Angle(CMB)
+Angle(BCM)
+Angle(BAN)
+Angle(CMA)
+Angle(ANM)
+Angle(DNM)
+Angle(ANC)
+Angle(MAD)
+Angle(MAN)
+Angle(NMA)
+Angle(NMB)
+Polygon(NDC)
+Polygon(DCN)
+Polygon(CND)
+Polygon(DABC)
+Polygon(ABCD)
+Polygon(BCDA)
+Polygon(CDAB)
+Polygon(CBM)
+Polygon(BMC)
+Polygon(MCB)
+Polygon(CNAB)
+Polygon(NABC)
+Polygon(ABCN)
+Polygon(BCNA)
+Polygon(CDAM)
+Polygon(DAMC)
+Polygon(AMCD)
+Polygon(MCDA)
+Polygon(NAM)
+Polygon(AMN)
+Polygon(MNA)
+Kite(ABCD)
+Kite(CDAB)
+Kite(BCDA)
+Kite(DABC)
+Parallelogram(ABCD)
+Parallelogram(BCDA)
+Parallelogram(CDAB)
+Parallelogram(DABC)
+Rhombus(BCDA)
+Rhombus(CDAB)
+Rhombus(DABC)
+ParallelBetweenLine(AD,BC)
+ParallelBetweenLine(CB,DA)
+ParallelBetweenLine(BA,CD)
+ParallelBetweenLine(DC,AB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully read the GDL for `parallel_property_alternate_interior_angle`:
+
+- Variant 1: premise `ParallelBetweenLine(AB,CD)&Line(AD)`, conclusion `Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))`
+- Variant 2: premise `ParallelBetweenLine(AB,CD)&Line(BC)`, conclusion `Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))`
+
+The verifier confirmed: `ParallelBetweenLine(AD,BC)&Line(DB)` → `Equal(MeasureOfAngle(BDA),MeasureOfAngle(DBC))`.
+
+So variant 2 with AB=AD, CD=BC, B=D, C=B gives: `ParallelBetweenLine(AD,BC)&Line(DB)` → `Equal(MeasureOfAngle(BDA),MeasureOfAngle(DBC))`.
+
+For similar triangles MBC ~ MNA, I need angle MBC = angle MNA and angle BCM = angle NAM.
+
+Since Collinear(ABM) and Collinear(ADN), angle MBC and angle NAD are what I need to relate.
+
+Using variant 1: `ParallelBetweenLine(AD,BC)&Line(AB)` should give `Equal(MeasureOfAngle(DAB),MeasureOfAngle(ABC))` — but verifier previously said Line(AB) is wrong, needs Line(AC).
+
+Wait - the pattern is Line(AD) where A is first letter of first parallel line and D is first letter of second parallel line. So for ParallelBetweenLine(AD,BC), variant 1 needs Line(AB) (connecting A from AD to B from BC). Let me try variant 1 with the correct line.
+
+EQUATIONS: ll_am*ll_an-ll_am-ll_an
+GOAL_SYMBOL: Add(Div(1,LengthOfLine(AM)),Div(1,LengthOfLine(AN)))
+ANSWER: 1
+
+THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,CB,DA); ParallelBetweenLine(CB,DA)&Line(CA); ["Equal(MeasureOfAngle(BCA),MeasureOfAngle(CAD))"]
+2; parallel_property_alternate_interior_angle(2,CB,DA); ParallelBetweenLine(CB,DA)&Line(BD); ["Equal(MeasureOfAngle(DBC),MeasureOfAngle(BDA))"]
+3; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+4; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+5; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+6; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+7; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+8; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+9; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+2; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+3; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+4; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+
+EQUATIONS: ll_am*ll_an - ll_am - ll_an
+GOAL_SYMBOL: Add(Div(1,LengthOfLine(AM)),Div(1,LengthOfLine(AN)))
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,AD,BC)
+You output the following premises: ParallelBetweenLine(AD,BC)&Line(AB)
+But the correct premises: ParallelBetweenLine(AD,BC)&Line(AC)
+You output the following conclusions: Equal(MeasureOfAngle(DAB),MeasureOfAngle(ABC))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),MeasureOfAngle(BCA))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,AD,BC); ParallelBetweenLine(AD,BC)&Line(AB); ["Equal(MeasureOfAngle(DAB),MeasureOfAngle(ABC))"]
+2; vertical_angle(1,MBC,NBA); Collinear(ABM)&Collinear(NBA)&Angle(MBC)&Angle(NBA); ["Equal(MeasureOfAngle(MBC),MeasureOfAngle(NBA))"]
+3; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+4; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+5; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+6; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+7; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+8; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+9; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(1,CB,DA,M)
+You output the following premises: ParallelBetweenLine(CB,DA)&Collinear(MBA)
+But the correct premises: ParallelBetweenLine(CB,DA)&Collinear(MCD)
+You output the following conclusions: Equal(MeasureOfAngle(MBC),MeasureOfAngle(BAD))
+But the correct conclusions: Equal(MeasureOfAngle(MCB),MeasureOfAngle(CDA))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_corresponding_angle(1,CB,DA,M); ParallelBetweenLine(CB,DA)&Collinear(MBA); ["Equal(MeasureOfAngle(MBC),MeasureOfAngle(BAD))"]
+2; parallel_property_corresponding_angle(2,CB,DA,M); ParallelBetweenLine(CB,DA)&Collinear(DAM); ["Equal(MeasureOfAngle(BCM),MeasureOfAngle(DAM))"]
+3; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+4; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+5; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+6; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+7; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+8; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+9; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,AD,BC)
+You output the following premises: ParallelBetweenLine(AD,BC)&Line(NM)
+But the correct premises: ParallelBetweenLine(AD,BC)&Line(DB)
+You output the following conclusions: Equal(MeasureOfAngle(DNA),MeasureOfAngle(NCM))
+But the correct conclusions: Equal(MeasureOfAngle(BDA),MeasureOfAngle(DBC))
+
+Model Answer:
+RETRY_ANSWER:
+1
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(2,AD,BC); ParallelBetweenLine(AD,BC)&Line(NM); ["Equal(MeasureOfAngle(DNA),MeasureOfAngle(NCM))"]
+2; vertical_angle(1,ANM,DNM); Collinear(ADN)&Collinear(ANM)&Angle(ANM)&Angle(DNM); ["Equal(MeasureOfAngle(ANM),MeasureOfAngle(DNM))"]
+3; vertical_angle(1,MBC,NBС); Collinear(ABM)&Collinear(NBC)&Angle(MBC)&Angle(NBC); ["Equal(MeasureOfAngle(MBC),MeasureOfAngle(NBC))"]
+4; similar_triangle_judgment_aa(1,MBC,MNA); Polygon(MBC)&Polygon(MNA)&Equal(MeasureOfAngle(MBC),MeasureOfAngle(MNA))&Equal(MeasureOfAngle(BCM),MeasureOfAngle(NAM)); ["SimilarBetweenTriangle(MBC,MNA)"]
+5; similar_triangle_property_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["SimilarBetweenTriangle(MNA,MBC)","Equal(Mul(RatioOfSimilarTriangle(MBC,MNA),RatioOfSimilarTriangle(MNA,MBC)),1)"]
+6; similar_triangle_property_line_ratio(1,MBC,MNA); SimilarBetweenTriangle(MBC,MNA); ["Equal(LengthOfLine(BC),Mul(LengthOfLine(NA),RatioOfSimilarTriangle(MBC,MNA)))"]
+7; similar_triangle_property_line_ratio(1,MNA,MBC); SimilarBetweenTriangle(MNA,MBC); ["Equal(LengthOfLine(NA),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(MNA,MBC)))"]
+8; parallelogram_property_opposite_line_equal(1,ABCD); Parallelogram(ABCD); ["Equal(LengthOfLine(BA),LengthOfLine(CD))"]
+9; line_addition(1,AB,BM); Collinear(ABM); ["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+10; line_addition(1,AD,DN); Collinear(ADN); ["Equal(LengthOfLine(AN),Add(LengthOfLine(AD),LengthOfLine(DN)))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-1
+ll_ab-ll_ad
+ll_cb-ll_cd
+-ll_ab+ll_cb
+-ll_ad+ll_cd
+ll_ad-1
+ll_cb-1
+ll_cd-1
+GT_GOAL_SYMBOL:
+1/ll_an+1/ll_am
+GT_ANSWER:
+1
+GT_THEOREM_SEQUENCE:
+1;parallel_property_corresponding_angle(2,AD,BC,M);ParallelBetweenLine(AD,BC)&Collinear(ABM);["Equal(MeasureOfAngle(DAB),MeasureOfAngle(CBM))"]
+2;line_addition(1,AB,BM);Collinear(ABM);["Equal(LengthOfLine(AM),Add(LengthOfLine(AB),LengthOfLine(BM)))"]
+3;similar_triangle_judgment_aa(1,NAM,CBM);Polygon(NAM)&Polygon(CBM)&Equal(MeasureOfAngle(NAM),MeasureOfAngle(CBM))&Equal(MeasureOfAngle(AMN),MeasureOfAngle(BMC));["SimilarBetweenTriangle(NAM,CBM)"]
+4;similar_triangle_property_line_ratio(1,NAM,CBM);SimilarBetweenTriangle(NAM,CBM);["Equal(LengthOfLine(AM),Mul(LengthOfLine(BM),RatioOfSimilarTriangle(NAM,CBM)))"]
+5;similar_triangle_property_line_ratio(1,MNA,MCB);SimilarBetweenTriangle(MNA,MCB);["Equal(LengthOfLine(NA),Mul(LengthOfLine(CB),RatioOfSimilarTriangle(MNA,MCB)))"]
+

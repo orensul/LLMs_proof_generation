@@ -1,0 +1,18 @@
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1282_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,ABC)
+You output the following premises: Polygon(ABC)&Equal(LengthOfLine(AC),LengthOfLine(BA))
+But the correct premises: Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,ABC); Polygon(ABC)&Equal(LengthOfLine(AC),LengthOfLine(BA)); ["IsoscelesTriangle(ABC)"]
+2; isosceles_triangle_property_angle_equal(1,ABC); IsoscelesTriangle(ABC); ["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+Retry attempt: 1
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1282_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 37.012s | per attempt: [24.652, 12.36]
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1282_run_0.txt

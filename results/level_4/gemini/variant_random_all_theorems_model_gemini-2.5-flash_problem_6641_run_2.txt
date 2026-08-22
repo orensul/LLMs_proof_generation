@@ -1,0 +1,501 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠BCD=40°, O is the center of circle O, AB is the diameter of circle O. Find the measure of ∠DBA.
+CONSTRUCTION_CDL:
+Shape(OA,AD,DM,MO)
+Shape(MD,DB,BM)
+Shape(CM,MB,BC)
+Shape(OCA,AO,OM,MC)
+Shape(CB,OBC)
+Shape(BD,ODB)
+Shape(DA,OAD)
+Collinear(AOMB)
+Collinear(CMD)
+Cocircular(O,ADBC)
+TEXT_CDL:
+Equal(MeasureOfAngle(BCD),40)
+IsCentreOfCircle(O,O)
+IsDiameterOfCircle(AB,O)
+GOAL_CDL:
+Value(MeasureOfAngle(DBA))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AD,DM,MO,OA)
+Shape(DM,MO,OA,AD)
+Shape(MO,OA,AD,DM)
+Shape(DB,BM,MD)
+Shape(BM,MD,DB)
+Shape(MB,BC,CM)
+Shape(BC,CM,MB)
+Shape(AO,OM,MC,OCA)
+Shape(OM,MC,OCA,AO)
+Shape(MC,OCA,AO,OM)
+Shape(OBC,CB)
+Shape(ODB,BD)
+Shape(OAD,DA)
+Shape(DM,MO,OA,OAD)
+Shape(MO,OA,OAD,DM)
+Shape(OA,OAD,DM,MO)
+Shape(OAD,DM,MO,OA)
+Shape(AD,DM,MC,OCA)
+Shape(DM,MC,OCA,AD)
+Shape(MC,OCA,AD,DM)
+Shape(OCA,AD,DM,MC)
+Shape(MO,OA,AD,DB,BM)
+Shape(OA,AD,DB,BM,MO)
+Shape(AD,DB,BM,MO,OA)
+Shape(DB,BM,MO,OA,AD)
+Shape(BM,MO,OA,AD,DB)
+Shape(BM,MD,ODB)
+Shape(MD,ODB,BM)
+Shape(ODB,BM,MD)
+Shape(MD,DB,BC,CM)
+Shape(DB,BC,CM,MD)
+Shape(BC,CM,MD,DB)
+Shape(CM,MD,DB,BC)
+Shape(CM,MB,OBC)
+Shape(MB,OBC,CM)
+Shape(OBC,CM,MB)
+Shape(MB,BC,OCA,AO,OM)
+Shape(BC,OCA,AO,OM,MB)
+Shape(OCA,AO,OM,MB,BC)
+Shape(AO,OM,MB,BC,OCA)
+Shape(OM,MB,BC,OCA,AO)
+Shape(AD,DM,MB,BC,OCA)
+Shape(DM,MB,BC,OCA,AD)
+Shape(MB,BC,OCA,AD,DM)
+Shape(BC,OCA,AD,DM,MB)
+Shape(OCA,AD,DM,MB,BC)
+Shape(MO,OA,AD,ODB,BM)
+Shape(OA,AD,ODB,BM,MO)
+Shape(AD,ODB,BM,MO,OA)
+Shape(ODB,BM,MO,OA,AD)
+Shape(BM,MO,OA,AD,ODB)
+Shape(MO,OA,AD,DB,BC,CM)
+Shape(OA,AD,DB,BC,CM,MO)
+Shape(AD,DB,BC,CM,MO,OA)
+Shape(DB,BC,CM,MO,OA,AD)
+Shape(BC,CM,MO,OA,AD,DB)
+Shape(CM,MO,OA,AD,DB,BC)
+Shape(DB,BM,MO,OA,OAD)
+Shape(BM,MO,OA,OAD,DB)
+Shape(MO,OA,OAD,DB,BM)
+Shape(OA,OAD,DB,BM,MO)
+Shape(OAD,DB,BM,MO,OA)
+Shape(DB,BM,MC,OCA,AD)
+Shape(BM,MC,OCA,AD,DB)
+Shape(MC,OCA,AD,DB,BM)
+Shape(OCA,AD,DB,BM,MC)
+Shape(AD,DB,BM,MC,OCA)
+Shape(MD,DB,OBC,CM)
+Shape(DB,OBC,CM,MD)
+Shape(OBC,CM,MD,DB)
+Shape(CM,MD,DB,OBC)
+Shape(MD,DB,BC,OCA,AO,OM)
+Shape(DB,BC,OCA,AO,OM,MD)
+Shape(BC,OCA,AO,OM,MD,DB)
+Shape(OCA,AO,OM,MD,DB,BC)
+Shape(AO,OM,MD,DB,BC,OCA)
+Shape(OM,MD,DB,BC,OCA,AO)
+Shape(BC,CM,MD,ODB)
+Shape(CM,MD,ODB,BC)
+Shape(MD,ODB,BC,CM)
+Shape(ODB,BC,CM,MD)
+Shape(OCA,AO,OM,MB,OBC)
+Shape(AO,OM,MB,OBC,OCA)
+Shape(OM,MB,OBC,OCA,AO)
+Shape(MB,OBC,OCA,AO,OM)
+Shape(OBC,OCA,AO,OM,MB)
+Shape(MC,OCA,OAD,DM)
+Shape(OCA,OAD,DM,MC)
+Shape(OAD,DM,MC,OCA)
+Shape(DM,MC,OCA,OAD)
+Shape(AD,DB,BC,OCA)
+Shape(DB,BC,OCA,AD)
+Shape(BC,OCA,AD,DB)
+..(OM,MD,DB,OBC,OCA,AO)
+..(BC,CM,MO,OA,OAD,DB)
+..(CM,MO,OA,OAD,DB,BC)
+..(MO,OA,OAD,DB,BC,CM)
+..(OA,OAD,DB,BC,CM,MO)
+..(OAD,DB,BC,CM,MO,OA)
+..(DB,BC,CM,MO,OA,OAD)
+..(MB,BC,OCA,OAD,DM)
+..(BC,OCA,OAD,DM,MB)
+..(OCA,OAD,DM,MB,BC)
+..(OAD,DM,MB,BC,OCA)
+..(DM,MB,BC,OCA,OAD)
+..(OCA,AO,OM,MD,ODB,BC)
+..(AO,OM,MD,ODB,BC,OCA)
+..(OM,MD,ODB,BC,OCA,AO)
+..(MD,ODB,BC,OCA,AO,OM)
+..(ODB,BC,OCA,AO,OM,MD)
+..(BC,OCA,AO,OM,MD,ODB)
+..(MC,OCA,AD,ODB,BM)
+..(OCA,AD,ODB,BM,MC)
+..(AD,ODB,BM,MC,OCA)
+..(ODB,BM,MC,OCA,AD)
+..(BM,MC,OCA,AD,ODB)
+..(OBC,CM,MD,ODB)
+..(CM,MD,ODB,OBC)
+..(MD,ODB,OBC,CM)
+..(ODB,OBC,CM,MD)
+..(ODB,BM,MO,OA,OAD)
+..(BM,MO,OA,OAD,ODB)
+..(MO,OA,OAD,ODB,BM)
+..(OA,OAD,ODB,BM,MO)
+..(OAD,ODB,BM,MO,OA)
+..(AD,DB,OBC,OCA)
+..(DB,OBC,OCA,AD)
+..(OBC,OCA,AD,DB)
+..(OCA,AD,DB,OBC)
+..(AD,ODB,BC,OCA)
+..(ODB,BC,OCA,AD)
+..(BC,OCA,AD,ODB)
+..(OCA,AD,ODB,BC)
+..(MO,OA,AD,ODB,OBC,CM)
+..(OA,AD,ODB,OBC,CM,MO)
+..(AD,ODB,OBC,CM,MO,OA)
+..(ODB,OBC,CM,MO,OA,AD)
+..(OBC,CM,MO,OA,AD,ODB)
+..(CM,MO,OA,AD,ODB,OBC)
+..(DB,BC,OCA,OAD)
+..(BC,OCA,OAD,DB)
+..(OCA,OAD,DB,BC)
+..(OAD,DB,BC,OCA)
+..(BC,CM,MO,OA,OAD,ODB)
+..(CM,MO,OA,OAD,ODB,BC)
+..(MO,OA,OAD,ODB,BC,CM)
+..(OA,OAD,ODB,BC,CM,MO)
+..(OAD,ODB,BC,CM,MO,OA)
+..(ODB,BC,CM,MO,OA,OAD)
+..(OCA,AO,OM,MD,ODB,OBC)
+..(AO,OM,MD,ODB,OBC,OCA)
+..(OM,MD,ODB,OBC,OCA,AO)
+..(MD,ODB,OBC,OCA,AO,OM)
+..(ODB,OBC,OCA,AO,OM,MD)
+..(OBC,OCA,AO,OM,MD,ODB)
+..(MC,OCA,OAD,ODB,BM)
+..(OCA,OAD,ODB,BM,MC)
+..(OAD,ODB,BM,MC,OCA)
+..(ODB,BM,MC,OCA,OAD)
+..(BM,MC,OCA,OAD,ODB)
+..(OBC,CM,MO,OA,OAD,DB)
+..(CM,MO,OA,OAD,DB,OBC)
+..(MO,OA,OAD,DB,OBC,CM)
+..(OA,OAD,DB,OBC,CM,MO)
+..(OAD,DB,OBC,CM,MO,OA)
+..(DB,OBC,CM,MO,OA,OAD)
+..(OBC,OCA,OAD,DM,MB)
+..(OCA,OAD,DM,MB,OBC)
+..(OAD,DM,MB,OBC,OCA)
+..(DM,MB,OBC,OCA,OAD)
+..(MB,OBC,OCA,OAD,DM)
+..(AD,ODB,OBC,OCA)
+..(ODB,OBC,OCA,AD)
+..(OBC,OCA,AD,ODB)
+..(OCA,AD,ODB,OBC)
+..(DB,OBC,OCA,OAD)
+..(OBC,OCA,OAD,DB)
+..(OCA,OAD,DB,OBC)
+..(OAD,DB,OBC,OCA)
+..(BC,OCA,OAD,ODB)
+..(OCA,OAD,ODB,BC)
+..(OAD,ODB,BC,OCA)
+..(ODB,BC,OCA,OAD)
+..(OBC,CM,MO,OA,OAD,ODB)
+..(CM,MO,OA,OAD,ODB,OBC)
+..(MO,OA,OAD,ODB,OBC,CM)
+..(OA,OAD,ODB,OBC,CM,MO)
+..(OAD,ODB,OBC,CM,MO,OA)
+..(ODB,OBC,CM,MO,OA,OAD)
+..(OCA,OAD,ODB,OBC)
+..(OAD,ODB,OBC,OCA)
+..(ODB,OBC,OCA,OAD)
+..(OBC,OCA,OAD,ODB)
+Collinear(BMOA)
+Collinear(AOM)
+Collinear(MOA)
+Collinear(AOB)
+Collinear(BOA)
+Collinear(AMB)
+Collinear(BMA)
+Collinear(OMB)
+Collinear(BMO)
+Collinear(DMC)
+Cocircular(O,A)
+Cocircular(O,D)
+Cocircular(O,B)
+Cocircular(O,C)
+Cocircular(O,AD)
+Cocircular(O,DA)
+Cocircular(O,AB)
+Cocircular(O,BA)
+Cocircular(O,AC)
+Cocircular(O,CA)
+Cocircular(O,DB)
+Cocircular(O,BD)
+Cocircular(O,DC)
+Cocircular(O,CD)
+Cocircular(O,BC)
+Cocircular(O,CB)
+Cocircular(O,ADB)
+Cocircular(O,DBA)
+Cocircular(O,BAD)
+Cocircular(O,ADC)
+Cocircular(O,DCA)
+Cocircular(O,CAD)
+Cocircular(O,ABC)
+Cocircular(O,BCA)
+Cocircular(O,CAB)
+Cocircular(O,DBC)
+Cocircular(O,BCD)
+Cocircular(O,CDB)
+Cocircular(O,DBCA)
+Cocircular(O,BCAD)
+Cocircular(O,CADB)
+Point(A)
+Point(B)
+Point(O)
+Point(M)
+Point(C)
+Point(D)
+Line(AB)
+Line(BA)
+Line(AO)
+Line(OA)
+Line(OM)
+Line(MO)
+Line(OB)
+Line(BO)
+Line(AM)
+Line(MA)
+Line(MB)
+Line(BM)
+Line(CD)
+Line(DC)
+Line(CM)
+Line(MC)
+Line(MD)
+Line(DM)
+Line(AD)
+Line(DA)
+Line(DB)
+Line(BD)
+Line(BC)
+Line(CB)
+Arc(OAD)
+Arc(ODA)
+Arc(OAB)
+Arc(OBA)
+Arc(OAC)
+Arc(OCA)
+Arc(ODB)
+Arc(OBD)
+Arc(ODC)
+Arc(OCD)
+Arc(OBC)
+Arc(OCB)
+Angle(AOM)
+Angle(MOA)
+Angle(AOB)
+Angle(BOA)
+Angle(AMB)
+Angle(BMA)
+Angle(OMB)
+Angle(BMO)
+Angle(CMD)
+Angle(DMC)
+Angle(OAD)
+Angle(ADM)
+Angle(DMO)
+Angle(MDB)
+Angle(DBM)
+Angle(BMD)
+Angle(CMB)
+Angle(MBC)
+Angle(BCM)
+Angle(AMC)
+Angle(MAD)
+Angle(ADB)
+Angle(DBC)
+Angle(DMB)
+Angle(CMA)
+Angle(BMC)
+Angle(AMD)
+Angle(CMO)
+Angle(OMD)
+Angle(OMC)
+Angle(BAD)
+Angle(ADC)
+Angle(DMA)
+Angle(CDB)
+Angle(DBA)
+Angle(DBO)
+Angle(ABC)
+Angle(OBC)
+Angle(BCD)
+Angle(DAO)
+Angle(MDA)
+Angle(BDM)
+Angle(MBD)
+Angle(CBM)
+Angle(MCB)
+Angle(DAM)
+Angle(BDA)
+Angle(CBD)
+Angle(DAB)
+Angle(CDA)
+Angle(BDC)
+Angle(ABD)
+Angle(OBD)
+Angle(CBA)
+Angle(CBO)
+Angle(DCB)
+Polygon(ADM)
+Polygon(DMA)
+Polygon(MAD)
+Polygon(MDB)
+Polygon(DBM)
+Polygon(BMD)
+Polygon(CMB)
+Polygon(MBC)
+Polygon(BCM)
+Polygon(ADB)
+Polygon(DBA)
+Polygon(BAD)
+Polygon(DBC)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(MADBC)
+Polygon(ADBCM)
+Polygon(DBCMA)
+Polygon(BCMAD)
+Polygon(CMADB)
+Circle(O)
+IsDiameterOfCircle(BA,O)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ma_bcd-40
+ma_odb-Mul(2,ma_bcd)
+ma_aob-180
+ma_oab-ma_aob
+ma_oab-Add(ma_oda,ma_odb)
+ma_dba-Mul(ma_oda,1/2)
+GOAL_SYMBOL:
+ma_dba
+ANSWER:
+50
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(BOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(BOA))"]
+4; arc_addition_measure(1,ODA,ODB); Arc(ODA)&Arc(ODB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))"]
+5; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,ODB,C)
+You output the following premises: Cocircular(O,BCD)&Angle(BCD)
+But the correct premises: Cocircular(O,DBC)&Angle(BCD)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,BCD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+4; arc_addition_measure(1,ODA,ODB); Arc(ODA)&Arc(ODB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))"]
+5; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,OAB,O)
+You output the following premises: Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O)
+But the correct premises: Arc(OAB)&Angle(BOA)&IsCentreOfCircle(O,O)
+You output the following conclusions: Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))
+But the correct conclusions: Equal(MeasureOfArc(OAB),MeasureOfAngle(BOA))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(AOB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(AOB))"]
+4; arc_addition_measure(1,ODA,ODB); Arc(ODA)&Arc(ODB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))"]
+5; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,ODA,ODB)
+You output the following premises: Arc(ODA)&Arc(ODB)&Arc(OAB)
+But the correct premises: Arc(ODD)&Arc(ODB)&Arc(ODB)
+You output the following conclusions: Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))
+But the correct conclusions: Equal(MeasureOfArc(ODB),Add(MeasureOfArc(ODD),MeasureOfArc(ODB)))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(BOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(BOA))"]
+4; arc_addition_measure(1,ODA,ODB); Arc(ODA)&Arc(ODB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))"]
+5; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,ODA,ODB)
+You output the following premises: Arc(ODA)&Arc(ODB)&Arc(OAB)
+But the correct premises: Arc(ODD)&Arc(ODB)&Arc(ODB)
+You output the following conclusions: Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))
+But the correct conclusions: Equal(MeasureOfArc(ODB),Add(MeasureOfArc(ODD),MeasureOfArc(ODB)))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(BOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(BOA))"]
+4; arc_addition_measure(1,ODA,ODB); Arc(ODA)&Arc(ODB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))"]
+5; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+#run: 2; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_addition_measure(1,ODA,ODB)
+You output the following premises: Arc(ODA)&Arc(ODB)&Arc(OAB)
+But the correct premises: Arc(ODD)&Arc(ODB)&Arc(ODB)
+You output the following conclusions: Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))
+But the correct conclusions: Equal(MeasureOfArc(ODB),Add(MeasureOfArc(ODD),MeasureOfArc(ODB)))
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,ODB,C); Cocircular(O,DBC)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+2; flat_angle(1,AOB); Collinear(AOB); ["Equal(MeasureOfAngle(AOB),180)"]
+3; arc_property_center_angle(1,OAB,O); Arc(OAB)&Angle(BOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAB),MeasureOfAngle(BOA))"]
+4; arc_addition_measure(1,ODA,ODB); Arc(ODA)&Arc(ODB)&Arc(OAB); ["Equal(MeasureOfArc(OAB),Add(MeasureOfArc(ODA),MeasureOfArc(ODB)))"]
+5; arc_property_circumference_angle_external(1,ODA,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(ODA),1/2))"]
+#RETRIES:
+5
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ma_bcd-40
+GT_GOAL_SYMBOL:
+ma_dba
+GT_ANSWER:
+50
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,ODB,A);Cocircular(O,DBA)&Angle(BAD);["Equal(MeasureOfAngle(BAD),Mul(MeasureOfArc(ODB),1/2))"]
+2;arc_property_circumference_angle_external(1,ODB,C);Cocircular(O,DBC)&Angle(BCD);["Equal(MeasureOfAngle(BCD),Mul(MeasureOfArc(ODB),1/2))"]
+3;diameter_of_circle_property_right_angle(1,ADB,O);IsDiameterOfCircle(BA,O)&Cocircular(O,ADB)&Angle(ADB);["PerpendicularBetweenLine(AD,BD)"]
+4;triangle_property_angle_sum(1,ADB);Polygon(ADB);["Equal(Add(MeasureOfAngle(ADB),MeasureOfAngle(DBA),MeasureOfAngle(BAD)),180)"]
+

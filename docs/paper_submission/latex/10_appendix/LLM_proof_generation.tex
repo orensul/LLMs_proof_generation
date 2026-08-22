@@ -1,0 +1,146 @@
+
+
+
+See Figure~\ref{tab:llm_system_prompt} for the system prompt provided to the LLMs, and Figure~\ref{tab:llm_few_shot_prompt} for few-shot examples of analogous problems and their solutions (including proof, and answer).
+
+\begin{figure*}[t]
+\centering
+\fbox{%
+\begin{minipage}{0.99\textwidth}
+\small  % Optional: adjust font size to fit better
+
+
+You are a mathematician expert in solving geometry problems. \\
+Your task is to solve Problem B by constructing the correct sequence of theorems (THEOREM\_SEQUENCE) to form its proof. \\  
+
+\textbf{Inputs:} \\
+You are given: \\
+Problem B, which you need to solve. \\
+Five analogous problems (A1, A2, A3, A4, A5) that have similar proof structures. These are provided to help guide your approach to solving Problem B. \\
+Geometry Theorem Dictionary (GDL): A dictionary containing various geometry theorems, each with its premise and conclusion. All theorems in the THEOREM\_SEQUENCE must be selected from this dictionary. \\
+GDL\_DICTIONARY: \\
+\{GDL\} \\
+For each problem, you are provided the following data: \\
+DESCRIPTION: A textual description of the problem. \\
+CONSTRUCTION\_CDL: The problem's construction in Condition Declaration Language (CDL). \\
+TEXT\_CDL: The text of the problem in CDL. \\
+GOAL\_CDL: The goal of the problem in CDL. \\
+CONSTRUCTION\_CDL\_EXTENDED: An extended version of CONSTRUCTION\_CDL. \\
+SYMBOLS\_AND\_VALUES: Symbols with corresponding values, in the format (predicate;symbol;value). \\
+EQUATIONS: Equations related to solving the problem, in the format (equation). \\
+GOAL\_SYMBOL: The symbol you are trying to solve for, in the format (symbol). \\
+ANSWER: The calculated final answer, in the format (answer). \\
+THEOREM\_SEQUENCE: The sequence of theorems used in the proof, formatted as: \\
+step\_id <step\_id>; <theorem>; <premise>; <conclusion> \\
+step\_id <step\_id>; <theorem>; <premise>; <conclusion> \\ 
+
+\textbf{Your Task:} \\
+You need to solve Problem B by constructing the correct THEOREM\_SEQUENCE, which should consist of theorems from the GDL. Ensure that each selected theorem logically follows the previous one and contributes to the goal of solving Problem B. \\ 
+
+\textbf{Output Format:} \\
+Your response must contain the following: \\
+EQUATIONS: <equation> <equation> ... \\
+GOAL\_SYMBOL: <symbol> \\
+ANSWER: <answer> \\
+THEOREM\_SEQUENCE: \\
+<step\_id>; <theorem>; <premise>; <conclusion> \\
+<step\_id>; <theorem>; <premise>; <conclusion> \\ 
+
+\textbf{Important Notes for the THEOREM\_SEQUENCE:} \\
+Do not include the words "theorem", "premise", or "conclusion". Your sequence should only contain the step ID, theorem name, premise, and conclusion. \\
+Use the exact theorem names and formats provided in the GDL. \\
+Start with step\_id = 1 and increment sequentially. \\
+When referring to angles, use three letters (e.g., ABC for the angle at B). Be mindful of the order, as ABC is different from ACB. For polygons, list all distinct points in clockwise or counterclockwise order. For example, a polygon with points FGE can also be referred to as GEF or EFG. \\
+
+\textbf{Example of Correct THEOREM\_SEQUENCE Format:} \\
+1; angle\_addition(1,BFE,EFG); \\
+Angle(BFE)\&Angle(EFG)\&Angle(BFG); \\
+\texttt{["Equal(MeasureOfAngle(BFG),Add(MeasureOfAngle(BFE),MeasureOfAngle(EFG)))"]} \\
+2; triangle\_property\_angle\_sum(1,DFC); Polygon(DFC); \\
+\texttt{["Equal(Add(MeasureOfAngle(DFC),MeasureOfAngle(FCD),MeasureOfAngle(CDF)),180)"]} \\
+
+
+\textbf{Reminder:} \\
+Ensure that the theorems you select come from the GDL, follow the correct format, and use the proper arguments (e.g., angle order and polygon points). 
+Also, pay attention to the specific variation of the theorem (e.g., 1 for the first variation, 2 for the second, etc.).
+
+\end{minipage}
+}
+\caption{System prompt given to the o1 LLM for generating a geometry proof for a target problem B. The model is provided with all details about the task, as well as a Geometry Theorem Dictionary (GDL) and five analogous problems (A1–A5), which are supplied as few-shot examples (see Figure~\ref{tab:llm_few_shot_prompt}).}
+
+\label{tab:llm_system_prompt}
+\end{figure*}
+
+
+\begin{figure*}[t]
+\centering
+\fbox{%
+\begin{minipage}{0.99\textwidth}
+\small
+
+
+\textbf{Inputs for Problem A1:} \\
+\textbf{DESCRIPTION:} \\
+As shown in the diagram, Div(LengthOfLine(AD)=LengthOfLine(DF)), Div(LengthOfLine(DF)=LengthOfLine(FB)), AG=15, \\
+DE is parallel to BC, DE is parallel to FG, FG || BC. Find the length of line CE. \\
+
+\textbf{CONSTRUCTION\_CDL:} \\
+Shape(AD,DE,EA), ... \\
+Collinear(ADFB), ... \\
+
+\textbf{TEXT\_CDL:} \\
+Equal(Div(LengthOfLine(AD),LengthOfLine(DF)),3/2), ... \\
+ParallelBetweenLine(DE,BC), ... \\
+
+\textbf{GOAL\_CDL:} \\
+Value(LengthOfLine(CE)) \\
+
+\textbf{CONSTRUCTION\_CDL\_EXTENDED:} \\
+Shape(DE,EA,AD), ... \\
+Collinear(BFDA), ...\\
+Point(A), ... \\
+Line(AB), ... \\
+Angle(ADF), ... \\
+Polygon(ADE), ... \\
+ParallelBetweenLine(CB,ED), ... \\
+
+\textbf{SYMBOLS\_AND\_VALUES:} \\
+LengthOfLine(AG);ll\_ag;15, ... \\
+
+\textbf{Outputs for Problem A1:} \\
+\textbf{EQUATIONS:} \\
+ll\_ad/ll\_df - 3/2, ... \\
+
+\textbf{GOAL\_SYMBOL:} \\
+ll\_ce \\
+
+\textbf{ANSWER:} \\
+9 \\
+
+\textbf{THEOREM\_SEQUENCE:} \\
+... \\
+
+\vspace{1em}
+\textbf{Inputs for Problem A2:} \\
+...
+
+\vspace{1em}
+\textbf{Inputs for Problem A3:} \\
+...
+
+\vspace{1em}
+\textbf{Inputs for Problem A4:} \\
+...
+
+\vspace{1em}
+\textbf{Inputs for Problem A5:} \\
+...
+
+\vspace{1em}
+\textbf{Outputs for Problem B:}
+\end{minipage}
+}
+\caption{Few-shot prompt shown to the o1 LLM, consisting of five analogous problems (A1–A5) along with their inputs and solutions -- including the final answer and theorem sequence used in the proof. \textbf{Note:} ``...'' indicates omitted content for brevity.}
+
+\label{tab:llm_few_shot_prompt}
+\end{figure*}

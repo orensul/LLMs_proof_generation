@@ -1,0 +1,96 @@
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5777_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_circular_power_chord_and_chord(1,AED,BEC,O)
+You output the following premises: Cocircular(O,AB)&Cocircular(O,DC)&Collinear(AED)&Collinear(BEC)
+But the correct premises: Cocircular(O,AD)&Cocircular(O,BC)&Collinear(AED)&Collinear(BEC)
+
+Model Answer:
+RETRY_ANSWER:
+4/5
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_chord_and_chord(1,AED,BEC,O); Cocircular(O,AB)&Cocircular(O,DC)&Collinear(AED)&Collinear(BEC); ["Equal(Mul(LengthOfLine(EB),LengthOfLine(EC)),Mul(LengthOfLine(EA),LengthOfLine(ED)))"]
+2; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+4; congruent_arc_judgment_measure_equal(1,OCD,OBD); Arc(OCD)&Arc(OBD)&Cocircular(O,BD)&Equal(MeasureOfArc(OCD),MeasureOfArc(OBD)); ["CongruentBetweenArc(OCD,OBD)"]
+5; congruent_arc_property_chord_equal(1,OCD,OBD); CongruentBetweenArc(OCD,OBD)&Line(CD)&Line(BD); ["Equal(LengthOfLine(CD),LengthOfLine(BD))"]
+6; perpendicular_bisector_judgment_distance_equal(1,DE,BC); Collinear(BEC)&Angle(BED)&Equal(MeasureOfAngle(BED),90)&Equal(LengthOfLine(CD),LengthOfLine(BD)); ["IsPerpendicularBisectorOfLine(DE,BC)"]
+7; perpendicular_bisector_property_distance_equal(1,DE,BC); IsPerpendicularBisectorOfLine(DE,BC); ["Equal(LengthOfLine(BC),LengthOfLine(EC))"]
+8; line_addition(1,AE,ED); Collinear(AED); ["Equal(LengthOfLine(AD),Add(LengthOfLine(AE),LengthOfLine(ED)))"]
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5777_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OCD,A)
+You output the following premises: Cocircular(O,CDA)&Angle(CAD)
+But the correct premises: Cocircular(O,CDA)&Angle(DAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+4/5
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+3; congruent_arc_judgment_measure_equal(1,OCD,OBD); Arc(OCD)&Arc(OBD)&Cocircular(O,BD)&Equal(MeasureOfArc(OCD),MeasureOfArc(OBD)); ["CongruentBetweenArc(OCD,OBD)"]
+4; congruent_arc_property_chord_equal(1,OCD,OBD); CongruentBetweenArc(OCD,OBD)&Line(CD)&Line(BD); ["Equal(LengthOfLine(CD),LengthOfLine(BD))"]
+5; circle_property_circular_power_chord_and_chord(1,AED,BEC,O); Cocircular(O,AD)&Cocircular(O,BC)&Collinear(AED)&Collinear(BEC); ["Equal(Mul(LengthOfLine(EB),LengthOfLine(EC)),Mul(LengthOfLine(EA),LengthOfLine(ED)))"]
+6; line_addition(1,AE,ED); Collinear(AED); ["Equal(LengthOfLine(AD),Add(LengthOfLine(AE),LengthOfLine(ED)))"]
+7; right_triangle_property_pythagorean(1,BED); RightTriangle(BED); ["Equal(Add(Pow(LengthOfLine(BE),2),Pow(LengthOfLine(ED),2)),Pow(LengthOfLine(BD),2))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5777_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error in TIER1_THEOREM_CALL_SYNTAX_VIOLATION: Theorem 'congruent_arc_judgment_measure_equal' is not recognized or its premise validation is not supported by the current verifier version.
+Model Answer:
+RETRY_ANSWER:
+4/5
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(DAC); ["Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+3; congruent_arc_judgment_measure_equal(1,OCD,OBD); Arc(OCD)&Arc(OBD)&Cocircular(O,BD)&Equal(MeasureOfArc(OCD),MeasureOfArc(OBD)); ["CongruentBetweenArc(OCD,OBD)"]
+4; congruent_arc_property_chord_equal(1,OCD,OBD); CongruentBetweenArc(OCD,OBD)&Line(CD)&Line(BD); ["Equal(LengthOfLine(CD),LengthOfLine(BD))"]
+5; circle_property_circular_power_chord_and_chord(1,AED,BEC,O); Cocircular(O,AD)&Cocircular(O,BC)&Collinear(AED)&Collinear(BEC); ["Equal(Mul(LengthOfLine(EB),LengthOfLine(EC)),Mul(LengthOfLine(EA),LengthOfLine(ED)))"]
+6; line_addition(1,AE,ED); Collinear(AED); ["Equal(LengthOfLine(AD),Add(LengthOfLine(AE),LengthOfLine(ED)))"]
+7; right_triangle_property_pythagorean(1,BED); RightTriangle(BED); ["Equal(Add(Pow(LengthOfLine(BE),2),Pow(LengthOfLine(ED),2)),Pow(LengthOfLine(BD),2))"]
+Retry attempt: 3
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5777_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OBD,C)
+You output the following premises: Cocircular(O,BDC)&Angle(DBC)
+But the correct premises: Cocircular(O,BDC)&Angle(DCB)
+You output the following conclusions: Equal(MeasureOfAngle(DBC),Mul(MeasureOfArc(OBD),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+4/5
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(DAC); ["Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DBC); ["Equal(MeasureOfAngle(DBC),Mul(MeasureOfArc(OBD),1/2))"]
+4; arc_property_circumference_angle_external(1,OCD,B); Cocircular(O,CDB)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OCD),1/2))"]
+5; circle_property_circular_power_chord_and_chord(1,AED,BEC,O); Cocircular(O,AD)&Cocircular(O,BC)&Collinear(AED)&Collinear(BEC); ["Equal(Mul(LengthOfLine(EB),LengthOfLine(EC)),Mul(LengthOfLine(EA),LengthOfLine(ED)))"]
+6; line_addition(1,AE,ED); Collinear(AED); ["Equal(LengthOfLine(AD),Add(LengthOfLine(AE),LengthOfLine(ED)))"]
+7; right_triangle_property_pythagorean(1,BED); RightTriangle(BED); ["Equal(Add(Pow(LengthOfLine(BE),2),Pow(LengthOfLine(ED),2)),Pow(LengthOfLine(BD),2))"]
+8; isosceles_triangle_judgment_angle_equal(1,EBD); Polygon(EBD)&Equal(MeasureOfAngle(DBC),MeasureOfAngle(DCB)); ["IsoscelesTriangle(EBD)"]
+Retry attempt: 4
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5777_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_angle_equal(1,EBD)
+You output the following premises: Polygon(EBD)&Equal(MeasureOfAngle(DBE),MeasureOfAngle(BED))
+But the correct premises: Polygon(EBD)&Equal(MeasureOfAngle(EBD),MeasureOfAngle(BDE))
+
+Model Answer:
+RETRY_ANSWER:
+4/5
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OCD,A); Cocircular(O,CDA)&Angle(DAC); ["Equal(MeasureOfAngle(DAC),Mul(MeasureOfArc(OCD),1/2))"]
+2; arc_property_circumference_angle_external(1,OBD,A); Cocircular(O,BDA)&Angle(DAB); ["Equal(MeasureOfAngle(DAB),Mul(MeasureOfArc(OBD),1/2))"]
+3; arc_property_circumference_angle_external(1,OBD,C); Cocircular(O,BDC)&Angle(DCB); ["Equal(MeasureOfAngle(DCB),Mul(MeasureOfArc(OBD),1/2))"]
+4; arc_property_circumference_angle_external(1,OCD,B); Cocircular(O,CDB)&Angle(DBC); ["Equal(MeasureOfAngle(DBC),Mul(MeasureOfArc(OCD),1/2))"]
+5; isosceles_triangle_judgment_angle_equal(1,EBD); Polygon(EBD)&Equal(MeasureOfAngle(DBE),MeasureOfAngle(BED)); ["IsoscelesTriangle(EBD)"]
+6; circle_property_circular_power_chord_and_chord(1,AED,BEC,O); Cocircular(O,AD)&Cocircular(O,BC)&Collinear(AED)&Collinear(BEC); ["Equal(Mul(LengthOfLine(EB),LengthOfLine(EC)),Mul(LengthOfLine(EA),LengthOfLine(ED)))"]
+7; line_addition(1,AE,ED); Collinear(AED); ["Equal(LengthOfLine(AD),Add(LengthOfLine(AE),LengthOfLine(ED)))"]
+8; right_triangle_property_pythagorean(1,BED); RightTriangle(BED); ["Equal(Add(Pow(LengthOfLine(BE),2),Pow(LengthOfLine(ED),2)),Pow(LengthOfLine(BD),2))"]
+Retry attempt: 5
+Total time: 73.929s | per attempt: [23.186, 11.5, 9.692, 18.635, 10.915]
+Content written to results/level_5/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_5777_run_2.txt

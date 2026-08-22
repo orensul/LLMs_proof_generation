@@ -1,0 +1,118 @@
+Content written to results/level_5/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,DE,BC)
+You output the following conclusions: Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCB))
+But the correct conclusions: Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))
+
+Model Answer:
+RETRY_ANSWER:
+0
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,DE,BC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCB))"]
+2; isosceles_triangle_judgment_angle_equal(1,DEC); Polygon(DEC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCA)); ["IsoscelesTriangle(DEC)"]
+3; isosceles_triangle_property_line_equal(1,DEC); IsoscelesTriangle(DEC); ["Equal(LengthOfLine(DE),LengthOfLine(EC))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+5; isosceles_triangle_judgment_angle_equal(1,DBE); Polygon(DBE)&Equal(MeasureOfAngle(DEB),MeasureOfAngle(ABE)); ["IsoscelesTriangle(DBE)"]
+6; isosceles_triangle_property_line_equal(1,DBE); IsoscelesTriangle(DBE); ["Equal(LengthOfLine(DE),LengthOfLine(DB))"]
+7; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+8; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+9; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(DAE),MeasureOfAngle(BAC))&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC)); ["SimilarBetweenTriangle(ADE,ABC)"]
+10; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+11; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(ADE,ABC)))"]
+12; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AE
+Retry attempt: 1
+Content written to results/level_5/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_angle_equal(1,DEC)
+You output the following premises: Polygon(DEC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCA))
+But the correct premises: Polygon(DEC)&Equal(MeasureOfAngle(DEC),MeasureOfAngle(ECD))
+
+Model Answer:
+RETRY_ANSWER:
+0
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,DE,BC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+2; isosceles_triangle_judgment_angle_equal(1,DEC); Polygon(DEC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCA)); ["IsoscelesTriangle(DEC)"]
+3; isosceles_triangle_property_line_equal(1,DEC); IsoscelesTriangle(DEC); ["Equal(LengthOfLine(DE),LengthOfLine(EC))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+5; isosceles_triangle_judgment_angle_equal(1,DBE); Polygon(DBE)&Equal(MeasureOfAngle(DEB),MeasureOfAngle(ABE)); ["IsoscelesTriangle(DBE)"]
+6; isosceles_triangle_property_line_equal(1,DBE); IsoscelesTriangle(DBE); ["Equal(LengthOfLine(DE),LengthOfLine(DB))"]
+7; parallel_property_corresponding_angle(1,DE,BC,A); ParallelBetweenLine(DE,BC)&Collinear(ADB); ["Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC))"]
+8; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(DAE),MeasureOfAngle(BAC))&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC)); ["SimilarBetweenTriangle(ADE,ABC)"]
+9; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+10; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+11; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(ADE,ABC)))"]
+12; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(ADE,ABC)))"]
+13; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+Retry attempt: 2
+Content written to results/level_5/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_angle_equal(1,DEC)
+You output the following premises: Polygon(DEC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(ECD))
+But the correct premises: Polygon(DEC)&Equal(MeasureOfAngle(DEC),MeasureOfAngle(ECD))
+
+Model Answer:
+RETRY_ANSWER:
+0
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,DE,BC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+2; isosceles_triangle_judgment_angle_equal(1,DEC); Polygon(DEC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(ECD)); ["IsoscelesTriangle(DEC)"]
+3; isosceles_triangle_property_line_equal(1,DEC); IsoscelesTriangle(DEC); ["Equal(LengthOfLine(DE),LengthOfLine(EC))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+5; isosceles_triangle_judgment_angle_equal(1,DBE); Polygon(DBE)&Equal(MeasureOfAngle(DEB),MeasureOfAngle(ABE)); ["IsoscelesTriangle(DBE)"]
+6; isosceles_triangle_property_line_equal(1,DBE); IsoscelesTriangle(DBE); ["Equal(LengthOfLine(DE),LengthOfLine(DB))"]
+7; parallel_property_corresponding_angle(1,DE,BC,A); ParallelBetweenLine(DE,BC)&Collinear(ADB); ["Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC))"]
+8; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(DAE),MeasureOfAngle(BAC))&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC)); ["SimilarBetweenTriangle(ADE,ABC)"]
+9; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+10; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+11; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(ADE,ABC)))"]
+12; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(ADE,ABC)))"]
+13; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+Retry attempt: 3
+Content written to results/level_5/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_angle_equal(1,EDC)
+You output the following premises: Polygon(EDC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCA))
+But the correct premises: Polygon(EDC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCE))
+
+Model Answer:
+RETRY_ANSWER:
+0
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,DE,BC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+2; isosceles_triangle_judgment_angle_equal(1,EDC); Polygon(EDC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCA)); ["IsoscelesTriangle(EDC)"]
+3; isosceles_triangle_property_line_equal(1,EDC); IsoscelesTriangle(EDC); ["Equal(LengthOfLine(ED),LengthOfLine(EC))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+5; isosceles_triangle_judgment_angle_equal(1,BDE); Polygon(BDE)&Equal(MeasureOfAngle(DBE),MeasureOfAngle(DEB)); ["IsoscelesTriangle(BDE)"]
+6; isosceles_triangle_property_line_equal(1,BDE); IsoscelesTriangle(BDE); ["Equal(LengthOfLine(DE),LengthOfLine(DB))"]
+7; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+8; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+9; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(DAE),MeasureOfAngle(BAC))&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC)); ["SimilarBetweenTriangle(ADE,ABC)"]
+10; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(ADE,ABC)))"]
+11; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(ADE,ABC)))"]
+12; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+Retry attempt: 4
+Content written to results/level_5/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_angle_equal(1,EDC)
+You output the following premises: Polygon(EDC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(ECD))
+But the correct premises: Polygon(EDC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(DCE))
+
+Model Answer:
+RETRY_ANSWER:
+0
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_alternate_interior_angle(1,DE,BC); ParallelBetweenLine(DE,BC)&Line(DC); ["Equal(MeasureOfAngle(EDC),MeasureOfAngle(BCD))"]
+2; isosceles_triangle_judgment_angle_equal(1,EDC); Polygon(EDC)&Equal(MeasureOfAngle(EDC),MeasureOfAngle(ECD)); ["IsoscelesTriangle(EDC)"]
+3; isosceles_triangle_property_line_equal(1,EDC); IsoscelesTriangle(EDC); ["Equal(LengthOfLine(ED),LengthOfLine(EC))"]
+4; parallel_property_alternate_interior_angle(2,DE,BC); ParallelBetweenLine(DE,BC)&Line(EB); ["Equal(MeasureOfAngle(DEB),MeasureOfAngle(EBC))"]
+5; isosceles_triangle_judgment_angle_equal(1,DBE); Polygon(DBE)&Equal(MeasureOfAngle(DEB),MeasureOfAngle(DBE)); ["IsoscelesTriangle(DBE)"]
+6; isosceles_triangle_property_line_equal(1,DBE); IsoscelesTriangle(DBE); ["Equal(LengthOfLine(DE),LengthOfLine(DB))"]
+7; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(DAE),MeasureOfAngle(BAC))&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC)); ["SimilarBetweenTriangle(ADE,ABC)"]
+8; line_addition(1,AD,DB); Collinear(ADB); ["Equal(LengthOfLine(AB),Add(LengthOfLine(AD),LengthOfLine(DB)))"]
+9; line_addition(1,AE,EC); Collinear(AEC); ["Equal(LengthOfLine(AC),Add(LengthOfLine(AE),LengthOfLine(EC)))"]
+10; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(AD),LengthOfLine(BC)),Mul(LengthOfLine(DB),LengthOfLine(AC)))"]
+11; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(AEC); ["Equal(Mul(LengthOfLine(AE),LengthOfLine(BC)),Mul(LengthOfLine(EC),LengthOfLine(AB)))"]
+Retry attempt: 5
+Total time: 312.292s | per attempt: [72.985, 64.462, 61.275, 53.482, 60.088]
+Content written to results/level_5/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_5440_run_0.txt

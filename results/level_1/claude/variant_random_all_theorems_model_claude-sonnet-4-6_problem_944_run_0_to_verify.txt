@@ -1,0 +1,314 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ADC=40°, the measure of ⌒BED is 98. Find the measure of arc BCF.
+CONSTRUCTION_CDL:
+Shape(BDC,CD)
+Shape(AD,DC,CA)
+Shape(BCF,FA,AC)
+Shape(AF,BFE,EA)
+Shape(AE,BED,DA)
+Collinear(CAE)
+Collinear(DAF)
+Cocircular(B,DCFE)
+TEXT_CDL:
+Equal(MeasureOfAngle(ADC),40)
+Equal(MeasureOfArc(BED),98)
+GOAL_CDL:
+Value(MeasureOfArc(BCF))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CD,BDC)
+Shape(DC,CA,AD)
+Shape(CA,AD,DC)
+Shape(FA,AC,BCF)
+Shape(AC,BCF,FA)
+Shape(BFE,EA,AF)
+Shape(EA,AF,BFE)
+Shape(BED,DA,AE)
+Shape(DA,AE,BED)
+Shape(BDC,CA,AD)
+Shape(CA,AD,BDC)
+Shape(AD,BDC,CA)
+Shape(AD,DC,BCF,FA)
+Shape(DC,BCF,FA,AD)
+Shape(BCF,FA,AD,DC)
+Shape(FA,AD,DC,BCF)
+Shape(DC,CA,AE,BED)
+Shape(CA,AE,BED,DC)
+Shape(AE,BED,DC,CA)
+Shape(BED,DC,CA,AE)
+Shape(AC,BCF,BFE,EA)
+Shape(BCF,BFE,EA,AC)
+Shape(BFE,EA,AC,BCF)
+Shape(EA,AC,BCF,BFE)
+Shape(AF,BFE,BED,DA)
+Shape(BFE,BED,DA,AF)
+Shape(BED,DA,AF,BFE)
+Shape(DA,AF,BFE,BED)
+Shape(BDC,BCF,FA,AD)
+Shape(BCF,FA,AD,BDC)
+Shape(FA,AD,BDC,BCF)
+Shape(AD,BDC,BCF,FA)
+Shape(BDC,CA,AE,BED)
+Shape(CA,AE,BED,BDC)
+Shape(AE,BED,BDC,CA)
+Shape(BED,BDC,CA,AE)
+Shape(AD,DC,BCF,BFE,EA)
+Shape(DC,BCF,BFE,EA,AD)
+Shape(BCF,BFE,EA,AD,DC)
+Shape(BFE,EA,AD,DC,BCF)
+Shape(EA,AD,DC,BCF,BFE)
+Shape(DC,CA,AF,BFE,BED)
+Shape(CA,AF,BFE,BED,DC)
+Shape(AF,BFE,BED,DC,CA)
+Shape(BFE,BED,DC,CA,AF)
+Shape(BED,DC,CA,AF,BFE)
+Shape(BCF,FA,AE,BED,DC)
+Shape(FA,AE,BED,DC,BCF)
+Shape(AE,BED,DC,BCF,FA)
+Shape(BED,DC,BCF,FA,AE)
+Shape(DC,BCF,FA,AE,BED)
+Shape(AC,BCF,BFE,BED,DA)
+Shape(BCF,BFE,BED,DA,AC)
+Shape(BFE,BED,DA,AC,BCF)
+Shape(BED,DA,AC,BCF,BFE)
+Shape(DA,AC,BCF,BFE,BED)
+Shape(BDC,BCF,BFE,EA,AD)
+Shape(BCF,BFE,EA,AD,BDC)
+Shape(BFE,EA,AD,BDC,BCF)
+Shape(EA,AD,BDC,BCF,BFE)
+Shape(AD,BDC,BCF,BFE,EA)
+Shape(BDC,CA,AF,BFE,BED)
+Shape(CA,AF,BFE,BED,BDC)
+Shape(AF,BFE,BED,BDC,CA)
+Shape(BFE,BED,BDC,CA,AF)
+Shape(BED,BDC,CA,AF,BFE)
+Shape(BDC,BCF,FA,AE,BED)
+Shape(BCF,FA,AE,BED,BDC)
+Shape(FA,AE,BED,BDC,BCF)
+Shape(AE,BED,BDC,BCF,FA)
+Shape(BED,BDC,BCF,FA,AE)
+Shape(DC,BCF,BFE,BED)
+Shape(BCF,BFE,BED,DC)
+Shape(BFE,BED,DC,BCF)
+Shape(BED,DC,BCF,BFE)
+Shape(BDC,BCF,BFE,BED)
+Shape(BCF,BFE,BED,BDC)
+Shape(BFE,BED,BDC,BCF)
+Shape(BED,BDC,BCF,BFE)
+Collinear(EAC)
+Collinear(FAD)
+Cocircular(B,D)
+Cocircular(B,C)
+Cocircular(B,F)
+Cocircular(B,E)
+Cocircular(B,DC)
+Cocircular(B,CD)
+Cocircular(B,DF)
+Cocircular(B,FD)
+Cocircular(B,DE)
+Cocircular(B,ED)
+Cocircular(B,CF)
+Cocircular(B,FC)
+Cocircular(B,CE)
+Cocircular(B,EC)
+Cocircular(B,FE)
+Cocircular(B,EF)
+Cocircular(B,DCF)
+Cocircular(B,CFD)
+Cocircular(B,FDC)
+Cocircular(B,DCE)
+Cocircular(B,CED)
+Cocircular(B,EDC)
+Cocircular(B,DFE)
+Cocircular(B,FED)
+Cocircular(B,EDF)
+Cocircular(B,CFE)
+Cocircular(B,FEC)
+Cocircular(B,ECF)
+Cocircular(B,CFED)
+Cocircular(B,FEDC)
+Cocircular(B,EDCF)
+Point(C)
+Point(E)
+Point(A)
+Point(D)
+Point(F)
+Line(CE)
+Line(EC)
+Line(CA)
+Line(AC)
+Line(AE)
+Line(EA)
+Line(DF)
+Line(FD)
+Line(DA)
+Line(AD)
+Line(AF)
+Line(FA)
+Line(CD)
+Line(DC)
+Arc(BDC)
+Arc(BCD)
+Arc(BDF)
+Arc(BFD)
+Arc(BDE)
+Arc(BED)
+Arc(BCF)
+Arc(BFC)
+Arc(BCE)
+Arc(BEC)
+Arc(BFE)
+Arc(BEF)
+Angle(CAE)
+Angle(EAC)
+Angle(DAF)
+Angle(FAD)
+Angle(ADC)
+Angle(DCA)
+Angle(CAD)
+Angle(FAC)
+Angle(EAF)
+Angle(DAE)
+Angle(EAD)
+Angle(CAF)
+Angle(FAE)
+Angle(DAC)
+Angle(FDC)
+Angle(DCE)
+Angle(CDA)
+Angle(ACD)
+Angle(CDF)
+Angle(ECD)
+Polygon(ADC)
+Polygon(DCA)
+Polygon(CAD)
+Circle(B)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The verifier told me the correct premises and conclusions for `arc_property_circumference_angle_external(1,BDC,A)`:
+- Correct premise: `Cocircular(B,DCA)&Angle(CAD)`
+- Correct conclusion: `Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(BDC),1/2))`
+
+So ∠CAD = (1/2) arc(BDC).
+
+From step 1: arc(BCD) - arc(BFE) = 2∠FAE = 2∠CAD (same angle since FAD and EAC are the lines)
+
+So arc(BCD) - arc(BFE) = 2 × (1/2) arc(BDC) = arc(BDC)
+
+But arc(BCD) = arc(BCF) + arc(BFD)... I need to be careful about arc directions.
+
+Wait: arc(BDC) means arc from D to C passing through B (or the arc named BDC). And arc(BCD) means arc from C to D passing through B... These might be the same arc traversed differently.
+
+Actually arc(BDC) and arc(BCD) - in the naming convention, the middle letter indicates a point on the arc, so arc(BDC) = arc from D to C with B on it, and arc(BCD) = arc from C to D with B on it. These are actually the same arc (just opposite direction labeling), so arc(BCD) = arc(BDC).
+
+So: arc(BDC) - arc(BFE) = arc(BDC) → arc(BFE) = 0? That can't be right.
+
+Let me reconsider. ∠FAE is the angle at external point A. ∠CAD = ∠FAE. The inscribed angle theorem gives ∠CAD = (1/2)arc(BDC). But the external secant angle formula gives ∠FAE = (1/2)(arc(BCD) - arc(BFE)).
+
+So (1/2)arc(BDC) = (1/2)(arc(BCD) - arc(BFE)), meaning arc(BDC) = arc(BCD) - arc(BFE)... these are consistent if arc(BCD) ≠ arc(BDC).
+
+arc(BDC) = arc going from D to C not through B (with B as center label)
+arc(BCD) = arc going from C to D... 
+
+Round arc: arc(BDC) + arc(BCD) = 360. So arc(BCD) = 360 - arc(BDC).
+
+Then: arc(BDC) = (360 - arc(BDC)) - arc(BFE) → 2×arc(BDC) + arc(BFE) = 360.
+
+With arc(BED) = 98 and arc(BDC) + arc(BCF) + arc(BFE) + arc(BED) = 360:
+arc(BDC) + arc(BCF) + arc(BFE) = 262.
+
+From 2×arc(BDC) + arc(BFE) = 360 and arc(BDC) + arc(BCF) + arc(BFE) = 262:
+Subtracting: arc(BDC) - arc(BCF) = 98 → arc(BDC) = arc(BCF) + 98.
+
+Need another equation. ∠ADC=40° is inscribed angle at D for arc AC... but A not on circle.
+
+EQUATIONS: ma_adc-40, ma_bed-98
+GOAL_SYMBOL: ma_bcf
+ANSWER: 18
+
+THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B); Cocircular(B,FECD)&Collinear(AEC)&Collinear(AFD); ["Equal(Sub(MeasureOfArc(BCD),MeasureOfArc(BFE)),Mul(MeasureOfAngle(FAE),2))"]
+2; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(BDC),1/2))"]
+3; arc_addition_measure(1,BED,BDC); Arc(BED)&Arc(BDC)&Arc(BEC); ["Equal(MeasureOfArc(BEC),Add(MeasureOfArc(BED),MeasureOfArc(BDC)))"]
+4; arc_addition_measure(1,BCF,BFE); Arc(BCF)&Arc(BFE)&Arc(BCE); ["Equal(MeasureOfArc(BCE),Add(MeasureOfArc(BCF),MeasureOfArc(BFE)))"]
+5; round_arc(1,BCE,BEC); Arc(BCE)&Arc(BEC); ["Equal(Add(MeasureOfArc(BCE),MeasureOfArc(BEC)),360)"]
+6; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+7; arc_property_circumference_angle_external(1,BCF,A); Cocircular(B,CFA)&Angle(CAF); ["Equal(MeasureOfAngle(CAF),Mul(MeasureOfArc(BCF),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('B', 'B', 'E', 'D', 'A').
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BBED,A); Cocircular(B,EAD)&Angle(EAD); ["Equal(MeasureOfAngle(EAD),Mul(MeasureOfArc(BED),1/2))"]
+2; circle_property_circular_power_segment_and_segment_angle(1,PAAB,PCD,O); Cocircular(B,ECFD)&Collinear(EAC)&Collinear(FAD); ["Equal(Sub(MeasureOfArc(BED),MeasureOfArc(BCF)),Mul(MeasureOfAngle(CAD),2))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <circle_property_circular_power_segment_and_segment_angle> para length error. Expected 7 but got ('P', 'A', 'A', 'B', 'P', 'C', 'D', 'O').
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(1,PAAB,PCD,O); Cocircular(B,DCFE)&Collinear(EAC)&Collinear(FAD); ["Equal(Sub(MeasureOfArc(BED),MeasureOfArc(BCF)),Mul(MeasureOfAngle(CAD),2))"]
+2; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+3; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B)
+You output the following premises: Cocircular(B,EAFD)&Collinear(AEC)&Collinear(AFD)
+But the correct premises: Cocircular(B,FECD)&Collinear(AEC)&Collinear(AFD)
+You output the following conclusions: Equal(Sub(MeasureOfArc(BFD),MeasureOfArc(BEA)),Mul(MeasureOfAngle(EAF),2))
+But the correct conclusions: Equal(Sub(MeasureOfArc(BCD),MeasureOfArc(BFE)),Mul(MeasureOfAngle(FAE),2))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B); Cocircular(B,EAFD)&Collinear(AEC)&Collinear(AFD); ["Equal(Sub(MeasureOfArc(BFD),MeasureOfArc(BEA)),Mul(MeasureOfAngle(EAF),2))"]
+2; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+3; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))"]
+4; arc_addition_measure(1,BED,BDC); Arc(BED)&Arc(BDC)&Arc(BEC); ["Equal(MeasureOfArc(BEC),Add(MeasureOfArc(BED),MeasureOfArc(BDC)))"]
+5; arc_addition_measure(1,BCF,BFE); Arc(BCF)&Arc(BFE)&Arc(BCE); ["Equal(MeasureOfArc(BCE),Add(MeasureOfArc(BCF),MeasureOfArc(BFE)))"]
+6; round_arc(1,BCE,BEC); Arc(BCE)&Arc(BEC); ["Equal(Add(MeasureOfArc(BCE),MeasureOfArc(BEC)),360)"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,BDC,A)
+You output the following premises: Cocircular(B,DCA)&Angle(DCA)
+But the correct premises: Cocircular(B,DCA)&Angle(CAD)
+You output the following conclusions: Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(BDC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B); Cocircular(B,FECD)&Collinear(AEC)&Collinear(AFD); ["Equal(Sub(MeasureOfArc(BCD),MeasureOfArc(BFE)),Mul(MeasureOfAngle(FAE),2))"]
+2; arc_addition_measure(1,BED,BDC); Arc(BED)&Arc(BDC)&Arc(BEC); ["Equal(MeasureOfArc(BEC),Add(MeasureOfArc(BED),MeasureOfArc(BDC)))"]
+3; arc_addition_measure(1,BCF,BFE); Arc(BCF)&Arc(BFE)&Arc(BCE); ["Equal(MeasureOfArc(BCE),Add(MeasureOfArc(BCF),MeasureOfArc(BFE)))"]
+4; round_arc(1,BCE,BEC); Arc(BCE)&Arc(BEC); ["Equal(Add(MeasureOfArc(BCE),MeasureOfArc(BEC)),360)"]
+5; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))"]
+6; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_adc-40
+mar_bed-98
+GT_GOAL_SYMBOL:
+mar_bcf
+GT_ANSWER:
+80
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,BCF,D);Cocircular(B,CFD)&Angle(FDC);["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+

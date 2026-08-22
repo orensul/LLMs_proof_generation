@@ -1,0 +1,157 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AC=5, AD=9, ∠DAC=60°, AD and CB are opposite sides of the ▱ DACB, AC⊥DC. Find the area of DACB.
+CONSTRUCTION_CDL:
+Shape(DA,AC,CD)
+Shape(DC,CB,BD)
+TEXT_CDL:
+Equal(LengthOfLine(AC),5)
+Equal(LengthOfLine(AD),9)
+Equal(MeasureOfAngle(DAC),60)
+Parallelogram(DACB)
+PerpendicularBetweenLine(AC,DC)
+GOAL_CDL:
+Value(AreaOfQuadrilateral(DACB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CD,DA)
+Shape(CD,DA,AC)
+Shape(CB,BD,DC)
+Shape(BD,DC,CB)
+Shape(DA,AC,CB,BD)
+Shape(AC,CB,BD,DA)
+Shape(CB,BD,DA,AC)
+Shape(BD,DA,AC,CB)
+Point(D)
+Point(A)
+Point(C)
+Point(B)
+Line(DA)
+Line(AD)
+Line(AC)
+Line(CA)
+Line(CD)
+Line(DC)
+Line(CB)
+Line(BC)
+Line(BD)
+Line(DB)
+Angle(DAC)
+Angle(ACD)
+Angle(CDA)
+Angle(DCB)
+Angle(CBD)
+Angle(BDC)
+Angle(ACB)
+Angle(BDA)
+Angle(CAD)
+Angle(DCA)
+Angle(ADC)
+Angle(BCD)
+Angle(DBC)
+Angle(CDB)
+Angle(BCA)
+Angle(ADB)
+Polygon(DAC)
+Polygon(ACD)
+Polygon(CDA)
+Polygon(DCB)
+Polygon(CBD)
+Polygon(BDC)
+Polygon(DACB)
+Polygon(ACBD)
+Polygon(CBDA)
+Polygon(BDAC)
+Parallelogram(ACBD)
+Parallelogram(CBDA)
+Parallelogram(BDAC)
+ParallelBetweenLine(DB,AC)
+ParallelBetweenLine(CA,BD)
+ParallelBetweenLine(AD,CB)
+ParallelBetweenLine(BC,DA)
+SYMBOLS_AND_VALUES:
+LengthOfLine(CB);ll_cb;4
+LengthOfLine(BC);ll_cb;4
+MeasureOfAngle(CBO);ma_cbo;45
+MeasureOfAngle(BOC);ma_boc;90
+AreaOfQuadrilateral(CBOA);aq_cboa;None
+AreaOfQuadrilateral(BOAC);aq_cboa;None
+AreaOfQuadrilateral(OACB);aq_cboa;None
+AreaOfQuadrilateral(ACBO);aq_cboa;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the area of parallelogram DACB, given AC=5, AD=9, ∠DAC=60°, and AC⊥DC.
+
+Let me analyze the problem:
+- DACB is a parallelogram, so DA∥CB and AC∥DB
+- AC⊥DC means ∠ACD = 90°
+- In triangle DAC: AC=5, AD=9, ∠DAC=60°, ∠ACD=90°
+
+Wait, let me reconsider. AC⊥DC means the angle at C in triangle DAC is 90°, so ∠DCA = 90°.
+
+In triangle DAC:
+- ∠DAC = 60°
+- ∠DCA = 90°
+- So ∠ADC = 30°
+- AC = 5, AD = 9
+
+For the parallelogram area, I need to find AC and the side adjacent to it, or use the sine formula.
+
+The parallelogram DACB has sides DA and AC. The area = DA × AC × sin(∠DAC) = 9 × 5 × sin(60°) = 45 × (√3/2) = 45√3/2.
+
+Let me verify with triangle DAC: ∠DCA=90°, AC=5, ∠DAC=60°
+- tan(60°) = DC/AC, so DC = 5√3
+- AD should be = AC/cos(60°) = 5/(1/2) = 10... but AD=9.
+
+Hmm, let me re-read. AC⊥DC means ∠ACD=90°. Using sine theorem in triangle DAC:
+- AD/sin(∠ACD) = AC/sin(∠ADC)
+- 9/sin(90°) = 5/sin(∠ADC)
+- sin(∠ADC) = 5/9
+
+The area of the parallelogram DACB = DA × AC × sin(∠DAC) = 9 × 5 × sin(60°) = 45√3/2.
+
+The theorem sequence follows the same pattern as A5:
+1. Use triangle angle sum in DAC
+2. Use sine theorem to find DC
+3. Use parallelogram area formula with sine
+
+EQUATIONS:
+ll_ac-5
+ll_ad-9
+ma_dac-60
+ma_acd-90
+
+GOAL_SYMBOL:
+aq_dacb
+
+ANSWER:
+45*sqrt(3)/2
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,DAC); Polygon(DAC); ["Equal(Add(MeasureOfAngle(DAC),MeasureOfAngle(ACD),MeasureOfAngle(CDA)),180)"]
+2; sine_theorem(1,DAC); Polygon(DAC); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(ACD))))"]
+3; parallelogram_area_formula_sine(1,DACB); Parallelogram(DACB); ["Equal(AreaOfQuadrilateral(DACB),Mul(LengthOfLine(DA),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ac-5
+ll_ad-9
+ma_dac-60
+ma_acd-90
+GT_GOAL_SYMBOL:
+aq_dacb
+GT_ANSWER:
+45*sqrt(3)/2
+GT_THEOREM_SEQUENCE:
+1;sine_theorem(1,DAC);Polygon(DAC);["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(ACD))))"]
+2;altitude_of_quadrilateral_judgment_diagonal(1,DACB);(Parallelogram(DACB)|Trapezoid(DACB))&Line(DC)&Equal(MeasureOfAngle(ACD),90);["IsAltitudeOfQuadrilateral(DC,DACB)"]
+3;parallelogram_area_formula_common(1,DACB);Parallelogram(DACB);["Equal(AreaOfQuadrilateral(DACB),Mul(HeightOfQuadrilateral(DACB),LengthOfLine(AC)))"]
+

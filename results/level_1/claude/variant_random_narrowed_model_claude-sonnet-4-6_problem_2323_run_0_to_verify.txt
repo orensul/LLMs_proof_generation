@@ -1,0 +1,96 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ABC=40°, ∠BCA=x°, ∠CAB=25°. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(BC,CA,AB)
+TEXT_CDL:
+Equal(MeasureOfAngle(ABC),40)
+Equal(MeasureOfAngle(BCA),x)
+Equal(MeasureOfAngle(CAB),25)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CA,AB,BC)
+Shape(AB,BC,CA)
+Point(B)
+Point(C)
+Point(A)
+Line(BC)
+Line(CB)
+Line(CA)
+Line(AC)
+Line(AB)
+Line(BA)
+Angle(BCA)
+Angle(CAB)
+Angle(ABC)
+Angle(ACB)
+Angle(BAC)
+Angle(CBA)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, I need to check the theorem syntax carefully. The `triangle_property_angle_sum` theorem takes just the triangle name as argument, not a variation number in the same way.
+
+Let me review the GDL format:
+- `triangle_property_angle_sum(ABC)` with variation `1`
+
+The correct format based on the GDL is `triangle_property_angle_sum(1,ABC)` where the premise is `Polygon(ABC)`.
+
+Looking at the example theorem sequences more carefully:
+```
+2; triangle_property_angle_sum(1,DFC); Polygon(DFC); ["Equal(Add(MeasureOfAngle(DFC),MeasureOfAngle(FCD),MeasureOfAngle(CDF)),180)"]
+```
+
+My theorem sequence looks correct. Let me re-examine the SYMBOLS_AND_VALUES - it seems the problem B has incorrect symbols copied from A5. The actual symbols should be:
+
+EQUATIONS:
+ma_abc - 40
+ma_bca - x
+ma_cab - 25
+
+GOAL_SYMBOL:
+x
+
+ANSWER:
+115
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+115
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_abc-40
+ma_bca-x
+ma_cab-25
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+115
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,ABC);Polygon(ABC);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+

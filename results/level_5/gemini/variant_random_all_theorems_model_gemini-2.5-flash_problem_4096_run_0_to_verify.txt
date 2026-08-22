@@ -1,0 +1,178 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BD=3, CD=2, HM=1, MN=1/2, triangle HMN is similar to triangle ABE., △HMN is similar to △CDE.. Find the length of line AB.
+CONSTRUCTION_CDL:
+Shape(HM,MN,NH)
+Shape(AB,BD,DC,CA)
+Shape(CD,DE,EC)
+Collinear(BDE)
+Collinear(ACE)
+TEXT_CDL:
+Equal(LengthOfLine(BD),3)
+Equal(LengthOfLine(CD),2)
+Equal(LengthOfLine(HM),1)
+Equal(LengthOfLine(MN),1/2)
+SimilarBetweenTriangle(HMN,ABE)
+SimilarBetweenTriangle(HMN,CDE)
+GOAL_CDL:
+Value(LengthOfLine(AB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(MN,NH,HM)
+Shape(NH,HM,MN)
+Shape(BD,DC,CA,AB)
+Shape(DC,CA,AB,BD)
+Shape(CA,AB,BD,DC)
+Shape(DE,EC,CD)
+Shape(EC,CD,DE)
+Shape(CA,AB,BD,DE,EC)
+Shape(AB,BD,DE,EC,CA)
+Shape(BD,DE,EC,CA,AB)
+Shape(DE,EC,CA,AB,BD)
+Shape(EC,CA,AB,BD,DE)
+Collinear(EDB)
+Collinear(ECA)
+Point(B)
+Point(E)
+Point(D)
+Point(A)
+Point(C)
+Point(H)
+Point(M)
+Point(N)
+Line(BE)
+Line(EB)
+Line(BD)
+Line(DB)
+Line(DE)
+Line(ED)
+Line(AE)
+Line(EA)
+Line(AC)
+Line(CA)
+Line(CE)
+Line(EC)
+Line(HM)
+Line(MH)
+Line(MN)
+Line(NM)
+Line(NH)
+Line(HN)
+Line(AB)
+Line(BA)
+Line(DC)
+Line(CD)
+Angle(BDE)
+Angle(EDB)
+Angle(ACE)
+Angle(ECA)
+Angle(HMN)
+Angle(MNH)
+Angle(NHM)
+Angle(ABD)
+Angle(BDC)
+Angle(DCA)
+Angle(CAB)
+Angle(CDE)
+Angle(DEC)
+Angle(ECD)
+Angle(BEC)
+Angle(ACD)
+Angle(CDB)
+Angle(ABE)
+Angle(EAB)
+Angle(BEA)
+Angle(DEA)
+Angle(NMH)
+Angle(HNM)
+Angle(MHN)
+Angle(DBA)
+Angle(BAC)
+Angle(EDC)
+Angle(CED)
+Angle(DCE)
+Angle(CEB)
+Angle(EBA)
+Angle(BAE)
+Angle(AEB)
+Angle(AED)
+Polygon(HMN)
+Polygon(MNH)
+Polygon(NHM)
+Polygon(ABDC)
+Polygon(BDCA)
+Polygon(DCAB)
+Polygon(CABD)
+Polygon(CDE)
+Polygon(DEC)
+Polygon(ECD)
+Polygon(ABE)
+Polygon(BEA)
+Polygon(EAB)
+SimilarBetweenTriangle(MNH,BEA)
+SimilarBetweenTriangle(NHM,EAB)
+SimilarBetweenTriangle(MNH,DEC)
+SimilarBetweenTriangle(NHM,ECD)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+LengthOfLine(BD)-3
+LengthOfLine(CD)-2
+LengthOfLine(HM)-1
+LengthOfLine(MN)-1/2
+GOAL_SYMBOL:
+LengthOfLine(AB)
+ANSWER:
+8
+THEOREM_SEQUENCE:
+1; similar_triangle_property_line_ratio(1,NHM,ECD); SimilarBetweenTriangle(NHM,ECD); ["Equal(LengthOfLine(HM),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(NHM,ECD)))"]
+2; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))"]
+3; line_addition(1,BD,DE); Collinear(BDE); ["Equal(LengthOfLine(BE),Add(LengthOfLine(BD),LengthOfLine(DE)))"]
+4; similar_triangle_property_line_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(BE),RatioOfSimilarTriangle(HMN,ABE)))"]
+5; similar_triangle_property_line_ratio(1,NHM,EAB); SimilarBetweenTriangle(NHM,EAB); ["Equal(LengthOfLine(HM),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(NHM,EAB)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: similar_triangle_property_line_ratio(1,HMN,CDE)
+You output the following conclusions: Equal(LengthOfLine(HM),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(HMN,CDE)))
+But the correct conclusions: Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))
+
+Model Answer:
+RETRY_ANSWER:
+8
+RETRY_THEOREM_SEQUENCE:
+1; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(HM),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(HMN,CDE)))"]
+2; similar_triangle_property_line_ratio(1,HMN,CDE); SimilarBetweenTriangle(HMN,CDE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))"]
+3; line_addition(1,BD,DE); Collinear(BDE); ["Equal(LengthOfLine(BE),Add(LengthOfLine(BD),LengthOfLine(DE)))"]
+4; similar_triangle_property_line_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["Equal(LengthOfLine(HM),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(HMN,ABE)))"]
+5; similar_triangle_property_line_ratio(1,HMN,ABE); SimilarBetweenTriangle(HMN,ABE); ["Equal(LengthOfLine(MN),Mul(LengthOfLine(BE),RatioOfSimilarTriangle(HMN,ABE)))"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_bd-3
+ll_cd-2
+ll_hm-1
+ll_mn-1/2
+GT_GOAL_SYMBOL:
+ll_ab
+GT_ANSWER:
+8
+GT_THEOREM_SEQUENCE:
+1;similar_triangle_property_line_ratio(1,HMN,CDE);SimilarBetweenTriangle(HMN,CDE);["Equal(LengthOfLine(MN),Mul(LengthOfLine(DE),RatioOfSimilarTriangle(HMN,CDE)))"]
+2;similar_triangle_property_line_ratio(1,NHM,ECD);SimilarBetweenTriangle(NHM,ECD);["Equal(LengthOfLine(HM),Mul(LengthOfLine(CD),RatioOfSimilarTriangle(NHM,ECD)))"]
+3;similar_triangle_property_line_ratio(1,HMN,ABE);SimilarBetweenTriangle(HMN,ABE);["Equal(LengthOfLine(MN),Mul(LengthOfLine(BE),RatioOfSimilarTriangle(HMN,ABE)))"]
+4;similar_triangle_property_line_ratio(1,NHM,EAB);SimilarBetweenTriangle(NHM,EAB);["Equal(LengthOfLine(HM),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(NHM,EAB)))"]
+5;line_addition(1,BD,DE);Collinear(BDE);["Equal(LengthOfLine(BE),Add(LengthOfLine(BD),LengthOfLine(DE)))"]
+

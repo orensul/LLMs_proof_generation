@@ -1,0 +1,6 @@
+Total: 64.956916s
+Attempt 1: 23.772278s
+Attempt 2: 9.326076s
+Attempt 3: 9.803259s
+Attempt 4: 10.797141s
+Attempt 5: 11.257710s

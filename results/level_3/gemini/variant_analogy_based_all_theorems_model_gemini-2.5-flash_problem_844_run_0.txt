@@ -1,0 +1,187 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AC=5, AD=9, ∠DAC=60°, AD and CB are opposite sides of the ▱ DACB, AC⊥DC. Find the area of DACB.
+CONSTRUCTION_CDL:
+Shape(DA,AC,CD)
+Shape(DC,CB,BD)
+TEXT_CDL:
+Equal(LengthOfLine(AC),5)
+Equal(LengthOfLine(AD),9)
+Equal(MeasureOfAngle(DAC),60)
+Parallelogram(DACB)
+PerpendicularBetweenLine(AC,DC)
+GOAL_CDL:
+Value(AreaOfQuadrilateral(DACB))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CD,DA)
+Shape(CD,DA,AC)
+Shape(CB,BD,DC)
+Shape(BD,DC,CB)
+Shape(DA,AC,CB,BD)
+Shape(AC,CB,BD,DA)
+Shape(CB,BD,DA,AC)
+Shape(BD,DA,AC,CB)
+Point(D)
+Point(A)
+Point(C)
+Point(B)
+Line(DA)
+Line(AD)
+Line(AC)
+Line(CA)
+Line(CD)
+Line(DC)
+Line(CB)
+Line(BC)
+Line(BD)
+Line(DB)
+Angle(DAC)
+Angle(ACD)
+Angle(CDA)
+Angle(DCB)
+Angle(CBD)
+Angle(BDC)
+Angle(ACB)
+Angle(BDA)
+Angle(CAD)
+Angle(DCA)
+Angle(ADC)
+Angle(BCD)
+Angle(DBC)
+Angle(CDB)
+Angle(BCA)
+Angle(ADB)
+Polygon(DAC)
+Polygon(ACD)
+Polygon(CDA)
+Polygon(DCB)
+Polygon(CBD)
+Polygon(BDC)
+Polygon(DACB)
+Polygon(ACBD)
+Polygon(CBDA)
+Polygon(BDAC)
+Parallelogram(ACBD)
+Parallelogram(CBDA)
+Parallelogram(BDAC)
+ParallelBetweenLine(DB,AC)
+ParallelBetweenLine(CA,BD)
+ParallelBetweenLine(AD,CB)
+ParallelBetweenLine(BC,DA)
+SYMBOLS_AND_VALUES:
+LengthOfLine(CB);ll_cb;4
+LengthOfLine(BC);ll_cb;4
+MeasureOfAngle(CBO);ma_cbo;45
+MeasureOfAngle(BOC);ma_boc;90
+AreaOfQuadrilateral(CBOA);aq_cboa;None
+AreaOfQuadrilateral(BOAC);aq_cboa;None
+AreaOfQuadrilateral(OACB);aq_cboa;None
+AreaOfQuadrilateral(ACBO);aq_cboa;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+ll_ac-5
+ll_ad-9
+ma_acd-90
+Pow(ll_ac,2)+Pow(ll_cd,2)-Pow(ll_ad,2)
+sin_ma_dac-ll_cd/ll_ad
+aq_dacb-ll_ad*ll_ac*sin_ma_dac
+GOAL_SYMBOL:
+aq_dacb
+ANSWER:
+5*sqrt(56)
+THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACD); Polygon(ACD)&Equal(MeasureOfAngle(ACD),90); ["RightTriangle(ACD)"]
+2; right_triangle_property_pythagorean(1,ACD); RightTriangle(ACD); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CD),2)),Pow(LengthOfLine(AD),2))"]
+3; sine_theorem(1,DAC); Polygon(DAC); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DAC))))"]
+4; parallelogram_area_formula_sine(1,DACB); Parallelogram(DACB); ["Equal(AreaOfQuadrilateral(DACB),Mul(LengthOfLine(DA),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: right_triangle_judgment_angle(1,DAC)
+You output the following premises: Polygon(DAC)&Equal(MeasureOfAngle(ACD),90)
+But the correct premises: Polygon(DAC)&Equal(MeasureOfAngle(DAC),90)
+
+Model Answer:
+RETRY_ANSWER:
+5*sqrt(56)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,DAC); Polygon(DAC)&Equal(MeasureOfAngle(ACD),90); ["RightTriangle(DAC)"]
+2; right_triangle_property_pythagorean(1,DAC); RightTriangle(DAC); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(DC),2)),Pow(LengthOfLine(AD),2))"]
+3; sine_theorem(1,DAC); Polygon(DAC); ["Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DAC))))"]
+4; parallelogram_area_formula_sine(1,DACB); Parallelogram(DACB); ["Equal(AreaOfQuadrilateral(DACB),Mul(LengthOfLine(DA),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: triangle_area_formula_common(1,ACD)
+You output the following conclusions: Equal(AreaOfTriangle(ACD),Mul(LengthOfLine(AC),LengthOfLine(CD),1/2))
+But the correct conclusions: Equal(AreaOfTriangle(ACD),Mul(HeightOfTriangle(ACD),LengthOfLine(CD),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+5*sqrt(56)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACD); Polygon(ACD)&Equal(MeasureOfAngle(ACD),90); ["RightTriangle(ACD)"]
+2; right_triangle_property_pythagorean(1,ACD); RightTriangle(ACD); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CD),2)),Pow(LengthOfLine(AD),2))"]
+3; triangle_area_formula_common(1,ACD); Polygon(ACD); ["Equal(AreaOfTriangle(ACD),Mul(LengthOfLine(AC),LengthOfLine(CD),1/2))"]
+4; parallelogram_area_formula_sine(1,ADBC); Parallelogram(ADBC); ["Equal(AreaOfQuadrilateral(ADBC),Mul(LengthOfLine(AD),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,ACD)
+You output the following conclusions: Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(CD),Sin(MeasureOfAngle(DAC))))
+But the correct conclusions: Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(AD),Sin(MeasureOfAngle(CDA))))
+
+Model Answer:
+RETRY_ANSWER:
+5*sqrt(56)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACD); Polygon(ACD)&Equal(MeasureOfAngle(ACD),90); ["RightTriangle(ACD)"]
+2; right_triangle_property_pythagorean(1,ACD); RightTriangle(ACD); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CD),2)),Pow(LengthOfLine(AD),2))"]
+3; sine_theorem(1,ACD); Polygon(ACD); ["Equal(Mul(LengthOfLine(AD),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(CD),Sin(MeasureOfAngle(DAC))))"]
+4; parallelogram_area_formula_sine(1,DACB); Parallelogram(DACB); ["Equal(AreaOfQuadrilateral(DACB),Mul(LengthOfLine(DA),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,DAC)
+You output the following conclusions: Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DCA))))
+But the correct conclusions: Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(ACD))))
+
+Model Answer:
+RETRY_ANSWER:
+5*sqrt(56)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACD); Polygon(ACD)&Equal(MeasureOfAngle(ACD),90); ["RightTriangle(ACD)"]
+2; right_triangle_property_pythagorean(1,ACD); RightTriangle(ACD); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CD),2)),Pow(LengthOfLine(AD),2))"]
+3; sine_theorem(1,DAC); Polygon(DAC); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DCA))))"]
+4; parallelogram_area_formula_sine(1,DACB); Parallelogram(DACB); ["Equal(AreaOfQuadrilateral(DACB),Mul(LengthOfLine(DA),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+#run: 0; #retry: 5; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,DAC)
+You output the following conclusions: Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DAC))))
+But the correct conclusions: Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(ACD))))
+
+Model Answer:
+RETRY_ANSWER:
+5*sqrt(56)
+RETRY_THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACD); Polygon(ACD)&Equal(MeasureOfAngle(ACD),90); ["RightTriangle(ACD)"]
+2; right_triangle_property_pythagorean(1,ACD); RightTriangle(ACD); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CD),2)),Pow(LengthOfLine(AD),2))"]
+3; sine_theorem(1,DAC); Polygon(DAC); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(ACD))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DAC))))"]
+4; parallelogram_area_formula_sine(1,DACB); Parallelogram(DACB); ["Equal(AreaOfQuadrilateral(DACB),Mul(LengthOfLine(DA),LengthOfLine(AC),Sin(MeasureOfAngle(DAC))))"]
+#RETRIES:
+5
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ac-5
+ll_ad-9
+ma_dac-60
+ma_acd-90
+GT_GOAL_SYMBOL:
+aq_dacb
+GT_ANSWER:
+45*sqrt(3)/2
+GT_THEOREM_SEQUENCE:
+1;sine_theorem(1,DAC);Polygon(DAC);["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(ACD))))"]
+2;altitude_of_quadrilateral_judgment_diagonal(1,DACB);(Parallelogram(DACB)|Trapezoid(DACB))&Line(DC)&Equal(MeasureOfAngle(ACD),90);["IsAltitudeOfQuadrilateral(DC,DACB)"]
+3;parallelogram_area_formula_common(1,DACB);Parallelogram(DACB);["Equal(AreaOfQuadrilateral(DACB),Mul(HeightOfQuadrilateral(DACB),LengthOfLine(AC)))"]
+

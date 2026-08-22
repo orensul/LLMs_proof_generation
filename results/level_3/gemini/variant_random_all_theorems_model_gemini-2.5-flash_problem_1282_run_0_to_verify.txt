@@ -1,0 +1,89 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AC=BA, ∠ABC=3*x+8°, ∠CAB=2*x+20°. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(CA,AB,BC)
+TEXT_CDL:
+Equal(LengthOfLine(AC),LengthOfLine(BA))
+Equal(MeasureOfAngle(ABC),3*x+8)
+Equal(MeasureOfAngle(CAB),2*x+20)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AB,BC,CA)
+Shape(BC,CA,AB)
+Point(C)
+Point(A)
+Point(B)
+Line(CA)
+Line(AC)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Angle(CAB)
+Angle(ABC)
+Angle(BCA)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(BCA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+LengthOfLine(AC)-LengthOfLine(BA)
+MeasureOfAngle(ABC)-(3*x+8)
+MeasureOfAngle(CAB)-(2*x+20)
+x-18
+GOAL_SYMBOL:
+x
+ANSWER:
+18
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,ABC); Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC)); ["IsoscelesTriangle(ABC)"]
+2; isosceles_triangle_property_angle_equal(1,ABC); IsoscelesTriangle(ABC); ["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,ABC)
+You output the following premises: Polygon(ABC)&Equal(LengthOfLine(AC),LengthOfLine(BA))
+But the correct premises: Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,ABC); Polygon(ABC)&Equal(LengthOfLine(AC),LengthOfLine(BA)); ["IsoscelesTriangle(ABC)"]
+2; isosceles_triangle_property_angle_equal(1,ABC); IsoscelesTriangle(ABC); ["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ac-ll_ba
+ma_abc-3*x-8
+ma_cab-2*x-20
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+18
+GT_THEOREM_SEQUENCE:
+1;isosceles_triangle_judgment_line_equal(1,ABC);Polygon(ABC)&Equal(LengthOfLine(AB),LengthOfLine(AC));["IsoscelesTriangle(ABC)"]
+2;isosceles_triangle_property_angle_equal(1,ABC);IsoscelesTriangle(ABC);["Equal(MeasureOfAngle(ABC),MeasureOfAngle(BCA))"]
+3;triangle_property_angle_sum(1,ABC);Polygon(ABC);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+

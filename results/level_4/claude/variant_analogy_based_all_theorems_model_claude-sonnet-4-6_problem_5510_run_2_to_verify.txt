@@ -1,0 +1,336 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, the area of triangle ABC is 65, the area of triangle ABC is Add(AreaOfTriangle(DCA),AreaOfTriangle(DAB)), AB=13, AC=13, ∠CMD=90°, AN is perpendicular to DN. Find the sum of the length of line DN and the length of line DM.
+CONSTRUCTION_CDL:
+Shape(CM,MD,DC)
+Shape(DN,NB,BD)
+Shape(MA,AD,DM)
+Shape(DA,AN,ND)
+Collinear(CDB)
+Collinear(CMA)
+Collinear(BNA)
+TEXT_CDL:
+Equal(AreaOfTriangle(ABC),65)
+Equal(AreaOfTriangle(ABC),Add(AreaOfTriangle(DCA),AreaOfTriangle(DAB)))
+Equal(LengthOfLine(AB),13)
+Equal(LengthOfLine(AC),13)
+Equal(MeasureOfAngle(CMD),90)
+PerpendicularBetweenLine(AN,DN)
+GOAL_CDL:
+Value(Add(LengthOfLine(DN),LengthOfLine(DM)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(MD,DC,CM)
+Shape(DC,CM,MD)
+Shape(NB,BD,DN)
+Shape(BD,DN,NB)
+Shape(AD,DM,MA)
+Shape(DM,MA,AD)
+Shape(AN,ND,DA)
+Shape(ND,DA,AN)
+Shape(DC,CM,MA,AD)
+Shape(CM,MA,AD,DC)
+Shape(MA,AD,DC,CM)
+Shape(AD,DC,CM,MA)
+Shape(NB,BD,DA,AN)
+Shape(BD,DA,AN,NB)
+Shape(DA,AN,NB,BD)
+Shape(AN,NB,BD,DA)
+Shape(DM,MA,AN,ND)
+Shape(MA,AN,ND,DM)
+Shape(AN,ND,DM,MA)
+Shape(ND,DM,MA,AN)
+Shape(DC,CM,MA,AN,ND)
+Shape(CM,MA,AN,ND,DC)
+Shape(MA,AN,ND,DC,CM)
+Shape(AN,ND,DC,CM,MA)
+Shape(ND,DC,CM,MA,AN)
+Shape(NB,BD,DM,MA,AN)
+Shape(BD,DM,MA,AN,NB)
+Shape(DM,MA,AN,NB,BD)
+Shape(MA,AN,NB,BD,DM)
+Shape(AN,NB,BD,DM,MA)
+Shape(DC,CM,MA,AN,NB,BD)
+Shape(CM,MA,AN,NB,BD,DC)
+Shape(MA,AN,NB,BD,DC,CM)
+Shape(AN,NB,BD,DC,CM,MA)
+Shape(NB,BD,DC,CM,MA,AN)
+Shape(BD,DC,CM,MA,AN,NB)
+Collinear(BDC)
+Collinear(AMC)
+Collinear(ANB)
+Point(C)
+Point(B)
+Point(D)
+Point(A)
+Point(M)
+Point(N)
+Line(CB)
+Line(BC)
+Line(CD)
+Line(DC)
+Line(DB)
+Line(BD)
+Line(CA)
+Line(AC)
+Line(CM)
+Line(MC)
+Line(MA)
+Line(AM)
+Line(BA)
+Line(AB)
+Line(BN)
+Line(NB)
+Line(NA)
+Line(AN)
+Line(MD)
+Line(DM)
+Line(DN)
+Line(ND)
+Line(AD)
+Line(DA)
+Angle(CDB)
+Angle(BDC)
+Angle(CMA)
+Angle(AMC)
+Angle(BNA)
+Angle(ANB)
+Angle(CMD)
+Angle(MDC)
+Angle(DCM)
+Angle(DNB)
+Angle(NBD)
+Angle(BDN)
+Angle(MAD)
+Angle(ADM)
+Angle(DMA)
+Angle(DAN)
+Angle(AND)
+Angle(NDA)
+Angle(CAD)
+Angle(ADC)
+Angle(BDA)
+Angle(MAN)
+Angle(NDM)
+Angle(CAN)
+Angle(NDC)
+Angle(BDM)
+Angle(ABD)
+Angle(CDN)
+Angle(MDB)
+Angle(MDN)
+Angle(DCA)
+Angle(BCM)
+Angle(BCA)
+Angle(NBC)
+Angle(ABC)
+Angle(DAB)
+Angle(CAB)
+Angle(MAB)
+Angle(DMC)
+Angle(CDM)
+Angle(MCD)
+Angle(BND)
+Angle(DBN)
+Angle(NDB)
+Angle(DAM)
+Angle(MDA)
+Angle(AMD)
+Angle(NAD)
+Angle(DNA)
+Angle(ADN)
+Angle(DAC)
+Angle(CDA)
+Angle(ADB)
+Angle(NAM)
+Angle(NAC)
+Angle(DBA)
+Angle(ACD)
+Angle(MCB)
+Angle(ACB)
+Angle(CBN)
+Angle(CBA)
+Angle(BAD)
+Angle(BAC)
+Angle(BAM)
+Polygon(CMD)
+Polygon(MDC)
+Polygon(DCM)
+Polygon(DNB)
+Polygon(NBD)
+Polygon(BDN)
+Polygon(MAD)
+Polygon(ADM)
+Polygon(DMA)
+Polygon(DAN)
+Polygon(AND)
+Polygon(NDA)
+Polygon(DCA)
+Polygon(CAD)
+Polygon(ADC)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABD)
+Polygon(DMAN)
+Polygon(MAND)
+Polygon(ANDM)
+Polygon(NDMA)
+Polygon(DCAN)
+Polygon(CAND)
+Polygon(ANDC)
+Polygon(NDCA)
+Polygon(BDMA)
+Polygon(DMAB)
+Polygon(MABD)
+Polygon(ABDM)
+Polygon(CAB)
+Polygon(ABC)
+Polygon(BCA)
+SYMBOLS_AND_VALUES:
+LengthOfLine(AB);ll_ab;None
+LengthOfLine(BA);ll_ab;None
+LengthOfLine(AC);ll_ac;None
+LengthOfLine(CA);ll_ac;None
+LengthOfLine(BC);ll_bc;10
+LengthOfLine(CB);ll_bc;10
+MeasureOfAngle(FAE);ma_cab;120
+MeasureOfAngle(FAB);ma_cab;120
+MeasureOfAngle(CAE);ma_cab;120
+MeasureOfAngle(CAB);ma_cab;120
+LengthOfLine(BD);ll_bd;None
+LengthOfLine(DB);ll_bd;None
+LengthOfLine(DC);ll_dc;None
+LengthOfLine(CD);ll_dc;None
+MeasureOfAngle(CFD);ma_cfd;90
+MeasureOfAngle(DEB);ma_deb;90
+LengthOfLine(DE);ll_de;None
+LengthOfLine(ED);ll_de;None
+LengthOfLine(DF);ll_df;None
+LengthOfLine(FD);ll_df;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The verifier tells me the correct premises are:
+- `Polygon(DCA)&Line(DM)&Collinear(CAM)&Equal(MeasureOfAngle(AMD),90)`
+
+So I need Collinear(CAM) and ∠AMD = 90°. Since ∠CMD = 90° and C,M,A are collinear, ∠AMD = 180° - ∠CMD... wait, actually if C,A,M order vs C,M,A order matters. The verifier says use Collinear(CAM) and ∠AMD=90°.
+
+But ∠CMD = 90° is given. Since C,M,A collinear, ∠AMD and ∠CMD are supplementary... unless M is between C and A making ∠AMD = 180°-90°=90° only if they're the same. Actually ∠AMD = ∠CMD when looking from D - they're the same angle viewed differently. Let me just use what the verifier confirmed.
+
+For DN: need to figure out the right collinear order and angle. With Collinear(ANB) and ∠AND=90°, let me try version 1 pattern matching: Collinear(BNA) → angle AND=90°.
+
+EQUATIONS:
+AreaOfTriangle(ABC)-65
+AreaOfTriangle(ABC)-Add(AreaOfTriangle(DCA),AreaOfTriangle(DAB))
+ll_ab-13
+ll_ac-13
+ma_cmd-90
+ma_and-90
+
+GOAL_SYMBOL:
+ll_dn+ll_dm
+
+ANSWER:
+10
+
+THEOREM_SEQUENCE:
+1; altitude_of_triangle_judgment(3,DM,DCA); Polygon(DCA)&Line(DM)&Collinear(CAM)&Equal(MeasureOfAngle(AMD),90); ["IsAltitudeOfTriangle(DM,DCA)"]
+2; altitude_of_triangle_judgment(1,DN,DAB); Polygon(DAB)&Line(DN)&Collinear(ANB)&Equal(MeasureOfAngle(AND),90); ["IsAltitudeOfTriangle(DN,DAB)"]
+3; triangle_area_formula_common(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+4; triangle_area_formula_common(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,DCA)
+You output the following conclusions: Equal(Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DCA))),Mul(LengthOfLine(DM),Sin(MeasureOfAngle(CMD))))
+But the correct conclusions: Equal(Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DCA))),Mul(LengthOfLine(DA),Sin(MeasureOfAngle(CAD))))
+
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; triangle_area_formula_common(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+2; triangle_area_formula_common(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+3; sine_theorem(1,CMD); Polygon(CMD); ["Equal(Mul(LengthOfLine(CM),Sin(MeasureOfAngle(CMD))),Mul(LengthOfLine(CD),Sin(MeasureOfAngle(MDC))))"]
+4; sine_theorem(1,DAN); Polygon(DAN); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAN))),Mul(LengthOfLine(DN),Sin(MeasureOfAngle(AND))))"]
+5; triangle_area_formula_common(1,ABC); Polygon(ABC); ["Equal(AreaOfTriangle(ABC),Mul(HeightOfTriangle(ABC),LengthOfLine(BC),1/2))"]
+6; sine_theorem(1,DCA); Polygon(DCA); ["Equal(Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DCA))),Mul(LengthOfLine(DM),Sin(MeasureOfAngle(CMD))))"]
+7; sine_theorem(1,DAB); Polygon(DAB); ["Equal(Mul(LengthOfLine(DA),Sin(MeasureOfAngle(DAB))),Mul(LengthOfLine(DN),Sin(MeasureOfAngle(AND))))"]
+
+Let me reconsider with the correct theorem approach based on A5's structure:
+#run: 2; #retry: 2; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: triangle_area_formula_common(1,DAB);Polygon(DAB);['Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))']
+Missing premise: No height established for triangle DAB
+Details: Height must be established through an altitude theorem first
+- Available premises:
+  Perpendicular Lines: AN ⊥ DN
+  Collinear Points: AMC, ANB, BDC
+  Polygons: ABC, ABD, ABDM, ADC, ADM, AND, ANDC, ANDM, BDMA, BDN, CAND, CMD, DCAN, DMAB, DMAN, MABD, MAND, NDCA, NDMA
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  |CD|*sin_DCM = |DM|*1
+  |DM| > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; sine_theorem(1,DCM); Polygon(DCM); ["Equal(Mul(LengthOfLine(DC),Sin(MeasureOfAngle(DCM))),Mul(LengthOfLine(DM),Sin(MeasureOfAngle(CMD))))"]
+2; sine_theorem(1,AND); Polygon(AND); ["Equal(Mul(LengthOfLine(AN),Sin(MeasureOfAngle(AND))),Mul(LengthOfLine(AD),Sin(MeasureOfAngle(NDA))))"]
+3; triangle_area_formula_common(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+4; triangle_area_formula_common(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: altitude_of_triangle_judgment(1,DM,DCA)
+You output the following premises: Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(DMA),90)
+But the correct premises: Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(CMD),90)
+
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,CMD,DMA); Collinear(CMA)&Angle(CMD)&Angle(DMA); ["Equal(Add(MeasureOfAngle(CMD),MeasureOfAngle(DMA)),180)"]
+2; altitude_of_triangle_judgment(1,DM,DCA); Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(DMA),90); ["IsAltitudeOfTriangle(DM,DCA)"]
+3; altitude_of_triangle_judgment(2,DN,DAB); Polygon(DAB)&Line(DN)&Collinear(ANB)&Equal(MeasureOfAngle(AND),90); ["IsAltitudeOfTriangle(DN,DAB)"]
+4; triangle_area_formula_common(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+5; triangle_area_formula_common(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: altitude_of_triangle_judgment(3,DM,DCA)
+You output the following premises: Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(CMD),90)
+But the correct premises: Polygon(DCA)&Line(DM)&Collinear(CAM)&Equal(MeasureOfAngle(AMD),90)
+
+Model Answer:
+RETRY_ANSWER:
+10
+RETRY_THEOREM_SEQUENCE:
+1; altitude_of_triangle_judgment(3,DM,DCA); Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(CMD),90); ["IsAltitudeOfTriangle(DM,DCA)"]
+2; altitude_of_triangle_judgment(2,DN,DAB); Polygon(DAB)&Line(DN)&Collinear(ANB)&Equal(MeasureOfAngle(AND),90); ["IsAltitudeOfTriangle(DN,DAB)"]
+3; triangle_area_formula_common(1,DCA); Polygon(DCA); ["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+4; triangle_area_formula_common(1,DAB); Polygon(DAB); ["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+#RETRIES:
+4
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+at_abc-65
+at_abc-at_dab-at_dca
+ll_ab-13
+ll_ac-13
+ma_cmd-90
+ma_and-90
+GT_GOAL_SYMBOL:
+ll_dm+ll_dn
+GT_ANSWER:
+10
+GT_THEOREM_SEQUENCE:
+1;altitude_of_triangle_judgment(1,DN,DAB);Polygon(DAB)&Line(DN)&Collinear(ANB)&Equal(MeasureOfAngle(AND),90);["IsAltitudeOfTriangle(DN,DAB)"]
+2;altitude_of_triangle_judgment(1,DM,DCA);Polygon(DCA)&Line(DM)&Collinear(CMA)&Equal(MeasureOfAngle(CMD),90);["IsAltitudeOfTriangle(DM,DCA)"]
+3;triangle_area_formula_common(1,DCA);Polygon(DCA);["Equal(AreaOfTriangle(DCA),Mul(HeightOfTriangle(DCA),LengthOfLine(CA),1/2))"]
+4;triangle_area_formula_common(1,DAB);Polygon(DAB);["Equal(AreaOfTriangle(DAB),Mul(HeightOfTriangle(DAB),LengthOfLine(AB),1/2))"]
+

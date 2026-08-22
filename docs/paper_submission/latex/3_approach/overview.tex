@@ -1,0 +1,23 @@
+
+
+
+Our goal is to develop a system that assists LLMs in proof generation.
+As a proof of concept, we focus on geometry problems from the FormalGeo-7k dataset~\cite{zhang2023formalgeo}, containing 6,981 SAT-level Euclidean geometry problems.
+% \footnote{Available at \url{https://github.com/FormalGeo/FormalGeo} under the MIT License. Used here solely for non-commercial academic research.}.
+
+
+%The dataset includes natural language descriptions, geometric diagrams, formal representations, and annotated proof sequences 
+
+Our approach is two-fold (see Figure~\ref{fig:pipeline}). Given a target problem, we first %identify {\bf analogous problems and their corresponding proofs}
+%This approach 
+build on the insight that structurally similar problems often admit similar proofs. We abstract all problems in the dataset {(\S\ref{subsec:problems_abstraction})}, retrieve {\bf analogous problems} {(similar to the target on an abstract level, \S\ref{subsec:similar_problems_retrieval})}, and use the top-ranked analogies and their corresponding proofs as few-shot examples 
+%\dnote{we say this bit twice in the same paragraph}
+{(\S\ref{subsec:llm_solver})}.
+Next, we employ a {\bf symbolic verifier} that iteratively provides feedback on the validity of the generated proofs {(\S\ref{subsec:verifier})}.
+%; while the proof for the target problem is unknown, we can still retrieve analogous problems -- those with similar underlying structure but different surface-level details, such as entity names or measurements.
+
+
+
+
+%\noindent\textbf{(2) Verifier.} 
+%We use our verifier to check the validity of the generated proof and provide feedback. This process is repeated iteratively until a correct solution is found or the LLM reaches the maximum number of retries or runs {(\S\ref{subsec:verifier})}.

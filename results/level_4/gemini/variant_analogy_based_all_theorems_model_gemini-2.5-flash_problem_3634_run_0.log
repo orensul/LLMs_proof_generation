@@ -1,0 +1,85 @@
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BCD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BCD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,AB,CD)
+You output the following premises: ParallelBetweenLine(AB,CD)&Line(BC)
+But the correct premises: ParallelBetweenLine(AB,CD)&Line(AC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BCD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACD)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BCD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,EF,CD)
+You output the following premises: ParallelBetweenLine(EF,CD)&Line(CE)
+But the correct premises: ParallelBetweenLine(EF,CD)&Line(EC)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,EF,CD); ParallelBetweenLine(EF,CD)&Line(CE); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,BA,DC); ParallelBetweenLine(BA,DC)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_3634_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_ipsilateral_internal_angle(1,EF,DC)
+You output the following premises: ParallelBetweenLine(EF,DC)&Line(EC)
+But the correct premises: ParallelBetweenLine(EF,DC)&Line(ED)
+You output the following conclusions: Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(FED),MeasureOfAngle(EDC)),180)
+
+Model Answer:
+RETRY_ANSWER:
+114
+RETRY_THEOREM_SEQUENCE:
+1; parallel_judgment_par_par(1,AB,EF,CD); ParallelBetweenLine(AB,EF)&ParallelBetweenLine(EF,CD); ["ParallelBetweenLine(AB,CD)"]
+2; parallel_property_ipsilateral_internal_angle(1,BA,CD); ParallelBetweenLine(BA,CD)&Line(BC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCD)),180)"]
+3; parallel_property_ipsilateral_internal_angle(1,EF,DC); ParallelBetweenLine(EF,DC)&Line(EC); ["Equal(Add(MeasureOfAngle(FEC),MeasureOfAngle(ECD)),180)"]
+4; angle_addition(1,BCE,ECD); Angle(BCE)&Angle(ECD)&Angle(BCD); ["Equal(MeasureOfAngle(BCD),Add(MeasureOfAngle(BCE),MeasureOfAngle(ECD)))"]
+Retry attempt: 5
+Total time: 300.486s | per attempt: [25.832, 50.359, 71.843, 76.596, 75.856]
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_3634_run_0.txt

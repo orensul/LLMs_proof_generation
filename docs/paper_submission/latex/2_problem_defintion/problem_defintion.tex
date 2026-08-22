@@ -1,0 +1,46 @@
+
+
+% Large language models, while demonstrating impressive capabilities in various natural language tasks, are limited in more formal domains such as mathematical proofs. This stems primarily from their inherent architecture, which relies on probabilistic sequence generation based on patterns learned from vast textual datasets. Mathematical proofs, in contrast, demand rigorous logical deduction, symbolic manipulation, and an understanding of abstract concepts that go beyond statistical correlations in language. The requirement for absolute truth and the absence of ambiguity in mathematical reasoning present a significant challenge for models trained to generate plausible text rather than formally valid inferences. In addition, the often lengthy nature of proofs necessitates a level of sustained logical coherence and hierarchical reasoning that current language models struggle to achieve.
+
+
+% Our goal in this paper is to explore ways to improve LLMs' performance on solving math problems. 
+% Our approach is two-fold. Given a target problem, we enrich the LLM's input by providing analogous problems along with their formal proofs as few-shot examples, and endow the LLM with access to a symbolic verifier that iteratively reviews the LLM’s proofs and provides feedback.
+
+We demonstrate our ideas in the domain of Euclidean geometry. Our input is a geometry problem, described in both natural language and via a formal representation. The description includes the geometric entities involved (e.g., lines, angles), their relationships (e.g., perpendicular, collinear),
+and measurements or algebraic expressions over them. We also receive a \emph{goal}, some quantity to be determined (e.g., the length of a line). In addition, the model has access to a dictionary of theorems that may be used in the proof.
+
+The output is a formal proof that derives the goal from the given conditions and theorems, along with the final, numeric answer. The proof consists of steps, each applying a specific theorem from the dictionary. See Figure~\ref{fig:dataset_example} for an example.
+
+
+ %Each problem includes both natural language and formal inputs. The formal inputs are specified in the Conditional Declaration Language (CDL) and include: the geometric construction (entities and their relationships), inferred constructions, known conditions (e.g., angle measures, parallelism), and a formal representation of the goal to be proven. Theorems are defined separately in the Geometry Definition Language (GDL). Each problem also comes with ground-truth labels: a numerical answer or expression and a formal proof.
+
+%The proof consists of steps, each applying a specific variation of a GDL theorem to entities in the problem. At each step, the theorem’s premises are matched to known or previously derived facts to infer a new one. This process continues until the final goal can be inferred.
+
+
+% We demonstrate our approach on the FormalGeo-7k dataset~\cite{zhang2023formalgeo}, which includes 6,981 SAT-level geometry problems. Each problem is annotated in the formal \emph{Conditional Declaration Language (CDL)}, while the accompanying set of geometric theorems is defined using the \emph{Geometry Definition Language (GDL)}. See Figure~\ref{fig:dataset_example} for an example.
+% The dataset includes the following inputs:
+
+% \begin{itemize}
+%     \item \textbf{Problem Description:} A natural language statement describing the geometric configuration and the objective to be proven.
+    
+%     \item \textbf{Construction CDL:} A formal specification of geometric entities and their relationships, including points, lines, and incidence relations such as collinearity.
+
+%     \item \textbf{Extended Construction CDL:} Additional constructions that can be inferred from the initial Construction CDL.
+    
+%     \item \textbf{Text CDL:} A set of logical constraints encoding known conditions, such as angle measures, parallelism, and perpendicularity.
+    
+%     \item \textbf{Goal CDL:} A formal representation of the target conclusion that the solver must prove.
+    
+    
+% \end{itemize}
+
+% \noindent In addition to the inputs, the dataset also provides the following ground-truth labels:
+
+% \begin{itemize}
+%     \item \textbf{Answer:} The numerical value representing the measurement of the goal quantity.
+    
+%     \item \textbf{Theorem Sequence:} A formal sequence of deductive steps that constitutes a valid proof based on the GDL annotations.
+% \end{itemize}
+
+
+

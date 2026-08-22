@@ -1,0 +1,78 @@
+
+
+
+We now share details on our experimental setup.
+
+\noindent\textbf{Input problems.}
+We randomly sample 10 problems for each difficulty level from 1 to 5 from the FormalGeo-7K dataset, resulting in a total of 50 problems. Levels correspond to the number of steps in the ground-truth proof. % (from one step at level 1, to five steps at level 5).
+
+\noindent\textbf{Base models.} 
+We evaluate \emph{reasoning-capable} models from multiple families using recommended configurations. 
+We evaluate OpenAI's o1~\cite{jaech2024openai}, GPT-5~\cite{gpt-5}, Gemini-2.5-Flash~\cite{comanici2025gemini} and Claude Sonnet 4.6~\cite{claude_sonnet_4.6}. Throughout the paper, \emph{baseline} refers to the non-augmented variant of each of these models (i.e., without our neuro-symbolic method), rather than to any specific model.
+
+
+We use OpenAI o1 with the default settings; GPT-5 with medium \emph{reasoning}; Gemini-2.5-Flash with \emph{t=0.7}; and Claude Sonnet 4.6 with \emph{t=1.0}. Full configuration details are provided in our codebase.
+
+
+We additionally evaluated \emph{non-reasoning} models, including GPT-4 and GPT-4o~\cite{achiam2023gpt, hurst2024gpt}, and found that they frequently generate proofs with numerous syntax errors. 
+Smaller open-weight models such as Qwen-3-8B and Qwen-3-14B~\cite{yang2025qwen3} similarly struggle to adhere to the required output format.
+
+
+
+
+
+
+\noindent\textbf{Few-shot variants.}  
+For each base model, we evaluate two variants: an analogy-based variant using our method, and a baseline variant without it.
+\begin{compactitem}
+  \item \textbf{Analogy-based:} We provide $k$ similar (analogous) problems and their proofs as few-shot examples, along with an abridged theorem dictionary which includes only theorems from the proofs of similar problems (Section~\ref{subsec:llm_solver}).
+  \item \textbf{Base model (non-analogy):} We provide $k$ random problems and their proofs as few-shot examples, along with the complete dictionary.
+\end{compactitem}
+
+ 
+% \onote{where to mention abridged GDL is also an advantage of our method?}
+
+% \noindent {\bf A note on baselines.}
+% This work aims to evaluate how our method (combining analogical guidance and symbolic verification) can contribute to \emph{general-purpose} LLMs in formal proof generation. Accordingly, we do not compare against specialized geometry solvers, as our focus is on augmenting existing LLMs rather than competing with domain-specific systems (see Section~\ref{sec:related_work}).
+
+
+\noindent {\bf A note about $k$.} In our preliminary exploration, no model was able to correctly follow the proof format with zero-shot prompts (unsurprisingly). We have found that $k=5$ works well in practice; testing the effect of $k$ in more depth is left for future work.
+
+
+
+
+
+\noindent {\bf Feedback iterations and multiple runs.}
+For each base model and variant (analogy-based and non-analogy), we evaluate several inference settings involving verifier-guided feedback and repeated runs.
+As outlined in Section~\ref{subsec:verifier}, we integrate the LLM into a \emph{feedback loop} guided by a verifier, allowing the LLM up to five iterations (retries following feedback) per run.  
+In addition, since LLMs sometimes fail to progress toward the correct solution (even with feedback), we allow restarting from scratch up to three times per problem.
+Within each run, the conversation is append-only: failed attempts and verifier feedback are retained, and each retry conditions on the full interaction history within that run. The $n$ runs are independent, each starting from a fresh context.
+
+% (i.e., three separate runs, with the default -- and unchangeable -- temperature parameter set to 1).
+
+
+Overall, we evaluate four base models, each under two prompting variants and three inference settings: single-pass, verifier-guided feedback iterations, and multiple independent runs with feedback iterations. 
+In total, this yields 24 configurations.
+
+We denote the different configurations by $\text{base}_{i,j}$ or $\text{ours}_{i,j}$,
+where $i$ is the number of runs and $j$ the number of verifier-guided retries.
+
+
+\noindent {\bf Metric.}
+We report the fraction of problems for which the model produces a correct proof, for the following settings:
+\begin{compactitem}
+    \item \textbf{First run, no retries (\%):} The model produces a correct proof on its first attempt.
+    \item \textbf{First run, with retries (\%):} Any of $m$ retries (following feedback) in the first run succeeds.
+    \item \textbf{Multiple runs, with retries (\%):}  Any attempt across $n$ independent runs (each with up to $m$ retries) succeeds.
+\end{compactitem}
+
+
+
+
+
+More runs and retries increase costs; we found $m=5$, $n=3$ to provide a good tradeoff between performance and budget, and analyze their effect in the next section.
+Based on logged API calls, token usage, and current pricing, evaluating 50 problems costs approximately \$100 (o1), \$3 (GPT-5), \$1 (Gemini-2.5-Flash), and \$10 (Claude Sonnet 4.6). The baseline is approximately 3$\times$ more expensive, since it prompts with the full $\sim$18K-token theorem dictionary rather than our $\sim$2.5K-token analogy-derived dictionary, resulting in substantially larger prompts and typically more verifier-guided retries.
+
+
+
+% We also measure the average number of runs and retries, and analyze the distribution of errors in the different tiers (see Section~\ref{subsec:verifier_error_analysis}).

@@ -1,0 +1,72 @@
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4801_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: tangent_of_circle_property_perpendicular(1,PA,O,O)
+You output the following premises: IsTangentOfCircle(PA,O)&Angle(PAO)&IsCentreOfCircle(O,O)
+But the correct premises: IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O)
+You output the following conclusions: PerpendicularBetweenLine(PA,OA)
+But the correct conclusions: PerpendicularBetweenLine(OA,PA)
+
+Model Answer:
+RETRY_ANSWER:
+32
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(PAO)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(PA,OA)"]
+2; triangle_property_angle_sum(1,PAO); Polygon(PAO); ["Equal(Add(MeasureOfAngle(PAO),MeasureOfAngle(AOP),MeasureOfAngle(OPA)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4801_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_center_angle(1,OAC,O)
+You output the following premises: Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O)
+But the correct premises: Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O)
+You output the following conclusions: Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))
+But the correct conclusions: Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))
+
+Model Answer:
+RETRY_ANSWER:
+32
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,PAO); Polygon(PAO); ["Equal(Add(MeasureOfAngle(PAO),MeasureOfAngle(AOP),MeasureOfAngle(OPA)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(AOC)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(AOC))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4801_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+32
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,PAO); Polygon(PAO); ["Equal(Add(MeasureOfAngle(PAO),MeasureOfAngle(AOP),MeasureOfAngle(OPA)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4801_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,OAC,B)
+You output the following premises: Cocircular(O,ABC)&Angle(ABC)
+But the correct premises: Cocircular(O,ACB)&Angle(CBA)
+You output the following conclusions: Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CBA),Mul(MeasureOfArc(OAC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+32
+RETRY_THEOREM_SEQUENCE:
+1; tangent_of_circle_property_perpendicular(1,PA,O,O); IsTangentOfCircle(PA,O)&Angle(OAP)&IsCentreOfCircle(O,O); ["PerpendicularBetweenLine(OA,PA)"]
+2; triangle_property_angle_sum(1,PAO); Polygon(PAO); ["Equal(Add(MeasureOfAngle(PAO),MeasureOfAngle(AOP),MeasureOfAngle(OPA)),180)"]
+3; arc_property_center_angle(1,OAC,O); Arc(OAC)&Angle(COA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAC),MeasureOfAngle(COA))"]
+4; arc_property_circumference_angle_external(1,OAC,B); Cocircular(O,ABC)&Angle(ABC); ["Equal(MeasureOfAngle(ABC),Mul(MeasureOfArc(OAC),1/2))"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4801_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 80.192s | per attempt: [22.149, 9.666, 6.668, 27.204, 14.505]
+Content written to results/level_4/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_4801_run_0.txt

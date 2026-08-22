@@ -1,0 +1,108 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠TWV=3*x-4°, ∠UTW=x°, ∠VUT=3*x-4°, ∠WVU=x°. Find the measure of ∠VUT.
+CONSTRUCTION_CDL:
+Shape(UT,TW,WV,VU)
+TEXT_CDL:
+Equal(MeasureOfAngle(TWV),3*x-4)
+Equal(MeasureOfAngle(UTW),x)
+Equal(MeasureOfAngle(VUT),3*x-4)
+Equal(MeasureOfAngle(WVU),x)
+GOAL_CDL:
+Value(MeasureOfAngle(VUT))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(TW,WV,VU,UT)
+Shape(WV,VU,UT,TW)
+Shape(VU,UT,TW,WV)
+Point(U)
+Point(T)
+Point(W)
+Point(V)
+Line(UT)
+Line(TU)
+Line(TW)
+Line(WT)
+Line(WV)
+Line(VW)
+Line(VU)
+Line(UV)
+Angle(UTW)
+Angle(TWV)
+Angle(WVU)
+Angle(VUT)
+Angle(WTU)
+Angle(VWT)
+Angle(UVW)
+Angle(TUV)
+Polygon(UTWV)
+Polygon(TWVU)
+Polygon(WVUT)
+Polygon(VUTW)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at Problem B, I need to find the measure of ∠VUT given that:
+- ∠TWV = 3x-4°
+- ∠UTW = x°
+- ∠VUT = 3x-4°
+- ∠WVU = x°
+
+The quadrilateral UTWV (or TWVU) has angles summing to 360°. I can use the quadrilateral angle sum property to find x, then compute ∠VUT.
+
+The angles sum: ∠UTW + ∠TWV + ∠WVU + ∠VUT = 360°
+x + (3x-4) + x + (3x-4) = 360°
+8x - 8 = 360°
+8x = 368°
+x = 46°
+
+So ∠VUT = 3(46) - 4 = 138 - 4 = 134°
+
+Let me verify the SYMBOLS_AND_VALUES - it seems copied from A5. The actual symbols for Problem B should be:
+- MeasureOfAngle(TWV) = 3x-4
+- MeasureOfAngle(UTW) = x
+- MeasureOfAngle(VUT) = 3x-4
+- MeasureOfAngle(WVU) = x
+
+EQUATIONS:
+ma_twv-(3*x-4)
+ma_utw-x
+ma_vut-(3*x-4)
+ma_wvu-x
+
+GOAL_SYMBOL:
+ma_vut
+
+ANSWER:
+134
+
+THEOREM_SEQUENCE:
+1; quadrilateral_property_angle_sum(1,UTWV); Polygon(UTWV); ["Equal(Add(MeasureOfAngle(UTW),MeasureOfAngle(TWV),MeasureOfAngle(WVU),MeasureOfAngle(VUT)),360)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ma_twv-3*x+4
+ma_utw-x
+ma_vut-3*x+4
+ma_wvu-x
+GT_GOAL_SYMBOL:
+ma_vut
+GT_ANSWER:
+134
+GT_THEOREM_SEQUENCE:
+1;parallelogram_judgment_angle_and_angle(1,UTWV);Polygon(UTWV)&Equal(MeasureOfAngle(VUT),MeasureOfAngle(TWV))&Equal(MeasureOfAngle(UTW),MeasureOfAngle(WVU));["Parallelogram(UTWV)"]
+2;parallel_property_ipsilateral_internal_angle(1,UV,TW);ParallelBetweenLine(UV,TW)&Line(UT);["Equal(Add(MeasureOfAngle(VUT),MeasureOfAngle(UTW)),180)"]
+

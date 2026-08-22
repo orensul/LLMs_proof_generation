@@ -1,0 +1,108 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=2, BC=1, ∠ACB=90°. Find the value of sin(BA).
+CONSTRUCTION_CDL:
+Shape(AC,CB,BA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),2)
+Equal(LengthOfLine(BC),1)
+Equal(MeasureOfAngle(ACB),90)
+GOAL_CDL:
+Value(Sin(MeasureOfAngle(BAC)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CB,BA,AC)
+Shape(BA,AC,CB)
+Point(A)
+Point(C)
+Point(B)
+Line(AC)
+Line(CA)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Angle(ACB)
+Angle(CBA)
+Angle(BAC)
+Angle(BCA)
+Angle(ABC)
+Angle(CAB)
+Polygon(ACB)
+Polygon(CBA)
+Polygon(BAC)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at Problem B, I need to find sin(∠BAC) given AB=2, BC=1, and ∠ACB=90°.
+
+Since ∠ACB=90°, triangle ACB is a right triangle with the right angle at C. The hypotenuse is AB=2.
+
+Using the sine theorem: sin(∠BAC) = BC/AB = 1/2
+
+Let me construct the theorem sequence:
+
+1. First, recognize it's a right triangle using the given angle
+2. Apply the sine theorem to find sin(∠BAC)
+
+The sine theorem states: AB·sin(∠ABC) = AC·sin(∠BCA)
+
+But more directly, I can use the sine theorem in the form that relates sides to angles.
+
+For triangle ACB with ∠ACB=90°:
+- sin(∠BAC) = BC/AB = 1/2
+
+Using the sine theorem: AB·sin(∠ACB) = AC·sin(∠BCA) ... 
+
+Actually, the sine theorem as given: `Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))`
+
+For polygon ACB: `Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))`
+
+I need sin(∠BAC). Let me use sine theorem on triangle BAC:
+`Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(BAC))),Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCA))))`
+
+Since ∠BCA=90°, sin(∠BCA)=1, so: BA·sin(∠BAC) = BC·1 → sin(∠BAC) = BC/BA = 1/2
+
+EQUATIONS:
+ll_ab-2
+ll_bc-1
+ma_acb-90
+
+GOAL_SYMBOL:
+sin(pi*ma_bac/180)
+
+ANSWER:
+1/2
+
+THEOREM_SEQUENCE:
+1; right_triangle_judgment_angle(1,ACB); Polygon(ACB)&Equal(MeasureOfAngle(ACB),90); ["RightTriangle(ACB)"]
+2; right_triangle_property_pythagorean(1,ACB); RightTriangle(ACB); ["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(AB),2))"]
+3; sine_theorem(1,BAC); Polygon(BAC); ["Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(BAC))),Mul(LengthOfLine(BC),Sin(MeasureOfAngle(ACB))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-2
+ll_bc-1
+ma_acb-90
+GT_GOAL_SYMBOL:
+sin(pi*ma_bac/180)
+GT_ANSWER:
+1/2
+GT_THEOREM_SEQUENCE:
+1;right_triangle_judgment_angle(1,ACB);Polygon(ACB)&Equal(MeasureOfAngle(ACB),90);["RightTriangle(ACB)"]
+2;right_triangle_property_pythagorean(1,ACB);RightTriangle(ACB);["Equal(Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(CB),2)),Pow(LengthOfLine(AB),2))"]
+3;cosine_theorem(1,ACB);Polygon(ACB);["Equal(Add(Pow(LengthOfLine(CB),2),Mul(2,LengthOfLine(AC),LengthOfLine(AB),Cos(MeasureOfAngle(BAC)))),Add(Pow(LengthOfLine(AC),2),Pow(LengthOfLine(AB),2)))"]
+

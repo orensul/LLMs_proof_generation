@@ -1,0 +1,275 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ADC=40°, the measure of ⌒BED is 98. Find the measure of arc BCF.
+CONSTRUCTION_CDL:
+Shape(BDC,CD)
+Shape(AD,DC,CA)
+Shape(BCF,FA,AC)
+Shape(AF,BFE,EA)
+Shape(AE,BED,DA)
+Collinear(CAE)
+Collinear(DAF)
+Cocircular(B,DCFE)
+TEXT_CDL:
+Equal(MeasureOfAngle(ADC),40)
+Equal(MeasureOfArc(BED),98)
+GOAL_CDL:
+Value(MeasureOfArc(BCF))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CD,BDC)
+Shape(DC,CA,AD)
+Shape(CA,AD,DC)
+Shape(FA,AC,BCF)
+Shape(AC,BCF,FA)
+Shape(BFE,EA,AF)
+Shape(EA,AF,BFE)
+Shape(BED,DA,AE)
+Shape(DA,AE,BED)
+Shape(BDC,CA,AD)
+Shape(CA,AD,BDC)
+Shape(AD,BDC,CA)
+Shape(AD,DC,BCF,FA)
+Shape(DC,BCF,FA,AD)
+Shape(BCF,FA,AD,DC)
+Shape(FA,AD,DC,BCF)
+Shape(DC,CA,AE,BED)
+Shape(CA,AE,BED,DC)
+Shape(AE,BED,DC,CA)
+Shape(BED,DC,CA,AE)
+Shape(AC,BCF,BFE,EA)
+Shape(BCF,BFE,EA,AC)
+Shape(BFE,EA,AC,BCF)
+Shape(EA,AC,BCF,BFE)
+Shape(AF,BFE,BED,DA)
+Shape(BFE,BED,DA,AF)
+Shape(BED,DA,AF,BFE)
+Shape(DA,AF,BFE,BED)
+Shape(BDC,BCF,FA,AD)
+Shape(BCF,FA,AD,BDC)
+Shape(FA,AD,BDC,BCF)
+Shape(AD,BDC,BCF,FA)
+Shape(BDC,CA,AE,BED)
+Shape(CA,AE,BED,BDC)
+Shape(AE,BED,BDC,CA)
+Shape(BED,BDC,CA,AE)
+Shape(AD,DC,BCF,BFE,EA)
+Shape(DC,BCF,BFE,EA,AD)
+Shape(BCF,BFE,EA,AD,DC)
+Shape(BFE,EA,AD,DC,BCF)
+Shape(EA,AD,DC,BCF,BFE)
+Shape(DC,CA,AF,BFE,BED)
+Shape(CA,AF,BFE,BED,DC)
+Shape(AF,BFE,BED,DC,CA)
+Shape(BFE,BED,DC,CA,AF)
+Shape(BED,DC,CA,AF,BFE)
+Shape(BCF,FA,AE,BED,DC)
+Shape(FA,AE,BED,DC,BCF)
+Shape(AE,BED,DC,BCF,FA)
+Shape(BED,DC,BCF,FA,AE)
+Shape(DC,BCF,FA,AE,BED)
+Shape(AC,BCF,BFE,BED,DA)
+Shape(BCF,BFE,BED,DA,AC)
+Shape(BFE,BED,DA,AC,BCF)
+Shape(BED,DA,AC,BCF,BFE)
+Shape(DA,AC,BCF,BFE,BED)
+Shape(BDC,BCF,BFE,EA,AD)
+Shape(BCF,BFE,EA,AD,BDC)
+Shape(BFE,EA,AD,BDC,BCF)
+Shape(EA,AD,BDC,BCF,BFE)
+Shape(AD,BDC,BCF,BFE,EA)
+Shape(BDC,CA,AF,BFE,BED)
+Shape(CA,AF,BFE,BED,BDC)
+Shape(AF,BFE,BED,BDC,CA)
+Shape(BFE,BED,BDC,CA,AF)
+Shape(BED,BDC,CA,AF,BFE)
+Shape(BDC,BCF,FA,AE,BED)
+Shape(BCF,FA,AE,BED,BDC)
+Shape(FA,AE,BED,BDC,BCF)
+Shape(AE,BED,BDC,BCF,FA)
+Shape(BED,BDC,BCF,FA,AE)
+Shape(DC,BCF,BFE,BED)
+Shape(BCF,BFE,BED,DC)
+Shape(BFE,BED,DC,BCF)
+Shape(BED,DC,BCF,BFE)
+Shape(BDC,BCF,BFE,BED)
+Shape(BCF,BFE,BED,BDC)
+Shape(BFE,BED,BDC,BCF)
+Shape(BED,BDC,BCF,BFE)
+Collinear(EAC)
+Collinear(FAD)
+Cocircular(B,D)
+Cocircular(B,C)
+Cocircular(B,F)
+Cocircular(B,E)
+Cocircular(B,DC)
+Cocircular(B,CD)
+Cocircular(B,DF)
+Cocircular(B,FD)
+Cocircular(B,DE)
+Cocircular(B,ED)
+Cocircular(B,CF)
+Cocircular(B,FC)
+Cocircular(B,CE)
+Cocircular(B,EC)
+Cocircular(B,FE)
+Cocircular(B,EF)
+Cocircular(B,DCF)
+Cocircular(B,CFD)
+Cocircular(B,FDC)
+Cocircular(B,DCE)
+Cocircular(B,CED)
+Cocircular(B,EDC)
+Cocircular(B,DFE)
+Cocircular(B,FED)
+Cocircular(B,EDF)
+Cocircular(B,CFE)
+Cocircular(B,FEC)
+Cocircular(B,ECF)
+Cocircular(B,CFED)
+Cocircular(B,FEDC)
+Cocircular(B,EDCF)
+Point(C)
+Point(E)
+Point(A)
+Point(D)
+Point(F)
+Line(CE)
+Line(EC)
+Line(CA)
+Line(AC)
+Line(AE)
+Line(EA)
+Line(DF)
+Line(FD)
+Line(DA)
+Line(AD)
+Line(AF)
+Line(FA)
+Line(CD)
+Line(DC)
+Arc(BDC)
+Arc(BCD)
+Arc(BDF)
+Arc(BFD)
+Arc(BDE)
+Arc(BED)
+Arc(BCF)
+Arc(BFC)
+Arc(BCE)
+Arc(BEC)
+Arc(BFE)
+Arc(BEF)
+Angle(CAE)
+Angle(EAC)
+Angle(DAF)
+Angle(FAD)
+Angle(ADC)
+Angle(DCA)
+Angle(CAD)
+Angle(FAC)
+Angle(EAF)
+Angle(DAE)
+Angle(EAD)
+Angle(CAF)
+Angle(FAE)
+Angle(DAC)
+Angle(FDC)
+Angle(DCE)
+Angle(CDA)
+Angle(ACD)
+Angle(CDF)
+Angle(ECD)
+Polygon(ADC)
+Polygon(DCA)
+Polygon(CAD)
+Circle(B)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully re-examine the theorem format.
+
+The theorem is:
+```
+"arc_property_circumference_angle_external(OAB,C)": {
+    "1": {
+        "premise": "Cocircular(O,ABC)&Angle(BCA)",
+        "conclusion": ["Equal(MeasureOfAngle(BCA),Mul(MeasureOfArc(OAB),1/2))"]
+    }
+}
+```
+
+For arc BCF (O=B, A=C, B=F), point D:
+- Cocircular(B, CFD) and Angle(FDC)
+- The arc argument is BCF, the point argument is D
+
+Looking at A5 example: `arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,BCD)&Angle(CDB)`
+
+So the format maps: arc_property_circumference_angle_external(1,BCF,D) → Cocircular(B,CFD)&Angle(FDC)
+
+This seems correct. The issue might be with the ANSWER format. Let me try again with explicit formatting.
+
+EQUATIONS: ma_adc - 40
+GOAL_SYMBOL: MeasureOfArc(BCF)
+ANSWER: 80
+THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BCF,D); Cocircular(B,CFD)&Angle(FDC); ["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,BCF,A)
+You output the following premises: Cocircular(B,CFA)&Angle(CDA)
+But the correct premises: Cocircular(B,CFA)&Angle(FAC)
+You output the following conclusions: Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(FAC),Mul(MeasureOfArc(BCF),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+80
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BCF,A); Cocircular(B,CFA)&Angle(CDA); ["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+2; arc_property_circumference_angle_external(1,BED,A); Cocircular(B,EDA)&Angle(DAE); ["Equal(MeasureOfAngle(EAD),Mul(MeasureOfArc(BED),1/2))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+80
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BCF,D); Cocircular(B,CFD)&Angle(FDC); ["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+#run: 1; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+80
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BCF,D); Cocircular(B,CFD)&Angle(FDC); ["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+#run: 1; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+80
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BCF,D); Cocircular(B,CFD)&Angle(FDC); ["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+#RETRIES:
+4
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+ma_adc-40
+mar_bed-98
+GT_GOAL_SYMBOL:
+mar_bcf
+GT_ANSWER:
+80
+GT_THEOREM_SEQUENCE:
+1;arc_property_circumference_angle_external(1,BCF,D);Cocircular(B,CFD)&Angle(FDC);["Equal(MeasureOfAngle(FDC),Mul(MeasureOfArc(BCF),1/2))"]
+

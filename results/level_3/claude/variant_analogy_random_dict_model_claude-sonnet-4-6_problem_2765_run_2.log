@@ -1,0 +1,103 @@
+Content written to results/level_3/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_2765_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(2,NE,ZI,A)
+You output the following premises: ParallelBetweenLine(NE,ZI)&Collinear(AZI)
+But the correct premises: ParallelBetweenLine(NE,ZI)&Collinear(NZA)
+You output the following conclusions: Equal(MeasureOfAngle(NEA),MeasureOfAngle(ZIA))
+But the correct conclusions: Equal(MeasureOfAngle(ENZ),MeasureOfAngle(IZA))
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,IL,RN,Z); ParallelBetweenLine(IL,RN)&Collinear(IZL); ["ParallelBetweenLine(IZ,RN)", "ParallelBetweenLine(ZL,RN)"]
+2; parallel_property_collinear_extend(3,NR,ZI,E); ParallelBetweenLine(NR,ZI)&Collinear(NER); ["ParallelBetweenLine(NE,ZI)", "ParallelBetweenLine(ER,ZI)"]
+3; parallel_property_corresponding_angle(2,NE,ZI,A); ParallelBetweenLine(NE,ZI)&Collinear(AZI); ["Equal(MeasureOfAngle(NEA),MeasureOfAngle(ZIA))"]
+4; parallel_property_alternate_interior_angle(1,NE,ZD); ParallelBetweenLine(NE,ZD)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZD))"]
+5; vertical_angle(1,AEN,KEH); Collinear(AEK)&Collinear(NEH)&Angle(AEN)&Angle(KEH); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(KEH))"]
+6; vertical_angle(1,NEA,ZEK); Collinear(NEH)&Collinear(AEK)&Angle(NEA)&Angle(ZEK); ["Equal(MeasureOfAngle(NEA),MeasureOfAngle(ZEK))"]
+7; parallel_property_alternate_interior_angle(2,NE,ZD); ParallelBetweenLine(NE,ZD)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZD))"]
+Retry attempt: 1
+Content written to results/level_3/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_2765_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,NE,ZD)
+You output the following premises: ParallelBetweenLine(NE,ZD)&Line(EZ)
+But the correct premises: ParallelBetweenLine(NE,ZD)&Line(ND)
+You output the following conclusions: Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZD))
+But the correct conclusions: Equal(MeasureOfAngle(END),MeasureOfAngle(ZDN))
+
+Model Answer:
+RETRY_ANSWER:
+116
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,IL,RN,Z); ParallelBetweenLine(IL,RN)&Collinear(IZL); ["ParallelBetweenLine(IZ,RN)", "ParallelBetweenLine(ZL,RN)"]
+2; parallel_property_collinear_extend(3,NR,ZI,E); ParallelBetweenLine(NR,ZI)&Collinear(NER); ["ParallelBetweenLine(NE,ZI)", "ParallelBetweenLine(ER,ZI)"]
+3; parallel_property_alternate_interior_angle(1,NE,ZD); ParallelBetweenLine(NE,ZD)&Line(EZ); ["Equal(MeasureOfAngle(NEZ),MeasureOfAngle(EZD))"]
+4; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEK)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+Retry attempt: 2
+Content written to results/level_3/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_2765_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(2,NE,ZI)
+You output the following premises: ParallelBetweenLine(NE,ZI)&Line(NZ)
+But the correct premises: ParallelBetweenLine(NE,ZI)&Line(EZ)
+You output the following conclusions: Equal(MeasureOfAngle(ENZ),MeasureOfAngle(IZN))
+But the correct conclusions: Equal(MeasureOfAngle(ZEN),MeasureOfAngle(EZI))
+
+Model Answer:
+RETRY_ANSWER:
+116
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,WJ,AK,D); ParallelBetweenLine(WJ,AK)&Collinear(WDJ); ["ParallelBetweenLine(WD,AK)", "ParallelBetweenLine(DJ,AK)"]
+2; parallel_property_collinear_extend(3,KA,DW,E); ParallelBetweenLine(KA,DW)&Collinear(KEA); ["ParallelBetweenLine(KE,DW)", "ParallelBetweenLine(EA,DW)"]
+3; parallel_property_collinear_extend(3,IL,RN,Z); ParallelBetweenLine(IL,RN)&Collinear(IZL); ["ParallelBetweenLine(IZ,RN)", "ParallelBetweenLine(ZL,RN)"]
+4; parallel_property_collinear_extend(3,NR,ZI,E); ParallelBetweenLine(NR,ZI)&Collinear(NER); ["ParallelBetweenLine(NE,ZI)", "ParallelBetweenLine(ER,ZI)"]
+5; parallel_property_alternate_interior_angle(2,NE,ZI); ParallelBetweenLine(NE,ZI)&Line(NZ); ["Equal(MeasureOfAngle(ENZ),MeasureOfAngle(IZN))"]
+6; parallel_property_alternate_interior_angle(1,EA,DW); ParallelBetweenLine(EA,DW)&Line(ED); ["Equal(MeasureOfAngle(AED),MeasureOfAngle(WDE))"]
+7; parallel_property_ipsilateral_internal_angle(1,NE,ZI); ParallelBetweenLine(NE,ZI)&Line(EZ); ["Equal(Add(MeasureOfAngle(NEZ),MeasureOfAngle(IZE)),180)"]
+8; vertical_angle(1,IZE,DZA); Collinear(IZL)&Collinear(AZK)&Angle(IZE)&Angle(DZA); ["Equal(MeasureOfAngle(IZE),MeasureOfAngle(DZA))"]
+9; vertical_angle(1,EZD,AZI); Collinear(AZK)&Collinear(IZL)&Angle(EZD)&Angle(AZI); ["Equal(MeasureOfAngle(EZD),MeasureOfAngle(AZI))"]
+10; adjacent_complementary_angle(1,AEN,NEZ); Collinear(AEK)&Angle(AEN)&Angle(NEZ); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(NEZ)),180)"]
+Retry attempt: 3
+Content written to results/level_3/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_2765_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,AEN,ZEN)
+You output the following premises: Collinear(AEK)&Angle(AEN)&Angle(ZEN)
+But the correct premises: Collinear(AEN)&Angle(AEZ)&Angle(ZEN)
+You output the following conclusions: Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(ZEN)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(AEZ),MeasureOfAngle(ZEN)),180)
+
+Model Answer:
+RETRY_ANSWER:
+116
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,IL,RN,Z); ParallelBetweenLine(IL,RN)&Collinear(IZL); ["ParallelBetweenLine(IZ,RN)", "ParallelBetweenLine(ZL,RN)"]
+2; parallel_property_collinear_extend(3,NR,ZI,E); ParallelBetweenLine(NR,ZI)&Collinear(NER); ["ParallelBetweenLine(NE,ZI)", "ParallelBetweenLine(ER,ZI)"]
+3; parallel_property_alternate_interior_angle(2,NE,ZI); ParallelBetweenLine(NE,ZI)&Line(EZ); ["Equal(MeasureOfAngle(ZEN),MeasureOfAngle(EZI))"]
+4; adjacent_complementary_angle(1,AEN,ZEN); Collinear(AEK)&Angle(AEN)&Angle(ZEN); ["Equal(Add(MeasureOfAngle(AEN),MeasureOfAngle(ZEN)),180)"]
+5; parallel_property_collinear_extend(1,IZ,RN,D); ParallelBetweenLine(IZ,RN)&Collinear(IDZ); ["ParallelBetweenLine(DZ,RN)"]
+6; parallel_property_collinear_extend(3,NR,DZ,E); ParallelBetweenLine(NR,DZ)&Collinear(NER); ["ParallelBetweenLine(NE,DZ)", "ParallelBetweenLine(ER,DZ)"]
+7; parallel_property_alternate_interior_angle(2,NE,DZ); ParallelBetweenLine(NE,DZ)&Line(EZ); ["Equal(MeasureOfAngle(ZEN),MeasureOfAngle(EZD))"]
+Retry attempt: 4
+Content written to results/level_3/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_2765_run_2_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_collinear_extend(1,IZ,RN,D)
+You output the following premises: ParallelBetweenLine(IZ,RN)&Collinear(IDZ)
+But the correct premises: ParallelBetweenLine(IZ,RN)&Collinear(DIZ)
+You output the following conclusions: ParallelBetweenLine(DZ,RN)
+But the correct conclusions: ParallelBetweenLine(DI,RN)
+Missing conclusion at index 1. Expected: ParallelBetweenLine(DZ,RN)
+
+Model Answer:
+RETRY_ANSWER:
+64
+RETRY_THEOREM_SEQUENCE:
+1; parallel_property_collinear_extend(3,IL,RN,Z); ParallelBetweenLine(IL,RN)&Collinear(IZL); ["ParallelBetweenLine(IZ,RN)", "ParallelBetweenLine(ZL,RN)"]
+2; parallel_property_collinear_extend(3,NR,ZI,E); ParallelBetweenLine(NR,ZI)&Collinear(NER); ["ParallelBetweenLine(NE,ZI)", "ParallelBetweenLine(ER,ZI)"]
+3; parallel_property_alternate_interior_angle(2,NE,ZI); ParallelBetweenLine(NE,ZI)&Line(EZ); ["Equal(MeasureOfAngle(ZEN),MeasureOfAngle(EZI))"]
+4; parallel_property_collinear_extend(1,IZ,RN,D); ParallelBetweenLine(IZ,RN)&Collinear(IDZ); ["ParallelBetweenLine(DZ,RN)"]
+5; parallel_property_collinear_extend(3,NR,DZ,E); ParallelBetweenLine(NR,DZ)&Collinear(NER); ["ParallelBetweenLine(NE,DZ)", "ParallelBetweenLine(ER,DZ)"]
+6; parallel_property_alternate_interior_angle(2,NE,DZ); ParallelBetweenLine(NE,DZ)&Line(EZ); ["Equal(MeasureOfAngle(ZEN),MeasureOfAngle(EZD))"]
+7; vertical_angle(1,AEN,ZEH); Collinear(AEK)&Collinear(NEH)&Angle(AEN)&Angle(ZEH); ["Equal(MeasureOfAngle(AEN),MeasureOfAngle(ZEH))"]
+Retry attempt: 5
+Total time: 92.791s | per attempt: [23.709, 18.595, 22.219, 13.996, 14.271]
+Content written to results/level_3/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_2765_run_2.txt

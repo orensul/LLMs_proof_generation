@@ -1,0 +1,205 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=y, BD=x, CD=12, ∠BCD=55°, ∠DAB=47°, BD is perpendicular to AD. Find the value of y.
+CONSTRUCTION_CDL:
+Shape(BC,CD,DB)
+Shape(BD,DA,AB)
+Collinear(CDA)
+TEXT_CDL:
+Equal(LengthOfLine(AB),y)
+Equal(LengthOfLine(BD),x)
+Equal(LengthOfLine(CD),12)
+Equal(MeasureOfAngle(BCD),55)
+Equal(MeasureOfAngle(DAB),47)
+PerpendicularBetweenLine(BD,AD)
+GOAL_CDL:
+Value(y)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(CD,DB,BC)
+Shape(DB,BC,CD)
+Shape(DA,AB,BD)
+Shape(AB,BD,DA)
+Shape(BC,CD,DA,AB)
+Shape(CD,DA,AB,BC)
+Shape(DA,AB,BC,CD)
+Shape(AB,BC,CD,DA)
+Collinear(ADC)
+Point(C)
+Point(A)
+Point(D)
+Point(B)
+Line(CA)
+Line(AC)
+Line(CD)
+Line(DC)
+Line(DA)
+Line(AD)
+Line(BC)
+Line(CB)
+Line(DB)
+Line(BD)
+Line(AB)
+Line(BA)
+Angle(CDA)
+Angle(ADC)
+Angle(BCD)
+Angle(CDB)
+Angle(DBC)
+Angle(BDA)
+Angle(DAB)
+Angle(ABD)
+Angle(CAB)
+Angle(ABC)
+Angle(BCA)
+Angle(DCB)
+Angle(BDC)
+Angle(CBD)
+Angle(ADB)
+Angle(BAD)
+Angle(DBA)
+Angle(BAC)
+Angle(CBA)
+Angle(ACB)
+Polygon(BCD)
+Polygon(CDB)
+Polygon(DBC)
+Polygon(BDA)
+Polygon(DAB)
+Polygon(ABD)
+Polygon(BCA)
+Polygon(CAB)
+Polygon(ABC)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me compute the numerical answer properly.
+
+Given:
+- CD = 12, ∠BCD = 55°, ∠BDA = 90°, ∠DAB = 47°
+- Since ∠BDA = 90°, ∠CDB = 180° - 90° = 90°
+- In triangle BCD: ∠BDC = 90°, ∠BCD = 55°, so ∠DBC = 35°
+- From sine theorem in BCD: DB/sin(55°) = 12/sin(35°), so DB = 12*sin(55°)/sin(35°)
+- In triangle BDA: ∠BDA = 90°, ∠DAB = 47°, so ∠ABD = 43°
+- From sine theorem in BDA: BD/sin(BDA) = BA/sin(DAB), so BA = BD*sin(47°)/sin(90°) = BD*sin(47°)
+
+Wait: `sine_theorem(BDA)` gives `Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))`
+
+So BA = BD * sin(BDA)/sin(DAB) = BD * sin(90°)/sin(47°) = BD/sin(47°)
+
+y = 12*sin(55°)/(sin(35°)*sin(47°))
+
+Numerically: sin(55°) ≈ 0.8192, sin(35°) ≈ 0.5736, sin(47°) ≈ 0.7314
+y ≈ 12*0.8192/(0.5736*0.7314) ≈ 9.830/0.4195 ≈ 23.43
+
+EQUATIONS:
+ll_ab-y
+ll_bd-x
+ll_cd-12
+ma_bcd-55
+ma_dab-47
+ma_bda-90
+
+GOAL_SYMBOL:
+y
+
+ANSWER:
+23.43
+
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,CDB,BDA); Collinear(CDA)&Angle(CDB)&Angle(BDA); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDA)),180)"]
+2; triangle_property_angle_sum(1,BCD); Polygon(BCD); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(CDB),MeasureOfAngle(DBC)),180)"]
+3; sine_theorem(1,DBC); Polygon(DBC); ["Equal(Mul(LengthOfLine(DB),Sin(MeasureOfAngle(DBC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(BCD))))"]
+4; triangle_property_angle_sum(1,BDA); Polygon(BDA); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(DAB),MeasureOfAngle(ABD)),180)"]
+5; sine_theorem(1,BDA); Polygon(BDA); ["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,BDC,BDA)
+You output the following premises: Collinear(CDA)&Angle(BDC)&Angle(BDA)
+But the correct premises: Collinear(BDA)&Angle(BDB)&Angle(BDA)
+You output the following conclusions: Equal(Add(MeasureOfAngle(BDC),MeasureOfAngle(BDA)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BDB),MeasureOfAngle(BDA)),180)
+
+Model Answer:
+RETRY_ANSWER:
+12*sin(55°)/sin(35°)/sin(47°) ≈ 12*0.8192/0.5736/0.7314 ≈ 23.31
+
+Let me compute: 12*sin(55°)/sin(35°) = BD, then y = BD/sin(47°)
+BD = 12*sin(55°)/sin(35°) = 12*0.81915/0.57358 ≈ 17.136
+y = 17.136/sin(47°) = 17.136/0.73135 ≈ 23.43... 
+
+Actually y = 12*sin(55°)/(sin(35°)*sin(47°))
+RETRY_THEOREM_SEQUENCE:
+
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,BDA,BDC)
+You output the following premises: Collinear(ADC)&Angle(BDA)&Angle(BDC)
+But the correct premises: Collinear(BDC)&Angle(BDB)&Angle(BDC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(BDC)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BDB),MeasureOfAngle(BDC)),180)
+
+Model Answer:
+RETRY_ANSWER:
+12*Sin(55)/Sin(35)/Sin(47)
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,BDA,BDC); Collinear(ADC)&Angle(BDA)&Angle(BDC); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(BDC)),180)"]
+2; triangle_property_angle_sum(1,BCD); Polygon(BCD); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(CDB),MeasureOfAngle(DBC)),180)"]
+3; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(CD),Sin(MeasureOfAngle(DBC))))"]
+4; triangle_property_angle_sum(1,BDA); Polygon(BDA); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(DAB),MeasureOfAngle(ABD)),180)"]
+5; sine_theorem(1,ABD); Polygon(ABD); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABD))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(DAB))))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,BCD)
+You output the following conclusions: Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(CD),Sin(MeasureOfAngle(DBC))))
+But the correct conclusions: Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(CDB))))
+
+Model Answer:
+RETRY_ANSWER:
+12*Sin(55)/Sin(35)/Sin(47)
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,CDB,BDA); Collinear(CDA)&Angle(CDB)&Angle(BDA); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDA)),180)"]
+2; triangle_property_angle_sum(1,BCD); Polygon(BCD); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(CDB),MeasureOfAngle(DBC)),180)"]
+3; sine_theorem(1,BCD); Polygon(BCD); ["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BCD))),Mul(LengthOfLine(CD),Sin(MeasureOfAngle(DBC))))"]
+4; triangle_property_angle_sum(1,BDA); Polygon(BDA); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(DAB),MeasureOfAngle(ABD)),180)"]
+5; sine_theorem(1,ABD); Polygon(ABD); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABD))),Mul(LengthOfLine(BD),Sin(MeasureOfAngle(DAB))))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Error parsing answer '12*Sin(55)/Sin(35)/Sin(47)': Could not parse: 12*Sin(55)/Sin(35)/Sin(47)
+Model Answer:
+RETRY_ANSWER:
+12*Sin(55)/Sin(35)/Sin(47)
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,CDB,BDA); Collinear(CDA)&Angle(CDB)&Angle(BDA); ["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDA)),180)"]
+2; triangle_property_angle_sum(1,BCD); Polygon(BCD); ["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(CDB),MeasureOfAngle(DBC)),180)"]
+3; sine_theorem(1,DBC); Polygon(DBC); ["Equal(Mul(LengthOfLine(DB),Sin(MeasureOfAngle(DBC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(BCD))))"]
+4; triangle_property_angle_sum(1,BDA); Polygon(BDA); ["Equal(Add(MeasureOfAngle(BDA),MeasureOfAngle(DAB),MeasureOfAngle(ABD)),180)"]
+5; sine_theorem(1,BDA); Polygon(BDA); ["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-y
+ll_bd-x
+ll_cd-12
+ma_bcd-55
+ma_dab-47
+ma_bda-90
+GT_GOAL_SYMBOL:
+y
+GT_ANSWER:
+12/(sin(47*pi/180)*tan(7*pi/36))
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,CDB,BDA);Collinear(CDA)&Angle(CDB)&Angle(BDA);["Equal(Add(MeasureOfAngle(CDB),MeasureOfAngle(BDA)),180)"]
+2;triangle_property_angle_sum(1,BCD);Polygon(BCD);["Equal(Add(MeasureOfAngle(BCD),MeasureOfAngle(CDB),MeasureOfAngle(DBC)),180)"]
+3;sine_theorem(1,DBC);Polygon(DBC);["Equal(Mul(LengthOfLine(DB),Sin(MeasureOfAngle(DBC))),Mul(LengthOfLine(DC),Sin(MeasureOfAngle(BCD))))"]
+4;sine_theorem(1,BDA);Polygon(BDA);["Equal(Mul(LengthOfLine(BD),Sin(MeasureOfAngle(BDA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(DAB))))"]
+

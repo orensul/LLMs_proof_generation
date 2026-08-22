@@ -1,0 +1,162 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠BAO=35°, ∠BOD=76°, AB is parallel to CD. Find the measure of ∠OCD.
+CONSTRUCTION_CDL:
+Shape(AO,OB,BA)
+Shape(OC,CD,DO)
+Shape(BO,OD)
+Collinear(AOD)
+Collinear(BOC)
+TEXT_CDL:
+Equal(MeasureOfAngle(BAO),35)
+Equal(MeasureOfAngle(BOD),76)
+ParallelBetweenLine(AB,CD)
+GOAL_CDL:
+Value(MeasureOfAngle(OCD))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(OB,BA,AO)
+Shape(BA,AO,OB)
+Shape(CD,DO,OC)
+Shape(DO,OC,CD)
+Collinear(DOA)
+Collinear(COB)
+Point(A)
+Point(D)
+Point(O)
+Point(B)
+Point(C)
+Line(AD)
+Line(DA)
+Line(AO)
+Line(OA)
+Line(OD)
+Line(DO)
+Line(BC)
+Line(CB)
+Line(BO)
+Line(OB)
+Line(OC)
+Line(CO)
+Line(BA)
+Line(AB)
+Line(CD)
+Line(DC)
+Angle(AOD)
+Angle(DOA)
+Angle(BOC)
+Angle(COB)
+Angle(AOB)
+Angle(OBA)
+Angle(BAO)
+Angle(OCD)
+Angle(CDO)
+Angle(DOC)
+Angle(AOC)
+Angle(DOB)
+Angle(CBA)
+Angle(BAD)
+Angle(BCD)
+Angle(CDA)
+Angle(BOA)
+Angle(ABO)
+Angle(OAB)
+Angle(DCO)
+Angle(ODC)
+Angle(COD)
+Angle(COA)
+Angle(ABC)
+Angle(DAB)
+Angle(DCB)
+Angle(ADC)
+Polygon(AOB)
+Polygon(OBA)
+Polygon(BAO)
+Polygon(OCD)
+Polygon(CDO)
+Polygon(DOC)
+ParallelBetweenLine(DC,BA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+The verifier keeps saying "No answer provided in ANSWER section." Let me reformat the response very carefully, making sure the ANSWER section is clearly on its own line.
+
+EQUATIONS: ma_bao-35 ma_bod-76
+
+GOAL_SYMBOL: ma_ocd
+
+ANSWER:
+41
+
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AOB,BOD); Collinear(AOD)&Angle(AOB)&Angle(BOD); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(BOD)),180)"]
+2; triangle_property_angle_sum(1,AOB); Polygon(AOB); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(OBA),MeasureOfAngle(BAO)),180)"]
+3; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+41
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AOB,BOD); Collinear(AOD)&Angle(AOB)&Angle(BOD); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(BOD)),180)"]
+2; triangle_property_angle_sum(1,AOB); Polygon(AOB); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(OBA),MeasureOfAngle(BAO)),180)"]
+3; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+
+Wait, I need to check the alternate interior angle theorem format. The theorem says:
+`parallel_property_alternate_interior_angle(2,AB,CD)`: premise `ParallelBetweenLine(AB,CD)&Line(BC)`, conclusion `Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))`
+
+∠CBA = ∠OBA (same angle), and ∠BCD = ∠OCD (same angle since B,O,C collinear and O,C,D form angle OCD = angle BCD... actually ∠BCD = ∠OCD since B,O,C are collinear).
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+41
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AOB,BOD); Collinear(AOD)&Angle(AOB)&Angle(BOD); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(BOD)),180)"]
+2; triangle_property_angle_sum(1,AOB); Polygon(AOB); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(OBA),MeasureOfAngle(BAO)),180)"]
+3; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+#run: 0; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+41
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AOB,BOD); Collinear(AOD)&Angle(AOB)&Angle(BOD); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(BOD)),180)"]
+2; triangle_property_angle_sum(1,AOB); Polygon(AOB); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(OBA),MeasureOfAngle(BAO)),180)"]
+3; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+#run: 0; #retry: 4; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+No answer provided in ANSWER section.
+Model Answer:
+RETRY_ANSWER:
+41
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,AOB,BOD); Collinear(AOD)&Angle(AOB)&Angle(BOD); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(BOD)),180)"]
+2; triangle_property_angle_sum(1,AOB); Polygon(AOB); ["Equal(Add(MeasureOfAngle(AOB),MeasureOfAngle(OBA),MeasureOfAngle(BAO)),180)"]
+3; parallel_property_alternate_interior_angle(2,AB,CD); ParallelBetweenLine(AB,CD)&Line(BC); ["Equal(MeasureOfAngle(CBA),MeasureOfAngle(BCD))"]
+#RETRIES:
+4
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_bao-35
+ma_bod-76
+GT_GOAL_SYMBOL:
+ma_ocd
+GT_ANSWER:
+41
+GT_THEOREM_SEQUENCE:
+1;parallel_property_alternate_interior_angle(1,AB,CD);ParallelBetweenLine(AB,CD)&Line(AD);["Equal(MeasureOfAngle(BAD),MeasureOfAngle(CDA))"]
+2;adjacent_complementary_angle(1,BOD,DOC);Collinear(BOC)&Angle(BOD)&Angle(DOC);["Equal(Add(MeasureOfAngle(BOD),MeasureOfAngle(DOC)),180)"]
+3;triangle_property_angle_sum(1,OCD);Polygon(OCD);["Equal(Add(MeasureOfAngle(OCD),MeasureOfAngle(CDO),MeasureOfAngle(DOC)),180)"]
+

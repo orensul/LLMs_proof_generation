@@ -1,0 +1,99 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BA=h, CA=3, ∠BAC=45°, AC⊥BC. Find the value of h.
+CONSTRUCTION_CDL:
+Shape(CB,BA,AC)
+TEXT_CDL:
+Equal(LengthOfLine(BA),h)
+Equal(LengthOfLine(CA),3)
+Equal(MeasureOfAngle(BAC),45)
+PerpendicularBetweenLine(AC,BC)
+GOAL_CDL:
+Value(h)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BA,AC,CB)
+Shape(AC,CB,BA)
+Point(C)
+Point(B)
+Point(A)
+Line(CB)
+Line(BC)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Angle(CBA)
+Angle(BAC)
+Angle(ACB)
+Angle(ABC)
+Angle(CAB)
+Angle(BCA)
+Polygon(CBA)
+Polygon(BAC)
+Polygon(ACB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+LengthOfLine(BA)-h
+LengthOfLine(CA)-3
+MeasureOfAngle(BAC)-45
+MeasureOfAngle(ACB)-90
+GOAL_SYMBOL:
+h
+ANSWER:
+3*sqrt(2)
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,BAC); Polygon(BAC); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACB),MeasureOfAngle(CBA)),180)"]
+2; sine_theorem(1,ACB); Polygon(ACB); ["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 1; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: triangle_property_angle_sum(1,BAC)
+You output the following conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ABC),MeasureOfAngle(BCA)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACB),MeasureOfAngle(CBA)),180)
+
+Model Answer:
+RETRY_ANSWER:
+3*sqrt(2)
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,BAC); Polygon(BAC); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ABC),MeasureOfAngle(BCA)),180)"]
+2; sine_theorem(1,BAC); Polygon(BAC); ["Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+#run: 1; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: sine_theorem(1,BAC)
+You output the following conclusions: Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(ACB))))
+But the correct conclusions: Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(BAC))),Mul(LengthOfLine(BC),Sin(MeasureOfAngle(ACB))))
+
+Model Answer:
+RETRY_ANSWER:
+3*sqrt(2)
+RETRY_THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,BAC); Polygon(BAC); ["Equal(Add(MeasureOfAngle(BAC),MeasureOfAngle(ACB),MeasureOfAngle(CBA)),180)"]
+2; sine_theorem(1,BAC); Polygon(BAC); ["Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CBA))),Mul(LengthOfLine(CA),Sin(MeasureOfAngle(ACB))))"]
+#RETRIES:
+2
+#RUNS:
+1
+
+
+GT_EQUATIONS:
+-h+ll_ba
+ll_ca-3
+ma_bac-45
+ma_acb-90
+GT_GOAL_SYMBOL:
+h
+GT_ANSWER:
+3*sqrt(2)
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,ACB);Polygon(ACB);["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(CBA),MeasureOfAngle(BAC)),180)"]
+2;sine_theorem(1,ACB);Polygon(ACB);["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+

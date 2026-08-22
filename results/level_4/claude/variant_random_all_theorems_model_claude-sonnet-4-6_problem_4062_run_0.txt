@@ -1,0 +1,184 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AO=3/2, OB=4, OM=5, AO⊥BO, NM is perpendicular to BM. Find the length of line NM.
+CONSTRUCTION_CDL:
+Shape(BA,AO,OB)
+Shape(NM,MO,OA,AN)
+Collinear(NAB)
+Collinear(MOB)
+TEXT_CDL:
+Equal(LengthOfLine(AO),3/2)
+Equal(LengthOfLine(OB),4)
+Equal(LengthOfLine(OM),5)
+PerpendicularBetweenLine(AO,BO)
+PerpendicularBetweenLine(NM,BM)
+GOAL_CDL:
+Value(LengthOfLine(NM))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AO,OB,BA)
+Shape(OB,BA,AO)
+Shape(MO,OA,AN,NM)
+Shape(OA,AN,NM,MO)
+Shape(AN,NM,MO,OA)
+Shape(OB,BA,AN,NM,MO)
+Shape(BA,AN,NM,MO,OB)
+Shape(AN,NM,MO,OB,BA)
+Shape(NM,MO,OB,BA,AN)
+Shape(MO,OB,BA,AN,NM)
+Collinear(BAN)
+Collinear(BOM)
+Point(N)
+Point(B)
+Point(A)
+Point(M)
+Point(O)
+Line(NB)
+Line(BN)
+Line(NA)
+Line(AN)
+Line(AB)
+Line(BA)
+Line(MB)
+Line(BM)
+Line(MO)
+Line(OM)
+Line(OB)
+Line(BO)
+Line(AO)
+Line(OA)
+Line(NM)
+Line(MN)
+Angle(NAB)
+Angle(BAN)
+Angle(MOB)
+Angle(BOM)
+Angle(BAO)
+Angle(AOB)
+Angle(OBA)
+Angle(NMO)
+Angle(MOA)
+Angle(OAN)
+Angle(ANM)
+Angle(BNM)
+Angle(NAO)
+Angle(AOM)
+Angle(MBN)
+Angle(MBA)
+Angle(OBN)
+Angle(NMB)
+Angle(OAB)
+Angle(BOA)
+Angle(ABO)
+Angle(OMN)
+Angle(MNA)
+Angle(MNB)
+Angle(NBM)
+Angle(ABM)
+Angle(NBO)
+Angle(BMN)
+Polygon(BAO)
+Polygon(AOB)
+Polygon(OBA)
+Polygon(NMOA)
+Polygon(MOAN)
+Polygon(OANM)
+Polygon(ANMO)
+Polygon(BNM)
+Polygon(NMB)
+Polygon(MBN)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the problem carefully, I need to find NM using similar triangles AOB and NMB.
+
+Key facts:
+- AO = 3/2, OB = 4, OM = 5
+- angle AOB = 90°, angle NMB = 90°
+- N,A,B collinear; M,O,B collinear (order: M,O,B so BM = BO + OM = 9)
+- Triangles AOB and NMB are similar (both right-angled, sharing angle B)
+- NM/AO = BM/OB → NM = (3/2)(9/4) = 27/8
+
+EQUATIONS:
+ll_ao - 3/2
+ll_ob - 4
+ll_om - 5
+ma_aob - 90
+ma_nmb - 90
+
+GOAL_SYMBOL:
+ll_nm
+
+ANSWER:
+27/8
+
+THEOREM_SEQUENCE:
+1; line_addition(1,BO,OM); Collinear(BOM); ["Equal(LengthOfLine(BM),Add(LengthOfLine(BO),LengthOfLine(OM)))"]
+2; similar_triangle_judgment_aa(1,AOB,NMB); Polygon(AOB)&Polygon(NMB)&Equal(MeasureOfAngle(AOB),MeasureOfAngle(NMB))&Equal(MeasureOfAngle(OBA),MeasureOfAngle(MBN)); ["SimilarBetweenTriangle(AOB,NMB)"]
+3; similar_triangle_property_line_ratio(1,AOB,NMB); SimilarBetweenTriangle(AOB,NMB); ["Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))"]
+4; similar_triangle_property_line_ratio(1,OAB,MNB); SimilarBetweenTriangle(OAB,MNB); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(NB),RatioOfSimilarTriangle(OAB,MNB)))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <> not defined in current GDL. Please rewrite the proof sequence, you are allowed to use only theorems from the GDL.
+Model Answer:
+RETRY_ANSWER:
+27/8
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,BO,OM); Collinear(BOM); ["Equal(LengthOfLine(BM),Add(LengthOfLine(BO),LengthOfLine(OM)))"]
+2; perpendicular_judgment_angle(1,AO,BO); Angle(AOB)&Equal(MeasureOfAngle(AOB),90); ["PerpendicularBetweenLine(AO,BO)"]
+3; right_triangle_judgment_angle(1,AOB); Polygon(AOB)&Equal(MeasureOfAngle(AOB),90); ["RightTriangle(AOB)"]
+4; right_triangle_property_pythagorean(1,AOB); RightTriangle(AOB); ["Equal(Add(Pow(LengthOfLine(AO),2),Pow(LengthOfLine(OB),2)),Pow(LengthOfLine(AB),2))"]
+5; similar_triangle_judgment_aa(1,AOB,NMB); Polygon(AOB)&Polygon(NMB)&Equal(MeasureOfAngle(AOB),MeasureOfAngle(NMB))&Equal(MeasureOfAngle(OBA),MeasureOfAngle(MBN)); ["SimilarBetweenTriangle(AOB,NMB)"]
+6; similar_triangle_property_line_ratio(1,AOB,NMB); SimilarBetweenTriangle(AOB,NMB); ["Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))"]
+7; similar_triangle_property_line_ratio(1,OBA,MBN); SimilarBetweenTriangle(OBA,MBN); ["Equal(LengthOfLine(BA),Mul(LengthOfLine(BN),RatioOfSimilarTriangle(OBA,MBN)))"]
+8; similar_triangle_property_line_ratio(1,AOB,NMB); SimilarBetweenTriangle(AOB,NMB); ["Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))"]
+
+Let me simplify:
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: similar_triangle_property_line_ratio(1,AОB,NMB)
+You output the following premises: SimilarBetweenTriangle(AOB,NMB)
+But the correct premises: SimilarBetweenTriangle(AОB,NMB)
+You output the following conclusions: Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))
+But the correct conclusions: Equal(LengthOfLine(ОB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AОB,NMB)))
+
+Model Answer:
+RETRY_ANSWER:
+27/8
+RETRY_THEOREM_SEQUENCE:
+1; line_addition(1,BO,OM); Collinear(BOM); ["Equal(LengthOfLine(BM),Add(LengthOfLine(BO),LengthOfLine(OM)))"]
+2; similar_triangle_judgment_aa(1,AOB,NMB); Polygon(AOB)&Polygon(NMB)&Equal(MeasureOfAngle(AOB),MeasureOfAngle(NMB))&Equal(MeasureOfAngle(OBA),MeasureOfAngle(MBN)); ["SimilarBetweenTriangle(AOB,NMB)"]
+3; similar_triangle_property_line_ratio(1,AOB,NMB); SimilarBetweenTriangle(AOB,NMB); ["Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))"]
+4; similar_triangle_property_line_ratio(1,OAB,MNB); SimilarBetweenTriangle(OAB,MNB); ["Equal(LengthOfLine(AB),Mul(LengthOfLine(NB),RatioOfSimilarTriangle(OAB,MNB)))"]
+5; similar_triangle_property_line_ratio(1,AОB,NMB); SimilarBetweenTriangle(AOB,NMB); ["Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))"]
+
+Let me provide a clean sequence:
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ao-3/2
+ll_ob-4
+ll_om-5
+ma_aob-90
+ma_nmb-90
+GT_GOAL_SYMBOL:
+ll_nm
+GT_ANSWER:
+27/8
+GT_THEOREM_SEQUENCE:
+1;similar_triangle_judgment_aa(1,AOB,NMB);Polygon(AOB)&Polygon(NMB)&Equal(MeasureOfAngle(AOB),MeasureOfAngle(NMB))&Equal(MeasureOfAngle(OBA),MeasureOfAngle(MBN));["SimilarBetweenTriangle(AOB,NMB)"]
+2;similar_triangle_property_line_ratio(1,AOB,NMB);SimilarBetweenTriangle(AOB,NMB);["Equal(LengthOfLine(OB),Mul(LengthOfLine(MB),RatioOfSimilarTriangle(AOB,NMB)))"]
+3;similar_triangle_property_line_ratio(1,BAO,BNM);SimilarBetweenTriangle(BAO,BNM);["Equal(LengthOfLine(AO),Mul(LengthOfLine(NM),RatioOfSimilarTriangle(BAO,BNM)))"]
+4;line_addition(1,MO,OB);Collinear(MOB);["Equal(LengthOfLine(MB),Add(LengthOfLine(MO),LengthOfLine(OB)))"]
+

@@ -1,0 +1,124 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, ∠ECB=130°. Find the measure of ∠CBF minus the measure of ∠CAB.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+Shape(EC,CB)
+Shape(CB,BF)
+Collinear(ABF)
+Collinear(ACE)
+TEXT_CDL:
+Equal(MeasureOfAngle(ECB),130)
+GOAL_CDL:
+Value(Sub(MeasureOfAngle(CBF),MeasureOfAngle(CAB)))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Collinear(FBA)
+Collinear(ECA)
+Point(A)
+Point(F)
+Point(B)
+Point(E)
+Point(C)
+Line(AF)
+Line(FA)
+Line(AB)
+Line(BA)
+Line(BF)
+Line(FB)
+Line(AE)
+Line(EA)
+Line(AC)
+Line(CA)
+Line(CE)
+Line(EC)
+Line(BC)
+Line(CB)
+Angle(ABF)
+Angle(FBA)
+Angle(ACE)
+Angle(ECA)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(FBC)
+Angle(BCE)
+Angle(CAF)
+Angle(EAB)
+Angle(EAF)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Angle(FAC)
+Angle(BAE)
+Angle(FAE)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(BDA);ma_bda;65
+MeasureOfAngle(DBC);ma_dbc;140
+MeasureOfAngle(FEA);ma_fed;None
+MeasureOfAngle(FED);ma_fed;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at the error, I need to fix the adjacent_complementary_angle call for step 2. The issue is that the collinear order matters - the theorem needs the collinear points in the order that matches the angle. Since we have Collinear(ABF), I need to use the correct ordering.
+
+The collinear given is `Collinear(ABF)` (from CONSTRUCTION_CDL_EXTENDED: `Collinear(FBA)`). For ∠ABC and ∠CBF, the middle point is B, and the line goes through A, B, F. So the collinear should be `Collinear(ABF)` and the angles should be `Angle(ABC)` and `Angle(CBF)`.
+
+Let me reconsider - the error shows the correct premises use `Collinear(CBF)` which suggests I need to use the collinear in the order matching the angle structure. For adjacent complementary angles at B along line ABF, with angle CBF, the collinear should start from C's side... but C is not on that line.
+
+Looking at the theorem format from A1: `adjacent_complementary_angle(1,ABD,DBC); Collinear(ABC)&Angle(ABD)&Angle(DBC)` - the collinear is the straight line, and the two angles share the ray BD. Here the shared ray is BC, so the collinear should be the straight line through A,B,F, and angles are ABC and CBF.
+
+The collinear available is `Collinear(ABF)` or equivalently `Collinear(FBA)`. The angle pair is `Angle(ABC)` and `Angle(CBF)`. Let me try with `Collinear(ABF)`.
+
+EQUATIONS:
+ma_ecb-130
+
+GOAL_SYMBOL:
+-ma_cab+ma_cbf
+
+ANSWER:
+50
+
+THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,ACB,BCE); Collinear(ACE)&Angle(ACB)&Angle(BCE); ["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(BCE)),180)"]
+2; adjacent_complementary_angle(1,ABC,CBF); Collinear(ABF)&Angle(ABC)&Angle(CBF); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,CBA,CBF)
+You output the following premises: Collinear(FBA)&Angle(CBA)&Angle(CBF)
+But the correct premises: Collinear(CBF)&Angle(CBC)&Angle(CBF)
+You output the following conclusions: Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(CBF)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(CBC),MeasureOfAngle(CBF)),180)
+
+Model Answer:
+RETRY_ANSWER:
+50
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,ACB,BCE); Collinear(ACE)&Angle(ACB)&Angle(BCE); ["Equal(Add(MeasureOfAngle(ACB),MeasureOfAngle(BCE)),180)"]
+2; adjacent_complementary_angle(1,CBA,CBF); Collinear(FBA)&Angle(CBA)&Angle(CBF); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(CBF)),180)"]
+3; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+#RETRIES:
+1
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ma_ecb-130
+GT_GOAL_SYMBOL:
+-ma_cab+ma_cbf
+GT_ANSWER:
+50
+GT_THEOREM_SEQUENCE:
+1;adjacent_complementary_angle(1,ABC,CBF);Collinear(ABF)&Angle(ABC)&Angle(CBF);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(CBF)),180)"]
+2;adjacent_complementary_angle(1,ECB,BCA);Collinear(ECA)&Angle(ECB)&Angle(BCA);["Equal(Add(MeasureOfAngle(ECB),MeasureOfAngle(BCA)),180)"]
+3;triangle_property_angle_sum(1,ABC);Polygon(ABC);["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+

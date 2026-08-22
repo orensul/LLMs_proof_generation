@@ -1,0 +1,81 @@
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_944_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <arc_property_circumference_angle_external> para length error. Expected 4 but got ('B', 'B', 'E', 'D', 'A').
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,BBED,A); Cocircular(B,EAD)&Angle(EAD); ["Equal(MeasureOfAngle(EAD),Mul(MeasureOfArc(BED),1/2))"]
+2; circle_property_circular_power_segment_and_segment_angle(1,PAAB,PCD,O); Cocircular(B,ECFD)&Collinear(EAC)&Collinear(FAD); ["Equal(Sub(MeasureOfArc(BED),MeasureOfArc(BCF)),Mul(MeasureOfAngle(CAD),2))"]
+Retry attempt: 1
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_944_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <circle_property_circular_power_segment_and_segment_angle> para length error. Expected 7 but got ('P', 'A', 'A', 'B', 'P', 'C', 'D', 'O').
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(1,PAAB,PCD,O); Cocircular(B,DCFE)&Collinear(EAC)&Collinear(FAD); ["Equal(Sub(MeasureOfArc(BED),MeasureOfArc(BCF)),Mul(MeasureOfAngle(CAD),2))"]
+2; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+3; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))"]
+Retry attempt: 2
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_944_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B)
+You output the following premises: Cocircular(B,EAFD)&Collinear(AEC)&Collinear(AFD)
+But the correct premises: Cocircular(B,FECD)&Collinear(AEC)&Collinear(AFD)
+You output the following conclusions: Equal(Sub(MeasureOfArc(BFD),MeasureOfArc(BEA)),Mul(MeasureOfAngle(EAF),2))
+But the correct conclusions: Equal(Sub(MeasureOfArc(BCD),MeasureOfArc(BFE)),Mul(MeasureOfAngle(FAE),2))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B); Cocircular(B,EAFD)&Collinear(AEC)&Collinear(AFD); ["Equal(Sub(MeasureOfArc(BFD),MeasureOfArc(BEA)),Mul(MeasureOfAngle(EAF),2))"]
+2; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+3; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))"]
+4; arc_addition_measure(1,BED,BDC); Arc(BED)&Arc(BDC)&Arc(BEC); ["Equal(MeasureOfArc(BEC),Add(MeasureOfArc(BED),MeasureOfArc(BDC)))"]
+5; arc_addition_measure(1,BCF,BFE); Arc(BCF)&Arc(BFE)&Arc(BCE); ["Equal(MeasureOfArc(BCE),Add(MeasureOfArc(BCF),MeasureOfArc(BFE)))"]
+6; round_arc(1,BCE,BEC); Arc(BCE)&Arc(BEC); ["Equal(Add(MeasureOfArc(BCE),MeasureOfArc(BEC)),360)"]
+Retry attempt: 3
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_944_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,BDC,A)
+You output the following premises: Cocircular(B,DCA)&Angle(DCA)
+But the correct premises: Cocircular(B,DCA)&Angle(CAD)
+You output the following conclusions: Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(BDC),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B); Cocircular(B,FECD)&Collinear(AEC)&Collinear(AFD); ["Equal(Sub(MeasureOfArc(BCD),MeasureOfArc(BFE)),Mul(MeasureOfAngle(FAE),2))"]
+2; arc_addition_measure(1,BED,BDC); Arc(BED)&Arc(BDC)&Arc(BEC); ["Equal(MeasureOfArc(BEC),Add(MeasureOfArc(BED),MeasureOfArc(BDC)))"]
+3; arc_addition_measure(1,BCF,BFE); Arc(BCF)&Arc(BFE)&Arc(BCE); ["Equal(MeasureOfArc(BCE),Add(MeasureOfArc(BCF),MeasureOfArc(BFE)))"]
+4; round_arc(1,BCE,BEC); Arc(BCE)&Arc(BEC); ["Equal(Add(MeasureOfArc(BCE),MeasureOfArc(BEC)),360)"]
+5; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(DCA); ["Equal(MeasureOfAngle(DCA),Mul(MeasureOfArc(BDC),1/2))"]
+6; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+Retry attempt: 4
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_944_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: arc_property_circumference_angle_external(1,BCF,A)
+You output the following premises: Cocircular(B,CFA)&Angle(CAF)
+But the correct premises: Cocircular(B,CFA)&Angle(FAC)
+You output the following conclusions: Equal(MeasureOfAngle(CAF),Mul(MeasureOfArc(BCF),1/2))
+But the correct conclusions: Equal(MeasureOfAngle(FAC),Mul(MeasureOfArc(BCF),1/2))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; circle_property_circular_power_segment_and_segment_angle(2,AEC,AFD,B); Cocircular(B,FECD)&Collinear(AEC)&Collinear(AFD); ["Equal(Sub(MeasureOfArc(BCD),MeasureOfArc(BFE)),Mul(MeasureOfAngle(FAE),2))"]
+2; arc_property_circumference_angle_external(1,BDC,A); Cocircular(B,DCA)&Angle(CAD); ["Equal(MeasureOfAngle(CAD),Mul(MeasureOfArc(BDC),1/2))"]
+3; arc_addition_measure(1,BED,BDC); Arc(BED)&Arc(BDC)&Arc(BEC); ["Equal(MeasureOfArc(BEC),Add(MeasureOfArc(BED),MeasureOfArc(BDC)))"]
+4; arc_addition_measure(1,BCF,BFE); Arc(BCF)&Arc(BFE)&Arc(BCE); ["Equal(MeasureOfArc(BCE),Add(MeasureOfArc(BCF),MeasureOfArc(BFE)))"]
+5; round_arc(1,BCE,BEC); Arc(BCE)&Arc(BEC); ["Equal(Add(MeasureOfArc(BCE),MeasureOfArc(BEC)),360)"]
+6; triangle_property_angle_sum(1,ADC); Polygon(ADC); ["Equal(Add(MeasureOfAngle(ADC),MeasureOfAngle(DCA),MeasureOfAngle(CAD)),180)"]
+7; arc_property_circumference_angle_external(1,BCF,A); Cocircular(B,CFA)&Angle(CAF); ["Equal(MeasureOfAngle(CAF),Mul(MeasureOfArc(BCF),1/2))"]
+Retry attempt: 5
+Total time: 115.390s | per attempt: [28.175, 24.523, 23.274, 20.559, 18.859]
+Content written to results/level_1/claude/variant_random_all_theorems_model_claude-sonnet-4-6_problem_944_run_0.txt

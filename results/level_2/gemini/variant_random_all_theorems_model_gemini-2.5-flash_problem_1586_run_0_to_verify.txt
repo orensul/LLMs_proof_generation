@@ -1,0 +1,180 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, KL=NL, NM=ML, ∠JLK=25°, ∠KLN=18°, ∠NKJ=130°, ∠NLM=20°, △LNK is an isosceles △, triangleMNL is an isosceles triangle. Find the measure of ∠NKL.
+CONSTRUCTION_CDL:
+Shape(MN,NL,LM)
+Shape(NK,KL,LN)
+Shape(KJ,JL,LK)
+TEXT_CDL:
+Equal(LengthOfLine(KL),LengthOfLine(NL))
+Equal(LengthOfLine(NM),LengthOfLine(ML))
+Equal(MeasureOfAngle(JLK),25)
+Equal(MeasureOfAngle(KLN),18)
+Equal(MeasureOfAngle(NKJ),130)
+Equal(MeasureOfAngle(NLM),20)
+IsoscelesTriangle(LNK)
+IsoscelesTriangle(MNL)
+GOAL_CDL:
+Value(MeasureOfAngle(NKL))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(NL,LM,MN)
+Shape(LM,MN,NL)
+Shape(KL,LN,NK)
+Shape(LN,NK,KL)
+Shape(JL,LK,KJ)
+Shape(LK,KJ,JL)
+Shape(LM,MN,NK,KL)
+Shape(MN,NK,KL,LM)
+Shape(NK,KL,LM,MN)
+Shape(KL,LM,MN,NK)
+Shape(LN,NK,KJ,JL)
+Shape(NK,KJ,JL,LN)
+Shape(KJ,JL,LN,NK)
+Shape(JL,LN,NK,KJ)
+Shape(LM,MN,NK,KJ,JL)
+Shape(MN,NK,KJ,JL,LM)
+Shape(NK,KJ,JL,LM,MN)
+Shape(KJ,JL,LM,MN,NK)
+Shape(JL,LM,MN,NK,KJ)
+Point(M)
+Point(N)
+Point(L)
+Point(K)
+Point(J)
+Line(MN)
+Line(NM)
+Line(NL)
+Line(LN)
+Line(LM)
+Line(ML)
+Line(NK)
+Line(KN)
+Line(KL)
+Line(LK)
+Line(KJ)
+Line(JK)
+Line(JL)
+Line(LJ)
+Angle(MNL)
+Angle(NLM)
+Angle(LMN)
+Angle(NKL)
+Angle(KLN)
+Angle(LNK)
+Angle(KJL)
+Angle(JLK)
+Angle(LKJ)
+Angle(MNK)
+Angle(KLM)
+Angle(NKJ)
+Angle(JLN)
+Angle(JLM)
+Angle(LNM)
+Angle(MLN)
+Angle(NML)
+Angle(LKN)
+Angle(NLK)
+Angle(KNL)
+Angle(LJK)
+Angle(KLJ)
+Angle(JKL)
+Angle(KNM)
+Angle(MLK)
+Angle(JKN)
+Angle(NLJ)
+Angle(MLJ)
+Polygon(MNL)
+Polygon(NLM)
+Polygon(LMN)
+Polygon(NKL)
+Polygon(KLN)
+Polygon(LNK)
+Polygon(KJL)
+Polygon(JLK)
+Polygon(LKJ)
+Polygon(LMNK)
+Polygon(MNKL)
+Polygon(NKLM)
+Polygon(KLMN)
+Polygon(LNKJ)
+Polygon(NKJL)
+Polygon(KJLN)
+Polygon(JLNK)
+Polygon(LMNKJ)
+Polygon(MNKJL)
+Polygon(NKJLM)
+Polygon(KJLMN)
+Polygon(JLMNK)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+EQUATIONS:
+LengthOfLine(KL)-LengthOfLine(NL)
+LengthOfLine(NM)-LengthOfLine(ML)
+MeasureOfAngle(JLK)-25
+MeasureOfAngle(KLN)-18
+MeasureOfAngle(NKJ)-130
+MeasureOfAngle(NLM)-20
+GOAL_SYMBOL:
+MeasureOfAngle(NKL)
+ANSWER:
+81
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,LNK); Polygon(LNK)&Equal(LengthOfLine(LN),LengthOfLine(LK)); ["IsoscelesTriangle(LNK)"]
+2; isosceles_triangle_property_angle_equal(1,LNK); IsoscelesTriangle(LNK); ["Equal(MeasureOfAngle(LNK),MeasureOfAngle(NKL))"]
+3; triangle_property_angle_sum(1,LNK); Polygon(LNK); ["Equal(Add(MeasureOfAngle(LNK),MeasureOfAngle(NKL),MeasureOfAngle(KLN)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 0; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,LNK)
+You output the following premises: Polygon(LNK)&Equal(LengthOfLine(KL),LengthOfLine(NL))
+But the correct premises: Polygon(LNK)&Equal(LengthOfLine(LN),LengthOfLine(LK))
+
+Model Answer:
+RETRY_ANSWER:
+81
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,LNK); Polygon(LNK)&Equal(LengthOfLine(KL),LengthOfLine(NL)); ["IsoscelesTriangle(LNK)"]
+2; isosceles_triangle_property_angle_equal(1,LNK); IsoscelesTriangle(LNK); ["Equal(MeasureOfAngle(LKN),MeasureOfAngle(LNK))"]
+3; triangle_property_angle_sum(1,LNK); Polygon(LNK); ["Equal(Add(MeasureOfAngle(LNK),MeasureOfAngle(LKN),MeasureOfAngle(KLN)),180)"]
+#run: 0; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_property_angle_equal(1,LNK)
+You output the following conclusions: Equal(MeasureOfAngle(LKN),MeasureOfAngle(LNK))
+But the correct conclusions: Equal(MeasureOfAngle(LNK),MeasureOfAngle(NKL))
+
+Model Answer:
+RETRY_ANSWER:
+81
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,LNK); Polygon(LNK)&Equal(LengthOfLine(LN),LengthOfLine(LK)); ["IsoscelesTriangle(LNK)"]
+2; isosceles_triangle_property_angle_equal(1,LNK); IsoscelesTriangle(LNK); ["Equal(MeasureOfAngle(LKN),MeasureOfAngle(LNK))"]
+3; triangle_property_angle_sum(1,LNK); Polygon(LNK); ["Equal(Add(MeasureOfAngle(LNK),MeasureOfAngle(LKN),MeasureOfAngle(KLN)),180)"]
+#RETRIES:
+2
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_kl-ll_nl
+-ll_ml+ll_nm
+ma_jlk-25
+ma_kln-18
+ma_nkj-130
+ma_nlm-20
+GT_GOAL_SYMBOL:
+ma_nkl
+GT_ANSWER:
+81
+GT_THEOREM_SEQUENCE:
+1;isosceles_triangle_property_angle_equal(1,LNK);IsoscelesTriangle(LNK);["Equal(MeasureOfAngle(LNK),MeasureOfAngle(NKL))"]
+2;triangle_property_angle_sum(1,NKL);Polygon(NKL);["Equal(Add(MeasureOfAngle(NKL),MeasureOfAngle(KLN),MeasureOfAngle(LNK)),180)"]
+

@@ -1,0 +1,34 @@
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1244_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: bisector_of_angle_judgment_angle_equal(1,DA,BDC)
+You output the following premises: Angle(ADB)&Angle(CDA)&Equal(MeasureOfAngle(ADB),MeasureOfAngle(CDA))
+But the correct premises: Angle(BDA)&Angle(ADC)&Equal(MeasureOfAngle(BDA),MeasureOfAngle(ADC))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,DA,BDC); Angle(ADB)&Angle(CDA)&Equal(MeasureOfAngle(ADB),MeasureOfAngle(CDA)); ["IsBisectorOfAngle(DA,BDC)"]
+2; bisector_of_angle_property_line_ratio(1,DA,BDC); IsBisectorOfAngle(DA,BDC)&Collinear(BAC); ["Equal(Mul(LengthOfLine(BA),LengthOfLine(CD)),Mul(LengthOfLine(AC),LengthOfLine(BD)))"]
+3; line_addition(1,BA,AC); Collinear(BAC); ["Equal(LengthOfLine(BC),Add(LengthOfLine(BA),LengthOfLine(AC)))"]
+Retry attempt: 1
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1244_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: bisector_of_angle_property_line_ratio(1,DA,BDC)
+You output the following premises: IsBisectorOfAngle(DA,BDC)&Collinear(BAC)
+But the correct premises: IsBisectorOfAngle(DA,BDC)&Collinear(CAB)
+You output the following conclusions: Equal(Mul(LengthOfLine(BA),LengthOfLine(CD)),Mul(LengthOfLine(AC),LengthOfLine(BD)))
+But the correct conclusions: Equal(Mul(LengthOfLine(CA),LengthOfLine(DB)),Mul(LengthOfLine(AB),LengthOfLine(DC)))
+
+Model Answer:
+RETRY_ANSWER:
+18
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_judgment_angle_equal(1,DA,BDC); Angle(BDA)&Angle(ADC)&Equal(MeasureOfAngle(BDA),MeasureOfAngle(ADC)); ["IsBisectorOfAngle(DA,BDC)"]
+2; bisector_of_angle_property_line_ratio(1,DA,BDC); IsBisectorOfAngle(DA,BDC)&Collinear(BAC); ["Equal(Mul(LengthOfLine(BA),LengthOfLine(CD)),Mul(LengthOfLine(AC),LengthOfLine(BD)))"]
+3; line_addition(1,BA,AC); Collinear(BAC); ["Equal(LengthOfLine(BC),Add(LengthOfLine(BA),LengthOfLine(AC)))"]
+Retry attempt: 2
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1244_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 77.084s | per attempt: [22.515, 25.734, 28.835]
+Content written to results/level_3/gemini/variant_random_all_theorems_model_gemini-2.5-flash_problem_1244_run_0.txt

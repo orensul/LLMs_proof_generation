@@ -1,0 +1,83 @@
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DEA,DEB)
+You output the following premises: Collinear(AEOB)&Angle(DEA)&Angle(DEB)
+But the correct premises: Collinear(DEB)&Angle(DED)&Angle(DEB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(DED),MeasureOfAngle(DEB)),180)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DEA,DEB); Collinear(AEOB)&Angle(DEA)&Angle(DEB); ["Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)),180)"]
+2; triangle_property_angle_sum(1,DEB); Polygon(DEB); ["Equal(Add(MeasureOfAngle(DEB),MeasureOfAngle(DBA),MeasureOfAngle(BDE)),180)"]
+3; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,CBD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+4; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 1
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,AEC,DEB)
+You output the following premises: Collinear(AEOB)&Collinear(DEC)&Angle(AEC)&Angle(DEB)
+But the correct premises: Collinear(AED)&Collinear(CEB)&Angle(AEC)&Angle(DEB)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DEA,AEC); Collinear(DEC)&Angle(DEA)&Angle(AEC); ["Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(AEC)),180)"]
+2; vertical_angle(1,AEC,DEB); Collinear(AEOB)&Collinear(DEC)&Angle(AEC)&Angle(DEB); ["Equal(MeasureOfAngle(AEC),MeasureOfAngle(DEB))"]
+3; triangle_property_angle_sum(1,DEB); Polygon(DEB); ["Equal(Add(MeasureOfAngle(DEB),MeasureOfAngle(DBA),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,CBD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+5; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 2
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: vertical_angle(1,AEC,DEB)
+You output the following premises: Collinear(AEOB)&Collinear(DEC)&Angle(AEC)&Angle(DEB)
+But the correct premises: Collinear(AED)&Collinear(CEB)&Angle(AEC)&Angle(DEB)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DEA,AEC); Collinear(DEC)&Angle(DEA)&Angle(AEC); ["Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(AEC)),180)"]
+2; vertical_angle(1,AEC,DEB); Collinear(AEOB)&Collinear(DEC)&Angle(AEC)&Angle(DEB); ["Equal(MeasureOfAngle(AEC),MeasureOfAngle(DEB))"]
+3; triangle_property_angle_sum(1,DEB); Polygon(DEB); ["Equal(Add(MeasureOfAngle(DEB),MeasureOfAngle(DBA),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,CBD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+5; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 3
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: flat_angle(1,AEB)
+You output the following premises: Collinear(AEOB)
+But the correct premises: Collinear(AEB)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,AEB); Collinear(AEOB); ["Equal(MeasureOfAngle(AEB),180)"]
+2; angle_addition(1,DEA,DEB); Angle(DEA)&Angle(DEB)&Angle(AEB); ["Equal(MeasureOfAngle(AEB),Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)))"]
+3; triangle_property_angle_sum(1,DEB); Polygon(DEB); ["Equal(Add(MeasureOfAngle(DEB),MeasureOfAngle(DBA),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,CBD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+5; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 4
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: flat_angle(1,AEB)
+You output the following premises: Collinear(AEOB)
+But the correct premises: Collinear(AEB)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; flat_angle(1,AEB); Collinear(AEOB); ["Equal(MeasureOfAngle(AEB),180)"]
+2; angle_addition(1,DEA,DEB); Angle(DEA)&Angle(DEB)&Angle(AEB); ["Equal(MeasureOfAngle(AEB),Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)))"]
+3; triangle_property_angle_sum(1,DEB); Polygon(DEB); ["Equal(Add(MeasureOfAngle(DEB),MeasureOfAngle(DBA),MeasureOfAngle(BDE)),180)"]
+4; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,CADB)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+5; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 5
+Total time: 178.996s | per attempt: [43.947, 32.057, 33.575, 43.545, 25.871]
+Content written to results/level_4/gemini/variant_analogy_based_all_theorems_model_gemini-2.5-flash_problem_6924_run_0.txt

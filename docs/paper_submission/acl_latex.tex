@@ -1,0 +1,293 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Change "review" to "final" to generate the final (sometimes called camera-ready) version.
+% Change to "preprint" to generate a non-anonymous version with page numbers.
+\usepackage[final]{acl}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+\usepackage{booktabs}
+
+\usepackage{paralist}
+
+\usepackage[most]{tcolorbox}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
+%Including images in your LaTeX document requires adding
+%additional package(s)
+\usepackage{graphicx}
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\newcommand{\dnote}[1]{\textcolor{blue}{$\ll$\textsf{#1 | Dafna}$\gg$}}
+
+
+\newcommand{\onote}[1]{\textcolor{red}{$\ll$\textsf{#1 | Oren}$\gg$}}
+
+
+\newcommand{\remove}[1]{}
+
+% \title{GeometryLLM: A Neuro-Symbolic Approach for Geometric Proof Generation Via Analogy-Based, Feedback-Guided LLM}
+
+% \title{Toward Reliable Proof Generation with LLMs: \\ A Neuro-Symbolic Approach 
+% }
+
+\title{A Neuro-Symbolic Approach for Reliable Proof Generation with LLMs: \\ 
+A Case Study in Euclidean Geometry
+% \\ through Analogy and Verification
+%: \\ Leveraging Analogical Guidance and Symbolic Verification
+}
+
+
+% Using Analogical Guidance and Verification
+% Cognitively Inspired Neuro-Symbolic Approach
+
+
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a separate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+
+\author{
+\textbf{Oren Sultan}, \textbf{Eitan Stern}, \textbf{Dafna Shahaf} \\
+The Hebrew University of Jerusalem \\
+\texttt{\{oren.sultan,eitan.stern,dshahaf\}@cs.huji.ac.il} \\
+}
+
+%\author{
+%  \textbf{First Author\textsuperscript{1}},
+%  \textbf{Second Author\textsuperscript{1,2}},
+%  \textbf{Third T. Author\textsuperscript{1}},
+%  \textbf{Fourth Author\textsuperscript{1}},
+%\\
+%  \textbf{Fifth Author\textsuperscript{1,2}},
+%  \textbf{Sixth Author\textsuperscript{1}},
+%  \textbf{Seventh Author\textsuperscript{1}},
+%  \textbf{Eighth Author \textsuperscript{1,2,3,4}},
+%\\
+%  \textbf{Ninth Author\textsuperscript{1}},
+%  \textbf{Tenth Author\textsuperscript{1}},
+%  \textbf{Eleventh E. Author\textsuperscript{1,2,3,4,5}},
+%  \textbf{Twelfth Author\textsuperscript{1}},
+%\\
+%  \textbf{Thirteenth Author\textsuperscript{3}},
+%  \textbf{Fourteenth F. Author\textsuperscript{2,4}},
+%  \textbf{Fifteenth Author\textsuperscript{1}},
+%  \textbf{Sixteenth Author\textsuperscript{1}},
+%\\
+%  \textbf{Seventeenth S. Author\textsuperscript{4,5}},
+%  \textbf{Eighteenth Author\textsuperscript{3,4}},
+%  \textbf{Nineteenth N. Author\textsuperscript{2,5}},
+%  \textbf{Twentieth Author\textsuperscript{1}}
+%\\
+%\\
+%  \textsuperscript{1}Affiliation 1,
+%  \textsuperscript{2}Affiliation 2,
+%  \textsuperscript{3}Affiliation 3,
+%  \textsuperscript{4}Affiliation 4,
+%  \textsuperscript{5}Affiliation 5
+%\\
+%  \small{
+%    \textbf{Correspondence:} \href{mailto:email@domain}{email@domain}
+%  }
+%}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{latex/0_abstract/abstract}
+\end{abstract}
+
+\section{Introduction}
+\input{latex/1_introduction/introduction}
+
+\section{Problem Formulation}
+\label{sec:problem_defintion}
+\input{latex/2_problem_defintion/problem_defintion}
+
+
+\section{Approach}
+\input{latex/3_approach/overview}
+\subsection{Problem Abstraction}
+\label{subsec:problems_abstraction}
+\input{latex/3_approach/problems_abstraction}
+
+\subsection{Analogous Problems Retrieval}
+\label{subsec:similar_problems_retrieval}
+\input{latex/3_approach/similar_problems_retrieval}
+
+
+\subsection{LLM Proof Generation}
+\label{subsec:llm_solver}
+\input{latex/3_approach/llm_solver}
+
+\subsection{Verifier Iterative Feedback}
+\label{subsec:verifier}
+\input{latex/3_approach/verifier}
+
+
+\section{Experimental Setup}
+
+\label{subsec:research_questions}
+\label{subsec:setup}
+
+\input{latex/4_experiments/research_questions}
+
+
+
+
+%\subsection{Setup}
+\input{latex/4_experiments/setup}
+
+
+\section{Results}
+\label{subsec:results}
+\input{latex/4_experiments/results}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Related Work}
+\input{latex/5_related_work/related_work}
+\label{sec:related_work}
+
+\section{Conclusions and Future Work}
+\input{latex/6_conclusions_and_future_work/conclusions_and_future_work}
+
+
+
+
+\section*{Limitations}
+\input{latex/limitations/limitations}
+\label{sec:limitations}
+
+
+
+
+\section*{Ethical Considerations}
+\input{latex/ethics_statement/ethics_statement}
+
+
+
+\paragraph{Acknowledgements}
+\input{latex/7_acknowledgement/ack}
+
+
+\bibliography{custom}
+
+\appendix
+\label{appendix}
+
+
+
+
+\section{Analogous Problems Retrieval}
+\input{latex/10_appendix/analogous_problems_retrieval}
+\label{appendix:analogous_problems_retrieval}
+
+\section{LLM Proof Generation}
+\input{latex/10_appendix/LLM_proof_generation}
+\label{appendix:LLM_proof_generation}
+
+
+\section{Verifier Implementation Details}
+\input{latex/10_appendix/verifier_details}
+\label{appendix:verifier_details}
+
+
+\section{RQ1: Performance Gains }
+\input{latex/10_appendix/results_rq1}
+\label{appendix:results_rq1}
+
+
+\section{RQ2: Ablations}
+\input{latex/10_appendix/results_rq2}
+\label{appendix:results_rq2}
+
+
+\section{Stability of Results}
+\input{latex/10_appendix/stability_of_results}
+\label{appendix:stability_of_results}
+
+
+
+
+
+
+% \section{Parameters Fine-tuning}
+% \input{appendix/finetuning}
+% \label{sec:params_fine_tuning}
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+ 
+

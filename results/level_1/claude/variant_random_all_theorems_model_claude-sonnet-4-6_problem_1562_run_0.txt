@@ -1,0 +1,107 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AB=18, AC=x, BC=y, ∠CBA=30°, AC⊥BC. Find the value of x.
+CONSTRUCTION_CDL:
+Shape(BA,AC,CB)
+TEXT_CDL:
+Equal(LengthOfLine(AB),18)
+Equal(LengthOfLine(AC),x)
+Equal(LengthOfLine(BC),y)
+Equal(MeasureOfAngle(CBA),30)
+PerpendicularBetweenLine(AC,BC)
+GOAL_CDL:
+Value(x)
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CB,BA)
+Shape(CB,BA,AC)
+Point(B)
+Point(A)
+Point(C)
+Line(BA)
+Line(AB)
+Line(AC)
+Line(CA)
+Line(CB)
+Line(BC)
+Angle(BAC)
+Angle(ACB)
+Angle(CBA)
+Angle(CAB)
+Angle(BCA)
+Angle(ABC)
+Polygon(BAC)
+Polygon(ACB)
+Polygon(CBA)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+I need to find the value of x (AC) in a right triangle where AB=18, ∠CBA=30°, and AC⊥BC (so ∠ACB=90°).
+
+Let me analyze the problem:
+- Triangle ABC with AB=18, ∠CBA=30°, ∠ACB=90°
+- Need to find AC=x
+
+Looking at the SYMBOLS_AND_VALUES, it seems the symbols were copied from A5, so let me determine the correct symbols:
+- LengthOfLine(AB) = 18
+- LengthOfLine(AC) = x
+- LengthOfLine(BC) = y
+- MeasureOfAngle(CBA) = 30
+- MeasureOfAngle(ACB) = 90 (from AC⊥BC)
+
+The goal is to find x = AC.
+
+Using the sine theorem in triangle BAC:
+- AC/sin(∠CBA) = AB/sin(∠ACB)
+- x/sin(30°) = 18/sin(90°)
+- x = 18 × sin(30°) = 18 × 0.5 = 9
+
+The proof structure follows Problem A1 closely. I need:
+1. Triangle angle sum to get ∠CAB
+2. Sine theorem to find AC
+
+EQUATIONS:
+ll_ab-18
+ll_ac-x
+ll_bc-y
+ma_cba-30
+ma_acb-90
+
+GOAL_SYMBOL:
+x
+
+ANSWER:
+9
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,CBA); Polygon(CBA); ["Equal(Add(MeasureOfAngle(CBA),MeasureOfAngle(BAC),MeasureOfAngle(ACB)),180)"]
+2; sine_theorem(1,BAC); Polygon(BAC); ["Equal(Mul(LengthOfLine(BA),Sin(MeasureOfAngle(BAC))),Mul(LengthOfLine(BC),Sin(MeasureOfAngle(ACB))))"]
+3; sine_theorem(1,ACB); Polygon(ACB); ["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_ab-18
+ll_ac-x
+ll_bc-y
+ma_cba-30
+ma_acb-90
+GT_GOAL_SYMBOL:
+x
+GT_ANSWER:
+9
+GT_THEOREM_SEQUENCE:
+1;sine_theorem(1,ACB);Polygon(ACB);["Equal(Mul(LengthOfLine(AC),Sin(MeasureOfAngle(ACB))),Mul(LengthOfLine(AB),Sin(MeasureOfAngle(CBA))))"]
+

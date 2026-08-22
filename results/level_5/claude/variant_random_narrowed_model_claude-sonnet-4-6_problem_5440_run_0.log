@@ -1,0 +1,102 @@
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: bisector_of_angle_property_line_ratio(1,BE,ABC)
+You output the following premises: IsBisectorOfAngle(BE,ABC)&Collinear(CGA)
+But the correct premises: IsBisectorOfAngle(BE,ABC)&Collinear(CEA)
+You output the following conclusions: Equal(Mul(LengthOfLine(CG),LengthOfLine(BA)),Mul(LengthOfLine(GA),LengthOfLine(BC)))
+But the correct conclusions: Equal(Mul(LengthOfLine(CE),LengthOfLine(BA)),Mul(LengthOfLine(EA),LengthOfLine(BC)))
+
+Model Answer:
+RETRY_ANSWER:
+12/7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(CGA); ["Equal(Mul(LengthOfLine(CG),LengthOfLine(BA)),Mul(LengthOfLine(GA),LengthOfLine(BC)))"]
+2; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(AFB); ["Equal(Mul(LengthOfLine(AF),LengthOfLine(CB)),Mul(LengthOfLine(FB),LengthOfLine(CA)))"]
+3; midsegment_of_triangle_judgment_midpoint(1,DE,ABC); Polygon(ABC)&Collinear(AFB)&Collinear(AGC)&Line(DE)&Equal(LengthOfLine(AF),LengthOfLine(FB))&Equal(LengthOfLine(AG),LengthOfLine(GC)); ["IsMidsegmentOfTriangle(DE,ABC)"]
+4; midsegment_of_triangle_property_length(1,DE,ABC); IsMidsegmentOfTriangle(DE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),1/2))"]
+
+EQUATIONS: ll_af*ll_cb - ll_fb*3, ll_cg*4 - ll_ga*ll_bc, ll_de - ll_bc*ll_ad/ll_ab
+GOAL_SYMBOL: ll_de
+Retry attempt: 1
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: bisector_of_angle_property_line_ratio(1,CD,BCA)
+You output the following premises: IsBisectorOfAngle(CD,BCA)&Collinear(AFB)
+But the correct premises: IsBisectorOfAngle(CD,BCA)&Collinear(ADB)
+You output the following conclusions: Equal(Mul(LengthOfLine(AF),LengthOfLine(CB)),Mul(LengthOfLine(FB),LengthOfLine(CA)))
+But the correct conclusions: Equal(Mul(LengthOfLine(AD),LengthOfLine(CB)),Mul(LengthOfLine(DB),LengthOfLine(CA)))
+
+Model Answer:
+RETRY_ANSWER:
+12/7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(CEA); ["Equal(Mul(LengthOfLine(CE),LengthOfLine(BA)),Mul(LengthOfLine(EA),LengthOfLine(BC)))"]
+2; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(AFB); ["Equal(Mul(LengthOfLine(AF),LengthOfLine(CB)),Mul(LengthOfLine(FB),LengthOfLine(CA)))"]
+3; parallel_property_corresponding_angle(2,CB,ED,A); ParallelBetweenLine(CB,ED)&Collinear(EAD); ["Equal(MeasureOfAngle(BCE),MeasureOfAngle(EDA))"]
+4; parallel_property_corresponding_angle(2,CB,ED,A); ParallelBetweenLine(CB,ED)&Collinear(EAD); ["Equal(MeasureOfAngle(BCE),MeasureOfAngle(EDA))"]
+5; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC))&Equal(MeasureOfAngle(AED),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(ADE,ABC)"]
+6; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+7; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+Retry attempt: 2
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(2,CB,ED,A)
+You output the following premises: ParallelBetweenLine(CB,ED)&Collinear(EAD)
+But the correct premises: ParallelBetweenLine(CB,ED)&Collinear(CEA)
+You output the following conclusions: Equal(MeasureOfAngle(BCE),MeasureOfAngle(EDA))
+But the correct conclusions: Equal(MeasureOfAngle(BCE),MeasureOfAngle(DEA))
+
+Model Answer:
+RETRY_ANSWER:
+12/7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(CEA); ["Equal(Mul(LengthOfLine(CE),LengthOfLine(BA)),Mul(LengthOfLine(EA),LengthOfLine(BC)))"]
+2; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(AD),LengthOfLine(CB)),Mul(LengthOfLine(DB),LengthOfLine(CA)))"]
+3; parallel_property_corresponding_angle(2,CB,ED,A); ParallelBetweenLine(CB,ED)&Collinear(EAD); ["Equal(MeasureOfAngle(BCE),MeasureOfAngle(EDA))"]
+4; parallel_property_alternate_interior_angle(1,CB,ED); ParallelBetweenLine(CB,ED)&Line(EB); ["Equal(MeasureOfAngle(CBE),MeasureOfAngle(BED))"]
+5; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC))&Equal(MeasureOfAngle(AED),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(ADE,ABC)"]
+6; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+7; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+Retry attempt: 3
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_corresponding_angle(2,CB,ED,D)
+You output the following premises: ParallelBetweenLine(CB,ED)&Collinear(ADB)
+But the correct premises: ParallelBetweenLine(CB,ED)&Collinear(CED)
+You output the following conclusions: Equal(MeasureOfAngle(CBD),MeasureOfAngle(EDB))
+But the correct conclusions: Equal(MeasureOfAngle(BCE),MeasureOfAngle(DED))
+
+Model Answer:
+RETRY_ANSWER:
+12/7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(CEA); ["Equal(Mul(LengthOfLine(CE),LengthOfLine(BA)),Mul(LengthOfLine(EA),LengthOfLine(BC)))"]
+2; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(AD),LengthOfLine(CB)),Mul(LengthOfLine(DB),LengthOfLine(CA)))"]
+3; parallel_property_corresponding_angle(2,CB,ED,A); ParallelBetweenLine(CB,ED)&Collinear(CEA); ["Equal(MeasureOfAngle(BCE),MeasureOfAngle(DEA))"]
+4; parallel_property_corresponding_angle(2,CB,ED,D); ParallelBetweenLine(CB,ED)&Collinear(ADB); ["Equal(MeasureOfAngle(CBD),MeasureOfAngle(EDB))"]
+5; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC))&Equal(MeasureOfAngle(AED),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(ADE,ABC)"]
+6; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+7; similar_triangle_property_line_ratio(1,EAD,CAB); SimilarBetweenTriangle(EAD,CAB); ["Equal(LengthOfLine(AD),Mul(LengthOfLine(AB),RatioOfSimilarTriangle(EAD,CAB)))"]
+Retry attempt: 4
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5440_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: parallel_property_alternate_interior_angle(1,CB,DE)
+You output the following premises: ParallelBetweenLine(CB,DE)&Line(CD)
+But the correct premises: ParallelBetweenLine(CB,DE)&Line(CE)
+You output the following conclusions: Equal(MeasureOfAngle(BCD),MeasureOfAngle(CDE))
+But the correct conclusions: Equal(MeasureOfAngle(BCE),MeasureOfAngle(DEC))
+
+Model Answer:
+RETRY_ANSWER:
+12/7
+RETRY_THEOREM_SEQUENCE:
+1; bisector_of_angle_property_line_ratio(1,BE,ABC); IsBisectorOfAngle(BE,ABC)&Collinear(CEA); ["Equal(Mul(LengthOfLine(CE),LengthOfLine(BA)),Mul(LengthOfLine(EA),LengthOfLine(BC)))"]
+2; bisector_of_angle_property_line_ratio(1,CD,BCA); IsBisectorOfAngle(CD,BCA)&Collinear(ADB); ["Equal(Mul(LengthOfLine(AD),LengthOfLine(CB)),Mul(LengthOfLine(DB),LengthOfLine(CA)))"]
+3; parallel_property_corresponding_angle(2,CB,ED,A); ParallelBetweenLine(CB,ED)&Collinear(CEA); ["Equal(MeasureOfAngle(BCE),MeasureOfAngle(DEA))"]
+4; parallel_property_alternate_interior_angle(1,CB,DE); ParallelBetweenLine(CB,DE)&Line(CD); ["Equal(MeasureOfAngle(BCD),MeasureOfAngle(CDE))"]
+5; similar_triangle_judgment_aa(1,ADE,ABC); Polygon(ADE)&Polygon(ABC)&Equal(MeasureOfAngle(ADE),MeasureOfAngle(ABC))&Equal(MeasureOfAngle(AED),MeasureOfAngle(ACB)); ["SimilarBetweenTriangle(ADE,ABC)"]
+6; similar_triangle_property_line_ratio(1,ADE,ABC); SimilarBetweenTriangle(ADE,ABC); ["Equal(LengthOfLine(DE),Mul(LengthOfLine(BC),RatioOfSimilarTriangle(ADE,ABC)))"]
+7; similar_triangle_property_line_ratio(1,DAE,BAC); SimilarBetweenTriangle(DAE,BAC); ["Equal(LengthOfLine(AE),Mul(LengthOfLine(AC),RatioOfSimilarTriangle(DAE,BAC)))"]
+Retry attempt: 5
+Total time: 91.016s | per attempt: [32.083, 19.518, 13.49, 11.448, 14.476]
+Content written to results/level_5/claude/variant_random_narrowed_model_claude-sonnet-4-6_problem_5440_run_0.txt

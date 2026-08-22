@@ -1,0 +1,242 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, AO=BO, DO=BO, ∠OAC=28°. Find the measure of ∠BOD.
+CONSTRUCTION_CDL:
+Shape(OA,AC,CO)
+Shape(BO,OD)
+Shape(OC,CD,DO)
+Collinear(AOB)
+Collinear(ACD)
+TEXT_CDL:
+Equal(LengthOfLine(AO),LengthOfLine(BO))
+Equal(LengthOfLine(DO),LengthOfLine(BO))
+Equal(MeasureOfAngle(OAC),28)
+GOAL_CDL:
+Value(MeasureOfAngle(BOD))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(AC,CO,OA)
+Shape(CO,OA,AC)
+Shape(CD,DO,OC)
+Shape(DO,OC,CD)
+Shape(OA,AC,CD,DO)
+Shape(AC,CD,DO,OA)
+Shape(CD,DO,OA,AC)
+Shape(DO,OA,AC,CD)
+Collinear(BOA)
+Collinear(DCA)
+Point(A)
+Point(B)
+Point(O)
+Point(D)
+Point(C)
+Line(AB)
+Line(BA)
+Line(AO)
+Line(OA)
+Line(OB)
+Line(BO)
+Line(AD)
+Line(DA)
+Line(AC)
+Line(CA)
+Line(CD)
+Line(DC)
+Line(CO)
+Line(OC)
+Line(OD)
+Line(DO)
+Angle(AOB)
+Angle(BOA)
+Angle(ACD)
+Angle(DCA)
+Angle(OAC)
+Angle(ACO)
+Angle(COA)
+Angle(OCD)
+Angle(CDO)
+Angle(DOC)
+Angle(ADO)
+Angle(DOA)
+Angle(COB)
+Angle(BOC)
+Angle(DOB)
+Angle(OAD)
+Angle(BAC)
+Angle(BAD)
+Angle(CAO)
+Angle(OCA)
+Angle(AOC)
+Angle(DCO)
+Angle(ODC)
+Angle(COD)
+Angle(ODA)
+Angle(AOD)
+Angle(DAO)
+Angle(CAB)
+Angle(DAB)
+Polygon(OAC)
+Polygon(ACO)
+Polygon(COA)
+Polygon(OCD)
+Polygon(CDO)
+Polygon(DOC)
+Polygon(OAD)
+Polygon(ADO)
+Polygon(DOA)
+SYMBOLS_AND_VALUES:
+LengthOfLine(AB);ll_ab;None
+LengthOfLine(BA);ll_ab;None
+LengthOfLine(AC);ll_ac;None
+LengthOfLine(CA);ll_ac;None
+LengthOfLine(AD);ll_ad;None
+LengthOfLine(DA);ll_ad;None
+LengthOfLine(AE);ll_ae;None
+LengthOfLine(EA);ll_ae;None
+MeasureOfAngle(EDC);ma_edc;20
+MeasureOfAngle(DAB);ma_dab;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Let me carefully re-read the problem. Available premises show:
+- Collinear: ACD, AOB
+- Polygons: ACO, ADO, CDO
+- Given: AO=BO, DO=BO, ∠OAC=28°
+
+So the polygons are ACO, ADO, CDO (not OAC, OCD). And I need to use the given equalities AO=BO and DO=BO.
+
+Since AO=BO and AOB is collinear, O is midpoint of AB. 
+Since DO=BO=AO.
+
+For triangle ACO: AO=BO (given). But BO is not a side of triangle ACO. I need sides OF the triangle.
+
+For triangle ADO: AO and DO are both sides! AO=BO=DO, so AO=DO. Triangle ADO is isosceles with AO=DO.
+
+For triangle CDO: DO is a side. 
+
+Let me reconsider with ∠OAC=28° in triangle ACO.
+
+In triangle ACO (polygon ACO): ∠OAC=∠CAO=28°.
+In triangle ADO (polygon ADO): AO=DO (since AO=BO=DO), so isosceles.
+∠OAD=∠OAC=28° (same angle, since ACD collinear means D is on line AC extended from A through C).
+
+Wait, ACD collinear means A, C, D are on same line with C between A and D. So ∠OAD=∠OAC=28°.
+
+In isosceles triangle ADO with AO=DO: ∠OAD=∠ODA=28°, so ∠AOD=180°-56°=124°.
+Since AOB collinear: ∠BOD=180°-∠AOD=180°-124°=56°.
+
+EQUATIONS: ma_oac - 28
+GOAL_SYMBOL: ma_bod
+ANSWER: 56
+
+THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,ADO); Polygon(ADO)&Equal(LengthOfLine(AO),LengthOfLine(DO)); ["IsoscelesTriangle(ADO)"]
+2; isosceles_triangle_property_angle_equal(1,ADO); IsoscelesTriangle(ADO); ["Equal(MeasureOfAngle(ADO),MeasureOfAngle(OAD))"]
+3; triangle_property_angle_sum(1,ADO); Polygon(ADO); ["Equal(Add(MeasureOfAngle(ADO),MeasureOfAngle(OAD),MeasureOfAngle(DAO)),180)"]
+4; adjacent_complementary_angle(1,AOD,DOB); Collinear(AOB)&Angle(AOD)&Angle(DOB); ["Equal(Add(MeasureOfAngle(AOD),MeasureOfAngle(DOB)),180)"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#run: 2; #retry: 1; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: isosceles_triangle_judgment_line_equal(1,OAC)
+You output the following premises: Polygon(OAC)&Equal(LengthOfLine(AO),LengthOfLine(BO))
+But the correct premises: Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC))
+
+Model Answer:
+RETRY_ANSWER:
+56
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(AO),LengthOfLine(BO)); ["IsoscelesTriangle(OAC)"]
+2; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+3; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+4; isosceles_triangle_judgment_line_equal(1,OCD); Polygon(OCD)&Equal(LengthOfLine(DO),LengthOfLine(BO)); ["IsoscelesTriangle(OCD)"]
+5; isosceles_triangle_property_angle_equal(1,OCD); IsoscelesTriangle(OCD); ["Equal(MeasureOfAngle(OCD),MeasureOfAngle(CDO))"]
+6; triangle_property_angle_sum(1,OCD); Polygon(OCD); ["Equal(Add(MeasureOfAngle(OCD),MeasureOfAngle(CDO),MeasureOfAngle(DOC)),180)"]
+7; adjacent_complementary_angle(1,COA,COB); Collinear(AOB)&Angle(COA)&Angle(COB); ["Equal(Add(MeasureOfAngle(COA),MeasureOfAngle(COB)),180)"]
+8; adjacent_complementary_angle(1,ACO,OCD); Collinear(ACD)&Angle(ACO)&Angle(OCD); ["Equal(Add(MeasureOfAngle(ACO),MeasureOfAngle(OCD)),180)"]
+9; angle_addition(1,BOC,COD); Angle(BOC)&Angle(COD)&Angle(BOD); ["Equal(MeasureOfAngle(BOD),Add(MeasureOfAngle(BOC),MeasureOfAngle(COD)))"]
+#run: 2; #retry: 2; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,COA,COB)
+You output the following premises: Collinear(AOB)&Angle(COA)&Angle(COB)
+But the correct premises: Collinear(COB)&Angle(COC)&Angle(COB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(COA),MeasureOfAngle(COB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(COC),MeasureOfAngle(COB)),180)
+
+Model Answer:
+RETRY_ANSWER:
+56
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+2; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+3; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+4; isosceles_triangle_judgment_line_equal(1,OCD); Polygon(OCD)&Equal(LengthOfLine(OC),LengthOfLine(OD)); ["IsoscelesTriangle(OCD)"]
+5; isosceles_triangle_property_angle_equal(1,OCD); IsoscelesTriangle(OCD); ["Equal(MeasureOfAngle(OCD),MeasureOfAngle(CDO))"]
+6; triangle_property_angle_sum(1,OCD); Polygon(OCD); ["Equal(Add(MeasureOfAngle(OCD),MeasureOfAngle(CDO),MeasureOfAngle(DOC)),180)"]
+7; adjacent_complementary_angle(1,COA,COB); Collinear(AOB)&Angle(COA)&Angle(COB); ["Equal(Add(MeasureOfAngle(COA),MeasureOfAngle(COB)),180)"]
+8; adjacent_complementary_angle(1,ACO,OCD); Collinear(ACD)&Angle(ACO)&Angle(OCD); ["Equal(Add(MeasureOfAngle(ACO),MeasureOfAngle(OCD)),180)"]
+9; angle_addition(1,BOC,COD); Angle(BOC)&Angle(COD)&Angle(BOD); ["Equal(MeasureOfAngle(BOD),Add(MeasureOfAngle(BOC),MeasureOfAngle(COD)))"]
+#run: 2; #retry: 3; message: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Failure: Theorem <vertical_angle> variation id is not supplied. Expected dict_keys(['1']) but got None.
+Your call: vertical_angle(A,O,C,B,O,D)
+
+Please rewrite your response by adding the variation id as the first argument. For example:
+For variation 1: vertical_angle(1, A,O,C,B,O,D)
+
+Model Answer:
+RETRY_ANSWER:
+56
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+2; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+3; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+4; isosceles_triangle_judgment_line_equal(1,OCD); Polygon(OCD)&Equal(LengthOfLine(OC),LengthOfLine(OD)); ["IsoscelesTriangle(OCD)"]
+5; isosceles_triangle_property_angle_equal(1,OCD); IsoscelesTriangle(OCD); ["Equal(MeasureOfAngle(OCD),MeasureOfAngle(CDO))"]
+6; triangle_property_angle_sum(1,OCD); Polygon(OCD); ["Equal(Add(MeasureOfAngle(OCD),MeasureOfAngle(CDO),MeasureOfAngle(DOC)),180)"]
+7; vertical_angle(AOC,BOD); Collinear(AOB)&Collinear(COD)&Angle(AOC)&Angle(BOD); ["Equal(MeasureOfAngle(AOC),MeasureOfAngle(BOD))"]
+#run: 2; #retry: 4; message: ERROR_TIER: TIER2_PREMISE_VIOLATION
+verification failed.
+
+- Error: You tried to use theorem: isosceles_triangle_judgment_line_equal(1,OAC);Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC));['IsoscelesTriangle(OAC)']
+Missing premise: Expected equality between two sides sharing a vertex not found in the premise.
+Details: Premise: Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC))
+- Available premises:
+  Collinear Points: ACD, AOB
+  Polygons: ACO, ADO, CDO
+- Theorems related to the goal:
+  None found that constrain this goal
+- Solver constraints directly related to this goal:
+  ∠BOD <= 180
+  ∠BOD > 0
+
+Please fix the proof.
+Model Answer:
+RETRY_ANSWER:
+56
+RETRY_THEOREM_SEQUENCE:
+1; isosceles_triangle_judgment_line_equal(1,OAC); Polygon(OAC)&Equal(LengthOfLine(OA),LengthOfLine(OC)); ["IsoscelesTriangle(OAC)"]
+2; isosceles_triangle_property_angle_equal(1,OAC); IsoscelesTriangle(OAC); ["Equal(MeasureOfAngle(OAC),MeasureOfAngle(ACO))"]
+3; triangle_property_angle_sum(1,OAC); Polygon(OAC); ["Equal(Add(MeasureOfAngle(OAC),MeasureOfAngle(ACO),MeasureOfAngle(COA)),180)"]
+4; isosceles_triangle_judgment_line_equal(1,OCD); Polygon(OCD)&Equal(LengthOfLine(OC),LengthOfLine(OD)); ["IsoscelesTriangle(OCD)"]
+5; isosceles_triangle_property_angle_equal(1,OCD); IsoscelesTriangle(OCD); ["Equal(MeasureOfAngle(OCD),MeasureOfAngle(CDO))"]
+6; triangle_property_angle_sum(1,OCD); Polygon(OCD); ["Equal(Add(MeasureOfAngle(OCD),MeasureOfAngle(CDO),MeasureOfAngle(DOC)),180)"]
+7; vertical_angle(1,AOC,BOD); Collinear(AOB)&Collinear(COD)&Angle(AOC)&Angle(BOD); ["Equal(MeasureOfAngle(AOC),MeasureOfAngle(BOD))"]
+#RETRIES:
+4
+#RUNS:
+2
+
+
+GT_EQUATIONS:
+ll_ao-ll_bo
+-ll_bo+ll_do
+ma_oac-28
+GT_GOAL_SYMBOL:
+ma_bod
+GT_ANSWER:
+56
+GT_THEOREM_SEQUENCE:
+1;triangle_property_angle_sum(1,OAD);Polygon(OAD);["Equal(Add(MeasureOfAngle(OAD),MeasureOfAngle(ADO),MeasureOfAngle(DOA)),180)"]
+2;isosceles_triangle_judgment_line_equal(1,OAD);Polygon(OAD)&Equal(LengthOfLine(OA),LengthOfLine(OD));["IsoscelesTriangle(OAD)"]
+3;isosceles_triangle_property_angle_equal(1,OAD);IsoscelesTriangle(OAD);["Equal(MeasureOfAngle(OAD),MeasureOfAngle(ADO))"]
+4;adjacent_complementary_angle(1,BOD,DOA);Collinear(BOA)&Angle(BOD)&Angle(DOA);["Equal(Add(MeasureOfAngle(BOD),MeasureOfAngle(DOA)),180)"]
+

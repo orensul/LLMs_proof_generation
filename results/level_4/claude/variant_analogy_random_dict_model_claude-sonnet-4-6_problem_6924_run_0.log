@@ -1,0 +1,55 @@
+Content written to results/level_4/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: circle_property_circular_power_segment_and_segment_angle(1,AEB,DEC,O)
+You output the following premises: Cocircular(O,ADBC)&Collinear(AEB)&Collinear(DEC)
+But the correct premises: Cocircular(O,EECB)&Collinear(DEB)&Collinear(DEC)
+You output the following conclusions: Equal(Sub(MeasureOfArc(OBD),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AED),2))
+But the correct conclusions: Equal(Sub(MeasureOfArc(OCB),MeasureOfArc(OEE)),Mul(MeasureOfAngle(EDE),2))
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; arc_property_circumference_angle_external(1,OAD,B); Cocircular(O,ADB)&Angle(DBA); ["Equal(MeasureOfAngle(DBA),Mul(MeasureOfArc(OAD),1/2))"]
+2; arc_property_center_angle(1,OAD,O); Arc(OAD)&Angle(DOA)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OAD),MeasureOfAngle(DOA))"]
+3; circle_property_circular_power_segment_and_segment_angle(1,AEB,DEC,O); Cocircular(O,ADBC)&Collinear(AEB)&Collinear(DEC); ["Equal(Sub(MeasureOfArc(OBD),MeasureOfArc(OAC)),Mul(MeasureOfAngle(AED),2))"]
+4; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 1
+Content written to results/level_4/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DEA,AEB)
+You output the following premises: Collinear(AEOB)&Angle(DEA)&Angle(DEB)
+But the correct premises: Collinear(DEB)&Angle(DEA)&Angle(AEB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(AEB)),180)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DEA,AEB); Collinear(AEOB)&Angle(DEA)&Angle(DEB); ["Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)),180)"]
+2; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+3; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,BCD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+4; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 2
+Content written to results/level_4/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_6924_run_0_to_verify.txt
+Verifier result: ERROR_TIER: TIER1_THEOREM_CALL_SYNTAX_VIOLATION
+Theorem: adjacent_complementary_angle(1,DEA,DEB)
+You output the following premises: Collinear(AEB)&Angle(DEA)&Angle(DEB)
+But the correct premises: Collinear(DEB)&Angle(DED)&Angle(DEB)
+You output the following conclusions: Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)),180)
+But the correct conclusions: Equal(Add(MeasureOfAngle(DED),MeasureOfAngle(DEB)),180)
+
+Model Answer:
+RETRY_ANSWER:
+120
+RETRY_THEOREM_SEQUENCE:
+1; adjacent_complementary_angle(1,DEA,DEB); Collinear(AEB)&Angle(DEA)&Angle(DEB); ["Equal(Add(MeasureOfAngle(DEA),MeasureOfAngle(DEB)),180)"]
+2; triangle_property_angle_sum(1,EDB); Polygon(EDB); ["Equal(Add(MeasureOfAngle(EDB),MeasureOfAngle(DBE),MeasureOfAngle(BED)),180)"]
+3; arc_property_circumference_angle_external(1,OBC,D); Cocircular(O,BCD)&Angle(CDB); ["Equal(MeasureOfAngle(CDB),Mul(MeasureOfArc(OBC),1/2))"]
+4; arc_property_center_angle(1,OBC,O); Arc(OBC)&Angle(COB)&IsCentreOfCircle(O,O); ["Equal(MeasureOfArc(OBC),MeasureOfAngle(COB))"]
+Retry attempt: 3
+Content written to results/level_4/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_6924_run_0_to_verify.txt
+Theorem sequence verified correctly
+Total time: 54.337s | per attempt: [20.383, 14.091, 11.684, 8.179]
+Content written to results/level_4/claude/variant_analogy_random_dict_model_claude-sonnet-4-6_problem_6924_run_0.txt

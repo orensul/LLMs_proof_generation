@@ -1,0 +1,121 @@
+Inputs for Problem B:
+DESCRIPTION:
+As shown in the diagram, BC=10, ∠ABC=60°, ∠BCA=90°. Find the length of line AC.
+CONSTRUCTION_CDL:
+Shape(AB,BC,CA)
+TEXT_CDL:
+Equal(LengthOfLine(BC),10)
+Equal(MeasureOfAngle(ABC),60)
+Equal(MeasureOfAngle(BCA),90)
+GOAL_CDL:
+Value(LengthOfLine(AC))
+CONSTRUCTION_CDL_EXTENDED:
+Shape(BC,CA,AB)
+Shape(CA,AB,BC)
+Point(A)
+Point(B)
+Point(C)
+Line(AB)
+Line(BA)
+Line(BC)
+Line(CB)
+Line(CA)
+Line(AC)
+Angle(ABC)
+Angle(BCA)
+Angle(CAB)
+Angle(CBA)
+Angle(ACB)
+Angle(BAC)
+Polygon(ABC)
+Polygon(BCA)
+Polygon(CAB)
+SYMBOLS_AND_VALUES:
+MeasureOfAngle(ABC);ma_obc;50
+MeasureOfAngle(EBC);ma_obc;50
+MeasureOfAngle(OBC);ma_obc;50
+MeasureOfAngle(CDB);ma_edb;None
+MeasureOfAngle(EDB);ma_edb;None
+
+Outputs:
+Outputs for Problem B:
+
+***MODEL_RESPONSE_BEGIN***
+Looking at Problem B, I need to find the length of AC in a triangle where BC=10, ∠ABC=60°, ∠BCA=90°.
+
+Since ∠BCA=90°, this is a right triangle with the right angle at C. I can use trigonometry (sine theorem or direct trig) to find AC.
+
+In right triangle ABC with right angle at C:
+- tan(∠ABC) = AC/BC
+- tan(60°) = AC/10
+- AC = 10·tan(60°) = 10√3
+
+Let me verify using the sine theorem approach available in the GDL.
+
+The sine theorem states: AB/sin(∠BCA) = BC/sin(∠CAB) = AC/sin(∠ABC)
+
+With ∠BCA=90°, ∠ABC=60°, ∠CAB=30°:
+- AC/sin(60°) = BC/sin(30°)... 
+
+Wait, sine theorem in GDL: `Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))`
+
+This gives: AB·sin(∠ABC) = AC·sin(∠BCA)
+
+I also need triangle angle sum to find ∠CAB.
+
+From angle sum: ∠ABC + ∠BCA + ∠CAB = 180°
+60° + 90° + ∠CAB = 180°, so ∠CAB = 30°
+
+Using sine theorem: Mul(AB, sin(60°)) = Mul(AC, sin(90°))
+And another relation: Mul(BC, sin(∠BCA)) ... 
+
+Let me use: sine_theorem on BCA: Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCA))) = Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CAB)))
+And sine_theorem on ABC: Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))) = Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA)))
+
+With BC=10, ∠BCA=90°, ∠ABC=60°, ∠CAB=30°:
+From sine on BCA polygon: BC·sin(∠BCA)... 
+
+Actually the sine theorem as given: for Polygon(ABC): `Mul(AB,Sin(ABC)) = Mul(AC,Sin(BCA))`
+So: AB·sin(60°) = AC·sin(90°) = AC
+
+For Polygon(BCA): `Mul(BC,Sin(BCA)) = Mul(BA,Sin(CAB))`
+So: 10·sin(90°) = BA·sin(30°) → BA = 20
+
+Then AC = AB·sin(60°) = 20·(√3/2) = 10√3
+
+EQUATIONS:
+ll_bc - 10
+ma_abc - 60
+ma_bca - 90
+
+GOAL_SYMBOL:
+ll_ac
+
+ANSWER:
+10*sqrt(3)
+
+THEOREM_SEQUENCE:
+1; triangle_property_angle_sum(1,ABC); Polygon(ABC); ["Equal(Add(MeasureOfAngle(ABC),MeasureOfAngle(BCA),MeasureOfAngle(CAB)),180)"]
+2; sine_theorem(1,BCA); Polygon(BCA); ["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CAB))))"]
+3; sine_theorem(1,ABC); Polygon(ABC); ["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+***MODEL_RESPONSE_END***
+RETRIES_MESSAGES:
+#RETRIES:
+0
+#RUNS:
+0
+
+
+GT_EQUATIONS:
+ll_bc-10
+ma_abc-60
+ma_bca-90
+GT_GOAL_SYMBOL:
+ll_ac
+GT_ANSWER:
+(-30+20*sqrt(3))/sqrt(7-4*sqrt(3))
+GT_THEOREM_SEQUENCE:
+1;sine_theorem(1,ABC);Polygon(ABC);["Equal(Mul(LengthOfLine(AB),Sin(MeasureOfAngle(ABC))),Mul(LengthOfLine(AC),Sin(MeasureOfAngle(BCA))))"]
+2;sine_theorem(1,BCA);Polygon(BCA);["Equal(Mul(LengthOfLine(BC),Sin(MeasureOfAngle(BCA))),Mul(LengthOfLine(BA),Sin(MeasureOfAngle(CAB))))"]
+3;cosine_theorem(1,ABC);Polygon(ABC);["Equal(Add(Pow(LengthOfLine(BC),2),Mul(2,LengthOfLine(AB),LengthOfLine(AC),Cos(MeasureOfAngle(CAB)))),Add(Pow(LengthOfLine(AB),2),Pow(LengthOfLine(AC),2)))"]
+
