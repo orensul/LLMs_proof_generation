@@ -1,6 +1,6 @@
 # Reliable Proof Generation with LLMs via Analogical Retrieval and Symbolic Verification: <br> A Case Study in Euclidean Geometry
 
-> ## 🎉 **Our paper has been accepted to the Findings of EMNLP 2026 (Budapest, Hungary)!** 🎉
+> ## 🎉 **Accepted to the Findings of EMNLP 2026 (Budapest, Hungary)!** 🎉
 
 This repository contains the code, prompts, and experimental results for the paper: https://arxiv.org/abs/2505.14479 </br>
 **Authors: Oren Sultan, Eitan Stern, Dafna Shahaf — The Hebrew University of Jerusalem, Israel** </br>
